@@ -1,0 +1,159 @@
+{
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "note": "Approximate exploration coordinates; not a routing database",
+  "places": [
+    {
+      "id": "fengyangyi",
+      "name": "凤阳邑",
+      "coords": [
+        100.204,
+        25.646
+      ]
+    },
+    {
+      "id": "ancient-town",
+      "name": "大理古城",
+      "coords": [
+        100.16,
+        25.696
+      ]
+    },
+    {
+      "id": "longkan",
+      "name": "龙龛码头",
+      "coords": [
+        100.191,
+        25.671
+      ]
+    },
+    {
+      "id": "caicun",
+      "name": "才村",
+      "coords": [
+        100.195,
+        25.716
+      ]
+    },
+    {
+      "id": "panxi",
+      "name": "磻溪 S 弯",
+      "coords": [
+        100.162,
+        25.764
+      ]
+    },
+    {
+      "id": "xizhou",
+      "name": "喜洲古镇",
+      "coords": [
+        100.132,
+        25.854
+      ]
+    },
+    {
+      "id": "wenbi",
+      "name": "文笔村",
+      "coords": [
+        100.232,
+        25.734
+      ]
+    },
+    {
+      "id": "xiaoputuo",
+      "name": "小普陀",
+      "coords": [
+        100.23,
+        25.813
+      ]
+    },
+    {
+      "id": "shuanglang",
+      "name": "双廊古镇",
+      "coords": [
+        100.193,
+        25.916
+      ]
+    },
+    {
+      "id": "santasi",
+      "name": "崇圣寺三塔",
+      "coords": [
+        100.1465644,
+        25.7086408
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/7651326585"
+    },
+    {
+      "id": "cangshan",
+      "name": "苍山 · 感通",
+      "coords": [
+        100.1684432,
+        25.6476152
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/5032694528"
+    },
+    {
+      "id": "jizhaoan",
+      "name": "寂照庵",
+      "coords": [
+        100.1639245,
+        25.6460455
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/way/685283429"
+    },
+    {
+      "id": "haishe",
+      "name": "海舌公园",
+      "coords": [
+        100.1558144,
+        25.8752792
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/way/681069388"
+    },
+    {
+      "id": "wase",
+      "name": "挖色镇",
+      "coords": [
+        100.223,
+        25.8309
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/relation/16862891"
+    },
+    {
+      "id": "zhoucheng",
+      "name": "周城村",
+      "coords": [
+        100.1047611,
+        25.8988198
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/662749558"
+    }
+  ],
+  "entrances": [
+    {
+      "id": "airport",
+      "name": "大理凤仪机场",
+      "coords": [
+        100.319,
+        25.649
+      ]
+    },
+    {
+      "id": "railway",
+      "name": "大理站",
+      "coords": [
+        100.248,
+        25.59
+      ]
+    },
+    {
+      "id": "highway",
+      "name": "下关收费站",
+      "coords": [
+        100.212,
+        25.569
+      ]
+    }
+  ]
+}

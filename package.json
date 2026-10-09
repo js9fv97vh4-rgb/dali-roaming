@@ -1,0 +1,30 @@
+{
+  "name": "dali-roaming",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "db:generate": "drizzle-kit generate",
+    "test": "node --test tests/*.test.mjs",
+    "dev": "node scripts/serve.mjs web",
+    "start": "node scripts/serve.mjs web",
+    "preview": "node scripts/serve.mjs dist/client",
+    "package": "node scripts/package.mjs"
+  },
+  "dependencies": {
+    "drizzle-orm": "0.45.2"
+  },
+  "devDependencies": {
+    "drizzle-kit": "0.31.10"
+  },
+  "description": "大理漫游：地图、风景、渔灯与白族扎染的互动旅行网页",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/js9fv97vh4-rgb/dali-roaming.git"
+  }
+}

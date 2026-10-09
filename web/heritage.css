@@ -1,0 +1,184 @@
+/* Original indigo textile texture; the map and photographs remain clear. */
+:root {
+  --ink: #19395c;
+  --muted: #5f7189;
+  --paper: #f6f8fc;
+  --line: #d3ddeb;
+  --teal: #28578c;
+  --lake: #94bce0;
+  --tie-dye: url("assets/dali-indigo-ui-texture.webp");
+  --indigo-fabric: linear-gradient(#18376596, #18376596), var(--tie-dye);
+}
+body { background: var(--paper); }
+.site-header {
+  max-width: none;
+  color: #fffdf3;
+  background-image: linear-gradient(#183765e8, #183765e8), var(--tie-dye);
+  background-size: auto, 390px;
+  border-bottom: 4px solid #dedfd9;
+  box-shadow: 0 2px 12px #17395e14;
+}
+.brand-symbol, .site-header .nav-link, .site-header .plain-button { color: #fffdf3; }
+.site-header .nav-link.active { color: #fff; border-bottom-color: #f4e6c5; }
+.site-header .header-note { color: #e3eaf6; }
+.site-header a:focus-visible, .site-header button:focus-visible { outline-color: #fff; }
+.intro-panel h1 span { color: #28578c; }
+.destination-card { border: 4px solid #d5e0ef; }
+.province-map-wrap { background: #eaf0f9; border-color: var(--line); }
+.province-region { fill: #d4e0f1; stroke: #f9fbff; }
+.province-region.dali-region { fill: #a9c1e0; }
+.province-label { fill: #607792; }
+.province-label.dali-label { fill: #244975; }
+.arrival-options button { background: #fff; }
+.arrival-options button[aria-pressed="true"] { background: #e9effa; border-color: #28578c; }
+.region-tabs { background: #e9eef7; }
+.region-tab[aria-pressed="true"], .solid-button, .scene-primary {
+  background-image: var(--indigo-fabric);
+  background-size: auto, 270px;
+  color: #fff;
+  border-color: #28578c;
+}
+.lake-mood-controls .culture-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #28578c;
+  color: #fff;
+  background-image: var(--indigo-fabric);
+  background-size: auto, 270px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.culture-link:focus-visible { outline: 3px solid #527db0; outline-offset: 3px; }
+.explore-sidebar { position: relative; padding-top: 38px; overflow: hidden; }
+.explore-sidebar::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 15px;
+  background-image: var(--tie-dye);
+  background-size: 370px;
+}
+.selected-cover { border: 3px solid #b4c5df; }
+.lake-map-wrap { background: #eaf0f9; border: 2px solid #b9cbe2; }
+.mountain-band { fill: #d1dded; }
+.mountain-contour { stroke: #adc0da; }
+.lake-label, .lake-en-label { fill: #3b648f; }
+.scenery-card { border-bottom: 5px solid #537cb0; }
+.scenery-card[data-scene="zhoucheng"] { border-color: #537cb0; }
+.gallery-item > button { border: 3px solid #b4c5df; }
+.scene-details { border-top: 7px solid #5b80b0; }
+.panorama-toolbar, .lantern-mode-toolbar {
+  border-top: 7px solid transparent;
+  border-image: var(--tie-dye) 18 repeat;
+}
+.night-photo-window { border-color: #6c83b280; }
+.heritage-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  gap: 42px;
+  padding: 34px;
+  margin: 36px 0 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 22px;
+}
+.heritage-section::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 10px;
+  background-image: var(--tie-dye);
+  background-size: 380px;
+}
+.heritage-photo { margin: 0; align-self: center; }
+.heritage-photo > button {
+  display: block;
+  padding: 6px;
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-image: var(--tie-dye);
+  background-size: 410px;
+  position: relative;
+  text-align: left;
+}
+.heritage-photo img { width: 100%; height: 350px; object-fit: cover; border-radius: 7px; }
+.heritage-photo button > span {
+  position: absolute;
+  bottom: 6px; left: 6px; right: 6px;
+  padding: 32px 18px 17px;
+  color: #fff;
+  font-size: 16px;
+  background: linear-gradient(transparent, #132b49df);
+  border-radius: 0 0 7px 7px;
+}
+.heritage-photo b { float: right; font-weight: 400; }
+.heritage-photo figcaption { font-size: 12px; line-height: 1.7; color: var(--muted); margin-top: 9px; }
+.heritage-photo figcaption a { text-decoration: underline; text-underline-offset: 3px; }
+.heritage-label { font-size: 13px; color: #28578c; letter-spacing: 1px; }
+.heritage-story h2 {
+  font-family: "STKaiti", "Kaiti SC", "Songti SC", serif;
+  font-weight: 400;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.35;
+  letter-spacing: 2px;
+  margin: 14px 0 17px;
+}
+.heritage-story > p { font-size: 16px; line-height: 1.9; color: #546982; margin: 0; }
+.heritage-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-bottom: 17px; }
+.heritage-actions button { border: 1px solid #28578c; border-radius: 8px; font-size: 15px; padding: 12px 18px; }
+.heritage-actions button span { margin-left: 10px; }
+.heritage-actions a { font-size: 13px; color: #28578c; text-decoration: underline; text-underline-offset: 4px; }
+.heritage-story > .heritage-footnote { font-size: 12px; color: #77869a; line-height: 1.8; }
+.scene-culture-source { font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+.craft-experience { margin: 22px 0; padding: 18px; border: 1px solid #d3ddeb; border-radius: 12px; background: #f4f7fc; }
+.craft-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.craft-heading h3 { margin: 0; font-family: "Songti SC", serif; font-size: 18px; font-weight: 500; }
+.craft-reset { border: 0; border-bottom: 1px solid #7a95b7; color: #28578c; background: none; padding: 5px 0; font-size: 14px; }
+.craft-reset[hidden] { display: none; }
+.craft-visual { position: relative; display: grid; place-items: center; height: 207px; overflow: hidden; margin: 9px 0 16px; }
+.craft-swatch { position: relative; width: 154px; height: 154px; transform: rotate(-5deg); transition: transform 1.1s cubic-bezier(.2,.7,.2,1), box-shadow 1.1s; box-shadow: 0 6px 16px #19395c21; }
+.craft-swatch img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.craft-white { filter: grayscale(1) contrast(.06) brightness(1.9); }
+.craft-blue { clip-path: inset(100% 0 0); transition: clip-path 1.3s ease-in-out; }
+.craft-stage-label { position: absolute; bottom: 0; font-size: 14px; color: #526c8e; }
+[data-craft-stage="1"] .craft-swatch, [data-craft-stage="2"] .craft-swatch { transform: rotate(-14deg) scaleX(.27) scaleY(.83); box-shadow: 0 8px 19px #19395c36; }
+[data-craft-stage="2"] .craft-blue, [data-craft-stage="3"] .craft-blue { clip-path: inset(0); }
+[data-craft-stage="3"] .craft-swatch { transform: rotate(0) scale(1.06); box-shadow: 0 7px 20px #19395c29; }
+.craft-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 0; margin: 0 0 13px; list-style: none; }
+.craft-steps button { text-align: left; display: block; width: 100%; padding: 10px 11px; border: 1px solid #b7c9e0; border-radius: 8px; background: #fff; color: #19395c; }
+.craft-steps button:disabled { color: #8594a8; border-color: #d3ddeb; background: #eef2f8; cursor: not-allowed; }
+.craft-steps button[aria-pressed="true"] { background: #28578c; border-color: #28578c; color: #fff; }
+.craft-steps button:focus-visible, .craft-reset:focus-visible { outline: 3px solid #6295cd; outline-offset: 3px; }
+.craft-steps span { display: block; font: 12px Arial, sans-serif; letter-spacing: 1px; margin-bottom: 4px; }
+.craft-steps strong { display: block; font: 19px "Songti SC", serif; margin-bottom: 4px; }
+.craft-steps small { font-size: 14px; }
+.craft-status { font-size: 14px; line-height: 1.7; min-height: 48px; color: #3f5d80; margin: 0; }
+.craft-note { font-size: 12px; line-height: 1.7; color: #74839a; margin: 9px 0 0; }
+@media (max-width: 1000px) {
+  .heritage-section { gap: 25px; padding: 27px; }
+  .heritage-photo img { height: 360px; }
+}
+@media (max-width: 720px) {
+  .site-header { background-size: auto, 300px; }
+  .explore-sidebar { padding-top: 32px; }
+  .lake-mood-controls .culture-link { padding: 9px 10px; }
+  .heritage-section { grid-template-columns: 1fr; padding: 22px; gap: 24px; margin-top: 26px; }
+  .heritage-section::before { width: 6px; }
+  .heritage-photo img { height: auto; aspect-ratio: 1.4; }
+  .heritage-story h2 { font-size: 35px; }
+  .heritage-story > p { font-size: 16px; }
+  .craft-experience { padding: 14px; }
+  .craft-steps { gap: 6px; }
+  .craft-steps button { padding: 10px 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .heritage-section { scroll-behavior: auto; }
+  .craft-swatch, .craft-blue { transition: none; }
+}

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1b3c70">
+  <meta name="description" content="从云南地图走进大理洱海。探索海东与海西的真实风景、渔灯夜色与周城白族扎染，开启自己的旅程。">
+  <title>大理漫游 · 从地图走进风景</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23163c43'/%3E%3Cpath d='M12 42Q24 30 34 39T54 36M12 50Q24 38 34 47T54 44' fill='none' stroke='%23a9d4db' stroke-width='4'/%3E%3Cpath d='m32 9 4 9 10 1-8 7 2 10-8-5-9 5 2-10-7-7 10-1z' fill='%23e16a54'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="upgrade.css">
+  <link rel="stylesheet" href="heritage.css">
+  <script src="map-data.js" defer></script>
+  <script src="places.js" defer></script>
+  <script src="journey-core.js" defer></script>
+  <script src="gallery-data.js" defer></script>
+  <script src="lantern-data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到地图</a>
+  <header class="site-header">
+    <a class="brand" href="#yunnan" aria-label="大理漫游，返回云南地图"><span class="brand-symbol" aria-hidden="true">✳</span><span>大理漫游<small>DALI ROAMING</small></span></a>
+    <nav aria-label="主要导航"><a href="#yunnan" class="nav-link active" data-page-link="yunnan">云南地图</a><a href="#erhai" class="nav-link" data-page-link="erhai">洱海漫游</a><button class="plain-button" id="credits-button">影像来源</button></nav>
+    <span class="header-note">苍山洱海 · 一抹靛蓝</span>
+  </header>
+  <main id="main">
+    <section id="yunnan-page" class="yunnan-page" aria-label="云南目的地地图">
+      <div class="intro-panel">
+        <span class="eyebrow">在云南，找一处喜欢的风景</span>
+        <h1>山海之间，<br>慢慢<span>漫游。</span></h1>
+        <p class="intro-copy">从地图上的一颗红星出发，<br>去看洱海，去遇见沿途的风景。</p>
+        <button class="destination-card" id="dali-card" aria-label="探索大理洱海">
+          <img src="assets/erhai.jpg" alt="苍山与洱海北部湖岸的真实风景" width="3328" height="1872" fetchpriority="high">
+          <span class="destination-overlay"><span class="eyebrow">目的地 · 01</span><strong>大理 · 洱海</strong><span>山、水、村落与慢下来的时光</span></span>
+          <span class="round-open" aria-hidden="true">＋</span>
+        </button>
+        <div class="intro-foot"><span class="red-star">★</span><span>点击红星，走进目的地</span></div>
+      </div>
+      <div class="province-map-wrap">
+        <div class="map-topline"><span>云南省 <small>YUNNAN</small></span><span class="map-coordinate">25° N / 101° E</span></div>
+        <div class="province-map" id="province-map"></div>
+        <div class="map-bottomline"><span>★ 已开放目的地</span><span>云南轮廓：Natural Earth · 公有领域</span></div>
+      </div>
+    </section>
+    <section id="erhai-page" class="erhai-page" aria-label="洱海景点探索" hidden>
+      <div class="explore-toolbar"><div><a href="#yunnan" class="breadcrumb">云南</a><span class="breadcrumb-separator">／</span><h1>大理 · 洱海</h1></div><button class="outline-button" id="itinerary-toggle">我的行程 <span id="itinerary-count">0</span></button></div>
+      <div class="explore-controls" id="explore-controls"></div>
+      <div class="explore-layout">
+        <aside class="explore-sidebar" id="explore-sidebar"></aside>
+        <div class="lake-map-wrap"><div class="lake-map" id="lake-map"></div><div class="map-legend"><span><i class="legend-entrance"></i>抵达入口</span><span><i class="legend-place"></i>景点</span><span><i class="legend-route"></i>游览顺序</span></div><p class="map-disclaimer">可拖动地图 · 渔灯为模拟漂游 · 连线表示沿岸方向，非道路导航</p></div>
+      </div>
+      <section class="scenery-strip" aria-label="景点照片"><div class="strip-heading"><h2 id="strip-title">沿着洱海，看见风景</h2><span id="strip-meta"></span></div><div class="scenery-cards" id="scenery-cards"></div></section>
+      <section id="erhai-culture" class="heritage-section" aria-labelledby="heritage-title">
+        <figure class="heritage-photo">
+          <button data-scene="zhoucheng" aria-label="走进周城，查看村落实景相册"><img referrerpolicy="no-referrer" src="https://www.xinhuanet.com/photo/20251122/60577af78eeb4681a387f395f0cbd934/2025112260577af78eeb4681a387f395f0cbd934_202511221e9072109202472d8269c23c4bbaadb6.jpg" alt="周城璞真染坊的手艺人正在拆花，身后悬挂蓝白扎染布" width="1024" height="683" loading="lazy"><span>周城 · 一针一线的手艺 <b aria-hidden="true">↗</b></span></button>
+          <figcaption>摄影：新华社记者胡超 · <a href="https://www.xinhuanet.com/photo/20251122/60577af78eeb4681a387f395f0cbd934/c.html" target="_blank" rel="noopener noreferrer">查看原作</a> · 2025年11月21日</figcaption>
+        </figure>
+        <div class="heritage-story">
+          <span class="heritage-label">白族扎染 · 国家级非物质文化遗产</span>
+          <h2 id="heritage-title">一针一线，<br>留下蓝与白。</h2>
+          <p>在苍山脚下的周城，把一块白布扎紧、染蓝，再拆开线结，纹样才慢慢显露。蓝与白之间，藏着白族手艺人的日常。</p>
+          <div class="craft-experience" id="craft-experience" data-craft-stage="0" aria-labelledby="craft-title">
+            <div class="craft-heading"><h3 id="craft-title">试着染一块布</h3><button class="craft-reset" id="craft-reset" type="button" hidden>再染一次</button></div>
+            <div class="craft-visual" role="img" aria-label="尚未绞扎的白色布面" id="craft-visual"><div class="craft-swatch"><img class="craft-white" src="assets/dali-indigo-ui-texture.webp" alt="" width="1254" height="1254" loading="lazy"><img class="craft-blue" src="assets/dali-indigo-ui-texture.webp" alt="" width="1254" height="1254" loading="lazy"></div><span class="craft-stage-label" id="craft-stage-label">从一块白布开始</span></div>
+            <ol class="craft-steps" aria-label="依次体验扎染工序"><li><button type="button" data-craft-step="1" aria-pressed="false" aria-controls="craft-visual craft-status"><span>01</span><strong>绞扎</strong><small>扎紧白布</small></button></li><li><button type="button" data-craft-step="2" aria-pressed="false" aria-controls="craft-visual craft-status" disabled><span>02</span><strong>浸染</strong><small>染入靛蓝</small></button></li><li><button type="button" data-craft-step="3" aria-pressed="false" aria-controls="craft-visual craft-status" disabled><span>03</span><strong>拆线</strong><small>展开纹样</small></button></li></ol>
+            <p class="craft-status" id="craft-status" role="status" aria-live="polite" aria-atomic="true">先点“绞扎”，把白布收紧。</p>
+            <p class="craft-note">纹样为示意。真实手作各不相同，完整工艺还包含多道工序。</p>
+          </div>
+          <div class="heritage-actions"><button class="solid-button" data-scene="zhoucheng">走进周城，看扎染</button><a href="https://www.ihchina.cn/project_details/14304.html" target="_blank" rel="noopener noreferrer">了解非遗项目</a></div>
+          <p class="heritage-footnote">白族扎染技艺于2006年列入第一批国家级非物质文化遗产名录。工坊体验的时长与收费请向店家确认。</p>
+        </div>
+      </section>
+    </section>
+  </main>
+  <dialog id="panorama-dialog" class="panorama-dialog" aria-labelledby="panorama-title"><div class="panorama-shell"><div class="panorama-toolbar"><div><span>ERHAI · LANDSCAPE ATLAS</span><h2 id="panorama-title">洱海全景地图</h2></div><button data-close="panorama-dialog" aria-label="关闭全景地图">返回探索地图</button></div><p class="panorama-intro">先看照片，再选风景。点击景点小图，走进实景相册。</p><span class="panorama-mobile-hint">左右滑动，查看两岸的景点照片</span><div class="panorama-map" id="panorama-map"></div><p class="panorama-note">点位表示景点区域，照片卡片连线连接对应位置。</p></div></dialog>
+  <dialog id="lantern-dialog" class="lantern-dialog night" aria-labelledby="lantern-title"><div class="lantern-mode-shell"><div class="lantern-mode-toolbar"><div><span>ERHAI · NIGHTFALL</span><h2 id="lantern-title">洱海上的星河</h2></div><div class="lantern-mode-actions"><button data-action="motion" aria-pressed="true">暂停灯影与水波</button><button data-close="lantern-dialog" aria-label="退出渔灯模式，返回景点地图">返回景点地图</button></div></div><div class="lantern-night-atlas"><div id="lantern-photos" class="lantern-photo-windows" role="group" aria-label="洱海渔灯夜景照片"></div><div id="lantern-map" class="lantern-immersive-map"></div></div><p class="lantern-mode-note"><span>点击照片，走近真实夜色</span><small>湖面灯影为场景模拟 · 照片为源站参考资料，拍摄日期与机位未注明</small></p></div></dialog>
+  <dialog id="scene-dialog" class="scene-dialog" aria-label="景点实景与相册"><div id="scene-content"></div></dialog>
+  <dialog id="photo-dialog" class="photo-dialog" aria-label="完整实景照片"><div id="photo-content"></div></dialog>
+  <dialog id="credits-dialog" class="credits-dialog" aria-labelledby="credits-title"><div class="dialog-heading"><h2 id="credits-title">风景背后的镜头</h2><button class="icon-button" data-close="credits-dialog" aria-label="关闭影像来源">×</button></div><p>照片来自对应地点的真实拍摄。图片为适应页面做了尺寸压缩与裁切展示；原作、作者与授权信息见下方链接。</p><div id="credits-list"></div><p class="credits-map-note">地图：云南轮廓：Natural Earth（公有领域）；湖岸轮廓 © OpenStreetMap contributors（ODbL）。景点位置与游览连线仅供探索。</p></dialog>
+  <dialog id="itinerary-dialog" class="itinerary-dialog" aria-labelledby="itinerary-title"><div class="dialog-heading"><h2 id="itinerary-title">我的洱海行程</h2><button class="icon-button" data-close="itinerary-dialog" aria-label="关闭我的行程">×</button></div><div id="itinerary-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript-note">请开启浏览器的 JavaScript，以使用地图、景点实景和行程选择。</p></noscript>
+</body>
+</html>
