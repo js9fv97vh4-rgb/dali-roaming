@@ -158,8 +158,9 @@
 
 ## 地理数据
 
+- **云南 16 州市分区**：© OpenStreetMap contributors / Wambacher，来自 [geoBoundaries 3.0.0 中国 ADM2 档案](https://www.geoboundaries.org/data/geoBoundaries-3_0_0/CHN/ADM2/)，ODbL 1.0。档案标注边界年份 2017，更新日期 2020-05-25；仅作区域探索示意。共享边界弧经统一简化，提取数据及来源见 `data/yunnan-prefectures.geojson`，网页路径见 `web/prefecture-data.js`，转换脚本为 `scripts/prepare-prefectures.py`。16 个现用州、市名称按[云南省民政厅行政区划名录](https://ynmz.yn.gov.cn/bmfw/xzqh/xzqhsz/)核对。
 - **云南省轮廓**：Natural Earth 1:10m Admin 1 States/Provinces；[数据](https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_10m_admin_1_states_provinces.geojson)，[公有领域条款](https://www.naturalearthdata.com/about/terms-of-use/)。本包提取云南要素至 `data/yunnan.geojson`，将其投影为 SVG 路径。
-- **洱海湖岸及 OSM 来源点位**：© OpenStreetMap contributors，按 [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) 分发，参见 [OSM 版权说明](https://www.openstreetmap.org/copyright)。可再分发的提取数据位于 `data/erhai-lake.json` 与 `data/places.json`；在 `web/map-data.js` 和 `web/places.js` 中的同一数据继承该许可。本包只作探索地图，不提供道路导航。湖岸来源：[OSM relation 254433](https://www.openstreetmap.org/relation/254433)。
+- **洱海湖岸及 OSM 来源点位**：© OpenStreetMap contributors，按 [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) 分发，参见 [OSM 版权说明](https://www.openstreetmap.org/copyright)。可再分发的提取数据位于 `data/erhai-lake.json`、`data/places.json` 与 `data/place-coordinate-audit.json`；在 `web/map-data.js` 和 `web/places.js` 中的同一数据继承该许可。本包只作探索地图，不提供道路导航。湖岸来源：[OSM relation 254433](https://www.openstreetmap.org/relation/254433)。
 
 ## 原创装饰与依赖
 
@@ -167,3 +168,23 @@
 - 可选数据库开发依赖：drizzle-orm、drizzle-kit 及其传递依赖不内嵌在源码/静态发行包中；安装时保留各 npm 软件包随附的许可证。锁定版本见 `package-lock.json`。
 
 许可正文： [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/legalcode)、[CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/legalcode)、[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/legalcode)、[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode)、[ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/)。
+
+
+## V1.1 立体地图
+
+- Three.js 0.180.0 — © 2010–2025 three.js authors, MIT. Library and OrbitControls are vendored in `web/vendor/three`; the complete license is `web/vendor/three/LICENSE`. Local import paths and the filename of the core module have been adjusted; no runtime CDN is required. Source: https://github.com/mrdoob/three.js/tree/r180
+- Terrain elevations — Mapzen Terrain Tiles distributed through the AWS Open Data Terrain Tiles bucket. Global SRTM / GMTED2010 terrain data courtesy of the U.S. Geological Survey. Attribution and dataset terms: https://github.com/tilezen/joerd/blob/master/docs/attribution.md . Source tile URLs and bounds are recorded in `web/terrain/erhai-dem.json`.
+- Modifications to elevations: a 401 × 449 geographic grid sampled bilinearly from Terrarium zoom-11 tiles; rounded to metres; lake surface flattened for rendering. Displayed relief is exaggerated 2.8×. Terrain colours, miniature buildings, vegetation and night lights are illustrative, not surveyed features or live conditions. The modifications are not endorsed by USGS.
+- Existing Erhai shoreline remains © OpenStreetMap contributors, ODbL. Existing scene coordinates and route lines remain an exploration guide, not road navigation.
+
+## 2026-10-17 地图细节与新增影像
+
+`web/terrain/erhai-details.json` 是 © OpenStreetMap contributors 的道路、建筑轮廓、岛屿与土地利用数据提取，按 [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) 分发，快照 2026-10-17。数据保留 OSM way id，来源及区域见 JSON。建筑高度为示意；足迹、街巷与岛屿来自地图，仍非街景级重建。
+
+- **喜洲古镇** — 喜洲田野的水稻收割，古镇之外的农耕日常。 作者：Chris DeLacy；[原作](https://commons.wikimedia.org/wiki/File:Rice_harvest_in_Xizhou.JPG)；[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)。缩放、WebP 转码与缩略图制作；保留原许可。
+- **海舌公园** — 海舌公园变色的树叶与湖岸植被。 作者：Chris DeLacy；[原作](https://commons.wikimedia.org/wiki/File:Tongue_of_the_Lake_Park,_east_of_Xizhou_on_Erhai_Lake.jpg)；[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)。缩放、WebP 转码与缩略图制作；保留原许可。
+- **喜洲古镇** — 喜洲街头售卖的肉馅粑粑，近看当地食物。 作者：Mx. Granger；[原作](https://commons.wikimedia.org/wiki/File:Xizhou_baba.jpg)；[CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en)。缩放、WebP 转码与缩略图制作；保留原许可。
+- **喜洲古镇** — 白族乳扇在竹竿上晾制，传统食物的制作细节。 作者：Chris DeLacy；[原作](https://commons.wikimedia.org/wiki/File:Xizhou_Rushan.jpg)；[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)。缩放、WebP 转码与缩略图制作；保留原许可。
+- **喜洲古镇** — 喜洲白族院落内晾晒的彩色扎染布，白墙青瓦间的手艺日常。 作者：Luca Casartelli；[原作](https://commons.wikimedia.org/wiki/File:Xizhou_Town_(21005530058).jpg)；[CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0)。缩放、WebP 转码与缩略图制作；保留原许可。
+- **双廊古镇** — 双廊完全小学的校门与街边建筑，村镇日常的一角。 作者：N509FZ；[原作](https://commons.wikimedia.org/wiki/File:Shuanglang_Elementary_School_(20200123105740).jpg)；[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)。缩放、WebP 转码与缩略图制作；保留原许可。
+- **才村** — 从才村眺望洱海对岸的文笔村，湖面与海东山坡。 作者：Liuxingy；[原作](https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E7%90%86%E6%89%8D%E6%9D%91%E6%9C%9B%E5%90%91%E6%B4%B1%E6%B5%B7%E5%AF%B9%E5%B2%B8%E7%9A%84%E6%96%87%E7%AC%94%E6%9D%91.jpg)；[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)。缩放、WebP 转码与缩略图制作；保留原许可。

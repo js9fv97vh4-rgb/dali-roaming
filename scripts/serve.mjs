@@ -19,4 +19,4 @@ const server=createServer(async(req,res)=>{
   }catch{res.writeHead(404);res.end('Not found');}
 });
 server.on('error',error=>{console.error(error.code==='EADDRINUSE'?'端口已占用，请使用 --port 8766':error.message);process.exitCode=1;});
-server.listen(port,'127.0.0.1',()=>console.log(`大理漫游： http://localhost:${port}`));
+server.listen(port,'127.0.0.1',()=>console.log(`云南漫游： http://127.0.0.1:${port}\n预览目录：${root}`));

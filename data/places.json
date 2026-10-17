@@ -1,15 +1,17 @@
 {
   "license": "ODbL-1.0",
   "attribution": "© OpenStreetMap contributors",
-  "note": "Approximate exploration coordinates; not a routing database",
+  "note": "WGS84 representative exploration points, audited against named OSM features on 2026-10-17; not a routing database.",
   "places": [
     {
       "id": "fengyangyi",
       "name": "凤阳邑",
       "coords": [
-        100.204,
-        25.646
-      ]
+        100.1920509,
+        25.641715
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/5407250690",
+      "coordinateNote": "村落代表点"
     },
     {
       "id": "ancient-town",
@@ -17,63 +19,79 @@
       "coords": [
         100.16,
         25.696
-      ]
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/way/767449039",
+      "coordinateNote": "保留古城区域内的代表点"
     },
     {
       "id": "longkan",
       "name": "龙龛码头",
       "coords": [
-        100.191,
-        25.671
-      ]
+        100.2053622,
+        25.7016095
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/3019557476",
+      "coordinateNote": "龙龛码头陆侧端点；码头主体为 way 298035384，日出水杉观景台在其南侧"
     },
     {
       "id": "caicun",
       "name": "才村",
       "coords": [
-        100.195,
-        25.716
-      ]
+        100.1926152,
+        25.721642
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/5021707722",
+      "coordinateNote": "才村湖岸码头代表点"
     },
     {
       "id": "panxi",
       "name": "磻溪 S 弯",
       "coords": [
-        100.162,
-        25.764
-      ]
+        100.1490397,
+        25.7735314
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/7139222723",
+      "coordinateNote": "磻溪 S 湾生态廊道代表点"
     },
     {
       "id": "xizhou",
       "name": "喜洲古镇",
       "coords": [
-        100.132,
-        25.854
-      ]
+        100.1304383,
+        25.853639
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/704424224",
+      "coordinateNote": "古镇代表点"
     },
     {
       "id": "wenbi",
       "name": "文笔村",
       "coords": [
-        100.232,
-        25.734
-      ]
+        100.2322489,
+        25.7340688
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/10574932727",
+      "coordinateNote": "文笔村牌坊代表点，与相册村口实景对应"
     },
     {
       "id": "xiaoputuo",
       "name": "小普陀",
       "coords": [
-        100.23,
-        25.813
-      ]
+        100.2218897,
+        25.8105661
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/way/310515894",
+      "coordinateNote": "岛屿内部代表点"
     },
     {
       "id": "shuanglang",
       "name": "双廊古镇",
       "coords": [
-        100.193,
-        25.916
-      ]
+        100.192751,
+        25.9150353
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/663174260",
+      "coordinateNote": "古镇代表点"
     },
     {
       "id": "santasi",
@@ -82,7 +100,8 @@
         100.1465644,
         25.7086408
       ],
-      "coordinateSource": "https://www.openstreetmap.org/node/7651326585"
+      "coordinateSource": "https://www.openstreetmap.org/node/7651326585",
+      "coordinateNote": "三塔景区代表点"
     },
     {
       "id": "cangshan",
@@ -91,7 +110,8 @@
         100.1684432,
         25.6476152
       ],
-      "coordinateSource": "https://www.openstreetmap.org/node/5032694528"
+      "coordinateSource": "https://www.openstreetmap.org/node/5032694528",
+      "coordinateNote": "感通索道游客服务处，不代表苍山山顶"
     },
     {
       "id": "jizhaoan",
@@ -100,7 +120,8 @@
         100.1639245,
         25.6460455
       ],
-      "coordinateSource": "https://www.openstreetmap.org/way/685283429"
+      "coordinateSource": "https://www.openstreetmap.org/way/685283429",
+      "coordinateNote": "寺院范围内代表点"
     },
     {
       "id": "haishe",
@@ -109,7 +130,8 @@
         100.1558144,
         25.8752792
       ],
-      "coordinateSource": "https://www.openstreetmap.org/way/681069388"
+      "coordinateSource": "https://www.openstreetmap.org/way/681069388",
+      "coordinateNote": "湿地公园范围内代表点"
     },
     {
       "id": "wase",
@@ -118,7 +140,8 @@
         100.223,
         25.8309
       ],
-      "coordinateSource": "https://www.openstreetmap.org/relation/16862891"
+      "coordinateSource": "https://www.openstreetmap.org/node/704994949",
+      "coordinateNote": "古镇代表点"
     },
     {
       "id": "zhoucheng",
@@ -127,7 +150,8 @@
         100.1047611,
         25.8988198
       ],
-      "coordinateSource": "https://www.openstreetmap.org/node/662749558"
+      "coordinateSource": "https://www.openstreetmap.org/node/662749558",
+      "coordinateNote": "村落代表点"
     }
   ],
   "entrances": [
@@ -135,25 +159,31 @@
       "id": "airport",
       "name": "大理凤仪机场",
       "coords": [
-        100.319,
-        25.649
-      ]
+        100.3221932,
+        25.6493479
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/way/561559445",
+      "coordinateNote": "航站楼代表点，区别于跑道中心"
     },
     {
       "id": "railway",
       "name": "大理站",
       "coords": [
-        100.248,
-        25.59
-      ]
+        100.2485243,
+        25.5919445
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/2215381943",
+      "coordinateNote": "铁路车站代表点"
     },
     {
       "id": "highway",
       "name": "下关收费站",
       "coords": [
-        100.212,
-        25.569
-      ]
+        100.2289943,
+        25.5696126
+      ],
+      "coordinateSource": "https://www.openstreetmap.org/node/11736674431",
+      "coordinateNote": "下关收费站代表点"
     }
   ]
 }

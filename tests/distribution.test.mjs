@@ -50,5 +50,6 @@ test('every scenic gallery is complete and declares local or external photo righ
   for(const match of html.matchAll(/(?:src|href)="(assets\/[^"#]+)"/g))await fs.access('web/'+match[1]);
   assert.match(html,/新华社记者胡超/);
   assert.doesNotMatch(html,/DataV|zhoucheng-architecture/);
-  await assert.rejects(fs.access('.openai/hosting.json'));
+  // Local working copies may retain a Sites binding; it must stay outside version control.
+  assert.match(await fs.readFile('.gitignore','utf8'), /^\.openai\/$/m);
 });

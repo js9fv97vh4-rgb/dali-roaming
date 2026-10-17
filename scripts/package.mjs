@@ -5,7 +5,7 @@ import path from 'node:path';
 import './build.mjs';
 const {version}=JSON.parse(await readFile('package.json','utf8'));
 const name=`dali-roaming-v${version}`;
-const roots=['web','data','docs','scripts','tests','worker','db','drizzle','README.md','LICENSE','THIRD_PARTY_NOTICES.md','CHANGELOG.md','CONTRIBUTING.md','asset-sources.json','package.json','package-lock.json','index.html','.gitignore','.nojekyll'];
+const roots=['web','data','docs','scripts','tests','worker','db','drizzle','README.md','LICENSE','THIRD_PARTY_NOTICES.md','CHANGELOG.md','CONTRIBUTING.md','asset-sources.json','package.json','package-lock.json','index.html','启动云南漫游.command','.gitignore','.nojekyll'];
 const files=[];
 async function walk(file){if((await stat(file)).isDirectory()){for(const child of (await readdir(file)).sort())await walk(path.join(file,child));}else if(path.basename(file)!=='.DS_Store')files.push(file);}
 for(const root of roots)await walk(root);

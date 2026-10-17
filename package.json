@@ -1,7 +1,7 @@
 {
   "name": "dali-roaming",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
@@ -9,6 +9,7 @@
     "test": "node --test tests/*.test.mjs",
     "dev": "node scripts/serve.mjs web",
     "start": "node scripts/serve.mjs web",
+    "open": "node scripts/open.mjs",
     "preview": "node scripts/serve.mjs dist/client",
     "package": "node scripts/package.mjs"
   },

@@ -1,1 +1,31 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=web/index.html"><title>大理漫游</title><script>location.replace('web/index.html'+location.hash)</script><a href="web/index.html">打开大理漫游</a></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>云南漫游 · 本地启动</title>
+  <script>
+    if (location.protocol !== 'file:') location.replace('web/index.html' + location.search + location.hash);
+  </script>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:32px 22px;min-height:100svh;display:grid;place-items:center;background:#f7f6f0;color:#29483d;font-family:"PingFang SC","Microsoft YaHei",sans-serif}main{width:min(100%,620px);padding:clamp(25px,6vw,52px);border:1px solid #d4ddcd;background:#fffef8;border-radius:8px}small{font-size:11px;letter-spacing:3px;color:#788b71}h1{font:36px "Songti SC",serif;margin:24px 0 20px}p,li{font-size:15px;line-height:1.9;color:#687c62}ol{padding-left:22px}li{margin-bottom:10px}strong{color:#36573e;font-weight:500}a{color:inherit}.enter{display:block;margin:28px 0 20px;padding:15px 20px;background:#36584d;color:white;text-decoration:none;text-align:center;border-radius:3px}.note{font-size:12px;color:#8b9882;margin:0}code{font-size:13px;overflow-wrap:anywhere}a:focus-visible{outline:3px solid #bc6142;outline-offset:5px}
+  </style>
+</head>
+<body>
+  <main>
+    <small>YUNNAN ROAMING / LOCAL PREVIEW</small>
+    <h1>从这里，打开完整的山海。</h1>
+    <p>这是本地启动入口。直接双击网页文件时，浏览器会限制 3D 地图所需的模块与地形数据加载。</p>
+    <ol>
+      <li>双击这个文件夹中的 <strong>启动云南漫游.command</strong>。</li>
+      <li>它会从当前文件夹启动预览，并自动在浏览器中打开。新启动服务时，请保留终端窗口。</li>
+    </ol>
+    <a class="enter" id="preview-link" href="http://127.0.0.1:8765/#yunnan">预览已经启动？打开完整网站 ↗</a>
+    <p class="note">也可以在此文件夹的终端运行 <code>npm run open</code>。需要 Node.js 20 或更新版本，无需安装项目依赖。</p>
+    <noscript><p><a href="web/index.html">通过网站服务访问时，点击这里进入网页</a></p></noscript>
+  </main>
+  <script>
+    document.getElementById('preview-link').href='http://127.0.0.1:8765/'+(location.hash||'#yunnan');
+  </script>
+</body>
+</html>

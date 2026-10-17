@@ -6,10 +6,7 @@ window.DALI_ENTRANCES = [
     "short": "机场",
     "icon": "plane",
     "region": "east",
-    "coords": [
-      100.319,
-      25.649
-    ],
+    "coords": [100.3221932, 25.6493479],
     "note": "航空抵达 · 海东南侧"
   },
   {
@@ -18,10 +15,7 @@ window.DALI_ENTRANCES = [
     "short": "大理站",
     "icon": "train",
     "region": "west",
-    "coords": [
-      100.248,
-      25.59
-    ],
+    "coords": [100.2485243, 25.5919445],
     "note": "铁路抵达 · 下关城区"
   },
   {
@@ -30,10 +24,7 @@ window.DALI_ENTRANCES = [
     "short": "自驾入口",
     "icon": "road",
     "region": "west",
-    "coords": [
-      100.212,
-      25.569
-    ],
+    "coords": [100.2289943, 25.5696126],
     "note": "自驾抵达 · 下关方向示例"
   }
 ];
@@ -43,10 +34,7 @@ window.DALI_PLACES = [
     "name": "凤阳邑",
     "en": "FENGYANGYI",
     "region": "west",
-    "coords": [
-      100.204,
-      25.646
-    ],
+    "coords": [100.1920509, 25.641715],
     "label": [
       18,
       5
@@ -78,10 +66,7 @@ window.DALI_PLACES = [
     "name": "大理古城",
     "en": "DALI ANCIENT TOWN",
     "region": "west",
-    "coords": [
-      100.16,
-      25.696
-    ],
+    "coords": [100.16, 25.696],
     "label": [
       -18,
       -2
@@ -113,10 +98,7 @@ window.DALI_PLACES = [
     "name": "龙龛码头",
     "en": "LONGKAN PIER",
     "region": "west",
-    "coords": [
-      100.191,
-      25.671
-    ],
+    "coords": [100.2053622, 25.7016095],
     "label": [
       18,
       5
@@ -148,10 +130,7 @@ window.DALI_PLACES = [
     "name": "才村",
     "en": "CAICUN",
     "region": "west",
-    "coords": [
-      100.195,
-      25.716
-    ],
+    "coords": [100.1926152, 25.721642],
     "label": [
       18,
       5
@@ -183,10 +162,7 @@ window.DALI_PLACES = [
     "name": "磻溪 S 弯",
     "en": "PANXI LAKESIDE",
     "region": "west",
-    "coords": [
-      100.162,
-      25.764
-    ],
+    "coords": [100.1490397, 25.7735314],
     "label": [
       -18,
       5
@@ -218,10 +194,7 @@ window.DALI_PLACES = [
     "name": "喜洲古镇",
     "en": "XIZHOU",
     "region": "west",
-    "coords": [
-      100.132,
-      25.854
-    ],
+    "coords": [100.1304383, 25.853639],
     "label": [
       -18,
       5
@@ -253,10 +226,7 @@ window.DALI_PLACES = [
     "name": "文笔村",
     "en": "WENBI VILLAGE",
     "region": "east",
-    "coords": [
-      100.232,
-      25.734
-    ],
+    "coords": [100.2322489, 25.7340688],
     "label": [
       18,
       5
@@ -288,10 +258,7 @@ window.DALI_PLACES = [
     "name": "小普陀",
     "en": "XIAOPUTUO",
     "region": "east",
-    "coords": [
-      100.23,
-      25.813
-    ],
+    "coords": [100.2218897, 25.8105661],
     "label": [
       18,
       5
@@ -323,10 +290,7 @@ window.DALI_PLACES = [
     "name": "双廊古镇",
     "en": "SHUANGLANG",
     "region": "east",
-    "coords": [
-      100.193,
-      25.916
-    ],
+    "coords": [100.192751, 25.9150353],
     "label": [
       18,
       -2
@@ -358,10 +322,7 @@ window.DALI_PLACES = [
     "name": "崇圣寺三塔",
     "en": "THREE PAGODAS",
     "region": "west",
-    "coords": [
-      100.1465644,
-      25.7086408
-    ],
+    "coords": [100.1465644, 25.7086408],
     "coordinateNote": "三塔景物点位，非指定入园门口",
     "coordinateSource": "https://www.openstreetmap.org/node/7651326585",
     "kicker": "苍山脚下的大理地标",
@@ -396,10 +357,7 @@ window.DALI_PLACES = [
     "name": "苍山 · 感通",
     "en": "CANGSHAN",
     "region": "west",
-    "coords": [
-      100.1684432,
-      25.6476152
-    ],
+    "coords": [100.1684432, 25.6476152],
     "coordinateNote": "地图以感通索道下站附近作苍山入口示例；苍山有多个入口，不代表山脉中心",
     "coordinateSource": "https://www.openstreetmap.org/node/5032694528",
     "kicker": "感通索道与清碧溪",
@@ -434,10 +392,7 @@ window.DALI_PLACES = [
     "name": "寂照庵",
     "en": "JIZHAO NUNNERY",
     "region": "west",
-    "coords": [
-      100.1639245,
-      25.6460455
-    ],
+    "coords": [100.1639245, 25.6460455],
     "coordinateNote": "寺院区域近似中心，最后一段需按现场路径步行",
     "coordinateSource": "https://www.openstreetmap.org/way/685283429",
     "kicker": "花木与多肉围成的小院",
@@ -472,10 +427,7 @@ window.DALI_PLACES = [
     "name": "海舌公园",
     "en": "HAISHE PARK",
     "region": "west",
-    "coords": [
-      100.1558144,
-      25.8752792
-    ],
+    "coords": [100.1558144, 25.8752792],
     "coordinateNote": "半岛公园近似中心，位于海西北部喜洲附近",
     "coordinateSource": "https://www.openstreetmap.org/way/681069388",
     "kicker": "伸向洱海的狭长半岛",
@@ -511,10 +463,7 @@ window.DALI_PLACES = [
     "name": "挖色镇",
     "en": "WASE",
     "region": "east",
-    "coords": [
-      100.223,
-      25.8309
-    ],
+    "coords": [100.223, 25.8309],
     "coordinateNote": "镇区近似点位，非码头或行政边界中心",
     "coordinateSource": "https://www.openstreetmap.org/relation/16862891",
     "kicker": "海东岸的白族生活",
@@ -550,10 +499,7 @@ window.DALI_PLACES = [
     "name": "周城村",
     "en": "ZHOUCHENG",
     "region": "west",
-    "coords": [
-      100.1047611,
-      25.8988198
-    ],
+    "coords": [100.1047611, 25.8988198],
     "coordinateNote": "村落近似点位，位于喜洲北侧、海西北部",
     "coordinateSource": "https://www.openstreetmap.org/node/662749558",
     "kicker": "白族扎染之乡",

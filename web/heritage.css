@@ -10,7 +10,7 @@
   --indigo-fabric: linear-gradient(#18376596, #18376596), var(--tie-dye);
 }
 body { background: var(--paper); }
-.site-header {
+body[data-page="erhai"] .site-header {
   max-width: none;
   color: #fffdf3;
   background-image: linear-gradient(#183765e8, #183765e8), var(--tie-dye);
@@ -18,10 +18,10 @@ body { background: var(--paper); }
   border-bottom: 4px solid #dedfd9;
   box-shadow: 0 2px 12px #17395e14;
 }
-.brand-symbol, .site-header .nav-link, .site-header .plain-button { color: #fffdf3; }
-.site-header .nav-link.active { color: #fff; border-bottom-color: #f4e6c5; }
-.site-header .header-note { color: #e3eaf6; }
-.site-header a:focus-visible, .site-header button:focus-visible { outline-color: #fff; }
+body[data-page="erhai"] .site-header .brand-symbol, body[data-page="erhai"] .site-header .nav-link, body[data-page="erhai"] .site-header .plain-button { color: #fffdf3; }
+body[data-page="erhai"] .site-header .nav-link.active { color: #fff; border-bottom-color: #f4e6c5; }
+body[data-page="erhai"] .site-header .header-note { color: #e3eaf6; }
+body[data-page="erhai"] .site-header a:focus-visible, body[data-page="erhai"] .site-header button:focus-visible { outline-color: #fff; }
 .intro-panel h1 span { color: #28578c; }
 .destination-card { border: 4px solid #d5e0ef; }
 .province-map-wrap { background: #eaf0f9; border-color: var(--line); }
@@ -166,7 +166,7 @@ body { background: var(--paper); }
   .heritage-photo img { height: 360px; }
 }
 @media (max-width: 720px) {
-  .site-header { background-size: auto, 300px; }
+  body[data-page="erhai"] .site-header { background-size: auto, 300px; }
   .explore-sidebar { padding-top: 32px; }
   .lake-mood-controls .culture-link { padding: 9px 10px; }
   .heritage-section { grid-template-columns: 1fr; padding: 22px; gap: 24px; margin-top: 26px; }
