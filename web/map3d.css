@@ -91,3 +91,5 @@
 @media(min-width:721px){.panorama-dialog:has(.atlas3d) .panorama-cards{display:none}.atlas3d[data-mode=panorama] .atlas-views{left:50%;transform:translateX(-50%);right:auto}.atlas3d[data-mode=panorama] .atlas-connectors line{opacity:.48;stroke-width:1}}
 
 .panorama-toolbar>button{flex-shrink:0;white-space:nowrap}@media(max-width:720px){.panorama-toolbar h2{font-size:20px;letter-spacing:1px}}
+
+.map3d-fallback{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.map3d-fallback p{margin:0}.map3d-fallback button{border:1px solid #9db2a6;background:#f7faf3;color:#285448;padding:9px 15px;border-radius:6px;cursor:pointer}

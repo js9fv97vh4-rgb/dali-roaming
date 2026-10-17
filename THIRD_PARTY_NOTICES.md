@@ -179,7 +179,7 @@
 
 ## 2026-10-17 地图细节与新增影像
 
-`web/terrain/erhai-details.json` 是 © OpenStreetMap contributors 的道路、建筑轮廓、岛屿与土地利用数据提取，按 [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) 分发，快照 2026-10-17。数据保留 OSM way id，来源及区域见 JSON。建筑高度为示意；足迹、街巷与岛屿来自地图，仍非街景级重建。
+`web/terrain/erhai-details.json` 及其岛屿首屏提取文件 `web/terrain/erhai-islands.json` 是 © OpenStreetMap contributors 的道路、建筑轮廓、岛屿与土地利用数据提取，按 [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) 分发，快照 2026-10-17。数据保留 OSM way id，来源及区域见 JSON。建筑高度为示意；足迹、街巷与岛屿来自地图，仍非街景级重建。
 
 - **喜洲古镇** — 喜洲田野的水稻收割，古镇之外的农耕日常。 作者：Chris DeLacy；[原作](https://commons.wikimedia.org/wiki/File:Rice_harvest_in_Xizhou.JPG)；[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)。缩放、WebP 转码与缩略图制作；保留原许可。
 - **海舌公园** — 海舌公园变色的树叶与湖岸植被。 作者：Chris DeLacy；[原作](https://commons.wikimedia.org/wiki/File:Tongue_of_the_Lake_Park,_east_of_Xizhou_on_Erhai_Lake.jpg)；[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)。缩放、WebP 转码与缩略图制作；保留原许可。

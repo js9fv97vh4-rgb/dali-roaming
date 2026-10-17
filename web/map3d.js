@@ -1,4 +1,5 @@
 import * as THREE from './vendor/three/three.module.js';
+import { loadAtlasJSON, atlasPixelRatio, createAtlasRenderer, indexAtlasRing } from './map3d-runtime.js';
 import { OrbitControls } from './vendor/three/OrbitControls.js';
 import { project, unproject, elevation, reliefHeight, inRing, lampPositions, tourCamera } from './map3d-geo.js';
 
@@ -13,14 +14,20 @@ const presets = {
   town: { position:[7,16,22], target:[-2,0,9] },
   night: { position:[27,38,45], target:[3,0,-1] }
 };
-const terrainPromise = fetch(new URL('./terrain/erhai-dem.json', import.meta.url)).then(r => {
-  if (!r.ok) throw new Error('地形数据未加载'); return r.json();
-});
+let terrainPromise;
+const terrainURL=new URL('./terrain/erhai-dem.json',import.meta.url);
+function loadTerrain(){
+  if(!terrainPromise)terrainPromise=loadAtlasJSON(terrainURL).catch(error=>{terrainPromise=null;throw error;});
+  return terrainPromise;
+}
 
 export async function createAtlas(host, config) {
-  const [dem,detail] = await Promise.all([terrainPromise,fetch(new URL('./terrain/erhai-details.json',import.meta.url)).then(r=>r.ok?r.json():null).catch(()=>null)]);
-  const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:false, powerPreference:'low-power' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  config.onProgress?.('正在载入山海地形…');
+  const [dem,coast] = await Promise.all([loadTerrain(),loadAtlasJSON(new URL('./terrain/erhai-islands.json',import.meta.url),{attempts:1,timeout:8000}).catch(()=>({islands:[]}))]);
+  let detail={...coast,roads:[],buildings:[],landcover:[]};
+  config.onProgress?.('正在生成立体山海…');
+  const renderer = createAtlasRenderer(THREE.WebGLRenderer);
+  renderer.setPixelRatio(1);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.05;
@@ -56,8 +63,10 @@ export async function createAtlas(host, config) {
   let tourPlaceId=null, lastTourPose=null;
   let mainView=null, currentPreset='overview', width=1, height=1;
   const lakeRing=config.geometry.lake;
-  const isIsland=coords=>detail?.islands?.some(i=>inRing(coords,i.coords));
-  const isWater=coords=>inRing(coords,lakeRing)&&!isIsland(coords);
+  const inLake=indexAtlasRing(lakeRing);
+  let islandTests=detail.islands.map(i=>indexAtlasRing(i.coords));
+  const isIsland=coords=>islandTests.some(test=>test(coords));
+  const isWater=coords=>inLake(coords)&&!isIsland(coords);
   const heightAt=coords=>isIsland(coords)?Math.max(.20,reliefHeight(dem,coords)):isWater(coords)?.08:reliefHeight(dem,coords);
   const worldPoint=(coords,offset=0)=>vector(coords,heightAt(coords)+offset);
   const [west,south,east,north]=dem.bounds;
@@ -79,6 +88,7 @@ export async function createAtlas(host, config) {
     c.lerp(rock,THREE.MathUtils.clamp((slope-210)/600,0,.5));
     c.multiplyScalar(.92+noise(x,z)*.065+Math.sin(x*5.3+z*3.7)*.012);
     c.toArray(colours,i*3);
+    if(col===dem.columns-1&&row%24===23)await new Promise(resolve=>setTimeout(resolve,0));
   }
   terrainGeometry.setAttribute('color',new THREE.BufferAttribute(colours,3));
   terrainGeometry.computeVertexNormals();
@@ -156,8 +166,8 @@ export async function createAtlas(host, config) {
     } buildings.add(tower);
   }
 
-  if(detail){
-    for(const feature of [...detail.landcover,...detail.islands.map(i=>({...i,kind:'island'}))]){
+  function addDetails(data){
+    for(const feature of [...data.landcover,...data.islands.map(i=>({...i,kind:'island'}))]){
       const shape=new THREE.Shape(feature.coords.map(c=>{const [x,z]=project(c);return new THREE.Vector2(x,-z);}));
       const geo=new THREE.ShapeGeometry(shape);geo.rotateX(-Math.PI/2);
       const points=geo.attributes.position;
@@ -166,7 +176,7 @@ export async function createAtlas(host, config) {
       world.add(new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:({farmland:'#a6b680',orchard:'#7e9a69',forest:'#4d7555',meadow:'#9cad77',island:'#7a956b'})[feature.kind],roughness:1,side:THREE.DoubleSide})));
     }
     const roadVertices=[];
-    for(const road of detail.roads)for(let k=1;k<road.coords.length;k++){
+    for(const road of data.roads)for(let k=1;k<road.coords.length;k++){
       const a=road.coords[k-1],b=road.coords[k],steps=Math.max(1,Math.ceil(worldPoint(a).distanceTo(worldPoint(b))/.08));
       for(let j=0;j<steps;j++){
         for(const f of [j/steps,(j+1)/steps])worldPoint([a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f],.045).toArray(roadVertices,roadVertices.length);
@@ -175,7 +185,7 @@ export async function createAtlas(host, config) {
     const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(roadVertices,3));
     world.add(new THREE.LineSegments(geo,new THREE.LineBasicMaterial({color:'#eee1b5',transparent:true,opacity:.75})));
     const vertices=[],normals=[];
-    for(const building of detail.buildings){
+    for(const building of data.buildings){
       if(building.coords.length<4)continue;
       const center=building.coords.reduce((sum,c)=>[sum[0]+c[0]/building.coords.length,sum[1]+c[1]/building.coords.length],[0,0]);
       const base=heightAt(center);
@@ -187,6 +197,8 @@ export async function createAtlas(host, config) {
     const geoBuildings=new THREE.BufferGeometry();geoBuildings.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geoBuildings.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));
     buildings.add(new THREE.Mesh(geoBuildings,new THREE.MeshStandardMaterial({color:'#e2dbc8',roughness:.95})));
   }
+
+  addDetails(detail);
 
   const trees=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(.085,1),new THREE.MeshStandardMaterial({color:'#ffffff',roughness:1}),900);
   let treeCount=0;
@@ -313,7 +325,7 @@ export async function createAtlas(host, config) {
   function resize(){
     const bounds=root.getBoundingClientRect();if(!bounds.width||!bounds.height)return;
     const oldAspect=width/height;width=bounds.width;height=bounds.height;
-    renderer.setSize(width,height,false);camera.aspect=width/height;camera.updateProjectionMatrix();
+    renderer.setPixelRatio(atlasPixelRatio(width,height,devicePixelRatio||1));renderer.setSize(width,height,false);lampMat.uniforms.uRatio.value=renderer.getPixelRatio();camera.aspect=width/height;camera.updateProjectionMatrix();
     if(mode==='tour'&&lastTourPose)applyTourPose(...lastTourPose);
     else if((oldAspect<1)!==(width/height<1))targetView(currentPreset,true);dirty=true;
   }
@@ -364,6 +376,17 @@ export async function createAtlas(host, config) {
     syncLabels();renderer.render(scene,camera);dirty=false;
   }
   mount(host);update(config.initialState);targetView('overview',true);animationId=requestAnimationFrame(frame);
+  // Start optional street/building downloads only after the first landscape frame.
+  requestAnimationFrame(()=>{
+    if(disposed)return;
+    loadAtlasJSON(new URL('./terrain/erhai-details.json',import.meta.url)).then(data=>{
+      if(disposed)return;
+      const hadIslands=detail.islands.length>0;
+      detail=data;islandTests=data.islands.map(i=>indexAtlasRing(i.coords));
+      addDetails({...data,islands:hadIslands?[]:data.islands});dirty=true;
+      root.querySelector('.atlas-status').textContent='立体山海与周边街巷已就绪';
+    }).catch(error=>{if(!disposed)console.warn('Optional map details unavailable:',error.message);});
+  });
   return { update,mount,setAtmosphere,tourPose(from,to,progress,index=0,placeId=null){
       if(mode!=='tour')return;
       if(tourPlaceId!==placeId){tourPlaceId=placeId;for(const {p,button} of markers){button.classList.toggle('tour-current',p.id===placeId);button.classList.toggle('active',p.id===placeId);button.setAttribute('aria-pressed',String(p.id===placeId));}}

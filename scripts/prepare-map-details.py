@@ -30,3 +30,5 @@ for id,w in ways.items():
 data=dict(source='© OpenStreetMap contributors',license='ODbL 1.0',sourceUrl='https://www.openstreetmap.org/copyright',snapshotDate='2026-10-17',bounds=list(regions.values()),roads=roads,buildings=buildings,islands=islands,landcover=landcover)
 (root/'web/terrain/erhai-details.json').write_text(json.dumps(data,ensure_ascii=False,separators=(',',':')))
 print('roads',len(roads),'buildings',len(buildings),flush=True)
+
+(root/'web/terrain/erhai-islands.json').write_text(json.dumps({k:data[k] for k in ['source','license','sourceUrl','snapshotDate','islands']},ensure_ascii=False,separators=(',',':')))
