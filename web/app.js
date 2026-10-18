@@ -325,6 +325,7 @@
   renderProvince();renderCraft(0);render();hydrate();
   roaming=window.createDaliRoaming({getMap:()=>map3D,getStops:orderedStops,gallery:galleryFor,isStop,addStop,saveRoute,credit,openScene,close:closeView,onPosition:(tour,step)=>{const v=DaliViews.parse(location.hash);if(v.modal==='tour')history.replaceState(history.state,'',DaliViews.format({...v,tour,step}));}});
   renderTourShelf();syncView();
+  const atlasCoverDialogs=['walk-dialog','scene-dialog','photo-dialog','credits-dialog','itinerary-dialog'].map($);
   let atlasLoading=false;
   async function startAtlas(attempt=0){
     if(atlasLoading||map3D)return;
@@ -333,11 +334,11 @@
     const loading=document.createElement('span');loading.className='map3d-loading';loading.textContent=attempt?'正在重新加载立体山海…':'正在下载 3D 引擎…';$('lake-map').append(loading);
     try {
       let importTimer;
-      const module=await Promise.race([import('./map3d.js?v=20261017-recovery'),new Promise((resolve,reject)=>{importTimer=setTimeout(()=>reject(new Error('3D 引擎下载超时')),20000);})]).finally(()=>clearTimeout(importTimer));
+      const module=await Promise.race([import('./map3d.js?v=20261018-performance'),new Promise((resolve,reject)=>{importTimer=setTimeout(()=>reject(new Error('3D 引擎下载超时')),20000);})]).finally(()=>clearTimeout(importTimer));
       map3D=await module.createAtlas($('lake-map'),{
         places,entrances,geometry,gallery:id=>byId[id]?galleryFor(id):[],initialState:mapSnapshot(),selectPlace,selectEntrance,openScene,openWalk,drawerOpen:()=>ui.drawer,
         onProgress:message=>{loading.textContent=message;},
-        isCovered:()=>['walk-dialog','scene-dialog','photo-dialog','credits-dialog','itinerary-dialog'].some(id=>$(id).open)
+        isCovered:()=>atlasCoverDialogs.some(dialog=>dialog.open)
       });
       renderMap();document.body.classList.add('has-atlas');
       document.querySelector('.map-disclaimer').innerHTML='地形：<a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md" target="_blank" rel="noopener noreferrer">Mapzen / USGS</a> · 湖岸 © OpenStreetMap · 高差经艺术化增强，建筑为示意 · 行程连线非道路导航';

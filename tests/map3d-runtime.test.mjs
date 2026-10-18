@@ -73,3 +73,13 @@ test('latitude buckets preserve every sampled lake and island containment result
     for(const point of points)assert.equal(indexed(point),inRing(point,ring));
   }
 });
+
+
+test('indexed lamp placement preserves every original light and shoreline clearance',async()=>{
+  const {readFile}=await import('node:fs/promises'),vm=await import('node:vm');
+  const {indexAtlasRing}=await import('../web/map3d-runtime.js');
+  const {lampPositions}=await import('../web/map3d-geo.js');
+  const context={window:{}};vm.createContext(context);vm.runInContext(await readFile('web/map-data.js','utf8'),context);
+  const ring=context.window.DALI_MAP.lake;
+  assert.deepEqual(lampPositions(ring,125,indexAtlasRing(ring)),lampPositions(ring,125));
+});

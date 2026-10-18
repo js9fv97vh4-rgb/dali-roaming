@@ -2,8 +2,9 @@
 window.createDaliRoaming = config => {
   const dialog=document.getElementById('tour-dialog'), byId=Object.fromEntries(window.DALI_PLACES.map(p=>[p.id,p]));
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  let route,position=0,playing=false,frame=0,lastTime=0,current=-1,period='',finished=false,photoKey='',photoRequest=0,manualPhoto=null;
-  const $=selector=>dialog.querySelector(selector);
+  let route,position=0,playing=false,frame=0,lastTime=0,current=-1,period='',finished=false,photoKey='',photoRequest=0,manualPhoto=null,lastDraw=0,lastSecond=-1;
+  const elements=new Map();
+  const $=selector=>{if(!elements.has(selector))elements.set(selector,dialog.querySelector(selector));return elements.get(selector);};
   const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function resolve(id){
     if(id==='mine'){
@@ -17,6 +18,7 @@ window.createDaliRoaming = config => {
     if(dialog.open&&route?.id===next.id){seek(step>0?step+.27:0);return;}
     stop();route=next;current=-1;photoKey='';period='';position=Math.max(0,Math.min(route.stops.length,step>0?step+.27:0));finished=false;
     dialog.innerHTML=`<div class="tour-shell"><header class="tour-header"><div><span>YUNNAN ROAMING / 一镜漫游</span><h2 id="tour-title">${escape(route.name)}</h2></div><button data-tour-close aria-label="退出一镜漫游">返回地图 <b>×</b></button></header><div class="tour-stage"><div class="tour-map" id="tour-map"><div class="tour-map-fallback">正在展开山海…</div></div><figure class="tour-window"><img id="tour-photo-back" referrerpolicy="no-referrer" alt="" aria-hidden="true"><img id="tour-photo" referrerpolicy="no-referrer" alt=""><div class="tour-photo-controls"><button data-photo-prev aria-label="上一张实景照片">←</button><span id="tour-photo-count"></span><button data-photo-next aria-label="下一张实景照片">→</button><button data-photo-auto hidden aria-label="恢复照片自动切换">自动换图</button></div><div class="tour-window-shade"></div><div class="tour-location"><span id="tour-number"></span><span id="tour-period"></span></div><figcaption><span id="tour-en"></span><h3 id="tour-place"></h3><p id="tour-line"></p><p id="tour-photo-caption"></p><div class="tour-stop-actions"><button data-tour-album>走进实景 ↗</button><button data-tour-save></button></div><details class="tour-credit"><summary>这张照片的来源</summary><div id="tour-credit"></div></details></figcaption></figure></div><footer class="tour-timeline"><div class="tour-playbar"><button class="tour-play" data-tour-play></button><label class="tour-scrubber"><span class="sr-only">漫游进度</span><input type="range" min="0" max="${route.stops.length}" step="0.001" value="${position}" aria-label="漫游进度"></label><span class="tour-time"></span><button data-tour-route>收藏整段旅程 ＋</button></div><nav class="tour-stops" aria-label="跳转漫游站点">${route.stops.map((s,i)=>`<button data-tour-step="${i}" aria-current="false"><span>${String(i+1).padStart(2,'0')}</span>${escape(byId[s.id].name)}</button>`).join('')}</nav><p class="tour-note">${escape(route.plan)} · 实景为不同时刻的照片，光线为艺术化演绎 · 连线为叙事顺序，非道路导航</p><p class="tour-announcement sr-only" role="status" aria-live="polite"></p></footer></div>`;
+    elements.clear();lastSecond=-1;
     dialog.showModal();document.body.classList.add('dialog-open');
     attachMap();draw();setPlaying(!reduced.matches&&position<route.stops.length);
   }
@@ -40,6 +42,7 @@ window.createDaliRoaming = config => {
 
       $('.tour-announcement').textContent=`第${index+1}站，${p.name}。${station.line}`;
       dialog.querySelectorAll('[data-tour-step]').forEach((b,i)=>b.setAttribute('aria-current',i===index?'step':'false'));
+      $('input').setAttribute('aria-valuetext',`第 ${index+1} 站，${p.name}`);
       config.onPosition(route.id,index);syncSave();
     }
     const photos=config.gallery(p.id),shot=sampleDaliTourPhoto(photos,station.photo,progress,station.photos);
@@ -55,8 +58,8 @@ window.createDaliRoaming = config => {
     }
     $('#tour-photo').style.transform=reduced.matches||manualPhoto!==null?'none':`scale(${1+(progress*shot.count%1)*.045})`;
     $('input').value=position;
-    $('input').setAttribute('aria-valuetext',`第 ${index+1} 站，${p.name}`);
-    $('.tour-time').textContent=`${String(Math.floor(position*15)).padStart(2,'0')} / ${route.stops.length*15} 秒`;
+    const second=Math.floor(position*15);
+    if(second!==lastSecond){lastSecond=second;$('.tour-time').textContent=`${String(second).padStart(2,'0')} / ${route.stops.length*15} 秒`;}
     if(sample.ended&&!finished){finished=true;setPlaying(false);$('.tour-announcement').textContent='这一程已走完。可以收藏整段旅程，或重新出发。';}
     else if(!sample.ended&&finished){finished=false;$('.tour-announcement').textContent=`第${index+1}站，${p.name}。${station.line}`;}
   }
@@ -83,10 +86,12 @@ window.createDaliRoaming = config => {
   function tick(time){
     if(!playing||!dialog.open)return;
     if(lastTime&&!document.hidden)position=Math.min(route.stops.length,position+Math.min(.15,(time-lastTime)/1000)/15);
-    lastTime=time;draw();if(playing)frame=requestAnimationFrame(tick);
+    lastTime=time;
+    if(!lastDraw||time-lastDraw>=32||position===route.stops.length){lastDraw=time;draw();}
+    if(playing)frame=requestAnimationFrame(tick);
   }
   function setPlaying(value){
-    cancelAnimationFrame(frame);playing=value;lastTime=0;
+    cancelAnimationFrame(frame);playing=value;lastTime=0;lastDraw=0;
     const button=$('[data-tour-play]');if(button){button.textContent=finished?'↻ 再走一遍':playing?'Ⅱ 暂停':'▶ 继续';button.setAttribute('aria-label',finished?'重新播放漫游':playing?'暂停漫游':'继续漫游');}
     if(playing)frame=requestAnimationFrame(tick);
   }

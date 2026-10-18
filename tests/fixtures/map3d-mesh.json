@@ -1,0 +1,74 @@
+{
+  "terrain": {
+    "position": {
+      "length": 540147,
+      "sha256": "f59f0c52233b633cd8ca1fa9c56efc564a0bfa2e1f959e61a9e41cefc72618e8"
+    },
+    "normal": {
+      "length": 540147,
+      "sha256": "081e42e046d06f3ffc18f1466e852b115058cae1c0e306db5a536ab87e250942"
+    },
+    "color": {
+      "length": 540147,
+      "sha256": "70a9c928aad06c6f9bd11ef8f9b97d68e1f6e216b4370680c22ba8c112d8b5bd"
+    },
+    "index": {
+      "length": 1075200,
+      "sha256": "3d75d82e175d9771dbe990c57431374e5658dbf41683a30568a0fae506766e79"
+    }
+  },
+  "shore": {
+    "data": {
+      "length": 15360,
+      "sha256": "ccc8306e67b51e943816ac01243ac329783200d139d727245fc98bccd0416c55"
+    }
+  },
+  "landcover": {
+    "farmland": {
+      "position": {
+        "length": 17739,
+        "sha256": "4aaaaf3cb88fea34d23b488a47e25ae1f94a47f78a73b10f175346b39a5592a5"
+      },
+      "normal": {
+        "length": 17739,
+        "sha256": "8386af4f769880034cab208bc1886099aa58cbe7438d64204631d9b8b3d2630a"
+      }
+    },
+    "forest": {
+      "position": {
+        "length": 1917,
+        "sha256": "e0a573429e93941ac723ca63eb112f022dba16b9d268c181d01621f96705421a"
+      },
+      "normal": {
+        "length": 1917,
+        "sha256": "d7486fea5b035e22182ab56a43038d1d417e072e50ea504c2f735e7671852c7c"
+      }
+    },
+    "island": {
+      "position": {
+        "length": 1170,
+        "sha256": "13a0a6c61acec366555d5aa07cd068f9df743e856b78848d0946803d433ba058"
+      },
+      "normal": {
+        "length": 1170,
+        "sha256": "a8f3a8b3a42d1db02cb63fee71927b0b699110243cbff4323b73d04261ec7d4a"
+      }
+    }
+  },
+  "roads": {
+    "position": {
+      "length": 140526,
+      "sha256": "50e01566da110e2895930f45ae8ff0e6b9733599465ade0b1267ed36ceae0e6f"
+    }
+  },
+  "buildings": {
+    "position": {
+      "length": 301716,
+      "sha256": "9e6a9f9e907add133c08a79fdd5b9d8af783d6e9c62f4f49b248bfb447d50cf3"
+    },
+    "normal": {
+      "length": 301716,
+      "sha256": "0f3082fadaef728b22665fa55173dab2f920fcc98bf94e6962cf43e374c4dd31"
+    }
+  }
+}

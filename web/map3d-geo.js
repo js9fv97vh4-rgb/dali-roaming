@@ -26,7 +26,7 @@ export function elevation(dem, [longitude, latitude]) {
     + (dem.heights[n+dem.columns] * (1-fx) + dem.heights[n+dem.columns+1] * fx) * fy;
 }
 export function reliefHeight(dem, coords) { return (elevation(dem, coords) - dem.lakeLevel) / 1000 * RELIEF; }
-export function lampPositions(ring, count = 100) {
+export function lampPositions(ring, count = 100, contains = p => inRing(p, ring)) {
   const xs = ring.map(p => p[0]), ys = ring.map(p => p[1]);
   const left = Math.min(...xs), bottom = Math.min(...ys), width = Math.max(...xs)-left, height = Math.max(...ys)-bottom;
   let seed = 240315;
@@ -34,7 +34,7 @@ export function lampPositions(ring, count = 100) {
   const points = [];
   for (let i = 0; points.length < count && i < count * 100; i++) {
     const p = [left + random()*width, bottom + random()*height];
-    if (inRing(p, ring) && [[.0006,0],[-.0006,0],[0,.0006],[0,-.0006]].every(([x,y]) => inRing([p[0]+x,p[1]+y], ring))) points.push(p);
+    if (contains(p) && [[.0006,0],[-.0006,0],[0,.0006],[0,-.0006]].every(([x,y]) => contains([p[0]+x,p[1]+y]))) points.push(p);
   }
   return points;
 }

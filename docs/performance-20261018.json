@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-18",
+  "environment": {
+    "browser": "Headless Chrome",
+    "viewport": [
+      1280,
+      900
+    ],
+    "deviceScaleFactor": 1,
+    "cpuThrottlingRate": 4,
+    "cacheDisabled": true,
+    "server": "loopback HTTP",
+    "externalPhotos": "blocked in performance runs",
+    "gpu": "headless/SwiftShader configuration, not physical mobile GPU"
+  },
+  "runs": {
+    "before": [
+      {
+        "firstDraw": 3691.5,
+        "details": 4521.4000000059605,
+        "totalBlocking": 3644,
+        "frameP95": 2.7999999970197678,
+        "drawsPerSecond": null,
+        "errors": []
+      },
+      {
+        "firstDraw": 2497.2999999970198,
+        "details": 2923.2000000029802,
+        "totalBlocking": 2113,
+        "frameP95": 3.1000000089406967,
+        "drawsPerSecond": null,
+        "errors": []
+      },
+      {
+        "firstDraw": 2504.2000000029802,
+        "details": 2951.5999999940395,
+        "totalBlocking": 2153,
+        "frameP95": 2.6000000089406967,
+        "drawsPerSecond": 5748.502994011976,
+        "errors": []
+      }
+    ],
+    "after": [
+      {
+        "firstDraw": 632.1999999880791,
+        "details": 854.1999999880791,
+        "totalBlocking": 146,
+        "frameP95": 1.0999999940395355,
+        "drawsPerSecond": 1467.065868263473,
+        "errors": []
+      },
+      {
+        "firstDraw": 788.5999999940395,
+        "details": 1004.5999999940395,
+        "totalBlocking": 318,
+        "frameP95": 0.800000011920929,
+        "drawsPerSecond": 1467.065868263473,
+        "errors": []
+      },
+      {
+        "firstDraw": 622.0999999940395,
+        "details": 828.0999999940395,
+        "totalBlocking": 144,
+        "frameP95": 0.8999999910593033,
+        "drawsPerSecond": 1468.5314685314686,
+        "errors": []
+      }
+    ]
+  }
+}

@@ -55,7 +55,7 @@ test('photo beats are distinct, bounded, and resolve the curated new images',()=
 
 // Exercise the real controller with a deterministic frame clock and minimal DOM.
 async function roamingController(){
-  const elements=new Map(),listeners=new Map(),frames=new Map();let frameId=0,time=1000;
+  const elements=new Map(),listeners=new Map(),frames=new Map();let frameId=0,time=1000,poses=0;
   const node=()=>({style:{},dataset:{},attributes:{},textContent:'',value:0,hidden:false,
     setAttribute(name,value){this.attributes[name]=value;},animate(){}});
   const element=selector=>{if(!elements.has(selector))elements.set(selector,node());return elements.get(selector);};
@@ -69,7 +69,7 @@ async function roamingController(){
   };
   vm.createContext(context);vm.runInContext(await readFile('web/roaming.js','utf8'),context);
   const controller=context.window.createDaliRoaming({gallery:id=>scope.window.DALI_GALLERIES[id],credit:p=>p.caption,
-    getMap:()=>({mount(){},setAtmosphere(){},tourPose(){}}),onPosition(){},isStop:()=>false,getStops:()=>[]});
+    getMap:()=>({mount(){},setAtmosphere(){},tourPose(){poses++;}}),onPosition(){},isStop:()=>false,getStops:()=>[]});
   controller.open('shore');
   return {element,
     click(attribute,value=''){
@@ -77,7 +77,8 @@ async function roamingController(){
       listeners.get('click')({target:{closest:()=>button}});
     },
     seek(value){listeners.get('input')({target:{matches:()=>true,value}});},
-    advance(count=1){for(let i=0;i<count;i++){time+=150;const callbacks=[...frames.values()];frames.clear();callbacks.forEach(fn=>fn(time));}},
+    get poses(){return poses;},
+    advance(count=1,delta=150){for(let i=0;i<count;i++){time+=delta;const callbacks=[...frames.values()];frames.clear();callbacks.forEach(fn=>fn(time));}},
     isPlaying:()=>element('[data-tour-play]').attributes['aria-label']==='暂停漫游'
   };
 }
@@ -113,4 +114,16 @@ test('photo controls and seeking preserve an explicit pause or active playback',
   assert.equal(tour.isPlaying(),false);
   tour.click('data-tour-play');tour.advance(3);
   assert.equal(tour.isPlaying(),true);assert.ok(Number(tour.element('input').value)>1.27);
+});
+
+
+test('high-refresh displays keep tour time accurate without redundant camera updates',async()=>{
+  const tour=await roamingController();tour.advance(1,8);
+  const before=Number(tour.element('input').value),poses=tour.poses;
+  tour.advance(120,8);
+  const elapsed=(Number(tour.element('input').value)-before)*15;
+  assert.ok(elapsed>=.93&&elapsed<=.97,'display throttling must not slow the timeline');
+  assert.ok(tour.poses-poses<=31&&tour.poses-poses>=29,'125 Hz input produces about 30 camera updates per second');
+  tour.click('data-tour-play');const paused=tour.element('input').value;
+  tour.click('data-photo-next');tour.advance(120,8);assert.equal(tour.element('input').value,paused);
 });
