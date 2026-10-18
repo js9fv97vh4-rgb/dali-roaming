@@ -188,3 +188,11 @@
 - **喜洲古镇** — 喜洲白族院落内晾晒的彩色扎染布，白墙青瓦间的手艺日常。 作者：Luca Casartelli；[原作](https://commons.wikimedia.org/wiki/File:Xizhou_Town_(21005530058).jpg)；[CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0)。缩放、WebP 转码与缩略图制作；保留原许可。
 - **双廊古镇** — 双廊完全小学的校门与街边建筑，村镇日常的一角。 作者：N509FZ；[原作](https://commons.wikimedia.org/wiki/File:Shuanglang_Elementary_School_(20200123105740).jpg)；[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)。缩放、WebP 转码与缩略图制作；保留原许可。
 - **才村** — 从才村眺望洱海对岸的文笔村，湖面与海东山坡。 作者：Liuxingy；[原作](https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E7%90%86%E6%89%8D%E6%9D%91%E6%9C%9B%E5%90%91%E6%B4%B1%E6%B5%B7%E5%AF%B9%E5%B2%B8%E7%9A%84%E6%96%87%E7%AC%94%E6%9D%91.jpg)；[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)。缩放、WebP 转码与缩略图制作；保留原许可。
+
+
+## 2026-10-18 全景预览补图
+
+- **龙龛附近洱海西岸历史实景**：卢传雄，[原作](https://commons.wikimedia.org/wiki/File:云南-大理耳海_-_panoramio.jpg)，[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0)。源文件 GPS 位于龙龛代表点附近，拍摄日期以来源页为准；不作为实时景况。尺寸压缩、WebP 转码、缩略图和地图预览制作，保留原许可。
+- **周城白族建筑（2007 年）**：G41rn8，[原作](https://commons.wikimedia.org/wiki/File:Dali_2007_183.jpg)，[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)。历史建筑实景，不冒充 2025 年工坊照片。尺寸压缩、WebP 转码、缩略图和地图预览制作，保留原许可。
+
+`asset-sources.json` 的 `preview` 字段列出各照片 240 像素地图预览，预览与原照片采用相同许可。外链照片的小图仍由原始服务提供，未复制进发行包。

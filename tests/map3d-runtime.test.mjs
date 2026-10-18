@@ -83,3 +83,12 @@ test('indexed lamp placement preserves every original light and shoreline cleara
   const ring=context.window.DALI_MAP.lake;
   assert.deepEqual(lampPositions(ring,125,indexAtlasRing(ring)),lampPositions(ring,125));
 });
+
+test('panorama draws on demand and keeps its fullscreen framebuffer bounded',async()=>{
+  const {atlasNeedsAnimation,atlasViewPixelRatio}=await import('../web/map3d-runtime.js');
+  assert.equal(atlasNeedsAnimation('panorama',true,false),false);
+  assert.equal(atlasNeedsAnimation('explore',true,false),true);
+  assert.equal(atlasNeedsAnimation('night',true,false),true);
+  assert.equal(atlasNeedsAnimation('tour',true,true),false);
+  for(const [w,h,dpr] of [[1440,1000,2],[390,844,3],[3840,2160,2]])assert.ok(w*h*atlasViewPixelRatio(w,h,dpr,'panorama')**2<=1200000.01);
+});

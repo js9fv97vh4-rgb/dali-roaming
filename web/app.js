@@ -79,10 +79,14 @@
     }).join('')}<g transform="translate(602 122)"><path d="M0 18 5 0 10 18 5 14Z" fill="#668a8b"/><text x="5" y="-10" text-anchor="middle" class="map-compass">N</text></g></svg><div class="map-zoom-controls"><button data-zoom="in" aria-label="放大地图" ${ui.zoom>=2?'disabled':''}>＋</button><button data-zoom="out" aria-label="缩小地图" ${ui.zoom<=1?'disabled':''}>−</button><button data-zoom="reset" aria-label="显示全图">全图</button><button data-zoom="locate" aria-label="定位选中地点">定位</button></div>`;
   }
 
+  let panoramaPreviewObserver;
   function openPanorama(){
     if(!applyingView)return goView({page:'erhai',modal:'panorama'});
     if(map3D){
-      $('panorama-cards').innerHTML=places.map(p=>`<button data-scene="${p.id}" aria-label="打开${p.name}实景相册"><img referrerpolicy="no-referrer" src="${galleryFor(p.id)[0].thumb}" alt="" loading="lazy"><span>${p.name}</span></button>`).join('');
+      panoramaPreviewObserver?.disconnect();
+      $('panorama-cards').innerHTML=places.map(p=>`<button data-scene="${p.id}" aria-label="打开${p.name}实景相册"><img referrerpolicy="no-referrer" alt="" loading="lazy" decoding="async" width="216" height="144"><span>${p.name}</span></button>`).join('');
+      panoramaPreviewObserver=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){const img=entry.target;DaliPhotos.attach(img,DaliPhotos.preview(galleryFor(img.closest('[data-scene]').dataset.scene)));panoramaPreviewObserver.unobserve(img);}});
+      $('panorama-cards').querySelectorAll('img').forEach(img=>panoramaPreviewObserver.observe(img));
       $('panorama-title').textContent='山海之间 · 立体全景';
       document.querySelector('.panorama-intro').textContent='转动山海，点开照片，走进一处真实的风景。';
       $('panorama-dialog').showModal();document.body.classList.add('dialog-open');map3D.mount($('panorama-map'),'panorama');return;
@@ -318,7 +322,7 @@
   for(const dialog of document.querySelectorAll('dialog')){dialog.addEventListener('cancel',event=>{event.preventDefault();closeView();});dialog.addEventListener('close',()=>{if(dialog===sceneDialog)stopGallery();if(dialog.id==='walk-dialog')document.querySelector('.drawer-enter')?.focus({preventScroll:true});if(map3D&&['panorama-dialog','lantern-dialog','tour-dialog'].includes(dialog.id)&&!['panorama-dialog','lantern-dialog','tour-dialog'].some(id=>$(id).open)){map3D.mount($('lake-map'),'explore');map3D.setMotion(true);}if(!document.querySelector('dialog[open]'))document.body.classList.remove('dialog-open');});}
   window.addEventListener('hashchange',syncView);window.addEventListener('popstate',syncView);
   document.addEventListener('error',event=>{
-    const img=event.target;if(!(img instanceof HTMLImageElement)||img.dataset.fallback)return;
+    const img=event.target;if(!(img instanceof HTMLImageElement)||img.dataset.fallback||img.dataset.photoManaged)return;
     img.dataset.fallback='true';img.removeAttribute('srcset');img.src='assets/erhai.jpg';img.alt='原照片暂时无法加载，显示洱海全景参考图';
     const note=document.createElement('span');note.className='image-load-note';note.textContent='原图暂时无法加载 · 此处为洱海全景参考';img.insertAdjacentElement('afterend',note);
   },true);
@@ -334,9 +338,9 @@
     const loading=document.createElement('span');loading.className='map3d-loading';loading.textContent=attempt?'正在重新加载立体山海…':'正在下载 3D 引擎…';$('lake-map').append(loading);
     try {
       let importTimer;
-      const module=await Promise.race([import('./map3d.js?v=20261018-performance'),new Promise((resolve,reject)=>{importTimer=setTimeout(()=>reject(new Error('3D 引擎下载超时')),20000);})]).finally(()=>clearTimeout(importTimer));
+      const module=await Promise.race([import('./map3d.js?v=20261018-panorama'),new Promise((resolve,reject)=>{importTimer=setTimeout(()=>reject(new Error('3D 引擎下载超时')),20000);})]).finally(()=>clearTimeout(importTimer));
       map3D=await module.createAtlas($('lake-map'),{
-        places,entrances,geometry,gallery:id=>byId[id]?galleryFor(id):[],initialState:mapSnapshot(),selectPlace,selectEntrance,openScene,openWalk,drawerOpen:()=>ui.drawer,
+        places,entrances,geometry,gallery:id=>byId[id]?galleryFor(id):[],preview:id=>DaliPhotos.preview(galleryFor(id)),loadPreview:DaliPhotos.attach,initialState:mapSnapshot(),selectPlace,selectEntrance,openScene,openWalk,drawerOpen:()=>ui.drawer,
         onProgress:message=>{loading.textContent=message;},
         isCovered:()=>atlasCoverDialogs.some(dialog=>dialog.open)
       });

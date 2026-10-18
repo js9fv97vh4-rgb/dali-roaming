@@ -38,3 +38,10 @@ export function indexAtlasRing(ring) {
     return inside;
   };
 }
+
+// Fullscreen previews use a smaller framebuffer; the geographic mesh stays intact.
+export function atlasViewPixelRatio(width,height,ratio=1,mode='explore'){
+  const budget=mode==='panorama'?1200000:2400000;
+  return Math.min(atlasPixelRatio(width,height,ratio),Math.sqrt(budget/Math.max(1,width*height)));
+}
+export function atlasNeedsAnimation(mode,motion,reduced){return mode!=='panorama'&&motion&&!reduced;}

@@ -26,7 +26,10 @@
       "height": 2398,
       "thumbWidth": 960,
       "thumbHeight": 719,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/ancient-town-south-gate-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/ancient-town-renmin-road.webp",
@@ -41,7 +44,10 @@
       "height": 2406,
       "thumbWidth": 960,
       "thumbHeight": 722,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/ancient-town-renmin-road-preview.webp",
+      "previewWidth": 239,
+      "previewHeight": 180
     },
     {
       "src": "assets/ancient-town-night-street.webp",
@@ -56,7 +62,10 @@
       "height": 1536,
       "thumbWidth": 960,
       "thumbHeight": 720,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/ancient-town-night-street-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/ancient-town-wuhua-night.webp",
@@ -71,7 +80,10 @@
       "height": 1600,
       "thumbWidth": 720,
       "thumbHeight": 960,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/ancient-town-wuhua-night-preview.webp",
+      "previewWidth": 135,
+      "previewHeight": 180
     },
     {
       "src": "assets/ancient-town.jpg",
@@ -86,7 +98,10 @@
       "height": 1013,
       "thumbWidth": 960,
       "thumbHeight": 540,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/ancient-town-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "assets/caicun-02.webp",
@@ -101,7 +116,10 @@
       "height": 2133,
       "thumbWidth": 960,
       "thumbHeight": 640,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/caicun-02-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     },
     {
       "src": "assets/caicun-04.webp",
@@ -116,7 +134,10 @@
       "height": 2133,
       "thumbWidth": 960,
       "thumbHeight": 640,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/caicun-04-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     },
     {
       "src": "assets/caicun.jpg",
@@ -131,7 +152,10 @@
       "height": 1200,
       "thumbWidth": 960,
       "thumbHeight": 640,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/caicun-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     },
     {
       "src": "assets/panxi-commons-4.webp",
@@ -146,7 +170,10 @@
       "height": 1688,
       "thumbWidth": 960,
       "thumbHeight": 540,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/panxi-commons-4-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "assets/xizhou-square.webp",
@@ -161,7 +188,10 @@
       "height": 1855,
       "thumbWidth": 960,
       "thumbHeight": 557,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/xizhou-square-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 139
     },
     {
       "src": "assets/xizhou-bai-architecture.webp",
@@ -176,7 +206,10 @@
       "height": 1280,
       "thumbWidth": 960,
       "thumbHeight": 600,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/xizhou-bai-architecture-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 150
     },
     {
       "src": "assets/xizhou.jpg",
@@ -191,7 +224,10 @@
       "height": 1192,
       "thumbWidth": 960,
       "thumbHeight": 636,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/xizhou-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 159
     },
     {
       "src": "assets/xizhou-corner.webp",
@@ -206,7 +242,10 @@
       "height": 1800,
       "thumbWidth": 960,
       "thumbHeight": 540,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/xizhou-corner-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "assets/wenbi-gate.webp",
@@ -221,7 +260,10 @@
       "height": 1800,
       "thumbWidth": 960,
       "thumbHeight": 540,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/wenbi-gate-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "assets/xiaoputuo-island.webp",
@@ -236,7 +278,10 @@
       "height": 1440,
       "thumbWidth": 960,
       "thumbHeight": 432,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/xiaoputuo-island-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 108
     },
     {
       "src": "assets/xiaoputuo-boat.webp",
@@ -251,7 +296,10 @@
       "height": 2400,
       "thumbWidth": 960,
       "thumbHeight": 720,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/xiaoputuo-boat-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/xiaoputuo.jpg",
@@ -266,7 +314,10 @@
       "height": 1200,
       "thumbWidth": 960,
       "thumbHeight": 720,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/xiaoputuo-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/shuanglang-blue-lake.webp",
@@ -281,7 +332,10 @@
       "height": 1688,
       "thumbWidth": 960,
       "thumbHeight": 540,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/shuanglang-blue-lake-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "assets/shuanglang-south.webp",
@@ -296,7 +350,10 @@
       "height": 2133,
       "thumbWidth": 960,
       "thumbHeight": 640,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/shuanglang-south-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     },
     {
       "src": "assets/shuanglang-lakeside.webp",
@@ -311,7 +368,10 @@
       "height": 2091,
       "thumbWidth": 960,
       "thumbHeight": 627,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/shuanglang-lakeside-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 157
     },
     {
       "src": "assets/shuanglang.jpg",
@@ -326,7 +386,10 @@
       "height": 1013,
       "thumbWidth": 960,
       "thumbHeight": 540,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/shuanglang-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "assets/santasi-sunrays.webp",
@@ -341,7 +404,10 @@
       "height": 2126,
       "thumbWidth": 960,
       "thumbHeight": 638,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/santasi-sunrays-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     },
     {
       "src": "assets/santasi-reflection.webp",
@@ -356,7 +422,10 @@
       "height": 1944,
       "thumbWidth": 960,
       "thumbHeight": 720,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/santasi-reflection-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/santasi-pond.webp",
@@ -371,7 +440,10 @@
       "height": 2304,
       "thumbWidth": 960,
       "thumbHeight": 720,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/santasi-pond-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/cangshan-qingbixi.webp",
@@ -386,7 +458,10 @@
       "height": 2400,
       "thumbWidth": 960,
       "thumbHeight": 720,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/cangshan-qingbixi-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/cangshan-gantong-gate.webp",
@@ -401,7 +476,10 @@
       "height": 1800,
       "thumbWidth": 960,
       "thumbHeight": 540,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/cangshan-gantong-gate-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "assets/jizhaoan-commons-1.webp",
@@ -416,7 +494,10 @@
       "height": 1350,
       "thumbWidth": 960,
       "thumbHeight": 432,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/jizhaoan-commons-1-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 108
     },
     {
       "src": "assets/jizhaoan-commons-2.webp",
@@ -431,7 +512,10 @@
       "height": 3000,
       "thumbWidth": 540,
       "thumbHeight": 960,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/jizhaoan-commons-2-preview.webp",
+      "previewWidth": 101,
+      "previewHeight": 180
     },
     {
       "src": "assets/haishe-01.webp",
@@ -446,7 +530,10 @@
       "height": 1440,
       "thumbWidth": 960,
       "thumbHeight": 432,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/haishe-01-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 108
     },
     {
       "src": "assets/haishe-02.webp",
@@ -461,7 +548,10 @@
       "height": 1440,
       "thumbWidth": 960,
       "thumbHeight": 432,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/haishe-02-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 108
     },
     {
       "src": "assets/wase-temple.webp",
@@ -476,7 +566,10 @@
       "height": 2403,
       "thumbWidth": 960,
       "thumbHeight": 721,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/wase-temple-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/wase-tower.webp",
@@ -491,7 +584,10 @@
       "height": 2412,
       "thumbWidth": 721,
       "thumbHeight": 960,
-      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可"
+      "changes": "尺寸压缩、WebP 转码及缩略图生成；照片保持原许可",
+      "preview": "assets/wase-tower-preview.webp",
+      "previewWidth": 135,
+      "previewHeight": 180
     },
     {
       "src": "assets/xizhou-harvest.webp",
@@ -508,7 +604,10 @@
       "position": "center",
       "period": "day",
       "place": "喜洲古镇",
-      "changes": "缩放及 WebP 转码；照片保留原许可"
+      "changes": "缩放及 WebP 转码；照片保留原许可",
+      "preview": "assets/xizhou-harvest-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 159
     },
     {
       "src": "assets/haishe-autumn.webp",
@@ -525,7 +624,10 @@
       "position": "center",
       "period": "day",
       "place": "海舌公园",
-      "changes": "缩放及 WebP 转码；照片保留原许可"
+      "changes": "缩放及 WebP 转码；照片保留原许可",
+      "preview": "assets/haishe-autumn-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/xizhou-baba.webp",
@@ -542,7 +644,10 @@
       "position": "center",
       "period": "day",
       "place": "喜洲古镇",
-      "changes": "缩放及 WebP 转码；照片保留原许可"
+      "changes": "缩放及 WebP 转码；照片保留原许可",
+      "preview": "assets/xizhou-baba-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/xizhou-rushan.webp",
@@ -559,7 +664,10 @@
       "position": "center",
       "period": "day",
       "place": "喜洲古镇",
-      "changes": "缩放及 WebP 转码；照片保留原许可"
+      "changes": "缩放及 WebP 转码；照片保留原许可",
+      "preview": "assets/xizhou-rushan-preview.webp",
+      "previewWidth": 119,
+      "previewHeight": 180
     },
     {
       "src": "assets/xizhou-courtyard.webp",
@@ -576,7 +684,10 @@
       "position": "center",
       "period": "day",
       "place": "喜洲古镇",
-      "changes": "缩放及 WebP 转码；照片保留原许可"
+      "changes": "缩放及 WebP 转码；照片保留原许可",
+      "preview": "assets/xizhou-courtyard-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "assets/shuanglang-school.webp",
@@ -593,7 +704,10 @@
       "position": "center",
       "period": "day",
       "place": "双廊古镇",
-      "changes": "缩放及 WebP 转码；照片保留原许可"
+      "changes": "缩放及 WebP 转码；照片保留原许可",
+      "preview": "assets/shuanglang-school-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     },
     {
       "src": "assets/caicun-east-shore.webp",
@@ -610,7 +724,51 @@
       "position": "center",
       "period": "day",
       "place": "才村",
-      "changes": "缩放及 WebP 转码；照片保留原许可"
+      "changes": "缩放及 WebP 转码；照片保留原许可",
+      "preview": "assets/caicun-east-shore-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
+    },
+    {
+      "src": "assets/longkan-shore-archive.webp",
+      "thumb": "assets/longkan-shore-archive-thumb.webp",
+      "preview": "assets/longkan-shore-archive-preview.webp",
+      "caption": "龙龛附近洱海西岸的历史实景；拍摄时间以来源页为准。",
+      "author": "卢传雄",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:云南-大理耳海 - panoramio.jpg",
+      "width": 700,
+      "height": 509,
+      "thumbWidth": 700,
+      "thumbHeight": 509,
+      "previewWidth": 240,
+      "previewHeight": 175,
+      "position": "center",
+      "period": "day",
+      "place": "龙龛码头",
+      "changes": "尺寸压缩、WebP 转码、缩略图与地图预览生成；照片保持原许可"
+    },
+    {
+      "src": "assets/zhoucheng-bai-archive.webp",
+      "thumb": "assets/zhoucheng-bai-archive-thumb.webp",
+      "preview": "assets/zhoucheng-bai-archive-preview.webp",
+      "caption": "周城白族民居建筑，2007 年历史实景。",
+      "author": "G41rn8",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dali 2007 183.jpg",
+      "width": 2400,
+      "height": 1800,
+      "thumbWidth": 960,
+      "thumbHeight": 720,
+      "previewWidth": 240,
+      "previewHeight": 180,
+      "position": "center",
+      "period": "day",
+      "shotDate": "2007",
+      "place": "周城村",
+      "changes": "尺寸压缩、WebP 转码、缩略图与地图预览生成；照片保持原许可"
     }
   ],
   "originalArt": {

@@ -1,6 +1,6 @@
 import * as THREE from './vendor/three/three.module.js';
 import { createMeshBuilder } from './map3d-builder.js';
-import { loadAtlasJSON, atlasPixelRatio, createAtlasRenderer, indexAtlasRing } from './map3d-runtime.js';
+import { loadAtlasJSON, atlasViewPixelRatio, atlasNeedsAnimation, createAtlasRenderer, indexAtlasRing } from './map3d-runtime.js?v=20261018-panorama';
 import { OrbitControls } from './vendor/three/OrbitControls.js';
 import { project, elevation, reliefHeight, lampPositions, tourCamera } from './map3d-geo.js';
 
@@ -158,14 +158,14 @@ export async function createAtlas(host, config) {
   const addMarker=(p,entry=false)=>{
     const button=document.createElement('button');button.type='button';button.className='atlas-marker'+(entry?' atlas-entry':'');
     button.dataset.node=p.id;button.setAttribute('aria-label',entry?`从${p.name}开始`:`查看${p.name}`);
-    const photo=config.gallery(p.id)?.[0];
-    button.innerHTML=entry?`<b>${icon[p.id]}</b><span>${escapeHTML(p.short)}</span>`:`${photo?`<img src="${escapeHTML(photo.thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer">`:''}<i></i><span>${escapeHTML(p.name)}</span>`;
+    const photo=entry?null:config.preview(p.id);
+    button.innerHTML=entry?`<b>${icon[p.id]}</b><span>${escapeHTML(p.short)}</span>`:`${photo?`<img alt="" width="216" height="144" decoding="async" referrerpolicy="no-referrer">`:''}<i></i><span>${escapeHTML(p.name)}</span>`;
     button.addEventListener('click',event=>{event.stopPropagation();if(entry)config.selectEntrance(p.id);else {config.selectPlace(p.id);if(mode==='panorama')config.openScene(p.id);}});
     labels.append(button);
     const anchor=worldPoint(p.coords,.3),pin=new THREE.Mesh(pinGeometry,pinMaterial);pin.position.copy(worldPoint(p.coords,.12));world.add(pin);
     const stemGeo=new THREE.BufferGeometry().setFromPoints([pin.position,anchor]);const stem=new THREE.Line(stemGeo,new THREE.LineBasicMaterial({color:'#f7f8ea',transparent:true,opacity:.65}));world.add(stem);
     const connector=document.createElementNS('http://www.w3.org/2000/svg','line');connectors.append(connector);
-    markers.push({p,button,anchor,pin,stem,entry,connector});
+    markers.push({p,button,anchor,pin,stem,entry,connector,photo});
   };
   config.places.forEach(p=>addMarker(p));config.entrances.forEach(p=>addMarker(p,true));
   const areaLabels=[];
@@ -225,6 +225,7 @@ export async function createAtlas(host, config) {
         else hidden=true;
       }
       button.hidden=hidden;connector.style.display=hidden?'none':'';
+      if(!hidden&&photo)config.loadPreview(button.querySelector('img'),marker.photo);
       if(!hidden){button.style.left=`${lx}px`;button.style.top=`${ly}px`;connector.setAttribute('x1',x);connector.setAttribute('y1',y);connector.setAttribute('x2',lx);connector.setAttribute('y2',ly+itemHeight/2);}
     }
     for(const {el,anchor} of areaLabels){const p=projected.copy(anchor).project(camera);el.style.left=`${(p.x*.5+.5)*width}px`;el.style.top=`${(-p.y*.5+.5)*height}px`;el.hidden=p.z>1;}
@@ -276,7 +277,7 @@ export async function createAtlas(host, config) {
   }
   function resize(){
     const bounds=root.getBoundingClientRect();if(!bounds.width||!bounds.height)return;
-    const ratio=atlasPixelRatio(bounds.width,bounds.height,devicePixelRatio||1);
+    const ratio=atlasViewPixelRatio(bounds.width,bounds.height,devicePixelRatio||1,mode);
     if(width===bounds.width&&height===bounds.height&&renderer.getPixelRatio()===ratio)return;
     const oldAspect=width/height;width=bounds.width;height=bounds.height;
     if(renderer.getPixelRatio()!==ratio)renderer.setPixelRatio(ratio);renderer.setSize(width,height,false);lampMat.uniforms.uRatio.value=renderer.getPixelRatio();camera.aspect=width/height;camera.updateProjectionMatrix();
@@ -293,6 +294,7 @@ export async function createAtlas(host, config) {
   }
   function setMode(next){
     mode=next;destinationRing.visible=next==='tour';
+    if(next==='panorama')for(const {button} of markers){const img=button.querySelector('img');if(img?.dataset.photoState==='failed'){delete img.dataset.photoState;img.hidden=false;button.querySelector('.photo-unavailable')?.remove();}}
     if(next!=='tour')for(const {p,button,entry} of markers){button.classList.remove('tour-current');const active=entry?state.entrance===p.id:state.selected===p.id;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));}
     const night=next==='night';root.dataset.mode=next;
     setAtmosphere(night?'night':mainView?.atmosphere||atmosphere);
@@ -321,7 +323,7 @@ export async function createAtlas(host, config) {
     if(disposed)return;animationId=requestAnimationFrame(frame);
     if(document.hidden||!visible||root.dataset.ready==='false'||config.isCovered())return;
     if(now-lastFrame<32)return;const delta=Math.min((now-lastFrame)/1000,.1);lastFrame=now;
-    const animate=motion&&!reducedMotion.matches;
+    const animate=atlasNeedsAnimation(mode,motion,reducedMotion.matches);
     if(animate)clock+=delta;
     if(transition){const t=Math.min(1,(now-transition.start)/1000),ease=t*t*(3-2*t);camera.position.lerpVectors(transition.from,transition.to,ease);controls.target.lerpVectors(transition.targetFrom,transition.targetTo,ease);if(t===1)transition=null;dirty=true;}
     controls.update();

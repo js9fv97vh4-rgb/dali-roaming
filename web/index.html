@@ -10,29 +10,30 @@
     if (location.protocol === 'file:') location.replace('../index.html' + location.hash);
   </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23163c43'/%3E%3Cpath d='M12 42Q24 30 34 39T54 36M12 50Q24 38 34 47T54 44' fill='none' stroke='%23a9d4db' stroke-width='4'/%3E%3Cpath d='m32 9 4 9 10 1-8 7 2 10-8-5-9 5 2-10-7-7 10-1z' fill='%23e16a54'/%3E%3C/svg%3E">
-  <link rel="modulepreload" href="map3d.js?v=20261018-performance" fetchpriority="high">
+  <link rel="modulepreload" href="map3d.js?v=20261018-panorama" fetchpriority="high">
   <link rel="modulepreload" href="vendor/three/three.module.js">
   <link rel="modulepreload" href="vendor/three/three.core.js">
   <link rel="preload" href="terrain/erhai-dem.json" as="fetch" crossorigin="anonymous" fetchpriority="high">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="upgrade.css">
   <link rel="stylesheet" href="heritage.css">
-  <link rel="stylesheet" href="map3d.css">
+  <link rel="stylesheet" href="map3d.css?v=20261018-panorama">
   <link rel="stylesheet" href="immersion.css">
   <link rel="stylesheet" href="landing.css">
   <link rel="stylesheet" href="roaming.css">
   <script src="map-data.js" defer></script>
   <script src="prefecture-data.js" defer></script>
   <script src="province-atlas.js" defer></script>
-  <script src="places.js" defer></script>
+  <script src="places.js?v=20261018-panorama" defer></script>
   <script src="journey-core.js" defer></script>
-  <script src="gallery-data.js" defer></script>
+  <script src="gallery-data.js?v=20261018-panorama" defer></script>
+  <script src="photo-loader.js?v=20261018-panorama" defer></script>
   <script src="lantern-data.js" defer></script>
   <script src="town-story.js" defer></script>
   <script src="view-routes.js" defer></script>
   <script src="roaming-data.js" defer></script>
   <script src="roaming.js" defer></script>
-  <script src="app.js?v=20261018-performance" defer></script>
+  <script src="app.js?v=20261018-panorama" defer></script>
 </head>
 <body data-page="yunnan">
   <a class="skip-link" href="#main">跳到地图</a>

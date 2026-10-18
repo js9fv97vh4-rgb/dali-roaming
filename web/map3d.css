@@ -93,3 +93,10 @@
 .panorama-toolbar>button{flex-shrink:0;white-space:nowrap}@media(max-width:720px){.panorama-toolbar h2{font-size:20px;letter-spacing:1px}}
 
 .map3d-fallback{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.map3d-fallback p{margin:0}.map3d-fallback button{border:1px solid #9db2a6;background:#f7faf3;color:#285448;padding:9px 15px;border-radius:6px;cursor:pointer}
+
+/* A still panorama paints on demand; opaque controls avoid filtering the canvas. */
+.atlas3d[data-mode=panorama] .atlas-tools,.atlas3d[data-mode=panorama] .atlas-views,.atlas3d[data-mode=panorama] .atlas-time{backdrop-filter:none;background:#f9fcf6}
+.atlas3d[data-mode=panorama] .atlas-connectors line{filter:none}
+.atlas3d[data-mode=panorama] .atlas-marker img:not([data-photo-state=ready]){background:linear-gradient(135deg,#dbe5d7,#b6cdc4)}
+.photo-unavailable{display:flex;align-items:center;justify-content:center;min-height:34px;padding:4px;font-size:9px;color:#526c63;background:#e3ebe0;white-space:normal}
+.atlas3d[data-mode=panorama] .atlas-marker:has(.photo-unavailable){min-height:60px}

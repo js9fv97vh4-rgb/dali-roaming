@@ -1,4 +1,4 @@
-/* Distributed licensed photographs and original-source remote references. See asset-sources.json. */
+/* Licensed local photos and original-source references. See asset-sources.json. */
 window.DALI_GALLERIES = {
   "fengyangyi": [
     {
@@ -13,7 +13,8 @@ window.DALI_GALLERIES = {
       "height": 1050,
       "position": "center",
       "remote": true,
-      "redistributed": false
+      "redistributed": false,
+      "preview": "https://img-cdn.yndaily.com/catchimages/20250806/1754466316464045325.jpg?x-image-process=image%2Fresize%2Cw_320%2Fquality%2Cq_65%2Fstrip"
     },
     {
       "src": "https://img-cdn.yndaily.com/catchimages/20250806/1754466319815074270.jpg?x-image-process=image/quality,q_95/strip",
@@ -27,7 +28,8 @@ window.DALI_GALLERIES = {
       "height": 1050,
       "position": "center",
       "remote": true,
-      "redistributed": false
+      "redistributed": false,
+      "preview": "https://img-cdn.yndaily.com/catchimages/20250806/1754466319815074270.jpg?x-image-process=image%2Fresize%2Cw_320%2Fquality%2Cq_65%2Fstrip"
     }
   ],
   "ancient-town": [
@@ -44,7 +46,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 719
+      "thumbHeight": 719,
+      "preview": "assets/ancient-town-south-gate-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/ancient-town-renmin-road.webp",
@@ -59,7 +64,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 722
+      "thumbHeight": 722,
+      "preview": "assets/ancient-town-renmin-road-preview.webp",
+      "previewWidth": 239,
+      "previewHeight": 180
     },
     {
       "src": "assets/ancient-town-night-street.webp",
@@ -74,7 +82,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "night",
       "thumbWidth": 960,
-      "thumbHeight": 720
+      "thumbHeight": 720,
+      "preview": "assets/ancient-town-night-street-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/ancient-town-wuhua-night.webp",
@@ -89,7 +100,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "night",
       "thumbWidth": 720,
-      "thumbHeight": 960
+      "thumbHeight": 960,
+      "preview": "assets/ancient-town-wuhua-night-preview.webp",
+      "previewWidth": 135,
+      "previewHeight": 180
     },
     {
       "src": "assets/ancient-town.jpg",
@@ -103,10 +117,31 @@ window.DALI_GALLERIES = {
       "height": 1013,
       "position": "center",
       "thumbWidth": 960,
-      "thumbHeight": 540
+      "thumbHeight": 540,
+      "preview": "assets/ancient-town-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     }
   ],
   "longkan": [
+    {
+      "src": "assets/longkan-shore-archive.webp",
+      "thumb": "assets/longkan-shore-archive-thumb.webp",
+      "preview": "assets/longkan-shore-archive-preview.webp",
+      "caption": "龙龛附近洱海西岸的历史实景；拍摄时间以来源页为准。",
+      "author": "卢传雄",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:云南-大理耳海 - panoramio.jpg",
+      "width": 700,
+      "height": 509,
+      "thumbWidth": 700,
+      "thumbHeight": 509,
+      "previewWidth": 240,
+      "previewHeight": 175,
+      "position": "center",
+      "period": "day"
+    },
     {
       "src": "https://tr-osdcp.qunarzz.com/tr-osd-tr-space/img/975cf5e59a6a4299d52d8a098cd31547.jpg",
       "thumb": "https://tr-osdcp.qunarzz.com/tr-osd-tr-space/img/975cf5e59a6a4299d52d8a098cd31547.jpg",
@@ -164,7 +199,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 640
+      "thumbHeight": 640,
+      "preview": "assets/caicun-02-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     },
     {
       "src": "assets/caicun-04.webp",
@@ -179,7 +217,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 640
+      "thumbHeight": 640,
+      "preview": "assets/caicun-04-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     },
     {
       "src": "assets/caicun.jpg",
@@ -193,7 +234,10 @@ window.DALI_GALLERIES = {
       "height": 1200,
       "position": "center",
       "thumbWidth": 960,
-      "thumbHeight": 640
+      "thumbHeight": 640,
+      "preview": "assets/caicun-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     },
     {
       "src": "assets/caicun-east-shore.webp",
@@ -208,7 +252,10 @@ window.DALI_GALLERIES = {
       "thumbWidth": 720,
       "thumbHeight": 480,
       "position": "center",
-      "period": "day"
+      "period": "day",
+      "preview": "assets/caicun-east-shore-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     }
   ],
   "panxi": [
@@ -253,7 +300,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "caption": "磻溪村沿路风景 · 珠联阁（非 S 弯机位）",
       "thumbWidth": 960,
-      "thumbHeight": 540
+      "thumbHeight": 540,
+      "preview": "assets/panxi-commons-4-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     }
   ],
   "xizhou": [
@@ -270,7 +320,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 557
+      "thumbHeight": 557,
+      "preview": "assets/xizhou-square-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 139
     },
     {
       "src": "assets/xizhou-bai-architecture.webp",
@@ -285,7 +338,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 600
+      "thumbHeight": 600,
+      "preview": "assets/xizhou-bai-architecture-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 150
     },
     {
       "src": "assets/xizhou.jpg",
@@ -299,7 +355,10 @@ window.DALI_GALLERIES = {
       "height": 1192,
       "position": "center",
       "thumbWidth": 960,
-      "thumbHeight": 636
+      "thumbHeight": 636,
+      "preview": "assets/xizhou-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 159
     },
     {
       "src": "assets/xizhou-corner.webp",
@@ -314,7 +373,10 @@ window.DALI_GALLERIES = {
       "width": 3200,
       "height": 1800,
       "thumbWidth": 960,
-      "thumbHeight": 540
+      "thumbHeight": 540,
+      "preview": "assets/xizhou-corner-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "assets/xizhou-harvest.webp",
@@ -329,7 +391,10 @@ window.DALI_GALLERIES = {
       "thumbWidth": 720,
       "thumbHeight": 477,
       "position": "center",
-      "period": "day"
+      "period": "day",
+      "preview": "assets/xizhou-harvest-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 159
     },
     {
       "src": "assets/xizhou-baba.webp",
@@ -344,7 +409,10 @@ window.DALI_GALLERIES = {
       "thumbWidth": 720,
       "thumbHeight": 540,
       "position": "center",
-      "period": "day"
+      "period": "day",
+      "preview": "assets/xizhou-baba-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/xizhou-rushan.webp",
@@ -359,7 +427,10 @@ window.DALI_GALLERIES = {
       "thumbWidth": 477,
       "thumbHeight": 720,
       "position": "center",
-      "period": "day"
+      "period": "day",
+      "preview": "assets/xizhou-rushan-preview.webp",
+      "previewWidth": 119,
+      "previewHeight": 180
     },
     {
       "src": "assets/xizhou-courtyard.webp",
@@ -374,7 +445,10 @@ window.DALI_GALLERIES = {
       "thumbWidth": 720,
       "thumbHeight": 405,
       "position": "center",
-      "period": "day"
+      "period": "day",
+      "preview": "assets/xizhou-courtyard-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     }
   ],
   "wenbi": [
@@ -391,7 +465,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 540
+      "thumbHeight": 540,
+      "preview": "assets/wenbi-gate-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "https://img-cdn.yndaily.com/catchimages/20251126/1764152367475032978.jpg?x-image-process=image%2Fquality%2Cq_95%2Fstrip%2Fstrip",
@@ -405,7 +482,8 @@ window.DALI_GALLERIES = {
       "licenseUrl": null,
       "position": "center",
       "remote": true,
-      "redistributed": false
+      "redistributed": false,
+      "preview": "https://img-cdn.yndaily.com/catchimages/20251126/1764152367475032978.jpg?x-image-process=image%2Fresize%2Cw_320%2Fquality%2Cq_65%2Fstrip"
     }
   ],
   "xiaoputuo": [
@@ -422,7 +500,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 432
+      "thumbHeight": 432,
+      "preview": "assets/xiaoputuo-island-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 108
     },
     {
       "src": "assets/xiaoputuo-boat.webp",
@@ -437,7 +518,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 720
+      "thumbHeight": 720,
+      "preview": "assets/xiaoputuo-boat-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/xiaoputuo.jpg",
@@ -451,7 +535,10 @@ window.DALI_GALLERIES = {
       "height": 1200,
       "position": "78% center",
       "thumbWidth": 960,
-      "thumbHeight": 720
+      "thumbHeight": 720,
+      "preview": "assets/xiaoputuo-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     }
   ],
   "shuanglang": [
@@ -468,7 +555,10 @@ window.DALI_GALLERIES = {
       "width": 3000,
       "height": 1688,
       "thumbWidth": 960,
-      "thumbHeight": 540
+      "thumbHeight": 540,
+      "preview": "assets/shuanglang-blue-lake-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "assets/shuanglang-south.webp",
@@ -483,7 +573,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 640
+      "thumbHeight": 640,
+      "preview": "assets/shuanglang-south-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     },
     {
       "src": "assets/shuanglang-lakeside.webp",
@@ -498,7 +591,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 627
+      "thumbHeight": 627,
+      "preview": "assets/shuanglang-lakeside-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 157
     },
     {
       "src": "assets/shuanglang.jpg",
@@ -512,7 +608,10 @@ window.DALI_GALLERIES = {
       "height": 1013,
       "position": "center",
       "thumbWidth": 960,
-      "thumbHeight": 540
+      "thumbHeight": 540,
+      "preview": "assets/shuanglang-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     },
     {
       "src": "assets/shuanglang-school.webp",
@@ -527,10 +626,32 @@ window.DALI_GALLERIES = {
       "thumbWidth": 720,
       "thumbHeight": 480,
       "position": "center",
-      "period": "day"
+      "period": "day",
+      "preview": "assets/shuanglang-school-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     }
   ],
   "zhoucheng": [
+    {
+      "src": "assets/zhoucheng-bai-archive.webp",
+      "thumb": "assets/zhoucheng-bai-archive-thumb.webp",
+      "preview": "assets/zhoucheng-bai-archive-preview.webp",
+      "caption": "周城白族民居建筑，2007 年历史实景。",
+      "author": "G41rn8",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dali 2007 183.jpg",
+      "width": 2400,
+      "height": 1800,
+      "thumbWidth": 960,
+      "thumbHeight": 720,
+      "previewWidth": 240,
+      "previewHeight": 180,
+      "position": "center",
+      "period": "day",
+      "shotDate": "2007"
+    },
     {
       "src": "https://www.xinhuanet.com/photo/20251122/60577af78eeb4681a387f395f0cbd934/2025112260577af78eeb4681a387f395f0cbd934_20251122de1113fa559745e1b606e422602ec98f.jpg",
       "thumb": "https://www.xinhuanet.com/photo/20251122/60577af78eeb4681a387f395f0cbd934/2025112260577af78eeb4681a387f395f0cbd934_20251122de1113fa559745e1b606e422602ec98f.jpg",
@@ -594,7 +715,10 @@ window.DALI_GALLERIES = {
       "width": 3200,
       "height": 2126,
       "thumbWidth": 960,
-      "thumbHeight": 638
+      "thumbHeight": 638,
+      "preview": "assets/santasi-sunrays-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 160
     },
     {
       "src": "assets/santasi-reflection.webp",
@@ -609,7 +733,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 720
+      "thumbHeight": 720,
+      "preview": "assets/santasi-reflection-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/santasi-pond.webp",
@@ -624,7 +751,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 720
+      "thumbHeight": 720,
+      "preview": "assets/santasi-pond-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     }
   ],
   "cangshan": [
@@ -641,7 +771,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 720
+      "thumbHeight": 720,
+      "preview": "assets/cangshan-qingbixi-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/cangshan-gantong-gate.webp",
@@ -656,7 +789,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 540
+      "thumbHeight": 540,
+      "preview": "assets/cangshan-gantong-gate-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 135
     }
   ],
   "jizhaoan": [
@@ -673,7 +809,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "caption": "寂照庵大雄宝殿与庭院",
       "thumbWidth": 960,
-      "thumbHeight": 432
+      "thumbHeight": 432,
+      "preview": "assets/jizhaoan-commons-1-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 108
     },
     {
       "title": "File:寂照庵山门.jpg",
@@ -688,7 +827,10 @@ window.DALI_GALLERIES = {
       "position": "center",
       "caption": "寂照庵山门与苍山林荫",
       "thumbWidth": 540,
-      "thumbHeight": 960
+      "thumbHeight": 960,
+      "preview": "assets/jizhaoan-commons-2-preview.webp",
+      "previewWidth": 101,
+      "previewHeight": 180
     }
   ],
   "wase": [
@@ -705,7 +847,10 @@ window.DALI_GALLERIES = {
       "position": "50% 50%",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 721
+      "thumbHeight": 721,
+      "preview": "assets/wase-temple-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     },
     {
       "src": "assets/wase-tower.webp",
@@ -720,7 +865,10 @@ window.DALI_GALLERIES = {
       "position": "50% 35%",
       "period": "day",
       "thumbWidth": 721,
-      "thumbHeight": 960
+      "thumbHeight": 960,
+      "preview": "assets/wase-tower-preview.webp",
+      "previewWidth": 135,
+      "previewHeight": 180
     }
   ],
   "haishe": [
@@ -737,7 +885,10 @@ window.DALI_GALLERIES = {
       "position": "50% 50%",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 432
+      "thumbHeight": 432,
+      "preview": "assets/haishe-01-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 108
     },
     {
       "src": "assets/haishe-02.webp",
@@ -752,7 +903,10 @@ window.DALI_GALLERIES = {
       "position": "50% 50%",
       "period": "day",
       "thumbWidth": 960,
-      "thumbHeight": 432
+      "thumbHeight": 432,
+      "preview": "assets/haishe-02-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 108
     },
     {
       "src": "assets/haishe-autumn.webp",
@@ -767,7 +921,10 @@ window.DALI_GALLERIES = {
       "thumbWidth": 720,
       "thumbHeight": 540,
       "position": "center",
-      "period": "day"
+      "period": "day",
+      "preview": "assets/haishe-autumn-preview.webp",
+      "previewWidth": 240,
+      "previewHeight": 180
     }
   ]
 };

@@ -27,7 +27,7 @@ test('every scenic gallery is complete and declares local or external photo righ
       }else{
         assert.match(p.license,/^(CC BY-SA (2\.0|3\.0|4\.0)|CC0(?: 1\.0)?|Public domain|Unsplash License)$/);
         assert.ok(p.licenseUrl&&local.has(p.src));
-        for(const file of [p.src,p.thumb])await fs.access('web/'+file);
+        for(const file of [p.src,p.thumb,p.preview].filter(Boolean))await fs.access('web/'+file);
         assert.equal(local.get(p.src).width,p.width);
         assert.equal(local.get(p.src).height,p.height);
         assert.ok(p.thumbWidth>0&&p.thumbHeight>0);
@@ -42,10 +42,11 @@ test('every scenic gallery is complete and declares local or external photo righ
   }
   visited.add(ctx.window.DALI_OVERVIEW.image);
   assert.equal(visited.size,local.size+remote.size);
-  const declared=new Set(manifest.photos.flatMap(p=>[p.src,p.thumb].filter(Boolean)).concat(['assets/dali-indigo-ui-texture.webp']));
+  const declared=new Set(manifest.photos.flatMap(p=>[p.src,p.thumb,p.preview].filter(Boolean)).concat(['assets/dali-indigo-ui-texture.webp']));
   for(const name of (await fs.readdir('web/assets')).filter(n=>/\.(?:webp|jpg|png)$/.test(n)))assert.ok(declared.has('assets/'+name),'unlisted image '+name);
-  assert.equal(ctx.window.DALI_GALLERIES.zhoucheng.length,3);
-  assert.ok(ctx.window.DALI_GALLERIES.zhoucheng.every(p=>p.shotDate==='2025-11-21'));
+  assert.equal(ctx.window.DALI_GALLERIES.zhoucheng.filter(p=>p.remote).length,3);
+  assert.ok(ctx.window.DALI_GALLERIES.zhoucheng.filter(p=>p.remote).every(p=>p.shotDate==='2025-11-21'));
+  assert.equal(ctx.window.DALI_GALLERIES.zhoucheng[0].shotDate,'2007');
   const html=await fs.readFile('web/index.html','utf8');
   for(const match of html.matchAll(/(?:src|href)="(assets\/[^"#]+)"/g))await fs.access('web/'+match[1]);
   assert.match(html,/新华社记者胡超/);
