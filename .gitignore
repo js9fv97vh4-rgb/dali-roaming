@@ -9,3 +9,6 @@ release/
 .sites-runtime/
 .wrangler/
 *.log
+
+# Local conversation handoffs are not part of the public source release.
+docs/SESSION_HANDOFF_*.md

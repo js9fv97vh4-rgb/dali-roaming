@@ -936,3 +936,64 @@ window.DALI_OVERVIEW = {
   "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
   "source": "https://commons.wikimedia.org/wiki/File:Erhai_Lake_Dali_17.JPG"
 };
+
+/* Owner photographs identify Erhai as a whole; no unconfirmed scenic point is assigned. */
+window.DALI_SHORE_PHOTOS = [
+  {
+    "src": "assets/erhai-owner-sunlit-waves.jpg",
+    "thumb": "assets/erhai-owner-sunlit-waves.jpg",
+    "width": 768,
+    "height": 1024,
+    "thumbWidth": 768,
+    "thumbHeight": 1024,
+    "caption": "洱海近岸的波浪与阳光，远山在逆光中铺开",
+    "author": "站长实拍",
+    "source": "assets/erhai-owner-sunlit-waves.jpg",
+    "date": "拍摄日期未注明",
+    "license": "摄影者保留版权，授权本站展示；未经许可不得转载",
+    "licenseUrl": null,
+    "remote": false,
+    "ownerProvided": true,
+    "redistributed": false,
+    "location": "洱海",
+    "changes": "使用摄影者提供的原文件，保留原始构图、亮度和色彩"
+  },
+  {
+    "src": "assets/erhai-owner-shore-trees.jpg",
+    "thumb": "assets/erhai-owner-shore-trees.jpg",
+    "width": 768,
+    "height": 1024,
+    "thumbWidth": 768,
+    "thumbHeight": 1024,
+    "caption": "洱海岸边的树影与水面波光",
+    "author": "站长实拍",
+    "source": "assets/erhai-owner-shore-trees.jpg",
+    "date": "拍摄日期未注明",
+    "license": "摄影者保留版权，授权本站展示；未经许可不得转载",
+    "licenseUrl": null,
+    "remote": false,
+    "ownerProvided": true,
+    "redistributed": false,
+    "location": "洱海",
+    "changes": "使用摄影者提供的原文件，保留原始构图、亮度和色彩"
+  },
+  {
+    "src": "assets/erhai-owner-open-water.jpg",
+    "thumb": "assets/erhai-owner-open-water.jpg",
+    "width": 1024,
+    "height": 768,
+    "thumbWidth": 1024,
+    "thumbHeight": 768,
+    "caption": "洱海湖面、层叠波浪与远处沿岸建筑",
+    "author": "站长实拍",
+    "source": "assets/erhai-owner-open-water.jpg",
+    "date": "拍摄日期未注明",
+    "license": "摄影者保留版权，授权本站展示；未经许可不得转载",
+    "licenseUrl": null,
+    "remote": false,
+    "ownerProvided": true,
+    "redistributed": false,
+    "location": "洱海",
+    "changes": "使用摄影者提供的原文件，保留原始构图、亮度和色彩"
+  }
+];

@@ -1,201 +1,13 @@
-/* The province entrance has a neutral identity; destination textiles stay in Dali. */
-body[data-page="yunnan"] { background: #f7f6f0; }
-body[data-page="yunnan"] .site-header {
-  height: 88px;
-  max-width: none;
-  padding: 0 max(5%, calc((100vw - 1310px) / 2));
-  background: #f7f6f0;
-  border-bottom: 1px solid #dce0d6;
-  box-shadow: none;
-  color: #253e3b;
-}
-body[data-page="yunnan"] .brand-symbol { color: #45695d; }
-body[data-page="yunnan"] .brand { font-size: 24px; }
-body[data-page="yunnan"] .brand small { font-size: 9px; letter-spacing: 2px; }
-body[data-page="yunnan"] .nav-link,
-body[data-page="yunnan"] .plain-button { color: #65766a; }
-body[data-page="yunnan"] .nav-link.active { color: #253e3b; border-bottom-color: #bc5d43; }
-body[data-page="yunnan"] .header-note { color: #7b867a; letter-spacing: 2px; }
-#yunnan-page {
-  max-width: 1440px;
-  min-height: calc(100svh - 88px);
-  padding: 48px 5% 42px;
-  grid-template-columns: minmax(280px, .8fr) minmax(0, 1.45fr);
-  gap: clamp(32px, 5vw, 78px);
-  align-items: center;
-  color: #253e3b;
-}
-#yunnan-page .intro-panel { display: block; min-width: 0; padding: 8px 0; }
-#yunnan-page .intro-panel > .eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: #667d70;
-}
-#yunnan-page .eyebrow i { width: 22px; height: 1px; background: #9caa94; }
-#yunnan-page h1 {
-  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
-  font-size: clamp(46px, 4.5vw, 66px);
-  line-height: 1.25;
-  letter-spacing: 3px;
-  margin: 24px 0 20px;
-  color: #253e3b;
-}
-#yunnan-page h1 span { color: #547561; }
-#yunnan-page .intro-copy { margin: 0; font-size: 15px; line-height: 1.95; color: #738073; }
-.landing-enter {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 215px;
-  min-height: 48px;
-  margin: 25px 0 30px;
-  padding: 12px 18px;
-  border: 1px solid #36584d;
-  background: #36584d;
-  color: #fffdf5;
-  font-size: 14px;
-  letter-spacing: 1px;
-  transition: background .2s, transform .2s;
-}
-.landing-enter span { font: 23px Arial, sans-serif; }
-.landing-enter:hover { background: #25473c; transform: translateY(-2px); }
-#yunnan-page .destination-card {
-  display: block;
-  width: 100%;
-  height: 220px;
-  border: 0;
-  border-radius: 3px;
-  background: #3d6057;
-  box-shadow: 8px 8px 0 #e5e7db;
-  color: #fffdf5;
-}
-#yunnan-page .destination-card img { object-position: center 57%; }
-#yunnan-page .destination-card::after { background: linear-gradient(0deg, #122e35d9, #173b3d12 85%); }
-#yunnan-page .destination-overlay { left: 22px; bottom: 20px; right: 20px; gap: 7px; }
-#yunnan-page .destination-overlay > .eyebrow { font: 10px Arial, sans-serif; letter-spacing: 2px; }
-#yunnan-page .destination-overlay strong { font-size: 26px; letter-spacing: 2px; }
-#yunnan-page .destination-overlay > span:last-child { font-size: 12px; color: #e3ece7; }
-#yunnan-page .round-open { top: 18px; right: 18px; width: 32px; height: 32px; font-size: 23px; }
-#yunnan-page .intro-foot { gap: 12px; margin-top: 25px; font-size: 11px; color: #788274; letter-spacing: 1px; }
-#yunnan-page .intro-foot i { width: 3px; height: 3px; border-radius: 50%; background: #9aa58d; }
-#yunnan-page .province-map-wrap {
-  min-height: 0;
-  align-self: center;
-  width: 100%;
-  overflow: hidden;
-  border: 1px solid #d3dbcd;
-  border-radius: 5px;
-  background: radial-gradient(ellipse at 45% 45%, #f9faf4 0, #eef0e7 75%);
-  box-shadow: 0 16px 42px #2c453007;
-}
-#yunnan-page .map-topline { padding: 24px 27px 0; margin: 0; gap: 12px; color: #5b7060; }
-#yunnan-page .map-topline > span:first-child { font: 19px "Songti SC", "STSong", serif; color: #354f43; }
-#yunnan-page .map-topline small { display: block; margin: 7px 0 0; font-size: 9px; letter-spacing: 2px; color: #8b9787; }
-.map-edition { font: 10px Arial, sans-serif; letter-spacing: 2px; color: #8b9787; }
-#yunnan-page .province-map { flex: none; }
-#yunnan-page .province-map svg { display: block; width: 100%; max-height: 560px; overflow: visible; }
-#yunnan-page .province-region { fill: url(#province-ink); stroke: #fbfcf4; stroke-width: 2; }
-.province-shadow { fill: #8aab9c; opacity: .3; }
-.province-ink-lines { fill: none; stroke: #719b8b; stroke-width: 1.1; opacity: .27; }
-#yunnan-page .province-label { font: 22px "Songti SC", serif; letter-spacing: 8px; fill: #547362; opacity: .75; }
-#yunnan-page .province-star .star-locator { fill: #fbfaf0b3; stroke: #ca654755; stroke-width: 1; }
-#yunnan-page .province-star .star-symbol { font-size: 40px; fill: #c4573e; stroke: #fffdf2; stroke-width: 2; }
-#yunnan-page .province-star .star-caption { fill: #fffef8; stroke: #d5ddce; stroke-width: 1; }
-#yunnan-page .province-star .star-name { font: 600 18px "PingFang SC", sans-serif; fill: #294a3d; }
-#yunnan-page .province-star .star-sub { font: 12px "PingFang SC", sans-serif; fill: #798675; }
-.province-star .star-leader { fill: none; stroke: #c4573e; stroke-width: 1; }
-#yunnan-page .star-pulse { stroke: #c4573e; }
-#yunnan-page .province-star:hover .star-caption,
-#yunnan-page .province-star:focus-visible .star-caption { stroke: #c4573e; stroke-width: 2; }
-#yunnan-page .province-star:focus-visible { outline: none; }
-#yunnan-page .province-star:focus-visible .star-locator { stroke: #c4573e; stroke-width: 2; }
-.province-compass circle { fill: none; stroke: #8a9d853b; stroke-width: 1; }
-.province-compass path { fill: #587663; }
-#yunnan-page .map-compass { fill: #6c8069; font-size: 10px; letter-spacing: 1px; }
-.province-map-caption { fill: #9aa58e; font: 10px "PingFang SC", sans-serif; letter-spacing: 3px; }
-.map-destination-note { display: flex; align-items: center; gap: 15px; padding: 18px 0; margin: 0 27px; border-top: 1px solid #d5ddcd; }
-.map-note-star { font-size: 25px; color: #c4573e; }
-.map-destination-note strong { font: 21px "Songti SC", "STSong", serif; color: #354f43; }
-.map-destination-note p { font-size: 12px; line-height: 1.7; color: #84917e; margin: 5px 0 0; }
-.map-destination-note > a { display: grid; place-items: center; flex: 0 0 44px; height: 44px; margin-left: auto; border-radius: 50%; border: 1px solid #bdcbb8; font-size: 24px; color: #547362; }
-.map-destination-note > a:hover { color: #fff; background: #36584d; }
-#yunnan-page .map-bottomline { padding: 10px 27px 17px; font-size: 9px; line-height: 1.6; gap: 12px; color: #929e8d; }
-#yunnan-page .map-bottomline > span:first-child { color: #929e8d; }
-@media (min-width: 1440px) {
-  #yunnan-page { grid-template-columns: 390px minmax(0, 1fr); }
-}
-@media (max-width: 1000px) and (min-width: 761px) {
-  #yunnan-page { gap: 28px; grid-template-columns: minmax(240px, .8fr) minmax(0, 1.25fr); padding-top: 32px; }
-  #yunnan-page h1 { font-size: 46px; }
-  #yunnan-page .destination-card { height: 190px; }
-  #yunnan-page .map-topline, #yunnan-page .map-bottomline { padding-left: 20px; padding-right: 20px; }
-  .map-destination-note { margin: 0 20px; }
-  .map-destination-note p { max-width: 190px; }
-}
-@media (max-width: 760px) {
-  body[data-page="yunnan"] .site-header { height: 76px; padding: 0 5%; gap: 15px; }
-  body[data-page="yunnan"] .brand { font-size: 20px; gap: 8px; }
-  body[data-page="yunnan"] .brand-symbol { font-size: 31px; }
-  body[data-page="yunnan"] .brand small { font-size: 8px; letter-spacing: 1px; }
-  body[data-page="yunnan"] .header-note { display: none; }
-  body[data-page="yunnan"] .site-header nav { gap: 16px; }
-  body[data-page="yunnan"] .nav-link, body[data-page="yunnan"] .plain-button { font-size: 12px; }
-  #yunnan-page { display: flex; flex-direction: column; gap: 30px; padding: 30px 5% 32px; min-height: 0; }
-  #yunnan-page .intro-panel { width: 100%; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 0 24px; padding: 0; align-items: start; }
-  #yunnan-page .intro-panel > .eyebrow { grid-column: 1 / -1; margin-bottom: 15px; font-size: 10px; letter-spacing: 1.5px; }
-  #yunnan-page h1 { grid-column: 1; grid-row: 2; margin: 0 0 12px; font-size: 44px; letter-spacing: 2px; }
-  #yunnan-page .intro-copy { grid-column: 1; grid-row: 3; font-size: 12px; line-height: 1.9; }
-  #yunnan-page .landing-enter { grid-column: 1; grid-row: 4; width: 100%; max-width: 220px; margin: 18px 0 0; min-height: 44px; padding: 10px 13px; font-size: 12px; }
-  #yunnan-page .destination-card { grid-column: 2; grid-row: 2 / 5; height: 100%; min-height: 245px; box-shadow: 5px 5px 0 #e5e7db; }
-  #yunnan-page .destination-card img { object-position: 55% center; }
-  #yunnan-page .destination-overlay { left: 16px; right: 12px; bottom: 18px; }
-  #yunnan-page .destination-overlay strong { font-size: 23px; line-height: 1.4; max-width: none; letter-spacing: 1px; }
-  #yunnan-page .destination-overlay > .eyebrow { font-size: 9px; }
-  #yunnan-page .destination-overlay > span:last-child { font-size: 10px; line-height: 1.6; }
-  #yunnan-page .intro-foot { grid-column: 1 / -1; margin-top: 21px; font-size: 10px; gap: 11px; }
-  #yunnan-page .map-topline { padding: 20px 22px 0; }
-  #yunnan-page .map-topline > span:first-child { font-size: 18px; }
-  #yunnan-page .province-map svg { max-height: none; }
-  .map-destination-note { margin: 0 22px; padding: 16px 0; }
-  #yunnan-page .map-bottomline { padding: 8px 22px 15px; }
-}
-@media (max-width: 480px) {
-  body[data-page="yunnan"] .site-header { height: 72px; gap: 9px; }
-  body[data-page="yunnan"] .brand { font-size: 18px; gap: 6px; }
-  body[data-page="yunnan"] .brand small { font-size: 7px; letter-spacing: .7px; }
-  body[data-page="yunnan"] .brand-symbol { font-size: 27px; }
-  body[data-page="yunnan"] .site-header nav { gap: 12px; }
-  body[data-page="yunnan"] .nav-link, body[data-page="yunnan"] .plain-button { font-size: 11px; }
-  #yunnan-page { padding-top: 25px; gap: 25px; }
-  #yunnan-page .intro-panel { grid-template-columns: 1fr; }
-  #yunnan-page h1 { grid-column: 1; grid-row: 2; font-size: clamp(28px, 8.8vw, 39px); line-height: 1.25; letter-spacing: 1px; }
-  #yunnan-page h1 br { display: none; }
-  #yunnan-page .intro-copy { grid-row: 3; font-size: 13px; line-height: 1.85; margin-top: 3px; }
-  #yunnan-page .intro-copy br:last-child { display: none; }
-  #yunnan-page .landing-enter { grid-row: 4; max-width: none; margin: 18px 0 23px; font-size: 14px; }
-  #yunnan-page .province-map-wrap { order: 1; }
-  #yunnan-page .destination-card { grid-column: 1; grid-row: 5; height: 175px; min-height: 0; }
-  #yunnan-page .destination-overlay { left: 19px; bottom: 18px; }
-  #yunnan-page .destination-overlay strong { max-width: none; font-size: 25px; }
-  #yunnan-page .intro-foot { grid-row: 6; margin-top: 19px; }
-  #yunnan-page .map-topline { padding: 19px 17px 0; }
-  #yunnan-page .map-topline > span:first-child { font-size: 17px; }
-  #yunnan-page .map-topline small { font-size: 8px; }
-  #yunnan-page .map-bottomline { padding: 6px 17px 14px; flex-wrap: wrap; gap: 4px 15px; }
-  .map-destination-note { margin: 0 17px; gap: 12px; }
-  .map-destination-note strong { font-size: 20px; }
-  .map-destination-note p { font-size: 11px; }
-  .map-destination-note > a { flex-basis: 40px; height: 40px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .landing-enter { transition: none; }
-  .landing-enter:hover { transform: none; }
-}
-
-/* Regional atlas: quiet cloud drift, distinct districts, and linked labels. */
+/* Province selection and directory primitives; the illustrated layout is in atlas-theme.css. */
+.map-destination-note{display:flex;align-items:center;gap:15px}
+.map-note-star{font-size:25px;color:#b44d36}
+.map-destination-note strong{font-family:'Songti SC',serif}
+.map-destination-note>a{display:grid;place-items:center;flex:0 0 48px;margin-left:auto;font-size:24px}
+.map-destination-note>a:hover{background:#3b5036}
+.province-map-caption{font-family:'Songti SC',serif}
+.province-star{cursor:pointer}
+.prefecture-directory-grid button{cursor:pointer}
+/* Regional atlas: distinct districts and linked labels. */
 .prefecture-base { fill: #c9d8c6; stroke: #fffef3; stroke-width: 2; }
 .prefecture-area { stroke: #fafbf0; stroke-width: 1.5; stroke-linejoin: round; cursor: pointer; transition: fill .3s, stroke .3s; }
 .prefecture-region.is-selected .prefecture-area { fill: #d9c4a8; stroke: #a46f46; stroke-width: 2; }
@@ -214,14 +26,6 @@ body[data-page="yunnan"] .header-note { color: #7b867a; letter-spacing: 2px; }
 #yunnan-page .prefecture-dali-star .star-symbol { font-size: 34px; }
 #yunnan-page .prefecture-dali-star .star-locator { fill: #fff8e6d6; stroke: #be67424d; }
 #yunnan-page .prefecture-dali-star .prefecture-open-label { font: 12px "PingFang SC", sans-serif; fill: #92482e; stroke: #f9eddb; stroke-width: 4; }
-.province-cloud { fill: #fffff0; opacity: .5; transform-box: fill-box; transform-origin: center; animation: province-cloud-drift 32s ease-in-out infinite alternate; }
-.province-cloud-two { opacity: .32; animation-duration: 42s; animation-delay: -19s; }
-.province-wind { stroke: #fffef0; stroke-width: 2; fill: none; opacity: .45; stroke-dasharray: 42 190; animation: province-wind-drift 17s linear infinite; }
-.province-atlas.is-paused .province-cloud,
-.province-atlas.is-paused .province-wind,
-.province-atlas.is-paused .star-pulse { animation-play-state: paused; }
-@keyframes province-cloud-drift { from { transform: translate(-38px,-9px); } to { transform: translate(42px,12px); } }
-@keyframes province-wind-drift { to { stroke-dashoffset: -464; } }
 .province-map-guide { display: flex; align-items: center; gap: 17px; margin: 0 27px; padding-bottom: 16px; font-size: 11px; color: #788a71; }
 .province-map-guide > span { display: inline-flex; align-items: center; gap: 6px; }
 .guide-region { display: block; width: 10px; height: 10px; border: 1px solid #a7bda4; background: #d3dfc9; border-radius: 2px; }
@@ -266,6 +70,5 @@ body[data-page="yunnan"] .header-note { color: #7b867a; letter-spacing: 2px; }
   .prefecture-directory > summary span { font-size: 9px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .province-cloud, .province-wind { animation: none; }
   .prefecture-area, .prefecture-label-hit, .prefecture-label text { transition: none; }
 }

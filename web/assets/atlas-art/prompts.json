@@ -1,0 +1,42 @@
+{
+  "tool": "image_gen.imagegen (built-in)",
+  "generatedOn": "2026-10-27",
+  "note": "AI-generated artistic scenery and craft-inspired illustrations, not documentary photographs or surveyed geography.",
+  "assets": [
+    {
+      "name": "mountain",
+      "prompt": "Create one exquisite hand-painted travel atlas vignette asset on a truly transparent background. Subject: an irregular horizontally sweeping group of Yunnan high mountain peaks, jagged snowy ridgelines in the rear, finely engraved rock strata, rolling sage green forested foothills with individual tiny pine trees and some warm ochre grass. Delicate antique natural-history watercolor and exceptionally fine sepia ink crosshatching, 19th century illustrated travel book, muted sage, olive, smoky blue and parchment highlights. Much more intricate than geometric icons. Entire isolated landscape vignette fits inside canvas with transparent margins on all sides, soft watercolor edge dissolves into transparency, no rectangular backdrop, no paper, no text, no letters, no compass, no map borders, no road, no people, no frame, no photographic realism. Wide landscape aspect ratio. High detail but gentle contrast so it can sit behind map labels. This is illustrative scenery, not a surveyed mountain map.",
+      "file": "web/assets/atlas-art/mountain.webp"
+    },
+    {
+      "name": "village",
+      "prompt": "An exquisite isolated miniature vignette of a Yunnan old-town courtyard cluster with grey curved tiled roofs, white plaster and timber walls, carved wooden lattice windows, a small arched stone bridge and a stream in foreground, a few willows. Three-quarter aerial view. No signage or text. Antique natural-history watercolor with exceptionally fine sepia ink engraving and crosshatching, hand-painted 19th century travel atlas illustration. Intricate realistic small details rather than geometric icons. Muted olive, sage, smoky blue, warm ochre palette. Landscape aspect ratio. Isolated on genuinely TRANSPARENT background, transparent margins around entire object, softly irregular painted edges. No paper backdrop, no frame, no typography, no letters, no map boundaries. Artistic landscape illustration not a surveyed map.",
+      "file": "web/assets/atlas-art/village.webp"
+    },
+    {
+      "name": "forest",
+      "prompt": "An exquisite isolated miniature vignette of a gently sloping highland meadow and a dense stand of tall pines, finely drawn trunks and branches, a few shrubs and tiny wildflowers, warm olive grass contours. No mountains, no buildings. Three-quarter aerial view. Antique natural-history watercolor with exceptionally fine sepia ink engraving and crosshatching, hand-painted 19th century travel atlas illustration. Intricate realistic small details rather than geometric icons. Muted olive, sage, smoky blue, warm ochre palette. Landscape aspect ratio. Isolated on genuinely TRANSPARENT background, transparent margins around entire object, softly irregular painted edges. No paper backdrop, no frame, no typography, no letters, no map boundaries. Artistic landscape illustration not a surveyed map.",
+      "file": "web/assets/atlas-art/forest.webp"
+    },
+    {
+      "name": "lake",
+      "prompt": "An exquisite isolated miniature vignette of a tranquil blue-green Yunnan plateau lake, delicate ripples and curved pale sandy shore, a couple of willow trees on the left bank and low green hill at the far edge. Open water dominant. No boats or buildings. Three-quarter aerial view. Antique natural-history watercolor with exceptionally fine sepia ink engraving and crosshatching, hand-painted 19th century travel atlas illustration. Intricate realistic small details rather than geometric icons. Muted olive, sage, smoky blue, warm ochre palette. Landscape aspect ratio. Isolated on genuinely TRANSPARENT background, transparent margins around entire object, softly irregular painted edges. No paper backdrop, no frame, no typography, no letters, no map boundaries. Artistic landscape illustration not a surveyed map.",
+      "file": "web/assets/atlas-art/lake.webp"
+    },
+    {
+      "name": "indigo",
+      "prompt": "A small carefully drawn still life inspired by Bai tie-dye craft in Dali, Yunnan: loosely draped indigo blue cotton with simple white resist-dyed dotted rosettes and irregular tied circular patterns, one small uncolored cloth bundle tied tightly with cotton thread, a wooden spool and a fine sewing needle lying on cloth. No invented script, no human figures, not a procedural diagram. Intricate antique travel book watercolor illustration with exceptionally fine sepia pen lines, soft natural shading, muted ochre olive and ivory palette with indigo where applicable. Entire object isolated on genuinely transparent background, no environment, no background color, no frame, no words. Generous transparent margin, hand-painted irregular silhouette, landscape aspect ratio. Artifact-inspired decorative illustration, not a documentary photograph.",
+      "file": "web/assets/atlas-art/indigo.webp"
+    },
+    {
+      "name": "pottery",
+      "prompt": "A small carefully drawn still life inspired by Dai slow-wheel earthenware craft of Xishuangbanna, Yunnan: one plain reddish brown unglazed rounded water pot with a narrow neck and small lip, another small unglazed bowl, a simple wooden paddle laid beside them. Modest tactile earthen vessels with subtle impressed texture, not ornate porcelain, no painted symbols, no text, no people. Not a technical reconstruction. Intricate antique travel book watercolor illustration with exceptionally fine sepia pen lines, soft natural shading, muted ochre olive and ivory palette with indigo where applicable. Entire object isolated on genuinely transparent background, no environment, no background color, no frame, no words. Generous transparent margin, hand-painted irregular silhouette, landscape aspect ratio. Artifact-inspired decorative illustration, not a documentary photograph.",
+      "file": "web/assets/atlas-art/pottery.webp"
+    },
+    {
+      "name": "woodland",
+      "prompt": "Create a delicate isolated horizontal vignette of southern Yunnan subtropical broadleaf woodland: lush layered broadleaf tree crowns, a few tall bamboo culms with fine narrow leaves and a small banana plant, mossy rocks, soft undulating ground. NO conifer trees, NO snow, NO alpine peaks. Antique illustrated travel atlas watercolor, tiny precise sepia ink engraving and natural botanical detail, subdued olive and sage greens, warm pale ochre soil, hand-painted edges. Fine detailed miniature, natural appearance rather than geometric icons. Genuinely transparent background with transparent margins, no rectangular background, no paper, no text, no symbols, no frame. Decorative landscape illustration not a botanical specimen identification chart. Landscape aspect ratio.",
+      "file": "web/assets/atlas-art/woodland.webp"
+    }
+  ]
+}

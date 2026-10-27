@@ -1,0 +1,53 @@
+{
+  "tool": "Built-in image_gen",
+  "date": "2026-10-27",
+  "style": "青绿山水长卷",
+  "core": {
+    "prompt": "Use case: stylized-concept. Asset type: portrait continuous illustrated terrain painting for a Lijiang SVG travel map, not a mockup. The attached reference is ONLY the approved mineral blue-green Chinese shanshui painting style. Create a finely detailed continuous landscape on transparent background with feathered mist edges, approximately 560:720 aspect ratio. No text, no labels, no compass, no stars, no border, no roads. Composition for integration with separately positioned accessible labels: a magnificent snowy Jade Dragon mountain massif centered at 29% width 26% height, extending across upper-left half. Delicate blue-green forest/meadow at 78% width 18% height and 78% width 32% height. Small turquoise pools at 78% width 47% height. Three DISTINCT elegant old-town clusters with gray tiled roofs and ivory courtyards centered at 72% width 59% height (small village), 44% width 70% height (larger town), 70% width 85% height (large old town). Open misty valley and quiet wetlands at 24% width 80% height, leave water mostly clear as a real shoreline will be drawn by code. All these elements connected by continuous painted ridges, pine forests, terraced fields, gentle valley mist, absolutely not a collage of isolated icons. Rich azurite and malachite, deep teal ink contours, restrained mineral gold drybrush, ivory snow and luminous pale jade negative space. Fine gongbi brush strokes, craggy ridge texture, tiny trees, layered washes and cloud tendrils. Top down oblique bird's-eye travel illustration, north up. Keep broad crisp interior but soft fading outer edges into real transparency. This is an artistic landscape, not a photoreal aerial photograph.",
+    "source": "Generated locally with built-in image_gen; prompt recorded here."
+  },
+  "lakes": [
+    {
+      "prompt": "Use case: stylized-concept. Asset type: transparent decorative landscape backdrop for a lake inset in an illustrated travel atlas. Match the attached approved blue-green Chinese shanshui painting: meticulous mineral azurite and malachite washes, deep teal fine ink ridge lines, tiny pines, restrained ochre drybrush, ivory mist. Landscape 4:3 aspect ratio. Real transparency in center and outer edges, no paper rectangle. NO text, labels, symbols, compass, border, invented roads or water: the actual lake shape and water will be drawn as SVG independently. Keep the center (20-75% width, 22-86% height) almost completely EMPTY TRANSPARENT so the true lake shoreline can show clearly. Composition is a continuous horseshoe of peripheral mountains and forests, softly fading toward the clear center, quiet and elegant. Subject: Lugu Lake alpine basin. Tall wooded ridges rise along top and left, layered lower forested promontories on right, wisps of white cloud wrapping pine slopes. A tiny lakeside village sits at far lower left, a few slim pines at lower right. Distinct richly carved crags and jade foothills, with a wide transparent basin taking most of the center.",
+      "source": "Generated locally with built-in image_gen; prompt recorded here."
+    },
+    {
+      "prompt": "Use case: stylized-concept. Asset type: transparent decorative landscape backdrop for a lake inset in an illustrated travel atlas. Match the attached approved blue-green Chinese shanshui painting: meticulous mineral azurite and malachite washes, deep teal fine ink ridge lines, tiny pines, restrained ochre drybrush, ivory mist. Landscape 4:3 aspect ratio. Real transparency in center and outer edges, no paper rectangle. NO text, labels, symbols, compass, border, invented roads or water: the actual lake shape and water will be drawn as SVG independently. Keep the center (20-75% width, 22-86% height) almost completely EMPTY TRANSPARENT so the true lake shoreline can show clearly. Composition is a continuous horseshoe of peripheral mountains and forests, softly fading toward the clear center, quiet and elegant. Subject: Chenghai open dry valley. Fine long low mountain ridges along left and right edges, olive/jade terraces and fields, muted sandy ochre slopes and scattered small trees, tiny courtyard hamlet at lower right. Gentle broad open valley, NOT snowy alpine peaks. Clear vertical transparent basin taking most center. Light rolling mountains at top create a quiet deep blue silhouette.",
+      "source": "Generated locally with built-in image_gen; prompt recorded here."
+    }
+  ],
+  "yunnan": {
+    "id": "01-shanshui",
+    "prompt": "The provided image is a GEOGRAPHIC SHAPE AND FRAMING REFERENCE ONLY. Transform its pale green Yunnan province silhouette into a single cohesive, exquisite detailed illustrated map painting. Preserve exactly the same north-up outer contour, province footprint, orientation, canvas framing and padding as the reference. Do not tilt, rotate or move the silhouette. The province should be FILLED with a continuous painted landscape, not flat colored administrative regions with isolated icons stuck on top. CHINESE BLUE-GREEN LANDSCAPE SCROLL. A breathtaking continuous shan-shui landscape painting in mineral azurite blue, malachite green, warm ivory and delicate gold. Fine gongbi brushwork, winding connected mountain ridges flowing from the snowy northwest to rolling southern forests, mist threading between peaks, terraced valleys, turquoise plateau lakes and tiny courtyards integrated into the terrain. Tall majestic northern mountains, gentle southern bamboo and broadleaf forest. Subtle empty pale mist pockets throughout for labels to be overlaid later. Painterly, luxurious, poetic, not a tourist pictogram map. Traditional Chinese landscape painting with true tactile brush detail. Main geographic hierarchy: northwest high mountains, west-central plateau lake near the lower red locator, snow mountain/old towns near the upper locator, lower rolling terrain in east, warm forested south. The internal thin boundary lines should be almost invisible, remove both red locator dots because real UI markers will be overlaid later. Small Bai indigo textile drying beside a courtyard in west-central area and a few unglazed earthen pots near a southern village may appear as minute details, not large separate illustrations. NO labels, NO words, NO lettering, NO title, NO markers, NO frame, NO compass, NO legend. Transparent background OUTSIDE the silhouette, opaque painted terrain INSIDE. Keep the same approximately 12:11 image framing. Museum-quality illustration. This is artistic travel imagery, not a navigation map.",
+    "source": "Generated locally with built-in image_gen; prompt recorded here.",
+    "size": [
+      1247,
+      1261
+    ],
+    "bbox": [
+      9,
+      10,
+      1238,
+      1223
+    ],
+    "file": "yunnan.webp"
+  },
+  "assets": [
+    {
+      "file": "yunnan.webp",
+      "bytes": 489642
+    },
+    {
+      "file": "lijiang.webp",
+      "bytes": 615320
+    },
+    {
+      "file": "lugu.webp",
+      "bytes": 232222
+    },
+    {
+      "file": "chenghai.webp",
+      "bytes": 225716
+    }
+  ]
+}

@@ -11,7 +11,8 @@ const detail=JSON.parse(await readFile('web/terrain/erhai-details.json','utf8'))
 const scope={window:{}};vm.createContext(scope);vm.runInContext(await readFile('web/map-data.js','utf8'),scope);
 const lake=JSON.parse(JSON.stringify(scope.window.DALI_MAP.lake));
 // Hashes were captured from the pre-optimization renderer on the same credited
-// snapshot. They protect every vertex, normal, colour and shoreline texel.
+// snapshot. Positions, normals, indices and shore texels remain unchanged.
+// Only the colour snapshot was refreshed for the approved shanshui palette (2026-10-27).
 const reference=JSON.parse(await readFile('tests/fixtures/map3d-mesh.json','utf8'));
 const summary=data=>Object.fromEntries(Object.entries(data).map(([key,array])=>[key,{length:array.length,sha256:createHash('sha256').update(Buffer.from(array.buffer,array.byteOffset,array.byteLength)).digest('hex')}]));
 

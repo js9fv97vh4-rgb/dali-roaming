@@ -12,9 +12,13 @@ const server=createServer(async(req,res)=>{
     const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
     let file=path.resolve(root,'.'+pathname);
     if(file!==root&&!file.startsWith(root+path.sep)){res.writeHead(403);res.end('Forbidden');return;}
-    if((await stat(file)).isDirectory())file=path.join(file,'index.html');
+    let info=await stat(file);
+    if(info.isDirectory()){file=path.join(file,'index.html');info=await stat(file);}
+    const etag=`W/"${info.size.toString(16)}-${Math.trunc(info.mtimeMs).toString(16)}"`;
+    const headers={'content-type':mime[path.extname(file)]||'application/octet-stream','cache-control':'no-cache',etag,'last-modified':info.mtime.toUTCString()};
+    if(req.headers['if-none-match']===etag){res.writeHead(304,headers);res.end();return;}
     const data=await readFile(file);
-    res.writeHead(200,{'content-type':mime[path.extname(file)]||'application/octet-stream','cache-control':'no-cache'});
+    res.writeHead(200,{...headers,'content-length':data.length});
     res.end(req.method==='HEAD'?undefined:data);
   }catch{res.writeHead(404);res.end('Not found');}
 });

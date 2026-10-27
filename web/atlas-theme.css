@@ -1,0 +1,210 @@
+/* Mineral blue-green landscapes on mist-jade paper. Photos retain original colour. */
+:root{--ink:#254e48;--muted:#647d70;--paper:#edf1e9;--line:#c9d1bf;--teal:#2d655c;--lake:#7eb6b3;--red:#ad5037;--radius:5px;--atlas-gold:#a48b55}
+body,body[data-page="yunnan"],body[data-page="lijiang"]{background:var(--paper);color:var(--ink)}
+body[data-page] .site-header{height:80px;min-height:0;max-width:none;padding:0 max(28px,calc((100vw - 1480px)/2));background:#edf1e9f5;background-image:none;border-bottom:1px solid #bac7b956;box-shadow:none;color:var(--ink);gap:32px}
+body[data-page] .site-header .brand{font-size:25px;letter-spacing:3px;color:var(--ink);font-weight:400}
+body[data-page] .site-header .brand-symbol{color:#ac8853;font-size:35px}
+body[data-page] .site-header .brand small{font-size:8px;letter-spacing:2.8px;color:#526e61}
+body[data-page] .site-header .nav-link,body[data-page] .site-header .plain-button{color:#627b6e;min-height:44px;display:inline-flex;align-items:center}
+body[data-page] .site-header .nav-link.active{color:#244b43;border-bottom-color:var(--red)}
+body[data-page] .site-header .header-note{color:#788975;font-family:'Songti SC',serif;letter-spacing:3px}
+body[data-page] .site-header :focus-visible{outline:2px solid var(--red);outline-offset:4px}
+#yunnan-page{display:block;max-width:1600px;min-height:0;margin:auto;padding:0 32px 32px;color:var(--ink)}
+#yunnan-page .province-map-wrap{--paper:#edf1e9;display:grid;grid-template-columns:clamp(190px,18vw,260px) minmax(0,1fr) 72px;column-gap:12px;align-items:center;width:100%;min-height:0;position:relative;border:0;border-radius:0;overflow:hidden;background-color:var(--paper);background-image:url('assets/paper-grain.svg'),radial-gradient(ellipse at 53% 48%,#f7f6e99c,transparent 70%);box-shadow:none}
+#yunnan-page .province-map-wrap:before{content:'';inset:0;border:0;background-image:url('assets/shanshui/quiet-water.svg');background-position:left 37%,right 82%;background-size:100% auto;opacity:.32;pointer-events:none;z-index:0}
+#yunnan-page .province-map-wrap:after{display:none}
+#yunnan-page .map-topline{grid-column:1;grid-row:1;display:block;padding:28px 0 28px 20px;margin:0;position:relative;align-self:center;z-index:1;color:var(--ink)}
+.atlas-overline{font-size:10px;letter-spacing:3px;color:#718573}
+#yunnan-page .map-topline h1{font:400 clamp(44px,4.6vw,70px)/1.4 'Songti SC','STSong',serif;letter-spacing:5px;margin:35px 0 22px;color:#294f44}
+#yunnan-page .map-topline h1 span{display:block}
+.atlas-opening-verse{font:17px/1.9 'Songti SC',serif;letter-spacing:1px;color:#617b69;white-space:nowrap;margin:0}
+.atlas-opening-rule{display:block;width:1px;height:42px;background:#b1a071;margin:30px 0}
+.atlas-opening-copy{font:13px/2.3 'Songti SC',serif;letter-spacing:1px;color:#758b77}
+.atlas-entry-links{display:grid;margin-top:30px;border-top:1px solid #a7b59c66;font:13px 'Songti SC',serif}
+.atlas-entry-links a{min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid #a7b59c66;padding:12px 0;color:#395c4e}
+.atlas-entry-links a:hover{color:var(--red)}.atlas-entry-links a:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.atlas-scroll-margin{grid-column:3;grid-row:1;align-self:center;display:flex;flex-direction:column;align-items:center;gap:65px;position:relative;pointer-events:none}
+.atlas-seal{font:19px/1.4 'Songti SC',serif;letter-spacing:3px;color:#ae563e;border:1px solid #b4674e;padding:8px 6px;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px #b4674e30}
+.atlas-scroll-verse{writing-mode:vertical-rl;font:20px 'Songti SC',serif;letter-spacing:9px;color:#758771}
+#yunnan-page .province-map{grid-column:2;grid-row:1;position:relative;display:block;overflow:hidden;width:100%;height:clamp(620px,calc(100svh - 140px),870px);margin:0;z-index:1}
+#yunnan-page .province-map svg{display:block;width:100%;height:100%;max-height:none;overflow:hidden;touch-action:pan-y}
+#yunnan-page .province-map.is-zoomed svg{touch-action:none;cursor:grab}
+#yunnan-page .province-map.is-zoomed svg:active{cursor:grabbing}
+.province-map-tools{grid-column:1/-1;display:flex;align-items:center;justify-content:flex-end;gap:0;margin:-4px 20px 8px;position:relative;z-index:1}
+.province-map-tools button{min-width:46px;height:44px;border:1px solid #b9c3aa;background:#f6f7eb;color:#3f6455;border-radius:0;font-size:20px;margin-left:-1px}
+.province-map-tools button:last-child{font-size:12px;padding:0 14px}
+.province-map-tools button:disabled{opacity:.4}.province-map-tools button:hover:not(:disabled){background:#fffced;border-color:#9a8c65}
+.province-map-tools output{font:11px Georgia,serif;min-width:46px;text-align:center;color:#71816a;order:3;margin-left:8px}
+.atlas-map-hint{margin-right:auto;font:12px 'Songti SC',serif;letter-spacing:1px;color:#74856d}
+.atlas-painting{opacity:1}
+#yunnan-page .province-paper-scenery{opacity:1}
+#yunnan-page .prefecture-base{fill:#cbd6bd;stroke:#8b9c81;stroke-width:.7}
+#yunnan-page .prefecture-area{fill-opacity:.35;stroke:#718e7560;stroke-width:.7;stroke-linejoin:round}
+#yunnan-page .prefecture-region.is-selected .prefecture-area{fill:#c5cbae;fill-opacity:.65;stroke:#b06c4b;stroke-width:1.5}
+#yunnan-page .prefecture-region.is-hovered .prefecture-area{fill:#b9d2ba;fill-opacity:.65;stroke:#627b56}
+#yunnan-page .prefecture-region:focus-visible .prefecture-area{stroke:var(--red);stroke-width:2.5}
+#yunnan-page .province-shadow{fill:#3c7266;opacity:.06}
+.province-boundaries{fill:none;stroke:#fcf8e4;stroke-width:.8;opacity:.3}
+#yunnan-page .prefecture-label text{font:20px 'Songti SC','STSong',serif;fill:#355846;stroke:none;letter-spacing:.5px;pointer-events:none}
+#yunnan-page .prefecture-name-back{fill:#f9f8e8ef;stroke:#91a17b66;stroke-width:.7;pointer-events:none}
+#yunnan-page .prefecture-label.is-selected text{fill:#9d4a31;stroke:none}
+#yunnan-page .prefecture-label.is-selected .prefecture-name-back{fill:#fbf0dcec;stroke:#b4724a99}
+#yunnan-page .prefecture-label-hit{fill:transparent;stroke:none}
+#yunnan-page .prefecture-label.is-hovered .prefecture-label-hit{fill:transparent}
+#yunnan-page .prefecture-label.is-hovered .prefecture-name-back{fill:#fffced;stroke:#a76844}
+#yunnan-page .prefecture-label:focus-visible .prefecture-label-hit{stroke:#a34d34;stroke-width:1.5;fill:transparent;stroke-dasharray:3 3}
+.destination-badge-back{fill:#f1f4e1;stroke:#a28d56;stroke-width:1.25}
+.destination-badge-ring{fill:none;stroke:#a8b797;stroke-width:.55}
+.destination-pigment{fill:#709d86;fill-opacity:.32;stroke:none}
+.destination-ink{fill:none;stroke:#326d60;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.destination-sun{fill:#b69b58;stroke:none}
+.province-star .destination-emblem{filter:drop-shadow(0 2px 2px #315a4729)}
+.province-star:hover .destination-badge-back,.province-star:focus-visible .destination-badge-back{fill:#fbf6de;stroke:#7c7343;stroke-width:2}
+.province-star:hover .destination-ink,.province-star:focus-visible .destination-ink{stroke:#1d5549;stroke-width:1.9}
+.province-star:focus-visible .destination-hit{stroke:#846f3f;stroke-width:1.5;stroke-dasharray:3 3}
+.guide-emblem{font:11px 'Songti SC',serif;font-style:normal;display:inline-grid;place-items:center;width:19px;height:19px;color:#426b54;border:1px solid #a99b6f;border-radius:50%;background:#f4f5e5}
+.map-note-emblem{display:grid;place-items:center;flex:none;width:42px;height:42px;border:1px solid #a79a70;border-radius:50%;font:14px 'Songti SC',serif;letter-spacing:1px;color:#58795e;background:#f3f4e4}
+#yunnan-page .paper-neatline{display:none}
+#yunnan-page .province-map-caption{font:10px 'Songti SC',serif;fill:#809276;letter-spacing:4px}
+#yunnan-page .province-map-guide{grid-column:1/-1;position:relative;margin:0 20px;padding:16px 0;border-top:1px solid #a5b39455;color:#6e826a;font-size:11px}
+#yunnan-page .map-destination-note{grid-column:1/-1;position:relative;margin:0 20px;padding:22px 0;border-top:1px solid #a5b39455;gap:20px}
+#yunnan-page .map-destination-note strong{color:#365747;font-size:25px;font-weight:400}
+#yunnan-page .map-destination-note p{color:#6b806b;margin:6px 0 0;max-width:none;font-size:12px}
+.province-craft-source{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:11px;color:#77734e;text-decoration:underline;text-underline-offset:4px}
+.province-craft-source img{display:block;width:66px;height:44px;object-fit:contain}.province-craft-source span{line-height:1.8}
+#yunnan-page .map-destination-note>a{border-radius:0;background:#315f52;color:#fff9e9;border-color:#315f52;width:48px;height:48px}
+#yunnan-page .prefecture-directory{grid-column:1/-1;position:relative;margin:0 20px;border-color:#a5b39455}
+#yunnan-page .prefecture-directory summary{color:#5d765f}
+#yunnan-page .prefecture-directory-grid button{background:#f6f7eb;color:#526c53;border-color:#c6cfb6;min-height:55px}
+#yunnan-page .prefecture-directory-grid button.is-selected{background:#dfe7d2;border-color:#7b9472}
+#yunnan-page .map-bottomline{grid-column:1/-1;position:relative;padding:13px 20px 22px;gap:14px;flex-wrap:wrap;font-size:10px;color:#7e8b74}
+@media(max-width:1100px){#yunnan-page{padding:0 22px 28px}#yunnan-page .province-map-wrap{grid-template-columns:150px minmax(0,1fr) 45px;gap:4px}#yunnan-page .map-topline{padding-left:4px}#yunnan-page .map-topline h1{font-size:40px;letter-spacing:3px}.atlas-opening-verse{font-size:13px;letter-spacing:0}.atlas-opening-copy{font-size:12px}.atlas-entry-links{font-size:12px}.atlas-scroll-verse{font-size:17px;letter-spacing:7px}.atlas-seal{font-size:15px}#yunnan-page .province-map{height:690px}#yunnan-page .prefecture-label text{font-size:23px}}
+@media(max-width:850px){#yunnan-page .province-map-wrap{grid-template-columns:1fr}#yunnan-page .map-topline{grid-column:1;grid-row:1;padding:27px 16px 0}#yunnan-page .map-topline>div{display:flex;align-items:center;flex-wrap:wrap;gap:12px 25px}#yunnan-page .map-topline h1{font-size:32px;margin:0;order:-1}#yunnan-page .map-topline h1 span{display:inline;margin-left:12px}.atlas-opening-verse,.atlas-opening-rule,.atlas-opening-copy,.atlas-entry-links,.atlas-scroll-margin{display:none}#yunnan-page .province-map{grid-column:1;grid-row:2;height:auto;aspect-ratio:680/660}.province-map-tools{margin-top:0}}
+@media(max-width:720px){body[data-page] .site-header{height:auto!important;min-height:94px;padding:12px 20px 0!important;flex-wrap:wrap;gap:8px}body[data-page] .site-header .brand{font-size:22px;gap:9px}body[data-page] .site-header .brand-symbol{font-size:29px}body[data-page] .site-header .brand small{font-size:7px}body[data-page] .site-header nav{width:100%;justify-content:space-between;gap:12px}body[data-page] .site-header .nav-link,body[data-page] .site-header .plain-button{font-size:12px;min-height:44px;padding:8px 0}body[data-page] .site-header .header-note{display:none}}
+@media(max-width:600px){#yunnan-page{padding:0 8px 24px}#yunnan-page .map-topline{padding:24px 12px 10px}#yunnan-page .map-topline>div{gap:10px}#yunnan-page .map-topline h1{font-size:28px;letter-spacing:2px}.atlas-overline{font-size:8px;letter-spacing:1px}#yunnan-page .province-map{aspect-ratio:645/600;margin:0}#yunnan-page .province-map svg{aspect-ratio:645/600}#yunnan-page .prefecture-label text{font-size:25px;letter-spacing:0;stroke:none}#yunnan-page .province-map-caption{display:none}.province-map-tools{margin:8px 12px;gap:0;flex-wrap:wrap}.atlas-map-hint{flex:1 0 100%;font-size:11px;padding:2px 0 12px;letter-spacing:0}.province-map-tools output{min-width:38px}#yunnan-page .province-map-guide{margin:0 12px;padding:12px 0;gap:10px;font-size:10px}#yunnan-page .map-destination-note{margin:0 12px;padding:16px 0;gap:10px}#yunnan-page .map-destination-note strong{font-size:21px}#yunnan-page .map-destination-note p{font-size:11px;line-height:1.8}.province-craft-source{font-size:10px}#yunnan-page .prefecture-directory{margin:0 12px}#yunnan-page .map-bottomline{padding:12px;font-size:9px;gap:5px}#yunnan-page .map-bottomline span{width:100%}.paper-guide-note{display:none}}
+
+/* Destination pages share the same paper, ink and mineral accents. */
+.paper-surface{--paper:#e9eee2;--paper-ink:#34574c;--paper-line:#8ba187;background-color:var(--paper);border-color:#afc0a5;box-shadow:inset 0 0 45px #5f866314,0 8px 25px #355e4c10}
+.paper-name-back{fill:#f7f6e5f2;stroke:#8ca08066;rx:3}
+.paper-place-name{fill:#315d4f}.paper-spot.is-selected .paper-name-back{fill:#a45338;stroke:#944b32}
+.paper-spot.is-selected .paper-place-name{fill:#fff5de}
+.paper-annotation{fill:#758b6e}.paper-lake{fill:#87baba;stroke:#447c7c}.paper-leader{stroke:#65836a}
+.lj-paper-lakes .lj-paper-panel{background:#f5f5e833;border-color:#a5b69766}
+.lijiang-page{color:#2e584d}.lj-hero-copy h1,.lj-section-heading h2,.lj-story-copy h2,.lj-card-copy h3,.lj-culture h2{color:#2d574a}
+.lj-eyebrow,.lj-hero-copy p,.lj-section-heading p,.lj-card-copy p,.lj-story-copy p,.lj-stats span,.lj-story-source,.lj-photo-rail figcaption{color:#657e6c}
+.lj-hero-photo{border-radius:4px;border:1px solid #a9bba0;padding:6px;background:#e2e9d8;box-shadow:8px 8px 0 #b7c9b066}
+.lj-hero-photo>img{border-radius:1px}
+.lj-stats,.lj-story,.lj-sources{border-color:#b4c5a9}
+.lj-hero-link,.lj-story-actions button[aria-pressed=true],.lj-filters button[aria-pressed=true]{background:#30665b;border-color:#30665b;color:#fbf7e7}
+.lj-route,.lj-route:nth-child(n){background:#e6ecdf;border-color:#b8c8ac;border-radius:3px;color:#375c49}
+.lj-route:hover,.lj-route[aria-pressed=true]{border-color:#69896a;box-shadow:inset 0 -2px #69896a}
+.lj-route span,.lj-route small,.lj-card-copy small{color:#6a8168}
+.lj-place-card{background:#f5f6e9;border-color:#becab1;border-radius:3px}
+.lj-place-card.active{border-color:#5c8166;box-shadow:0 0 0 1px #5c8166}
+.lj-filters button,.lj-story-actions button,.lj-story-actions a,.lj-culture-chips button{border-color:#a7b99b;color:#42664f;min-height:44px;border-radius:3px}
+.lj-story-detail{border-color:#8e9f6c}.lj-story-detail strong{color:#60785c}.lj-practical,.lj-culture{background:#e3eadb;color:#5c775d;border-color:#a4b58b;border-radius:3px}
+.lj-practical a{text-decoration:underline}.lj-culture p{color:#617b61}
+.lj-story-cover,.lj-photo-rail img{border-radius:3px}
+.lj-chapters button{min-height:44px;color:#5e795f}.lj-chapters button[aria-pressed=true]{color:#a05035;border-color:#a86645}
+.lj-paper-section>.lj-map-pick,.lj-paper-panel>.lj-map-pick{background:#f2f4e6;border-radius:3px;border-color:#abbc9e}
+.outline-button,.arrival-options button,.lake-mood-controls>button,.region-tabs{border-color:#b5c4a8;background:#f3f5e9;border-radius:4px;color:#486c54}
+.arrival-options button[aria-pressed=true]{background:#dae6d2;border-color:#6f8e69}
+.region-tab[aria-pressed=true],.solid-button{background:#30665b;background-image:none;color:#fff8e8;border-color:#30665b}
+.explore-sidebar{background:#f4f6eb;border-color:#b1c2a7;border-radius:6px}
+.explore-sidebar:before{background:#8da17b;background-image:none;height:3px}
+.selected-cover{border-color:#bccba9}.selected-title h2{color:#365e47}
+.lake-map-wrap{background:#e2ebe0;border:1px solid #a6bca6;border-radius:9px}
+.scenery-card,.tour-option{background:#f4f6e8;border-color:#b7c6a9;border-radius:5px}
+.itinerary-dialog,.credits-dialog{background:#f0f4e6;border:1px solid #8ca27c;border-radius:6px}
+.itinerary-entry{background:#dee8d5}.icon-button{background:#f9f8eb;min-height:44px;min-width:44px;border-color:#a7b797}
+.outline-button,.arrival-options button,.lake-mood-controls>button,.region-tab,.itinerary-item button,.itinerary-use{min-height:44px}
+/* Indigo stays in the Dali craft section and its dedicated entry, never the global identity. */
+.heritage-section{border-color:#c8c1aa}.lj-night-invitation,.lj-story-actions .lj-night-start{background:#29382e;color:#fff2d5;border-color:#48533b}
+
+.paper-surface{background-image:url('assets/paper-grain.svg'),radial-gradient(ellipse at 45% 35%,#f7f8eaa8,transparent 74%);border-radius:2px}
+.paper-surface:before{border-color:#9aac7e40}
+.paper-name-back{fill:#f9f7e8f2;stroke:#8da67d;stroke-width:.8;rx:2}
+.paper-anchor{fill:#b06242;stroke:#fbf4dc}.paper-leader{stroke:#607b68;stroke-width:1.2;paint-order:stroke}
+.paper-spot:hover .paper-name-back,.paper-spot:focus-visible .paper-name-back{fill:#fff9df;stroke:#b06b46}
+.paper-spot.is-selected .paper-name-back{fill:#a65438;stroke:#93462d}
+.paper-spot.is-selected .paper-place-name{fill:#fff7e0}.paper-spot.is-selected .paper-leader{stroke:#a75438}
+.paper-spot .paper-hit{fill:transparent}.paper-lake{fill:#8bbfc0;fill-opacity:.95;stroke:#518a84;stroke-width:1.3}
+.lj-paper-panel h3{color:#365c4b}.lj-paper-panel>header>span,.lj-paper-panel header p,.paper-inset-note,.paper-atlas-heading small,.paper-atlas-footer{color:#6c826a}
+.lj-paper-main{border-color:#a6b59655}.lj-paper-lakes .lj-paper-panel{border-color:#a6b59655;background:#f3f6e840}
+.lj-paper-lakes .lj-paper-panel:before{background:#d3ddbf66;border-color:#b3c2a055}
+.lj-paper-lakes .paper-anchor{fill:#ab5738}.lj-paper-lakes .paper-neatline{opacity:.5}
+.lj-paper-section>.lj-map-pick,.lj-paper-panel>.lj-map-pick{color:#335c4b}.lj-map-pick button,.lj-map-pick small{color:#58755d}
+.paper-atlas-heading,.paper-atlas-footer{border-color:#9bad8e55}
+.paper-stamp{color:#ac543a;border-color:#ac543a;transform:none}
+.lj-night-invitation,.lj-story-actions .lj-night-start{background:#203c37;color:#f6edda;border-color:#446858}
+.roaming-invitation{background:#e4ebdc;border-color:#b8c9aa;color:#3e6653}.roaming-invitation button{background:#2e6558;color:#fff9e8}
+.map-focus-dialog,.panorama-dialog:has(.atlas3d),.panorama-shell:has(.atlas3d){background:#e7eee3;color:#365b4e}
+.lake-map-wrap:has(.atlas3d){background:#e3eae3;border-color:#abc0aa;border-radius:4px}
+.atlas3d{background:#e3eae3;color:#315648}
+.atlas3d:not([data-atmosphere=night]) .atlas-heading{color:#244b40;text-shadow:0 1px #f3f5e7a6}
+.atlas-heading h2{letter-spacing:4px}.atlas-heading>span,.atlas-heading p{color:#65806c}
+.atlas-tools,.atlas-views,.atlas-time{border-color:#b6c8ad;background:#f7f7e9eb;border-radius:3px;box-shadow:0 3px 18px #244b3620;backdrop-filter:none}
+.atlas-tools button,.atlas-views button,.atlas-time button{color:#486e57;border-radius:2px;min-height:44px;min-width:44px}
+.atlas-views button[aria-pressed=true],.atlas-time button[aria-pressed=true]{background:#38695a;color:#fff8e4}
+.atlas-tools button:hover{background:#e0e9d8}
+.atlas-marker{background:#faf6e8ed;color:#315848;border-color:#c6cfac;border-radius:3px;box-shadow:0 2px 10px #2b54462b;font-family:'Songti SC',serif}
+.atlas-marker.active{background:#a4553b;color:#fff6e1;border-color:#f5ead0;box-shadow:0 0 0 2px #f7f0d888,0 3px 15px #35513a30}
+.atlas-marker.active i{background:#f7ddb2}.atlas-entry{background:#f7f1dfee;color:#736641;border-color:#c9bf9e}
+.atlas-gesture,.atlas-compass{color:#5a7c67}.atlas-data-credit{background:#f0f3dfc9;color:#526c55}
+.atlas-area-label{color:#f9f5df;text-shadow:0 1px 8px #174d4aa8;font-weight:400}
+.atlas-loading-panel{background:#f5f7eaf2;border-color:#bccbb0;border-radius:3px}.atlas-preview-badge{background:#f7f6e7ed;color:#4f7159;border-color:#b9c9aa}
+.atlas-selection button{border-radius:3px;background:#f4f6e7ed;border-color:#c2cfb1}.atlas-selection strong{color:#355f4e}
+.atlas3d[data-atmosphere=night] .atlas-heading,.atlas3d[data-atmosphere=night] .atlas-heading p,.atlas3d[data-atmosphere=night] .atlas-heading>span{color:#d5e2ca;text-shadow:none}
+@media(max-width:600px){.lj-hero-photo{box-shadow:4px 4px 0 #b7c9b066}.atlas-heading h2{letter-spacing:2px}.atlas-tools button{min-width:36px;min-height:44px}.atlas-views button{min-width:0;padding-left:8px;padding-right:8px}}
+/* After dark, controls recede into the same deep ink as the lake. */
+.atlas3d[data-atmosphere=night] .atlas-tools,.atlas3d[data-atmosphere=night] .atlas-views,.atlas3d[data-atmosphere=night] .atlas-time{background:#132f32ed;border-color:#537367;box-shadow:none}
+.atlas3d[data-atmosphere=night] .atlas-tools button,.atlas3d[data-atmosphere=night] .atlas-views button,.atlas3d[data-atmosphere=night] .atlas-time button{color:#cddbbf}
+.atlas3d[data-atmosphere=night] .atlas-views button[aria-pressed=true],.atlas3d[data-atmosphere=night] .atlas-time button[aria-pressed=true]{background:#456a54;color:#fff3cf}
+.atlas3d[data-atmosphere=night] .atlas-marker{background:#153839ed;color:#dbe4cd;border-color:#597b66}
+.atlas3d[data-atmosphere=night] .atlas-marker.active{background:#91563f;color:#fff0cb;border-color:#d0b888}
+.atlas3d[data-atmosphere=night] .atlas-compass,.atlas3d[data-atmosphere=night] .atlas-gesture{color:#afc7b1}
+
+/* Lijiang: stay oriented between the drawing, a story and the original frame. */
+.lj-local-nav{position:sticky;top:8px;z-index:15;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 10px;margin:0 0 24px;border:1px solid #afc0a5;background:#f3f6e9f5;box-shadow:0 3px 18px #31594512;border-radius:3px}
+.lj-local-nav>div{display:flex;gap:8px}.lj-local-nav button{min-height:44px;padding:8px 16px;border:0;background:transparent;color:#355e4f;font-size:13px}
+.lj-local-nav button:hover{background:#e1ead8}.lj-local-nav button:focus-visible{outline:2px solid #aa6542;outline-offset:1px}
+.lj-local-nav #lj-nav-count{font:11px Georgia,serif;margin-left:4px;color:#8b714d}
+.lj-local-nav .lj-nav-current{display:flex;gap:16px;align-items:center;background:#315e51;color:#fff8e6;border-radius:2px}
+.lj-nav-current small{font-size:11px;color:#e3e8cf}.lj-nav-current:hover{background:#244d41!important}
+.lj-sr-only{position:absolute;width:1px;height:1px;padding:0;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+.lijiang-page .lj-paper-panel{scroll-margin-top:90px}.lijiang-page .paper-spot{scroll-margin:95px 10px}
+.paper-focus-halo{fill:#f5e7b7;fill-opacity:.6;stroke:#bca46b;stroke-width:1;display:none;pointer-events:none}
+.paper-spot.is-selected .paper-focus-halo,.paper-spot:hover .paper-focus-halo,.paper-spot:focus-visible .paper-focus-halo{display:block}
+.paper-spot .paper-leader{opacity:.6;stroke-width:1}.paper-spot.is-selected .paper-leader{opacity:1;stroke-width:1.8}
+.paper-spot.is-selected .paper-anchor{fill:#ad5538;stroke:#fff6dc;stroke-width:2;r:5}
+.paper-shore-glaze{fill:none;stroke:#a5bfa0;stroke-width:9;stroke-opacity:.28;stroke-linejoin:round;pointer-events:none}
+.lj-paper-panel>.lj-map-pick{position:relative;inset:auto;max-width:none;width:auto;margin:8px 10px 16px;padding:14px 48px 14px 14px;display:flex;gap:14px;box-shadow:none;align-items:center;background:#f4f6e7;border:1px solid #afc0a1;border-radius:3px}
+.lj-map-pick .lj-pick-photo{flex:none;padding:0;border:0;width:100px;height:100px;background:#173330;border-radius:2px;overflow:hidden}
+.lj-map-pick .lj-pick-photo img{width:100%;height:100%;object-fit:contain;border-radius:0}
+.lj-map-pick>div{min-width:0}.lj-map-pick p{font-size:11px;line-height:1.7;color:#688168;margin:4px 0 0}
+.lj-map-pick .lj-pick-close{width:44px;height:44px;right:4px;top:4px}.lj-map-pick [data-lj-read]{min-height:44px;text-decoration:underline;text-underline-offset:5px}
+.lj-story-return{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 23px;border-bottom:1px solid #b2c4a666;padding-bottom:12px}
+.lj-story-return button{border:1px solid #a6ba9a;background:#f3f6e9;min-height:44px;padding:9px 14px;color:#375d4a;font-size:12px}
+.lj-story-return span{font-size:11px;color:#70846a}
+#lj-story{scroll-margin-top:88px}#lj-story .lj-story-top{align-items:start}
+#lj-story .lj-story-cover{min-height:0;background:#e3eadd;border:1px solid #b8c7ac;border-radius:3px}
+#lj-story .lj-main-photo{min-height:0;height:420px;background:#142c2d}
+#lj-story .lj-story-cover img{width:100%;height:100%;max-height:none;object-fit:contain;object-position:center!important}
+#lj-story .lj-story-cover:after{display:none}
+#lj-story .lj-story-cover figcaption{position:static;padding:14px 18px;margin:0;color:#45664e;font:15px/1.8 'Songti SC',serif;text-shadow:none;background:#eff3e5}
+#lj-story .lj-story-copy h2{font-size:38px;margin:5px 0 14px}#lj-story .lj-chapters{gap:5px}#lj-story .lj-chapters button{font-size:12px;padding:8px 6px}
+.lj-gallery-heading{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin:22px 0 0}.lj-gallery-heading h3{font:24px 'Songti SC',serif;margin:0;color:#3d604b}.lj-gallery-heading p{font-size:11px;color:#6d836a;margin:0}
+#lj-story .lj-photo-rail{padding-top:16px;gap:18px}#lj-story .lj-photo-rail figure{flex:0 0 min(430px,47%)}#lj-story .lj-photo-rail figure.is-portrait{flex-basis:min(270px,35%)}
+#lj-story .lj-photo-rail button{height:290px;background:#142c2d;border:1px solid #b4c3a6}#lj-story .lj-photo-rail img{width:100%;height:100%;object-fit:contain;border-radius:0}
+#lj-story .lj-photo-rail figcaption>small{display:block;color:#8c704c;font-size:10px;letter-spacing:1px;margin:4px 0}
+.lj-next-place{display:grid;grid-template-columns:1fr auto;gap:12px 25px;margin-top:28px;padding:23px;border:1px solid #aabc9c;background:#e5eddb}
+.lj-next-place>div{grid-row:span 2}.lj-next-place h3{font:28px 'Songti SC',serif;margin:8px 0;color:#385d49}.lj-next-place p{font-size:12px;line-height:1.8;max-width:470px;margin:0 0 8px;color:#5d7b60}.lj-next-place small{font-size:10px;color:#7f8b70}
+.lj-next-place button{min-height:44px;padding:10px 16px;background:#315f50;color:#fff8e7;border:1px solid #315f50;border-radius:2px;font-size:12px}
+.lj-next-place button:last-child{background:transparent;color:#42644c;border-color:#a5b694}
+.lj-photo-dialog .lj-photo-map{font-size:12px;padding:8px 14px;margin-top:10px}
+@media(max-width:760px){.lj-local-nav{top:4px;padding:5px 6px;gap:5px;margin-bottom:20px}.lj-local-nav>div{gap:0}.lj-local-nav button{font-size:12px;padding:7px 11px}.lj-local-nav .lj-nav-current{flex-direction:column;gap:2px;min-width:108px;padding:6px 9px;font-size:12px}.lj-nav-current small{font-size:9px}#lj-nav-count{margin-left:1px!important}.lj-story-return{align-items:flex-start;gap:10px}.lj-story-return span{font-size:10px;padding-top:8px}.lj-gallery-heading{display:block}.lj-gallery-heading p{margin-top:9px}#lj-story .lj-main-photo{height:300px}#lj-story .is-portrait .lj-main-photo{height:380px}#lj-story .lj-story-cover figcaption{font-size:13px;padding:12px 14px}#lj-story .lj-story-copy h2{font-size:32px}#lj-story .lj-photo-rail figure{flex-basis:88%}#lj-story .lj-photo-rail figure.is-portrait{flex-basis:70%}#lj-story .lj-photo-rail button{height:290px}.lj-next-place{grid-template-columns:1fr;padding:19px}.lj-next-place>div{grid-row:auto}.lj-next-place button{text-align:left}.lj-paper-panel>.lj-map-pick{margin:6px 7px 14px;padding:12px 42px 12px 10px;gap:10px}.lj-map-pick .lj-pick-photo{width:76px;height:92px}.lj-map-pick .lj-pick-photo img{width:100%;height:100%}.lj-map-pick strong{font-size:21px}.lj-map-pick small{font-size:10px}.lj-map-pick p{font-size:10px}.lj-photo-dialog .lj-photo-map{font-size:11px}.lj-local-nav~.lj-hero .lj-hero-photo{height:260px}}
+
+/* Keep keyboard focus on the map label, without a browser-default box across the painting. */
+.lj-paper-section .paper-spot:focus{outline:none}
+.lj-paper-section .paper-spot:focus-visible .paper-hit{stroke:#9a583b;stroke-dasharray:3 3}
+.lj-paper-section .paper-spot:focus-visible .paper-name-back{stroke:#9a583b;stroke-width:2}

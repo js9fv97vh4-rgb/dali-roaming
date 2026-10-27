@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import vm from 'node:vm';
 test('every scenic gallery is complete and declares local or external photo rights',async()=>{
   const ctx={window:{}};vm.createContext(ctx);
-  for(const name of ['places','gallery-data','lantern-data','map-data'])vm.runInContext(await fs.readFile(`web/${name}.js`,'utf8'),ctx);
+  for(const name of ['places','gallery-data','lantern-data','map-data','lijiang-data'])vm.runInContext(await fs.readFile(`web/${name}.js`,'utf8'),ctx);
   assert.equal(ctx.window.DALI_PLACES.length,15);
   const manifest=JSON.parse(await fs.readFile('asset-sources.json','utf8'));
   const local=new Map(manifest.photos.map(p=>[p.src,p]));
@@ -41,8 +41,12 @@ test('every scenic gallery is complete and declares local or external photo righ
     assert.ok(remote.has(p.src));visited.add(p.src);
   }
   visited.add(ctx.window.DALI_OVERVIEW.image);
+  assert.equal(ctx.window.DALI_SHORE_PHOTOS.length,3);
+  for(const photo of ctx.window.DALI_SHORE_PHOTOS){assert.equal(photo.location,'洱海');assert.equal(photo.ownerProvided,true);assert.equal(photo.source,photo.src);assert.equal(photo.redistributed,false);assert.match(photo.license,/摄影者保留版权/);assert(local.has(photo.src));await fs.access('web/'+photo.src);visited.add(photo.src);}
+  for(const place of ctx.window.LIJIANG_DATA.places)for(const photo of place.photos){assert.ok((photo.remote?remote:local).has(photo.src));visited.add(photo.src);}
   assert.equal(visited.size,local.size+remote.size);
-  const declared=new Set(manifest.photos.flatMap(p=>[p.src,p.thumb,p.preview].filter(Boolean)).concat(['assets/dali-indigo-ui-texture.webp']));
+  const declared=new Set(manifest.photos.flatMap(p=>[p.src,p.thumb,p.preview].filter(Boolean)).concat([manifest.originalArt.src,manifest.map.preview.src]));
+  await fs.access('web/'+manifest.map.preview.src);
   for(const name of (await fs.readdir('web/assets')).filter(n=>/\.(?:webp|jpg|png)$/.test(n)))assert.ok(declared.has('assets/'+name),'unlisted image '+name);
   assert.equal(ctx.window.DALI_GALLERIES.zhoucheng.filter(p=>p.remote).length,3);
   assert.ok(ctx.window.DALI_GALLERIES.zhoucheng.filter(p=>p.remote).every(p=>p.shotDate==='2025-11-21'));

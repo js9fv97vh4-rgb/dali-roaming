@@ -1,4 +1,25 @@
 /* The 3D atlas shares one renderer across exploration, panorama and nightfall. */
+.atlas-map-stage{position:relative;isolation:isolate}
+.panorama-map:has(.atlas-loading){position:relative;min-height:320px;display:block}
+.panorama-shell:has(.atlas-loading:not([hidden])){height:100%;min-height:0}
+.panorama-map:has(.atlas-loading:not([hidden])){height:0;flex:1;min-height:320px;overflow:hidden}
+.panorama-dialog:has(.atlas-loading:not([hidden])) .panorama-mobile-hint{display:none}
+.lantern-immersive-map:has(.atlas-loading){position:relative;min-height:460px}
+.atlas-map-stage:has(.atlas-loading:not([hidden])) .lake-map{height:720px;min-height:440px}
+.atlas-loading{position:absolute;inset:0;z-index:10;overflow:hidden;background:#dfe8e1;opacity:1;transition:opacity .18s ease}
+.atlas-loading-poster{width:100%;height:100%;object-fit:cover;display:block}
+.atlas-loading::after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#17332c38);pointer-events:none}
+.atlas-preview-badge{position:absolute;top:17px;left:18px;padding:7px 11px;background:#fffef0ed;color:#4d6d5c;border:1px solid #fff;border-radius:5px;font-size:11px}
+.atlas-loading-panel{position:absolute;z-index:1;bottom:25px;left:50%;transform:translateX(-50%);width:min(440px,calc(100% - 36px));padding:19px 22px 15px;border-radius:10px;border:1px solid #fff;background:#fffffff5;box-shadow:0 8px 28px #1c382a19;color:#34584c}
+.atlas-loading-title{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px}
+.atlas-loading-title strong{font-weight:500}.atlas-loading-title>span{font:12px Arial,sans-serif;color:#728675}
+.atlas-loading progress{display:block;width:100%;height:7px;margin:13px 0 10px;appearance:none;border:0;border-radius:9px;overflow:hidden;background:#e4eadf;accent-color:#4f7964}
+.atlas-loading progress::-webkit-progress-bar{background:#e4eadf;border-radius:9px}.atlas-loading progress::-webkit-progress-value{background:#4f7964;border-radius:9px;transition:width .2s}.atlas-loading progress::-moz-progress-bar{background:#4f7964;border-radius:9px}
+.atlas-loading-panel>p{font-size:12px;line-height:1.6;color:#7c8d7b;margin:0}
+.atlas-loading-actions{display:flex;gap:18px;justify-content:flex-end;margin-top:12px}
+.atlas-loading-actions button{border:0;border-bottom:1px solid #b6c5b3;background:transparent;padding:3px 0;font-size:11px;color:#698466}
+.atlas-loading.is-failed progress{accent-color:#b07f52}.atlas-loading.is-ready{opacity:0;pointer-events:none}
+@media(max-width:720px){.atlas-map-stage:has(.atlas-loading:not([hidden])) .lake-map{height:390px;min-height:390px}.atlas-loading-panel{bottom:17px;padding:16px 17px 13px}.atlas-preview-badge{top:13px;left:13px;font-size:10px}.atlas-loading-poster{object-position:53% center}}
 .lake-map-wrap:has(.atlas3d){padding:0;background:#e8eeeb;overflow:hidden;border-color:#c7d7d3}
 .lake-map:has(.atlas3d){height:650px;min-height:540px;cursor:auto}
 .atlas3d{position:relative;width:100%;height:100%;min-height:460px;isolation:isolate;overflow:hidden;background:#e8eeeb;color:#233f4b;font-family:"PingFang SC","Microsoft YaHei",sans-serif}

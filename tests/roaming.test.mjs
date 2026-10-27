@@ -11,11 +11,18 @@ test('shared scene and nested photo URLs survive parsing and close one layer at 
     {page:'erhai',modal:'night',photo:3},
     {page:'erhai',modal:'walk',chapter:2,photo:4},
     {page:'erhai',modal:'tour',tour:'shore',step:4},
+    {page:'erhai',modal:'album',photo:2},
+    {page:'erhai',modal:'map'},
     {page:'yunnan',modal:'credits'}
   ]){
     const parsed=DaliViews.parse(DaliViews.format(view));
     for(const [key,value] of Object.entries(view))assert.equal(parsed[key],value);
   }
+  assert.equal(DaliViews.parse('#erhai?view=album').photo,0);
+  assert.equal(DaliViews.parse('#yunnan?view=album').modal,undefined);
+  assert.equal(DaliViews.parse('#yunnan?view=map').modal,undefined);
+  assert.equal(DaliViews.format(DaliViews.parent(DaliViews.parse('#erhai?view=map'))),'#erhai');
+  assert.equal(DaliViews.format(DaliViews.parent(DaliViews.parse('#erhai?view=album&photo=2'))),'#erhai');
   const photo=DaliViews.parse('#erhai?scene=zhoucheng&photo=2');
   const scene=DaliViews.parent(photo);assert.equal(scene.scene,'zhoucheng');assert.equal(scene.photo,undefined);
   assert.equal(DaliViews.format(DaliViews.parent(scene)),'#erhai');

@@ -1,6 +1,7 @@
 import * as THREE from './vendor/three/three.module.js';
 import { createMeshBuilder } from './map3d-builder.js';
-import { loadAtlasJSON, atlasViewPixelRatio, atlasNeedsAnimation, createAtlasRenderer, indexAtlasRing } from './map3d-runtime.js?v=20261018-panorama';
+import { loadAtlasJSON, atlasViewPixelRatio, atlasNeedsAnimation, atlasFrameInterval, atlasTerrainIndices, createAtlasRenderer, indexAtlasRing } from './map3d-runtime.js?v=20261024-loading';
+import { createEntranceModels, ENTRANCE_MODEL_SCALE } from './entrance-models.js';
 import { OrbitControls } from './vendor/three/OrbitControls.js';
 import { project, elevation, reliefHeight, lampPositions, tourCamera } from './map3d-geo.js';
 
@@ -17,30 +18,31 @@ const presets = {
 };
 let terrainPromise;
 const terrainURL=new URL('./terrain/erhai-dem.json',import.meta.url);
-function loadTerrain(){
-  if(!terrainPromise)terrainPromise=loadAtlasJSON(terrainURL).catch(error=>{terrainPromise=null;throw error;});
+function loadTerrain(onProgress){
+  if(!terrainPromise)terrainPromise=loadAtlasJSON(terrainURL,{onProgress}).catch(error=>{terrainPromise=null;throw error;});
   return terrainPromise;
 }
 
 export async function createAtlas(host, config) {
-  config.onProgress?.('正在载入山海地形…');
-  const [dem,coast] = await Promise.all([loadTerrain(),loadAtlasJSON(new URL('./terrain/erhai-islands.json',import.meta.url),{attempts:1,timeout:8000}).catch(()=>({islands:[]}))]);
+  config.onProgress?.({stage:'terrain',ratio:0});
+  const [dem,coast] = await Promise.all([loadTerrain(event=>config.onProgress?.({stage:'terrain',...event,ratio:event.done?1:undefined})),loadAtlasJSON(new URL('./terrain/erhai-islands.json',import.meta.url),{attempts:1,timeout:8000}).catch(()=>({islands:[]}))]);
   let detail={...coast,roads:[],buildings:[],landcover:[]};
-  config.onProgress?.('正在生成立体山海…');
+  config.onProgress?.({stage:'mesh',ratio:0});
   const builder=createMeshBuilder();
   let landscape;
   try{landscape=await builder.landscape(dem,config.geometry.lake,coast.islands);}catch(error){builder.dispose();throw error;}
+  config.onProgress?.({stage:'mesh',ratio:.7});
   const renderer = (()=>{try{return createAtlasRenderer(THREE.WebGLRenderer);}catch(error){builder.dispose();throw error;}})();
   renderer.setPixelRatio(1);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.05;
+  renderer.toneMappingExposure = 1.02;
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color('#e8eeeb');
-  scene.fog = new THREE.Fog('#e8eeeb', 75, 175);
+  scene.background = new THREE.Color('#e3eae3');
+  scene.fog = new THREE.Fog('#e3eae3', 75, 175);
   const camera = new THREE.PerspectiveCamera(39,1,.1,250);
   const root = document.createElement('div');
-  root.className = 'atlas3d'; root.dataset.mode = 'explore'; root.dataset.ready = 'true';
+  root.className = 'atlas3d'; root.dataset.mode = 'explore'; root.dataset.ready = 'loading';
   root.innerHTML = `<div class="atlas-heading"><span>CANGSHAN · ERHAI</span><h2>山海，近在眼前。</h2><p>转动视角，沿着湖岸走进大理</p></div>
     <div class="atlas-stage"></div><svg class="atlas-connectors" aria-hidden="true"></svg><div class="atlas-labels"></div>
     <div class="atlas-tools" role="group" aria-label="立体地图控制">
@@ -60,10 +62,10 @@ export async function createAtlas(host, config) {
   controls.minDistance=12; controls.maxDistance=115; controls.minPolarAngle=.12; controls.maxPolarAngle=1.25;
   controls.rotateSpeed=.55; controls.zoomSpeed=.65; controls.panSpeed=.65;
   controls.screenSpacePanning=false;
-  const sky = new THREE.HemisphereLight('#e5f1ff','#495b45',1.65); scene.add(sky);
+  const sky = new THREE.HemisphereLight('#e5f1ff','#2c6362',1.65); scene.add(sky);
   const sun = new THREE.DirectionalLight('#fff0d5',2.25); sun.position.set(-35,30,18); scene.add(sun);
   const world = new THREE.Group(); scene.add(world);
-  let mode='explore', state={}, motion=true, atmosphere='day', visible=true, disposed=false, transition=null, animationId=0, lastFrame=0, clock=0, dirty=true;
+  let mode='explore', state={}, motion=true, atmosphere='day', visible=true, disposed=false, transition=null, animationId=0, lastFrame=0, clock=0, dirty=true,firstFrame=false,lastInteraction=0;
   let tourPlaceId=null, lastTourPose=null;
   let mainView=null, currentPreset='overview', width=1, height=1;
   const lakeRing=config.geometry.lake;
@@ -82,7 +84,21 @@ export async function createAtlas(host, config) {
   const terrainGeometry=unpackGeometry(landscape.terrain),positions=terrainGeometry.attributes.position;
   const noise=(x,z)=>Math.sin(x*.73+Math.sin(z*.49))*Math.cos(z*.58+x*.15);
   const terrainMaterial=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.96,metalness:0});
-  const terrain=new THREE.Mesh(terrainGeometry,terrainMaterial); world.add(terrain);
+  // Static pigment grain and soft elevation washes, in the existing draw pass.
+  // World-space coordinates keep the painted texture attached while orbiting.
+  terrainMaterial.onBeforeCompile=shader=>{
+    shader.vertexShader='varying vec3 vPigmentPosition;\n'+shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvPigmentPosition=position;');
+    shader.fragmentShader='varying vec3 vPigmentPosition;\n'+shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
+      float pigment=sin(vPigmentPosition.x*39.0+sin(vPigmentPosition.z*21.0))*sin(vPigmentPosition.z*43.0);
+      float wash=sin(vPigmentPosition.y*9.0+sin(vPigmentPosition.x*1.4+vPigmentPosition.z*.8)*.25);
+      diffuseColor.rgb*=.985+pigment*.018+wash*.024;
+    `);
+  };
+  terrainMaterial.customProgramCacheKey=()=> 'shanshui-pigment-v1';
+  const farGeometry=new THREE.BufferGeometry();
+  for(const [name,attribute] of Object.entries(terrainGeometry.attributes))farGeometry.setAttribute(name,attribute);
+  farGeometry.setIndex(new THREE.BufferAttribute(atlasTerrainIndices(dem.columns,dem.rows),1));
+  const terrain=new THREE.LOD();terrain.addLevel(new THREE.Mesh(terrainGeometry,terrainMaterial),0);terrain.addLevel(new THREE.Mesh(farGeometry,terrainMaterial),55,.18);world.add(terrain);
   const edge=[];
   for(let x=0;x<dem.columns;x++)edge.push(x);
   for(let y=1;y<dem.rows;y++)edge.push(y*dem.columns+dem.columns-1);
@@ -94,9 +110,9 @@ export async function createAtlas(host, config) {
     skirtVertices.push(x,y,z,x,-3.5,z,u,h,v,u,h,v,x,-3.5,z,u,-3.5,v);
   }
   const skirtGeometry=new THREE.BufferGeometry();skirtGeometry.setAttribute('position',new THREE.Float32BufferAttribute(skirtVertices,3));skirtGeometry.computeVertexNormals();
-  const skirtMaterial=new THREE.MeshStandardMaterial({color:'#aab9af',roughness:1,side:THREE.DoubleSide});
+  const skirtMaterial=new THREE.MeshStandardMaterial({color:'#789f95',roughness:1,side:THREE.DoubleSide});
   world.add(new THREE.Mesh(skirtGeometry,skirtMaterial));
-  const shadow=new THREE.Mesh(new THREE.PlaneGeometry(180,180),new THREE.MeshBasicMaterial({color:'#dce5df'}));
+  const shadow=new THREE.Mesh(new THREE.PlaneGeometry(180,180),new THREE.MeshBasicMaterial({color:'#e3eae3'}));
   shadow.rotation.x=-Math.PI/2;shadow.position.y=-3.55;scene.add(shadow);
 
   const lakeShape=new THREE.Shape(lakeRing.map(coords=>{const [x,z]=project(coords);return new THREE.Vector2(x,-z);}));
@@ -109,7 +125,7 @@ export async function createAtlas(host, config) {
     void main(){vec2 uv=(vWorld.xz-uBounds.xy)/uBounds.zw;float depth=texture2D(uShore,uv).r;
     float ripple=sin(vWorld.x*14.+vWorld.z*8.+sin(vWorld.z*.9+uTime*.3)+uTime*.8)*sin(vWorld.z*21.-uTime*.56);
     float broad=sin(vWorld.x*.21+vWorld.z*.17+uTime*.045)*.5+.5;
-    vec3 deep=mix(vec3(.10,.34,.39),vec3(.16,.44,.48),broad);vec3 day=mix(vec3(.37,.62,.57),deep,smoothstep(0.,.75,depth));
+    vec3 deep=mix(vec3(.08,.38,.46),vec3(.18,.55,.58),broad);vec3 day=mix(vec3(.53,.73,.65),deep,smoothstep(0.,.75,depth));
     vec3 dusk=mix(vec3(.31,.43,.43),vec3(.14,.28,.34),depth);vec3 night=mix(vec3(.035,.16,.20),vec3(.025,.085,.14),depth);
     vec3 colour=mix(mix(day,dusk,uDusk),night,uNight);
     float beam=exp(-pow((vWorld.x-3.+sin(vWorld.z*.35)*.8)/2.8,2.));
@@ -119,12 +135,12 @@ export async function createAtlas(host, config) {
     gl_FragColor=vec4(colour,1.);}`});
   world.add(new THREE.Mesh(lakeGeometry,waterMaterial));
   const shoreGeometry=new THREE.BufferGeometry().setFromPoints(lakeRing.map(coords=>vector(coords,.12)));
-  const shore=new THREE.LineLoop(shoreGeometry,new THREE.LineBasicMaterial({color:'#bad4c2',transparent:true,opacity:.43}));world.add(shore);
+  const shore=new THREE.LineLoop(shoreGeometry,new THREE.LineBasicMaterial({color:'#d6d7ad',transparent:true,opacity:.43}));world.add(shore);
 
   // Architectural miniatures are a visual guide, not surveyed building footprints.
   const buildings=new THREE.Group();world.add(buildings);
-  const walls=new THREE.MeshStandardMaterial({color:'#f2eddd',roughness:1});
-  const roofs=new THREE.MeshStandardMaterial({color:'#52677a',roughness:1});
+  const walls=new THREE.MeshStandardMaterial({color:'#f0ead6',roughness:1});
+  const roofs=new THREE.MeshStandardMaterial({color:'#315a64',roughness:1});
   const dummy=new THREE.Object3D();
   // All three pagodas share two instanced meshes instead of 54 draw calls.
   const towerPlace=config.places.find(p=>p.id==='santasi'),towerBase=worldPoint(towerPlace.coords);
@@ -136,8 +152,10 @@ export async function createAtlas(host, config) {
     dummy.position.y=towerBase.y+(.13+level*.12)*scale;dummy.rotation.y=0;dummy.scale.set(radius*2.2*scale,.025*scale,radius*2.2*scale);dummy.updateMatrix();cornices.setMatrixAt(towerIndex++,dummy.matrix);
   }
   buildings.add(sections,cornices);
+  // Four shared instance batches represent all three arrival entrances.
+  const arrivals=createEntranceModels(config.entrances,coords=>worldPoint(coords,.10));world.add(arrivals);
   function addDetails(meshes){
-    for(const data of meshes.landcover)world.add(new THREE.Mesh(unpackGeometry(data),new THREE.MeshStandardMaterial({color:({farmland:'#a6b680',orchard:'#7e9a69',forest:'#4d7555',meadow:'#9cad77',island:'#7a956b'})[data.kind],roughness:1,side:THREE.DoubleSide})));
+    for(const data of meshes.landcover)world.add(new THREE.Mesh(unpackGeometry(data),new THREE.MeshStandardMaterial({color:({farmland:'#c1c79e',orchard:'#81ab8b',forest:'#306f67',meadow:'#a2bea0',island:'#649b89'})[data.kind],roughness:1,side:THREE.DoubleSide})));
     if(meshes.roads.position.length)world.add(new THREE.LineSegments(unpackGeometry(meshes.roads),new THREE.LineBasicMaterial({color:'#eee1b5',transparent:true,opacity:.75})));
     if(meshes.buildings.position.length)buildings.add(new THREE.Mesh(unpackGeometry(meshes.buildings),new THREE.MeshStandardMaterial({color:'#e2dbc8',roughness:.95})));
   }
@@ -150,11 +168,15 @@ export async function createAtlas(host, config) {
   for(let i=0;i<6500&&treeCount<900;i++){
     const coords=[west+((i*0.61803398875)%1)*(east-west),south+((i*.41421356237)%1)*(north-south)];
     const alt=elevation(dem,coords);const [tx,tz]=project(coords);if(alt<2170||alt>3450||noise(tx,tz)<-.22||isWater(coords))continue;
-    dummy.position.copy(worldPoint(coords,.15));dummy.rotation.set(0,i,0);const size=.65+(i%11)*.065;dummy.scale.set(size,size*(1.2+(i%3)*.25),size);dummy.updateMatrix();trees.setMatrixAt(treeCount,dummy.matrix);trees.setColorAt(treeCount,new THREE.Color(['#42644c','#507456','#648063','#3c6048'][i%4]));treeCount++;
+    dummy.position.copy(worldPoint(coords,.15));dummy.rotation.set(0,i,0);const size=.65+(i%11)*.065;dummy.scale.set(size,size*(1.2+(i%3)*.25),size);dummy.updateMatrix();trees.setMatrixAt(treeCount,dummy.matrix);trees.setColorAt(treeCount,new THREE.Color(['#235d59','#306f66','#508e7d','#215963'][i%4]));treeCount++;
   }trees.count=treeCount;world.add(trees);
 
   const labels=root.querySelector('.atlas-labels'), markers=[], connectors=root.querySelector('.atlas-connectors');
   const pinGeometry=new THREE.SphereGeometry(.12,8,6), pinMaterial=new THREE.MeshBasicMaterial({color:'#f5fbef'});
+  const markerCount=config.places.length+config.entrances.length,pinBatch=new THREE.InstancedMesh(pinGeometry,pinMaterial,markerCount),pinDummy=new THREE.Object3D();
+  pinBatch.frustumCulled=false;pinBatch.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  const stemPositions=new Float32Array(markerCount*6),stemGeometry=new THREE.BufferGeometry();stemGeometry.setAttribute('position',new THREE.BufferAttribute(stemPositions,3).setUsage(THREE.DynamicDrawUsage));
+  const stemBatch=new THREE.LineSegments(stemGeometry,new THREE.LineBasicMaterial({color:'#f7f8ea',transparent:true,opacity:.65}));stemBatch.frustumCulled=false;world.add(pinBatch,stemBatch);
   const addMarker=(p,entry=false)=>{
     const button=document.createElement('button');button.type='button';button.className='atlas-marker'+(entry?' atlas-entry':'');
     button.dataset.node=p.id;button.setAttribute('aria-label',entry?`从${p.name}开始`:`查看${p.name}`);
@@ -162,10 +184,9 @@ export async function createAtlas(host, config) {
     button.innerHTML=entry?`<b>${icon[p.id]}</b><span>${escapeHTML(p.short)}</span>`:`${photo?`<img alt="" width="216" height="144" decoding="async" referrerpolicy="no-referrer">`:''}<i></i><span>${escapeHTML(p.name)}</span>`;
     button.addEventListener('click',event=>{event.stopPropagation();if(entry)config.selectEntrance(p.id);else {config.selectPlace(p.id);if(mode==='panorama')config.openScene(p.id);}});
     labels.append(button);
-    const anchor=worldPoint(p.coords,.3),pin=new THREE.Mesh(pinGeometry,pinMaterial);pin.position.copy(worldPoint(p.coords,.12));world.add(pin);
-    const stemGeo=new THREE.BufferGeometry().setFromPoints([pin.position,anchor]);const stem=new THREE.Line(stemGeo,new THREE.LineBasicMaterial({color:'#f7f8ea',transparent:true,opacity:.65}));world.add(stem);
+    const anchor=worldPoint(p.coords,entry ? .1+2*ENTRANCE_MODEL_SCALE : .3),base=worldPoint(p.coords,.12);
     const connector=document.createElementNS('http://www.w3.org/2000/svg','line');connectors.append(connector);
-    markers.push({p,button,anchor,pin,stem,entry,connector,photo});
+    markers.push({p,button,anchor,base,index:markers.length,entry,connector,photo});
   };
   config.places.forEach(p=>addMarker(p));config.entrances.forEach(p=>addMarker(p,true));
   const areaLabels=[];
@@ -191,17 +212,22 @@ export async function createAtlas(host, config) {
   for(const region of new Set(config.places.map(p=>p.region))){const coast=config.places.filter(p=>p.region===region).sort((a,b)=>b.coords[1]-a.coords[1]);coast.forEach((p,index)=>coastLayout.set(p.id,{index,count:coast.length}));}
   function syncLabels(){
     const rects=[];
+    const compact=mode==='explore'&&width<=720;
+    const labelLimit=compact?(camera.position.distanceTo(controls.target)>35?6:9):Infinity;
     const selected=mode==='tour'?tourPlaceId:state.selected;
-    const ordered=[...markers].sort((a,b)=>Number(b.p.id===selected)-Number(a.p.id===selected)||Number(b.entry)-Number(a.entry));
+    const mobilePriority=['ancient-town','shuanglang','xizhou','wenbi','cangshan'];
+    const rank=p=>{const i=mobilePriority.indexOf(p.id);return i<0?99:i;};
+    const ordered=[...markers].sort((a,b)=>Number(b.p.id===selected)-Number(a.p.id===selected)||Number(state.stops?.includes(b.p.id)||false)-Number(state.stops?.includes(a.p.id)||false)||Number(b.entry)-Number(a.entry)||(compact?rank(a.p)-rank(b.p):0));
     for(const marker of ordered){
-      const {button,p,anchor,pin,stem,entry,connector}=marker;
+      const {button,p,anchor,base,index,entry,connector}=marker;
       const closeTown=mode==='explore'&&currentPreset==='town';
       const show=mode==='tour'?!entry:mode!=='night'&&(!closeTown||entry||p.id==='ancient-town')&&(mode==='panorama'||entry||state.region==='all'||!state.region||p.region===state.region||p.id===state.selected||state.stops?.includes(p.id));
       const pos=projected.copy(anchor).project(camera), x=(pos.x*.5+.5)*width,y=(-pos.y*.5+.5)*height;
-      pin.visible=stem.visible=show;
+      pinDummy.position.copy(base);pinDummy.scale.setScalar(show&&!entry?1:0);pinDummy.updateMatrix();pinBatch.setMatrixAt(index,pinDummy.matrix);
+      base.toArray(stemPositions,index*6);(show?anchor:base).toArray(stemPositions,index*6+3);
       const photo=mode==='panorama'&&!entry;
       const itemWidth=photo?(width<721?75:96):Math.max(65,p.name.length*12+24),itemHeight=photo?(width<721?60:60):30;
-      let hidden=!show||pos.z>1||x<0||x>width||y<0||y>height-30;
+      let hidden=rects.length>=labelLimit||!show||pos.z>1||x<0||x>width||y<0||y>height-30;
       let lx=x,ly=y-27;
       if(!hidden && photo && width>720){
         const {index,count}=coastLayout.get(p.id);
@@ -216,7 +242,7 @@ export async function createAtlas(host, config) {
           const cx=x+dx,cy=y+dy;
           if(cx<itemWidth/2+8||cx>width-itemWidth/2-8||cy<itemHeight/2+12||cy>height-(mode==='tour'?18:90)-itemHeight/2)return false;
           if(mode==='explore'&&width>720&&cx<310&&(cy<135||cy>height-(config.drawerOpen?.()?470:235)))return false;
-          if(mode==='explore'&&width<=720&&cx<230&&cy<130)return false;
+          if(compact&&cy<100+itemHeight/2)return false;
           if(mode==='explore'&&currentPreset==='town'&&cy<235)return false;
           if(mode!=='tour'&&cx>width-65&&cy<290)return false;
           return !rects.some(r=>Math.abs(r.x-cx)<(r.w+itemWidth)/2+5&&Math.abs(r.y-cy)<(r.h+itemHeight)/2+5);
@@ -228,6 +254,7 @@ export async function createAtlas(host, config) {
       if(!hidden&&photo)config.loadPreview(button.querySelector('img'),marker.photo);
       if(!hidden){button.style.left=`${lx}px`;button.style.top=`${ly}px`;connector.setAttribute('x1',x);connector.setAttribute('y1',y);connector.setAttribute('x2',lx);connector.setAttribute('y2',ly+itemHeight/2);}
     }
+    pinBatch.instanceMatrix.needsUpdate=true;stemGeometry.attributes.position.needsUpdate=true;
     for(const {el,anchor} of areaLabels){const p=projected.copy(anchor).project(camera);el.style.left=`${(p.x*.5+.5)*width}px`;el.style.top=`${(-p.y*.5+.5)*height}px`;el.hidden=p.z>1;}
     townLabel.hidden=mode!=='explore'||currentPreset!=='town';
     compass.style.transform=`rotate(${-controls.getAzimuthalAngle()}rad)`;
@@ -286,9 +313,9 @@ export async function createAtlas(host, config) {
   }
   function setAtmosphere(value){
     atmosphere=value;const night=value==='night',dusk=value==='dusk';root.dataset.atmosphere=value;
-    scene.background.set(night?'#0b1b2b':dusk?'#e4d5c2':'#e5ece6');scene.fog.color.copy(scene.background);
-    terrainMaterial.color.set(night?'#7894b6':dusk?'#eee0ca':'#ffffff');skirtMaterial.color.set(night?'#20384b':dusk?'#a59682':'#91a28b');shadow.material.color.copy(scene.background);
-    sky.intensity=night?1.4:dusk?1.9:1.8;sun.intensity=night?1.05:dusk?1.7:2.1;sun.color.set(night?'#a9cfff':dusk?'#ffbd7d':'#fff0d5');sun.position.set(-35,dusk?14:30,18);
+    scene.background.set(night?'#0b1b2b':dusk?'#e5ddca':'#e3eae3');scene.fog.color.copy(scene.background);
+    terrainMaterial.color.set(night?'#7894b6':dusk?'#eee0ca':'#ffffff');skirtMaterial.color.set(night?'#20384b':dusk?'#a59682':'#7c9f95');shadow.material.color.copy(scene.background);
+    sky.intensity=night?1.4:dusk?1.9:2.0;sun.intensity=night?1.05:dusk?1.7:1.65;sun.color.set(night?'#a9cfff':dusk?'#ffbd7d':'#fff6df');sun.position.set(-35,dusk?14:30,18);
     waterMaterial.uniforms.uNight.value=night?1:0;waterMaterial.uniforms.uDusk.value=dusk?1:0;lamps.visible=reflections.visible=night;buildings.visible=!night;
     root.querySelectorAll('[data-time]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.time===value)));dirty=true;
   }
@@ -296,7 +323,7 @@ export async function createAtlas(host, config) {
     mode=next;destinationRing.visible=next==='tour';
     if(next==='panorama')for(const {button} of markers){const img=button.querySelector('img');if(img?.dataset.photoState==='failed'){delete img.dataset.photoState;img.hidden=false;button.querySelector('.photo-unavailable')?.remove();}}
     if(next!=='tour')for(const {p,button,entry} of markers){button.classList.remove('tour-current');const active=entry?state.entrance===p.id:state.selected===p.id;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));}
-    const night=next==='night';root.dataset.mode=next;
+    const night=next==='night';root.dataset.mode=next;arrivals.visible=!night&&next!=='tour';
     setAtmosphere(night?'night':mainView?.atmosphere||atmosphere);
     routeGroup.visible=!night&&next!=='tour';root.querySelector('.atlas-heading').hidden=next!=='explore';root.querySelector('.atlas-selection').hidden=true;
     root.querySelector('.atlas-views').hidden=night||next==='tour';root.querySelector('.atlas-time').hidden=night||next==='tour';controls.enabled=next!=='tour';
@@ -316,21 +343,25 @@ export async function createAtlas(host, config) {
   root.addEventListener('click',event=>{const b=event.target.closest('[data-view],[data-camera],[data-atlas-scene],[data-time],[data-town-chapter]');if(!b)return;event.stopPropagation();if(b.dataset.view)targetView(b.dataset.view);if(b.dataset.time)setAtmosphere(b.dataset.time);if(b.dataset.townChapter!==undefined)config.openWalk(Number(b.dataset.townChapter));if(b.dataset.camera)cameraAction(b.dataset.camera);if(b.dataset.atlasScene)config.openScene(b.dataset.atlasScene);},{signal:listeners.signal});
   renderer.domElement.addEventListener('wheel',event=>{if(mode==='explore'&&!event.ctrlKey&&!event.metaKey)event.stopImmediatePropagation();},{capture:true,passive:true,signal:listeners.signal});
   renderer.domElement.addEventListener('keydown',event=>{if(mode==='tour')return;const actions={ArrowLeft:'left',ArrowRight:'right','+':'zoom-in','=':'zoom-in','-':'zoom-out',Home:'reset'};if(actions[event.key]){event.preventDefault();cameraAction(actions[event.key]);}if(['ArrowUp','ArrowDown'].includes(event.key)){event.preventDefault();const offset=camera.position.clone().sub(controls.target),spherical=new THREE.Spherical().setFromVector3(offset);spherical.phi=THREE.MathUtils.clamp(spherical.phi+(event.key==='ArrowUp'?-.12:.12),.12,1.25);camera.position.copy(controls.target).add(new THREE.Vector3().setFromSpherical(spherical));controls.update();dirty=true;}},{signal:listeners.signal});
-  controls.addEventListener('start',()=>{transition=null;});controls.addEventListener('change',()=>{controls.target.x=THREE.MathUtils.clamp(controls.target.x,-16,16);controls.target.z=THREE.MathUtils.clamp(controls.target.z,-23,23);controls.target.y=THREE.MathUtils.clamp(controls.target.y,0,5);dirty=true;});
-  renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();root.dataset.ready='false';root.querySelector('.atlas-status').textContent='立体画面暂时中断，正在恢复';},{signal:listeners.signal});
-  renderer.domElement.addEventListener('webglcontextrestored',()=>{root.dataset.ready='true';root.querySelector('.atlas-status').textContent='立体地图已恢复';dirty=true;},{signal:listeners.signal});
+  controls.addEventListener('start',()=>{transition=null;lastInteraction=performance.now();});controls.addEventListener('change',()=>{controls.target.x=THREE.MathUtils.clamp(controls.target.x,-16,16);controls.target.z=THREE.MathUtils.clamp(controls.target.z,-23,23);controls.target.y=THREE.MathUtils.clamp(controls.target.y,0,5);lastInteraction=performance.now();dirty=true;});
+  renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();root.dataset.ready='false';root.querySelector('.atlas-status').textContent='立体画面暂时中断，正在恢复';config.onContextLost?.(root);},{signal:listeners.signal});
+  renderer.domElement.addEventListener('webglcontextrestored',()=>{root.dataset.ready='loading';firstFrame=false;root.querySelector('.atlas-status').textContent='立体地图已恢复';dirty=true;},{signal:listeners.signal});
   function frame(now){
     if(disposed)return;animationId=requestAnimationFrame(frame);
     if(document.hidden||!visible||root.dataset.ready==='false'||config.isCovered())return;
-    if(now-lastFrame<32)return;const delta=Math.min((now-lastFrame)/1000,.1);lastFrame=now;
+    if(now-lastFrame<atlasFrameInterval(mode,!!transition||now-lastInteraction<250))return;const delta=Math.min((now-lastFrame)/1000,.1);lastFrame=now;
     const animate=atlasNeedsAnimation(mode,motion,reducedMotion.matches);
     if(animate)clock+=delta;
     if(transition){const t=Math.min(1,(now-transition.start)/1000),ease=t*t*(3-2*t);camera.position.lerpVectors(transition.from,transition.to,ease);controls.target.lerpVectors(transition.targetFrom,transition.targetTo,ease);if(t===1)transition=null;dirty=true;}
     controls.update();
     if(!animate&&!dirty)return;
     waterMaterial.uniforms.uTime.value=clock;lampMat.uniforms.uTime.value=clock;
-    if(dirty)syncLabels();renderer.render(scene,camera);dirty=false;
+    try{
+      if(dirty)syncLabels();renderer.render(scene,camera);dirty=false;
+      if(!firstFrame){firstFrame=true;root.dataset.ready='true';config.onReady?.();}
+    }catch(error){cancelAnimationFrame(animationId);root.dataset.ready='false';config.onError?.(error);}
   }
+  config.onProgress?.({stage:'frame',ratio:0});
   mount(host);update(config.initialState);targetView('overview',true);animationId=requestAnimationFrame(frame);
   // Start optional street/building downloads only after the first landscape frame.
   requestAnimationFrame(()=>{

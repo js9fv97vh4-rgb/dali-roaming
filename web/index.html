@@ -3,76 +3,74 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#1b3c70">
-  <meta name="description" content="从云南地图走进大理洱海。探索海东与海西的真实风景、渔灯夜色与周城白族扎染，开启自己的旅程。">
+  <meta name="theme-color" content="#f5efdf">
+  <meta name="description" content="从云南地图走进大理与丽江。探索苍山洱海、古镇街巷、玉龙雪山与高原湖泊，在真实风景中慢慢漫游。">
   <title>云南漫游 · 从地图走进风景</title>
   <script>
     if (location.protocol === 'file:') location.replace('../index.html' + location.hash);
   </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23163c43'/%3E%3Cpath d='M12 42Q24 30 34 39T54 36M12 50Q24 38 34 47T54 44' fill='none' stroke='%23a9d4db' stroke-width='4'/%3E%3Cpath d='m32 9 4 9 10 1-8 7 2 10-8-5-9 5 2-10-7-7 10-1z' fill='%23e16a54'/%3E%3C/svg%3E">
-  <link rel="modulepreload" href="map3d.js?v=20261018-panorama" fetchpriority="high">
-  <link rel="modulepreload" href="vendor/three/three.module.js">
-  <link rel="modulepreload" href="vendor/three/three.core.js">
-  <link rel="preload" href="terrain/erhai-dem.json" as="fetch" crossorigin="anonymous" fetchpriority="high">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="upgrade.css">
   <link rel="stylesheet" href="heritage.css">
-  <link rel="stylesheet" href="map3d.css?v=20261018-panorama">
+  <link rel="stylesheet" href="map3d.css?v=20261027-lijiang-refined">
   <link rel="stylesheet" href="immersion.css">
   <link rel="stylesheet" href="landing.css">
-  <link rel="stylesheet" href="roaming.css">
+  <link rel="stylesheet" href="roaming.css?v=20261027">
+  <link rel="stylesheet" href="lijiang.css?v=20261027-lijiang-refined">
+  <link rel="stylesheet" href="paper-map.css?v=20261027-lijiang-refined">
+  <link rel="stylesheet" href="atlas-theme.css?v=20261027-lijiang-refined">
   <script src="map-data.js" defer></script>
   <script src="prefecture-data.js" defer></script>
-  <script src="province-atlas.js" defer></script>
-  <script src="places.js?v=20261018-panorama" defer></script>
+  <script src="paper-map.js?v=20261027-lijiang-refined" defer></script>
+  <script src="province-viewport.js?v=20261027-lijiang-refined" defer></script>
+  <script src="province-atlas.js?v=20261027-lijiang-refined" defer></script>
+  <script src="places.js?v=20261024-loading" defer></script>
   <script src="journey-core.js" defer></script>
-  <script src="gallery-data.js?v=20261018-panorama" defer></script>
-  <script src="photo-loader.js?v=20261018-panorama" defer></script>
+  <script src="gallery-data.js?v=20261024-loading" defer></script>
+  <script src="photo-loader.js?v=20261024-loading" defer></script>
   <script src="lantern-data.js" defer></script>
   <script src="town-story.js" defer></script>
-  <script src="view-routes.js" defer></script>
+  <script src="lijiang-data.js?v=20261027-lijiang-refined" defer></script>
+  <script src="view-routes.js?v=20261027" defer></script>
   <script src="roaming-data.js" defer></script>
   <script src="roaming.js" defer></script>
-  <script src="app.js?v=20261018-panorama" defer></script>
+  <script src="atlas-loading.js" defer></script>
+  <script src="app.js?v=20261027-lijiang-refined" defer></script>
+  <script src="lijiang.js?v=20261027-lijiang-refined" defer></script>
+  <script src="lijiang-walk.js?v=20261027" defer></script>
 </head>
-<body data-page="yunnan">
+<body data-page="yunnan" class="has-atlas">
   <a class="skip-link" href="#main">跳到地图</a>
   <header class="site-header">
     <a class="brand" href="#yunnan" aria-label="云南漫游，返回目的地地图"><span class="brand-symbol" aria-hidden="true">✳</span><span>云南漫游<small>YUNNAN ROAMING</small></span></a>
-    <nav aria-label="主要导航"><a href="#yunnan" class="nav-link active" data-page-link="yunnan">云南地图</a><a href="#erhai" class="nav-link" data-page-link="erhai">洱海漫游</a><button class="plain-button" id="credits-button">影像来源</button></nav>
+    <nav aria-label="主要导航"><a href="#yunnan" class="nav-link active" data-page-link="yunnan">云南地图</a><a href="#erhai" class="nav-link" data-page-link="erhai">洱海漫游</a><a href="#lijiang" class="nav-link" data-page-link="lijiang">丽江漫游</a><button class="plain-button" id="credits-button">影像来源</button></nav>
     <span class="header-note">从地图，走进风景</span>
   </header>
   <main id="main">
     <section id="yunnan-page" class="yunnan-page" aria-label="云南目的地地图">
-      <div class="intro-panel">
-        <span class="eyebrow"><i aria-hidden="true"></i> YUNNAN · 从这里出发</span>
-        <h1>把日子，<br>交给<span>山海。</span></h1>
-        <p class="intro-copy">循着一颗红星，去遇见云南。<br>山水、村落与当地的生活，<br>先从大理，慢慢看起。</p>
-        <a class="landing-enter" href="#erhai?view=tour&amp;route=shore">▶ 一镜走进大理 <span aria-hidden="true">↗</span></a>
-        <button class="destination-card" id="dali-card" aria-label="探索大理洱海">
-          <img src="assets/erhai.jpg" alt="苍山与洱海北部湖岸的真实风景" width="3328" height="1872" fetchpriority="high">
-          <span class="destination-overlay"><span class="eyebrow">第一站 / DALI</span><strong>有风的地方，见。</strong><span>苍山洱海 · 湖岸实景</span></span>
-          <span class="round-open" aria-hidden="true">↗</span>
-        </button>
-        <div class="intro-foot"><span>山海风景</span><i aria-hidden="true"></i><span>村镇日常</span><i aria-hidden="true"></i><span>地方文化</span></div>
-      </div>
       <div class="province-map-wrap">
-        <div class="map-topline"><span>云南漫游地图 <small>YUNNAN ATLAS</small></span><span class="map-edition">VOL. 01</span></div>
+        <div class="map-topline"><div><span class="atlas-overline">壹 · 山 水 长 卷</span><h1>云南<span>山水间</span></h1><p class="atlas-opening-verse">把旅途，写进一幅山水。</p><span class="atlas-opening-rule" aria-hidden="true"></span><p class="atlas-opening-copy">从雪山的云，<br>走到洱海的风。<br>循着山水印记，慢慢出发。</p><nav class="atlas-entry-links" aria-label="已开放目的地"><a href="#erhai">01　大理 · 洱海 <span>↗</span></a><a href="#lijiang">02　丽江 · 雪山古镇 <span>↗</span></a></nav></div></div>
+        <aside class="atlas-scroll-margin" aria-hidden="true"><span class="atlas-seal">山水<br>有约</span><span class="atlas-scroll-verse">行至山海，慢慢云南。</span></aside>
         <div class="province-map" id="province-map"></div>
-        <div class="province-map-guide"><span><i class="guide-region" aria-hidden="true"></i>16 州 · 市 · 仅大理已开放</span><span><i class="guide-star" aria-hidden="true">★</i> 大理已开放</span><button id="province-motion" type="button" aria-pressed="true">暂停云影</button></div>
-        <div class="map-destination-note" id="province-selection" aria-live="polite" aria-atomic="true"><span class="map-note-star" aria-hidden="true">★</span><div><span class="province-selection-status" id="province-selection-status">漫游已开放</span><strong id="province-selection-name">大理白族自治州</strong><p id="province-selection-copy">点击红星，走进苍山洱海与白族村落。</p></div><a href="#erhai" id="province-enter" aria-label="从云南地图进入大理洱海">↗</a><button type="button" id="province-reset" hidden>回看大理</button></div>
+        <div class="province-map-tools" role="group" aria-label="云南地图视野"><span class="atlas-map-hint" id="province-map-help">点选地名 · 循着山水印记出发</span><button type="button" data-province-zoom="out" aria-label="缩小云南地图" aria-controls="province-map">−</button><output id="province-zoom-level" aria-live="polite">100%</output><button type="button" data-province-zoom="in" aria-label="放大云南地图" aria-controls="province-map">＋</button><button type="button" data-province-zoom="reset" aria-label="复位云南地图" aria-controls="province-map">全图</button></div>
+        <div class="province-map-guide"><span><i class="guide-region" aria-hidden="true"></i>16 州 · 市 · 2 站已开放</span><span><i class="guide-emblem" aria-hidden="true">山</i> 大理 · 丽江</span><span class="paper-guide-note">手绘风物 · 地理位置示意</span></div>
+        <div class="map-destination-note" id="province-selection" aria-live="polite" aria-atomic="true"><span class="map-note-emblem" aria-hidden="true">山水</span><div><span class="province-selection-status" id="province-selection-status">漫游已开放</span><strong id="province-selection-name">大理白族自治州</strong><p id="province-selection-copy">点击山水徽记，走进苍山洱海与白族村落。</p><a id="province-craft-source" class="province-craft-source" href="https://www.ihchina.cn/project_details/14304.html" target="_blank" rel="noopener noreferrer">白族扎染技艺 · 非遗资料 ↗</a></div><a href="#erhai" id="province-enter" aria-label="从云南地图进入大理洱海">↗</a><button type="button" id="province-reset" hidden>回看大理</button></div>
         <details class="prefecture-directory"><summary>全部州、市 <span>8 个地级市 · 8 个自治州</span></summary><div class="prefecture-directory-grid" id="prefecture-directory"></div></details>
-        <div class="map-bottomline"><span>点选地名，认识云南</span><span>轮廓 Natural Earth · 州市分区示意 © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a></span></div>
+        <div class="map-bottomline"><span>插画为艺术示意，非实景照片 · AI 辅助绘制</span><span>轮廓 Natural Earth · 州市分区示意 © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a></span></div>
       </div>
     </section>
     <section id="erhai-page" class="erhai-page" aria-label="洱海景点探索" hidden>
       <div class="explore-toolbar"><div><a href="#yunnan" class="breadcrumb">云南</a><span class="breadcrumb-separator">／</span><h1>大理 · 洱海</h1></div><button class="outline-button" id="itinerary-toggle">我的行程 <span id="itinerary-count">0</span></button></div>
       <div class="explore-controls" id="explore-controls"></div>
       <div class="roaming-invitation"><span>从一张地图，到一段旅程。</span><button data-tour="shore">▶ 播放山海长卷 <small>75 秒</small></button><a href="#tour-collection">选一段喜欢的路 ↓</a></div>
+      <div id="map-home-anchor"><a class="map-focus-link" href="#erhai?view=map">展开地图 <span aria-hidden="true">⤢</span></a><span>点选风景，沿着山海慢慢看</span></div>
       <div class="explore-layout">
         <aside class="explore-sidebar" id="explore-sidebar"></aside>
-        <div class="lake-map-wrap"><div class="lake-map" id="lake-map"></div><div class="map-legend"><span><i class="legend-entrance"></i>抵达入口</span><span><i class="legend-place"></i>景点</span><span><i class="legend-route"></i>游览顺序</span></div><p class="map-disclaimer">可拖动地图 · 渔灯为模拟漂游 · 连线表示沿岸方向，非道路导航</p></div>
+        <button type="button" class="drawer-reopen" id="sidebar-reopen" data-action="reopen-sidebar" aria-controls="explore-sidebar" aria-expanded="false" hidden>景点与行程 <span aria-hidden="true">↗</span></button>
+        <div class="lake-map-wrap"><div class="atlas-map-stage"><div class="lake-map" id="lake-map"></div><div class="atlas-loading" id="atlas-loading" aria-label="立体地图加载状态"><img class="atlas-loading-poster" src="assets/erhai-3d-preview.jpg" alt="苍山洱海三维地图的静态预览，载入后可旋转探索" width="1324" height="720" loading="lazy"><span class="atlas-preview-badge">山海预览 · 立体画面正在准备</span><div class="atlas-loading-panel"><div class="atlas-loading-title"><strong data-load-stage role="status" aria-live="polite">正在展开立体山海</strong><span data-load-percent>0%</span></div><progress max="100" value="0" aria-label="立体地图加载进度"></progress><p data-load-eta>进入洱海后开始加载</p><div class="atlas-loading-actions"><button type="button" data-load-retry hidden>重新加载</button><button type="button" data-load-flat>先看平面地图</button></div></div></div></div><div class="map-legend"><span><i class="legend-entrance"></i>抵达入口</span><span><i class="legend-place"></i>景点</span><span><i class="legend-route"></i>游览顺序</span></div><p class="map-disclaimer">可拖动地图 · 渔灯为模拟漂游 · 连线表示沿岸方向，非道路导航</p></div>
       </div>
+      <section class="owner-erhai-gallery" aria-labelledby="owner-erhai-title"><div class="owner-erhai-heading"><div><span>ERHAI · THROUGH MY LENS</span><h2 id="owner-erhai-title">把洱海的光，留在镜头里。</h2></div><p>洱海 · 站长实拍<br>点击看完整照片，左右滑动继续看。</p></div><div class="owner-erhai-rail" id="owner-erhai-photos" aria-label="站长拍摄的洱海相册"></div><p class="owner-erhai-credit">摄影：站长实拍 · 摄影者保留版权 · 地点：洱海</p></section>
       <section class="tour-collection" id="tour-collection" aria-labelledby="tour-collection-title"><div class="tour-collection-heading"><div><span>CHOOSE YOUR OWN PACE</span><h2 id="tour-collection-title">先走一段，再决定去哪里。</h2></div><p>跟着镜头预览山海，把喜欢的风景留在自己的行程里。</p></div><div class="tour-options" id="tour-options"></div><p class="planning-note">停留时长为规划参考，不含交通、用餐与排队。开放、预约及交通安排请在出发前确认。</p></section>
       <section class="scenery-strip" aria-label="景点照片"><div class="strip-heading"><h2 id="strip-title">沿着洱海，看见风景</h2><span id="strip-meta"></span></div><div class="scenery-cards" id="scenery-cards"></div></section>
       <section id="erhai-culture" class="heritage-section" aria-labelledby="heritage-title">
@@ -96,7 +94,41 @@
         </div>
       </section>
     </section>
+    <section id="lijiang-page" class="lijiang-page" aria-label="丽江风景漫游" hidden>
+      <nav class="lj-local-nav" aria-label="丽江页内导航"><div><button data-lj-jump="map">地图</button><button data-lj-jump="directory">景点</button><button data-lj-jump="saved">收藏 <span id="lj-nav-count">0</span></button></div><button class="lj-nav-current" data-lj-read><span id="lj-current-name">白沙古镇</span><small>走近实景 ↗</small></button></nav><span id="lj-selection-live" class="lj-sr-only" role="status" aria-live="polite"></span>
+      <div class="lj-hero">
+        <div class="lj-hero-copy"><a href="#yunnan">云南 / 第二站 · 丽江</a><span class="lj-eyebrow">LIJIANG · A LITTLE CLOSER</span><h1 class="lj-serif">雪山之下，<br><em>慢慢丽江。</em></h1><p>从一座古镇的流水，走到雪山脚下。<br>把脚步放慢，选一处真正想停留的风景。</p><a class="lj-hero-link" href="#lijiang?spot=baisha" data-lj-scroll="story">先去白沙走一走 <span aria-hidden="true">↗</span></a></div>
+        <figure class="lj-hero-photo"><img src="assets/lijiang/blue-moon-02.webp" alt="蓝月谷傍晚的湖面倒影与远处山色" width="1920" height="1440" loading="lazy" decoding="async" data-photo-managed="true" data-lj-image><span class="lj-hero-number" aria-hidden="true">02</span><figcaption><small>LIJIANG · 山水来信</small><strong>山在那里，风也在那里。</strong><span>蓝月谷实景 · ShuQizhe · CC BY-SA 4.0</span></figcaption></figure>
+      </div>
+      <a class="lj-night-invitation" href="#lijiang?spot=shuhe&view=shuhe-night&step=0"><img src="assets/lijiang/shuhe-owner-night-reflections.jpg" alt="束河夜色中的水面倒影" width="1024" height="768" loading="lazy"><span><small>站长镜头 · 五段夜色</small><strong>束河入夜</strong><span>从牌坊的灯，到水里的光。</span></span><b aria-hidden="true">↗</b></a>
+      <div class="lj-stats"><p>十处风景，留几处给自己。</p><div><span><b>03</b>古镇慢游</span><span><b>04</b>雪山湖谷</span><span><b>03</b>高原湖泊</span></div></div>
+      <div class="lj-section-heading"><div><span class="lj-eyebrow">FOLLOW YOUR CURIOSITY</span><h2>今天，想遇见怎样的丽江？</h2></div><p>选一段主题，也可以直接在地图上寻找。<br>同一主题中的景点，不代表必须在一天内走完。</p></div>
+      <div class="lj-route-options" id="lj-routes" aria-label="丽江漫游主题"></div>
+      <section aria-labelledby="lj-map-title" class="lj-paper-section">
+        <div class="lj-section-heading"><div><span class="lj-eyebrow">A JOURNEY, DRAWN ON PAPER</span><h2 id="lj-map-title">一纸山水，慢慢丽江。</h2></div><p>循着屋檐与山色，点一处想去的风景。<br>远方的湖，另留一页慢慢看。</p></div>
+        <div class="lj-paper-atlas paper-surface" id="lj-map">
+          <div class="paper-atlas-heading"><span>丽江漫游手绘地图 <small>LIJIANG · FIELD NOTES</small></span><span class="paper-stamp">山水<br>有约</span></div>
+          <div class="lj-paper-panels">
+            <section class="lj-paper-panel lj-paper-main" id="lj-panel-core" aria-labelledby="lj-core-title"><header><span>01 / 山麓之间</span><h3 id="lj-core-title">雪山与三座古镇</h3><p>八处风景，藏在山水与日常里。</p></header><div id="lj-paper-core"></div></section>
+            <div class="lj-paper-lakes">
+              <section class="lj-paper-panel" id="lj-panel-lugu" aria-labelledby="lj-lugu-title"><header><span>02 / 远方的湖 · 独立湖区</span><h3 id="lj-lugu-title">泸沽湖</h3><p>在丽江城区东北方向，留一段完整旅程。</p></header><div id="lj-paper-lugu"></div><p class="paper-inset-note">湖区放大图 · 与主图不同比例</p></section>
+              <section class="lj-paper-panel" id="lj-panel-chenghai" aria-labelledby="lj-chenghai-title"><header><span>03 / 永胜方向 · 独立湖区</span><h3 id="lj-chenghai-title">程海</h3><p>在丽江城区东南方向，去看开阔的湖面。</p></header><div id="lj-paper-chenghai"></div><p class="paper-inset-note">湖区放大图 · 与主图不同比例</p></section>
+            </div>
+          </div>
+          <footer class="paper-atlas-footer"><span id="lj-paper-note">北向上 · 插画为景观示意 · 非道路导航</span><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">湖岸 © OpenStreetMap</a></footer>
+        </div>
+        <div class="lj-map-pick" id="lj-map-pick" role="region" aria-label="选中的丽江景点" hidden></div>
+      </section>
+      <section aria-labelledby="lj-directory-title"><div class="lj-section-heading"><div><span class="lj-eyebrow">TEN PLACES · YOUR OWN PACE</span><h2 id="lj-directory-title">喜欢哪里，就停在哪里。</h2></div><p id="lj-directory-status" role="status">10 处风景 · 实景与地方故事</p></div><div class="lj-filters" id="lj-filters" aria-label="筛选丽江景点"></div><div class="lj-directory" id="lj-directory"></div></section>
+      <article class="lj-story" id="lj-story" aria-labelledby="lj-story-title"></article>
+      <section class="lj-culture" aria-labelledby="lj-culture-title"><div><span class="lj-eyebrow">THE LIFE BEHIND THE LANDSCAPE</span><h2 id="lj-culture-title">山水之外，<br>还有生活。</h2></div><div><p>水流穿过街巷，木屋顺着山势排开。丽江古城的空间里，纳西文化与多种建筑传统相遇；白沙的壁画、束河的街巷，则把不同的地方记忆留了下来。走近一座古镇，也是在走近当地人的日常。</p><div class="lj-culture-chips"><button type="button" data-lj-spot="dayan">大研 · 水与城</button><button type="button" data-lj-spot="baisha">白沙 · 壁画与老街</button><button type="button" data-lj-spot="shuhe">束河 · 茶马往事</button></div><p><a href="https://whc.unesco.org/en/list/811/" target="_blank" rel="noopener noreferrer">了解丽江古城的文化遗产 ↗</a></p></div></section>
+      <details class="lj-sources"><summary>风景背后的镜头与资料来源</summary><div id="lj-sources"></div></details>
+    </section>
+
   </main>
+  <dialog id="map-focus-dialog" class="map-focus-dialog" aria-labelledby="map-focus-title"><header><div><small>DALI · EXPLORE</small><strong id="map-focus-title">把山海展开</strong></div><button data-close="map-focus-dialog" aria-label="退出展开地图">返回页面 ×</button></header></dialog>
+  <dialog id="lj-walk-dialog" class="lj-walk-dialog" aria-labelledby="lj-walk-title"><header><div><small>SHUHE · AFTER DARK</small><strong id="lj-walk-title">束河入夜</strong></div><button data-close="lj-walk-dialog" aria-label="结束束河夜游">结束夜游 ×</button></header><div class="lj-walk-stage"><figure><img id="lj-walk-image" data-photo-managed="true" alt=""><span id="lj-walk-image-status" role="status"></span><button id="lj-walk-original" aria-pressed="false">查看完整构图 ⤢</button><figcaption>站长实拍 · 摄影者保留版权</figcaption></figure><section class="lj-walk-reading"><span id="lj-walk-number"></span><h2 id="lj-walk-heading"></h2><p id="lj-walk-prose"></p><div class="lj-walk-look"><small>把目光停在这里</small><p id="lj-walk-look"></p></div><p class="lj-walk-note">五张照片串起的一段夜色。章节为叙事安排，不代表现场步行路线。</p><div class="lj-walk-controls"><button id="lj-walk-prev" aria-label="上一段夜色">←</button><button id="lj-walk-play" aria-pressed="false">自动慢游</button><button id="lj-walk-next" aria-label="下一段夜色">→</button></div><progress id="lj-walk-progress" max="12000" value="0" aria-label="当前章节自动播放进度"></progress><span id="lj-walk-play-status" role="status">随自己的节奏，慢慢看。</span></section></div><nav id="lj-walk-chapters" aria-label="束河入夜章节"></nav></dialog>
+  <dialog id="lj-photo-dialog" class="lj-photo-dialog" aria-labelledby="lj-photo-title"><div id="lj-photo-content"></div></dialog>
   <dialog id="tour-dialog" class="tour-dialog" aria-labelledby="tour-title"></dialog>
   <dialog id="panorama-dialog" class="panorama-dialog" aria-labelledby="panorama-title"><div class="panorama-shell"><div class="panorama-toolbar"><div><span>ERHAI · LANDSCAPE ATLAS</span><h2 id="panorama-title">洱海全景地图</h2></div><button data-close="panorama-dialog" aria-label="关闭全景地图">返回探索地图</button></div><p class="panorama-intro">先看照片，再选风景。点击景点小图，走进实景相册。</p><span class="panorama-mobile-hint">左右滑动，查看两岸的景点照片</span><div class="panorama-map" id="panorama-map"></div><div id="panorama-cards" class="panorama-cards" aria-label="全景景点相册"></div><p class="panorama-note">点位表示景点区域 · 地形 Mapzen / USGS，湖岸 © OpenStreetMap · 高差与建筑经艺术化处理</p></div></dialog>
   <dialog id="lantern-dialog" class="lantern-dialog night" aria-labelledby="lantern-title"><div class="lantern-mode-shell"><div class="lantern-mode-toolbar"><div><span>ERHAI · NIGHTFALL</span><h2 id="lantern-title">洱海上的星河</h2></div><div class="lantern-mode-actions"><button data-action="motion" aria-pressed="true">暂停灯影与水波</button><button data-close="lantern-dialog" aria-label="退出渔灯模式，返回景点地图">返回景点地图</button></div></div><div class="lantern-night-atlas"><div id="lantern-photos" class="lantern-photo-windows" role="group" aria-label="洱海渔灯夜景照片"></div><div id="lantern-map" class="lantern-immersive-map"></div></div><p class="lantern-mode-note"><span>点击照片，走近真实夜色</span><small>湖面灯影为场景模拟 · 照片为源站参考资料，拍摄日期与机位未注明</small></p></div></dialog>

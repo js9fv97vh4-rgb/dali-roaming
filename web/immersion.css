@@ -9,7 +9,12 @@
 .drawer-summary>div{min-width:0;flex:1}.drawer-summary .sidebar-label{font-size:10px;letter-spacing:.5px;white-space:nowrap}
 .drawer-summary h2{font:500 21px/1.4 "Songti SC","STSong",serif;margin:2px 0!important}
 .drawer-summary p{font-size:10px;line-height:1.5;margin:0;color:#668075}
-.drawer-toggle{flex:none;width:30px;height:34px;border:1px solid #c9d8ce;border-radius:7px;background:#fff;font:20px Arial;color:#466755}
+.drawer-close{flex:none;width:36px;height:36px;padding:0;border:1px solid #c9d8ce;border-radius:7px;background:#fff;font:24px Arial;color:#466755}
+.drawer-close:hover{background:#e5eee6}
+.drawer-toggle{width:100%;margin-top:10px;padding:8px 0;border:0;border-top:1px solid #d7e1d7;background:none;color:#466755;font-size:11px;grid-column:1/-1}
+.drawer-reopen{padding:11px 15px;border:1px solid #c9d8ce;border-radius:24px;background:#f9fcf8f2;box-shadow:0 3px 15px #193b4520;color:#355b51;font-size:12px;display:flex;align-items:center;gap:16px}
+.has-atlas .drawer-reopen{position:absolute;left:calc(4% + 20px);bottom:145px;z-index:8}
+@media(max-width:720px){.has-atlas .drawer-reopen{position:static;align-self:flex-start;margin-bottom:12px;order:1}.drawer-close{width:44px;height:44px}}
 .drawer-enter{display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:12px;border:0;border-radius:7px;padding:10px 13px;background:#294f49;color:#fff;font-size:12px}
 .drawer-enter span{font-size:17px}.drawer-album{font-size:12px;background:none;border:0;color:#3b6861;padding:0 0 10px}
 #drawer-details{margin-top:14px;border-top:1px solid #d7e1d7;padding-top:14px}

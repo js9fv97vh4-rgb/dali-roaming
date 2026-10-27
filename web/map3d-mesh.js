@@ -18,7 +18,7 @@ export function packGeometry(geometry){
 export function buildTerrain(dem,isWater){
   const [west,south,east,north]=dem.bounds;
   const geometry=new THREE.PlaneGeometry(1,1,dem.columns-1,dem.rows-1),positions=geometry.attributes.position;
-  const colours=new Float32Array(positions.count*3),low=new THREE.Color('#aebc91'),forest=new THREE.Color('#315f4e'),summit=new THREE.Color('#acb6a6'),rock=new THREE.Color('#8b9988'),colour=new THREE.Color();
+  const colours=new Float32Array(positions.count*3),low=new THREE.Color('#b3c8a7'),forest=new THREE.Color('#177c7b'),summit=new THREE.Color('#e6e9d7'),rock=new THREE.Color('#698f9b'),colour=new THREE.Color();
   for(let row=0;row<dem.rows;row++)for(let col=0;col<dem.columns;col++){
     const i=row*dem.columns+col,coords=[west+(east-west)*col/(dem.columns-1),north-(north-south)*row/(dem.rows-1)],altitude=dem.heights[i];
     const [x,z]=project(coords),h=isWater(coords)?-.05:(altitude-dem.lakeLevel)/1000*2.8;

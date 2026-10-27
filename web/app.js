@@ -4,8 +4,9 @@
   const byId=Object.fromEntries(places.map(p=>[p.id,p]));
   const entranceById=Object.fromEntries(entrances.map(e=>[e.id,e]));
   const model=createDaliJourney(places,entrances),state=model.state;
-  const ui={zoom:1,center:[400,405],night:false,motion:true,chooseEntry:false,scene:null,photo:0,photoContext:'scene',autoplay:true,craftStage:0,craftReached:0,drawer:false,walk:0,knots:[0,4,8]};
+  const ui={zoom:1,center:[400,405],night:false,motion:true,chooseEntry:false,scene:null,photo:0,photoContext:'scene',autoplay:true,craftStage:0,craftReached:0,drawer:false,sidebarHidden:false,walk:0,knots:[0,4,8]};
   const $=id=>document.getElementById(id),sceneDialog=$('scene-dialog');
+  const atlasLoadingView=window.createAtlasLoading?.();
   const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const regionName=id=>({west:'海西',east:'海东',all:'全部风景'}[id]);
   const project=([lng,lat])=>[380+(lng-100.21)*1260,360-(lat-25.80)*1400];
@@ -23,7 +24,7 @@
   const photoCount=id=>galleryFor(id).filter(p=>!p.placeholder).length;
   const photoLabel=id=>photoCount(id)?photoCount(id)+'张实拍':'照片待补充';
   const nightPhotos=window.DALI_NIGHT_PHOTOS||[];
-  const activePhotos=()=>ui.photoContext==='night'?nightPhotos:galleryFor(ui.photoContext==='walk'?'ancient-town':ui.scene);
+  const activePhotos=()=>ui.photoContext==='shore'?window.DALI_SHORE_PHOTOS:ui.photoContext==='night'?nightPhotos:galleryFor(ui.photoContext==='walk'?'ancient-town':ui.scene);
   const isStop=id=>orderedStops().includes(id);
   let map3D=null,roaming,applyingView=false;
   const visitFor=id=>window.DALI_VISITS[id];
@@ -59,7 +60,7 @@
     const outline=geometry.regions.map(r=>`<path d="${r.path}"/>`).join('');
     // Decorative ink lines add depth inside the original geographic outline.
     const inkLines=Array.from({length:12},(_,i)=>`<path d="M60 ${100+i*43}C180 ${i*43-50} 235 ${220+i*37} 372 ${140+i*39}S550 ${55+i*41} 700 ${195+i*35}"/>`).join('');
-    $('province-map').innerHTML=`<svg viewBox="0 0 720 660" role="group" aria-label="云南省地图，大理洱海以红星标记"><defs><linearGradient id="province-ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bed2cb"/><stop offset=".5" stop-color="#d4dfd1"/><stop offset="1" stop-color="#a7c4bc"/></linearGradient><pattern id="province-grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#738c8b" stroke-opacity=".12" stroke-width="1"/></pattern><clipPath id="province-clip">${outline}</clipPath></defs><rect x="35" y="20" width="650" height="605" fill="url(#province-grid)" aria-hidden="true"/><g class="province-shadow" transform="translate(0 9)" aria-hidden="true">${outline}</g>${geometry.regions.map(r=>`<path class="province-region" d="${r.path}"/>`).join('')}<g class="province-ink-lines" clip-path="url(#province-clip)" aria-hidden="true">${inkLines}</g>${geometry.regions.map(r=>`<text class="province-label" x="${r.label[0]+8}" y="${r.label[1]+18}" text-anchor="middle">云 南</text>`).join('')}<g class="province-star" id="dali-star" transform="translate(${geometry.star[0]} ${geometry.star[1]})" role="button" tabindex="0" aria-label="进入大理洱海地图"><circle class="star-pulse" r="18"/><circle class="star-locator" r="28"/><circle r="32" fill="transparent"/><text class="star-symbol" text-anchor="middle" dominant-baseline="middle">★</text><path class="star-leader" d="M30 0H47"/><rect class="star-caption" x="46" y="-36" width="171" height="73" rx="5"/><text class="star-name" x="61" y="-6">大理 · 洱海</text><text class="star-sub" x="61" y="17">从这里，走进山海 ↗</text></g><g class="province-compass" transform="translate(646 62)" aria-hidden="true"><circle cx="6" cy="10" r="27"/><path d="M0 22 6 0 12 22 6 17Z"/><text x="6" y="-26" text-anchor="middle" class="map-compass">N</text></g><text class="province-map-caption" x="66" y="596" aria-hidden="true">山海有约 · 风景在途</text></svg>`;
+    $('province-map').innerHTML=`<svg viewBox="0 0 720 660" role="group" aria-label="云南省地图，大理洱海以山水徽记标记"><defs><linearGradient id="province-ink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bed2cb"/><stop offset=".5" stop-color="#d4dfd1"/><stop offset="1" stop-color="#a7c4bc"/></linearGradient><pattern id="province-grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#738c8b" stroke-opacity=".12" stroke-width="1"/></pattern><clipPath id="province-clip">${outline}</clipPath></defs><rect x="35" y="20" width="650" height="605" fill="url(#province-grid)" aria-hidden="true"/><g class="province-shadow" transform="translate(0 9)" aria-hidden="true">${outline}</g>${geometry.regions.map(r=>`<path class="province-region" d="${r.path}"/>`).join('')}<g class="province-ink-lines" clip-path="url(#province-clip)" aria-hidden="true">${inkLines}</g>${geometry.regions.map(r=>`<text class="province-label" x="${r.label[0]+8}" y="${r.label[1]+18}" text-anchor="middle">云 南</text>`).join('')}<g class="province-star" id="dali-star" transform="translate(${geometry.star[0]} ${geometry.star[1]})" role="button" tabindex="0" aria-label="进入大理洱海地图"><circle r="32" fill="transparent"/>${window.PaperAtlas?.destinationEmblem('dali')||'<circle r="24" fill="#f2f4e3" stroke="#a18c55"/><path d="M-13 6-4-9 6 6M0 6 7-5 14 6" fill="none" stroke="#386d5c" stroke-width="2"/>'}<path class="star-leader" d="M30 0H47"/><rect class="star-caption" x="46" y="-36" width="171" height="73" rx="5"/><text class="star-name" x="61" y="-6">大理 · 洱海</text><text class="star-sub" x="61" y="17">从这里，走进山海 ↗</text></g><g class="province-compass" transform="translate(646 62)" aria-hidden="true"><circle cx="6" cy="10" r="27"/><path d="M0 22 6 0 12 22 6 17Z"/><text x="6" y="-26" text-anchor="middle" class="map-compass">N</text></g><text class="province-map-caption" x="66" y="596" aria-hidden="true">山海有约 · 风景在途</text></svg>`;
   }
   function renderMap(){
     if(map3D){map3D.update(mapSnapshot());return;}
@@ -132,8 +133,8 @@
   }
   function renderSidebar(){
     const selected=byId[state.selected],target=byId[state.destination],entry=entranceById[state.entrance],candidate=suggestions();
-    const sidebar=$('explore-sidebar');sidebar.dataset.expanded=String(ui.drawer);sidebar.setAttribute('aria-label','景点与行程');
-    sidebar.innerHTML=`<div class="drawer-summary">${selected?`<button class="drawer-photo" data-scene="${selected.id}" aria-label="进入${selected.name}实景"><img referrerpolicy="no-referrer" src="${selected.thumb||selected.image}" alt="${selected.name}实拍风景"></button><div><span class="sidebar-label">${regionName(selected.region)} · ${photoLabel(selected.id)}</span><h2>${selected.name}</h2><p>${selected.kicker}</p></div>`:'<div><span class="sidebar-label">沿着湖岸，慢慢发现</span><h2>选一处喜欢的风景</h2></div>'}<button class="drawer-toggle" data-action="toggle-drawer" aria-expanded="${ui.drawer}" aria-controls="drawer-details" aria-label="${ui.drawer?'收起景点详情':'展开景点详情与列表'}">${ui.drawer?'−':'＋'}</button></div>${selected?`<button class="drawer-enter" ${selected.id==='ancient-town'?'data-walk="0"':`data-scene="${selected.id}"`}>${selected.id==='ancient-town'?'走进古城 · 三段慢游':'走进实景'}<span>↗</span></button>`:''}${selected?`<div class="drawer-quick"><button data-add-stop="${selected.id}">${isStop(selected.id)?'移出行程':'加入行程 ＋'}</button><small>${visitFor(selected.id).minutes.join('–')} 分钟 · 规划参考</small></div>`:''}<div id="drawer-details" ${ui.drawer?'':'hidden'}>${selected?`<div class="route-action"><button data-set-destination="${selected.id}" class="solid-button">${state.destination===selected.id?'当前目的地':'设为目的地'}</button></div><p class="visit-tip">${selected.tip}</p>${selected.id==='ancient-town'?'<button class="drawer-album" data-scene="ancient-town">查看全部古城照片 ↗</button>':''}`:''}${target?`<div class="route-destination"><strong>目的地 · ${target.name}</strong><button data-action="clear-destination">取消</button></div>${entry?`<p class="route-summary">${candidate.along.length?'沿岸可留意：'+candidate.along.map(id=>byId[id].name).join('、'):'当前游览段没有其他沿岸候选。'}</p><div class="along-chips">${candidate.along.map(id=>`<button data-place="${id}">${byId[id].name}</button>`).join('')}</div>`:'<p class="route-summary">选择抵达入口，查看沿岸候选。</p>'}`:''}<details class="place-directory" open><summary>${regionName(state.region)} · ${visiblePlaces().length}处景点</summary><div class="place-list">${visiblePlaces().map((p,i)=>`<button class="place-list-button ${state.selected===p.id?'active':''}" data-place="${p.id}" aria-label="选择${p.name}"><span class="place-index">${String(i+1).padStart(2,'0')}</span><span class="place-list-name">${p.name}</span></button>`).join('')}</div></details></div>`;
+    const sidebar=$('explore-sidebar');sidebar.dataset.expanded=String(ui.drawer);sidebar.setAttribute('aria-label','景点与行程');sidebar.hidden=ui.sidebarHidden;$('sidebar-reopen').hidden=!ui.sidebarHidden;$('sidebar-reopen').setAttribute('aria-expanded',String(!ui.sidebarHidden));
+    sidebar.innerHTML=`<div class="drawer-summary">${selected?`<button class="drawer-photo" data-scene="${selected.id}" aria-label="进入${selected.name}实景"><img referrerpolicy="no-referrer" src="${selected.thumb||selected.image}" alt="${selected.name}实拍风景"></button><div><span class="sidebar-label">${regionName(selected.region)} · ${photoLabel(selected.id)}</span><h2>${selected.name}</h2><p>${selected.kicker}</p></div>`:'<div><span class="sidebar-label">沿着湖岸，慢慢发现</span><h2>选一处喜欢的风景</h2></div>'}<button type="button" class="drawer-close" data-action="close-sidebar" aria-label="关闭景点与行程">×</button></div>${selected?`<button class="drawer-enter" ${selected.id==='ancient-town'?'data-walk="0"':`data-scene="${selected.id}"`}>${selected.id==='ancient-town'?'走进古城 · 三段慢游':'走进实景'}<span>↗</span></button>`:''}${selected?`<div class="drawer-quick"><button data-add-stop="${selected.id}">${isStop(selected.id)?'移出行程':'加入行程 ＋'}</button><small>${visitFor(selected.id).minutes.join('–')} 分钟 · 规划参考</small></div>`:''}<button type="button" class="drawer-toggle" data-action="toggle-drawer" aria-expanded="${ui.drawer}" aria-controls="drawer-details">${ui.drawer?'收起详情与景点列表 ↑':'更多详情与景点列表 ↓'}</button><div id="drawer-details" ${ui.drawer?'':'hidden'}>${selected?`<div class="route-action"><button data-set-destination="${selected.id}" class="solid-button">${state.destination===selected.id?'当前目的地':'设为目的地'}</button></div><p class="visit-tip">${selected.tip}</p>${selected.id==='ancient-town'?'<button class="drawer-album" data-scene="ancient-town">查看全部古城照片 ↗</button>':''}`:''}${target?`<div class="route-destination"><strong>目的地 · ${target.name}</strong><button data-action="clear-destination">取消</button></div>${entry?`<p class="route-summary">${candidate.along.length?'沿岸可留意：'+candidate.along.map(id=>byId[id].name).join('、'):'当前游览段没有其他沿岸候选。'}</p><div class="along-chips">${candidate.along.map(id=>`<button data-place="${id}">${byId[id].name}</button>`).join('')}</div>`:'<p class="route-summary">选择抵达入口，查看沿岸候选。</p>'}`:''}<details class="place-directory" open><summary>${regionName(state.region)} · ${visiblePlaces().length}处景点</summary><div class="place-list">${visiblePlaces().map((p,i)=>`<button class="place-list-button ${state.selected===p.id?'active':''}" data-place="${p.id}" aria-label="选择${p.name}"><span class="place-index">${String(i+1).padStart(2,'0')}</span><span class="place-list-name">${p.name}</span></button>`).join('')}</div></details></div>`;
   }
   function renderCards(){
     const c=suggestions();let list=visiblePlaces();
@@ -167,7 +168,7 @@
     document.querySelectorAll('[data-craft-step]').forEach(b=>{const step=Number(b.dataset.craftStep);b.disabled=step>ui.craftReached+1;b.setAttribute('aria-pressed',String(step===stage));});
   }
   function selectEntrance(id){model.arrival(id);ui.chooseEntry=false;render();persist();location.hash='erhai';toast(`已从${entranceById[id].name}出发，原行程继续保留`);}
-  function selectPlace(id){model.select(id);ui.drawer=false;render();persist();if(id==='ancient-town')map3D?.visitTown();}
+  function selectPlace(id){model.select(id);ui.drawer=false;ui.sidebarHidden=false;render();persist();if(id==='ancient-town')map3D?.visitTown();}
   function setDestination(id){model.setDestination(id);render();persist();if(!state.entrance)toast('目的地已选好，再选择抵达入口查看游览方向');}
   function addStop(id){const added=model.toggle(id);render();persist();toast(`${byId[id].name}${added?'已加入行程':'已移出行程'}`);updateSceneButtons();return added;}
   function updateSceneButtons(){
@@ -206,20 +207,21 @@
   }
   function stepWalk(index){if(!applyingView)return goView({page:'erhai',modal:'walk',chapter:index},{replace:true});ui.walk=Math.max(0,Math.min(window.DALI_TOWN_STORY.length-1,index));renderWalk();$('walk-chapter-title').focus({preventScroll:true});}
   function openPhoto(index,context='scene'){if(!applyingView)return goView({...DaliViews.parse(location.hash),photo:index});ui.photoContext=context;ui.photo=index;renderPhoto();if(!$('photo-dialog').open)$('photo-dialog').showModal();document.body.classList.add('dialog-open');}
-  function renderPhoto(){const photos=activePhotos(),p=photos[ui.photo];if(!p)return;$('photo-content').innerHTML=`<div class="lightbox-header"><span>${ui.photoContext==='night'?'洱海渔灯夜景':ui.photoContext==='walk'?'大理古城':byId[ui.scene].name} · ${ui.photo+1}/${photos.length}</span><button data-close="photo-dialog" aria-label="关闭完整照片">×</button></div><div class="lightbox-stage"><button data-photo-step="-1" aria-label="上一张完整照片">‹</button><img referrerpolicy="no-referrer" src="${p.src}" alt="${esc(p.caption)}"><button data-photo-step="1" aria-label="下一张完整照片">›</button></div><div class="lightbox-caption"><strong>${esc(p.caption)}</strong><span>${credit(p)}</span></div>`;}
+  function renderPhoto(){const photos=activePhotos(),p=photos[ui.photo];if(!p)return;$('photo-content').innerHTML=`<div class="lightbox-header"><span>${ui.photoContext==='shore'?'洱海 · 站长实拍':ui.photoContext==='night'?'洱海渔灯夜景':ui.photoContext==='walk'?'大理古城':byId[ui.scene].name} · ${ui.photo+1}/${photos.length}</span><button data-close="photo-dialog" aria-label="关闭完整照片">×</button></div><div class="lightbox-stage"><button data-photo-step="-1" aria-label="上一张完整照片">‹</button><img referrerpolicy="no-referrer" src="${p.src}" alt="${esc(p.caption)}"><button data-photo-step="1" aria-label="下一张完整照片">›</button></div><div class="lightbox-caption"><strong>${esc(p.caption)}</strong><span>${credit(p)}</span></div>`;}
   function renderCredits(){
-    $('credits-list').innerHTML=[window.DALI_OVERVIEW,...places.flatMap(p=>galleryFor(p.id).filter(photo=>!photo.placeholder).map(photo=>({...photo,name:p.name}))),...nightPhotos.filter(p=>p.newAsset).map(p=>({...p,name:'洱海渔灯 · '+p.title}))].map(p=>`<div class="credit-item"><strong>${esc(p.name)}</strong> · ${esc(p.author)}<br><a href="${p.source}" target="_blank" rel="noopener noreferrer">原作与拍摄信息</a> · ${p.licenseUrl?`<a href="${p.licenseUrl}" target="_blank" rel="noopener noreferrer">${esc(p.license)}</a>`:esc(p.license)}</div>`).join('')+'<div class="credit-item">地图渔灯参考洱海夜间作业灯光，以光点模拟水上灯影；不表示实时灯光位置。</div><div class="credit-item"><strong>界面扎染布纹</strong> · 使用内置 imagegen 创作的原创靛蓝布面纹样；用于导航、按钮与照片边框。为扎染灵感装饰，不是传统纹样复刻或非遗实物照片。</div>';
+    $('credits-list').innerHTML=[window.DALI_OVERVIEW,...window.DALI_SHORE_PHOTOS.map(photo=>({...photo,name:'洱海 · 站长实拍'})),...(window.LIJIANG_DATA?.places||[]).flatMap(p=>p.photos.map(photo=>({...photo,name:p.name}))),...places.flatMap(p=>galleryFor(p.id).filter(photo=>!photo.placeholder).map(photo=>({...photo,name:p.name}))),...nightPhotos.filter(p=>p.newAsset).map(p=>({...p,name:'洱海渔灯 · '+p.title}))].map(p=>`<div class="credit-item"><strong>${esc(p.name)}</strong> · ${esc(p.author)}<br><a href="${p.source}" target="_blank" rel="noopener noreferrer">原作与拍摄信息</a> · ${p.licenseUrl?`<a href="${p.licenseUrl}" target="_blank" rel="noopener noreferrer">${esc(p.license)}</a>`:esc(p.license)}</div>`).join('')+'<div class="credit-item">地图渔灯参考洱海夜间作业灯光，以光点模拟水上灯影；不表示实时灯光位置。</div><div class="credit-item"><strong>界面扎染布纹</strong> · 使用内置 imagegen 创作的原创靛蓝布面纹样；用于导航、按钮与照片边框。为扎染灵感装饰，不是传统纹样复刻或非遗实物照片。</div>';
   }
   function renderItinerary(){
     const ids=orderedStops(),total=ids.reduce((sum,id)=>sum+visitFor(id).minutes[0],0);$('itinerary-content').innerHTML=`<button class="save-status" id="save-status" data-action="retry-save">${saveStatus}</button>${state.entrance?`<div class="itinerary-entry">出发 · ${entranceById[state.entrance].name}</div>`:'<p class="route-note">还未选择抵达入口</p>'}${ids.length?`<div class="itinerary-overview"><strong>${ids.length} 处停留 · 至少约 ${(total/60).toFixed(1)} 小时</strong><span>仅计游览，不含交通、排队与用餐${total>420?'；建议分成多日游览':''}。</span><button data-tour="mine">▶ 播放我的旅程</button></div>`:''}${ids.length?ids.map((id,index)=>{const p=byId[id];return `<div class="itinerary-item"><img referrerpolicy="no-referrer" src="${p.thumb||p.image}" alt="${p.name}"><span>${index+1}. ${p.name}<small>${id===state.destination?'目的地':regionName(p.region)+' · '+visitFor(id).minutes.join('–')+' 分钟'}</small></span>${index>0&&id!==state.destination?`<button data-move-stop="${id}" aria-label="将${p.name}提前一站">提前</button>`:''}<button class="remove-stop" data-remove-stop="${id}" aria-label="从行程移除${p.name}">移除</button></div>`;}).join(''):'<p class="itinerary-empty">还没有停留点。先试一段漫游，再留下喜欢的风景。</p>'}${ids.length?'<button class="itinerary-use" data-action="show-itinerary">在地图上查看行程</button><div class="itinerary-export"><button data-action="copy-itinerary">复制行程文字</button><button data-action="download-itinerary">下载行程</button></div>':''}${!ids.length?`<div class="empty-tour-options">${window.DALI_TOURS.map(r=>`<button data-tour="${r.id}">${r.name} ↗</button>`).join('')}</div>`:''}<p class="itinerary-foot">停留点按加入顺序排列，目的地放在最后。行程自动保存到当前浏览器；连线表示沿岸方向，不是道路导航。</p>`;
   }
   function openItinerary(){if(!applyingView)return goView({page:'erhai',modal:'itinerary'});renderItinerary();$('itinerary-dialog').showModal();document.body.classList.add('dialog-open');}
   function itineraryText(){return ['云南漫游 · 我的洱海行程',state.entrance?'出发：'+entranceById[state.entrance].name:'抵达入口：待选',...orderedStops().map((id,i)=>`${i+1}. ${byId[id].name}${id===state.destination?'（目的地）':''}\n   ${visitLabel(id)}\n   ${byId[id].tip}`),'路线为沿岸游览示意，实际道路、开放及停车情况以现场为准。',location.origin].join('\n\n');}
-  function navigate(){const page=(location.hash.startsWith('#erhai')||location.hash==='#tour-collection')?'erhai':'yunnan';document.body.dataset.page=page;$('yunnan-page').hidden=page!=='yunnan';$('erhai-page').hidden=page!=='erhai';document.querySelectorAll('[data-page-link]').forEach(a=>a.classList.toggle('active',a.dataset.pageLink===page));document.title=page==='erhai'?'大理 · 洱海漫游 | 云南漫游':'云南漫游 · 从地图走进风景';if(location.hash==='#tour-collection')requestAnimationFrame(()=>$('tour-collection').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'start'}));if(location.hash==='#erhai-culture')requestAnimationFrame(()=>$('erhai-culture').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'start'}));}
+  function navigate(){const page=DaliViews.parse(location.hash).page;document.body.dataset.page=page;$('yunnan-page').hidden=page!=='yunnan';$('erhai-page').hidden=page!=='erhai';$('lijiang-page').hidden=page!=='lijiang';document.querySelectorAll('[data-page-link]').forEach(a=>a.classList.toggle('active',a.dataset.pageLink===page));if(page==='erhai')requestAnimationFrame(()=>startAtlas());document.title=page==='lijiang'?'丽江 · 雪山与古镇 | 云南漫游':page==='erhai'?'大理 · 洱海漫游 | 云南漫游':'云南漫游 · 从地图走进风景';if(location.hash==='#tour-collection')requestAnimationFrame(()=>$('tour-collection').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'start'}));if(location.hash==='#erhai-culture')requestAnimationFrame(()=>$('erhai-culture').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'start'}));}
   function closeDialog(id){const d=$(id);if(d?.open)d.close();}
   async function performAction(action){
+    if(action==='close-sidebar'||action==='reopen-sidebar'){ui.sidebarHidden=action==='close-sidebar';if(ui.sidebarHidden)ui.drawer=false;renderSidebar();renderMap();(ui.sidebarHidden?$('sidebar-reopen'):document.querySelector('.drawer-close'))?.focus({preventScroll:true});}
     if(action==='toggle-drawer'){ui.drawer=!ui.drawer;renderSidebar();renderMap();document.querySelector('.drawer-toggle')?.focus();}
-    if(action==='place-list'){ui.drawer=true;renderSidebar();$('scenery-cards').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'start'});}
+    if(action==='place-list'){ui.sidebarHidden=false;ui.drawer=true;renderSidebar();renderMap();$('explore-sidebar').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth',block:'start'});}
     if(action==='change-entry'){ui.chooseEntry=!ui.chooseEntry;renderControls();}
     if(action==='clear-destination'){state.destination=null;render();persist();updateSceneButtons();}
     if(action==='lantern-mode')openLanternMode();
@@ -252,23 +254,26 @@
   function syncView(){
     if(applyingView)return;
     const v=DaliViews.parse(location.hash),desired=new Set();
-    if(v.scene)desired.add('scene-dialog');else if(v.modal)desired.add(({night:'lantern',tour:'tour',walk:'walk',panorama:'panorama',itinerary:'itinerary',credits:'credits'})[v.modal]+'-dialog');
+    if(v.scene)desired.add('scene-dialog');else if(v.modal)desired.add(({night:'lantern',tour:'tour',walk:'walk',panorama:'panorama',itinerary:'itinerary',credits:'credits',album:'photo','lijiang-photo':'lj-photo','lijiang-walk':'lj-walk',map:'map-focus'})[v.modal]+'-dialog');
     if(v.photo!==undefined)desired.add('photo-dialog');
     applyingView=true;
     try{
       for(const d of [...document.querySelectorAll('dialog[open]')].reverse())if(!desired.has(d.id))d.close();
       navigate();
       if(v.scene&&(!sceneDialog.open||ui.scene!==v.scene))openScene(v.scene);
+      if(v.modal==='map'&&!$('map-focus-dialog').open){if(!state.selected){ui.sidebarHidden=true;renderSidebar();}$('map-focus-dialog').append(document.querySelector('.explore-layout'));$('map-focus-dialog').showModal();}
       if(v.modal==='walk'&&(!$('walk-dialog').open||ui.walk!==v.chapter))openWalk(v.chapter);
       if(v.modal==='tour')roaming.open(v.tour,v.step);
       if(v.modal==='night'&&!$('lantern-dialog').open)openLanternMode();
       if(v.modal==='panorama'&&!$('panorama-dialog').open)openPanorama();
       if(v.modal==='itinerary'&&!$('itinerary-dialog').open)openItinerary();
       if(v.modal==='credits'&&!$('credits-dialog').open){renderCredits();$('credits-dialog').showModal();}
-      if(v.photo!==undefined){const context=v.modal==='night'?'night':v.modal==='walk'?'walk':'scene';ui.photoContext=context;const count=activePhotos().length;openPhoto(Math.min(v.photo,count-1),context);}
+      if(v.photo!==undefined){const context=v.modal==='album'?'shore':v.modal==='night'?'night':v.modal==='walk'?'walk':'scene';ui.photoContext=context;const count=activePhotos().length;openPhoto(Math.min(v.photo,count-1),context);}
       document.body.classList.toggle('dialog-open',!!document.querySelector('dialog[open]'));
-    }finally{applyingView=false;}
+    }finally{applyingView=false;atlasLoadingView?.place();}
+    window.dispatchEvent(new Event('destinationchange'));
   }
+  $('map-focus-dialog').addEventListener('close',()=>{$('map-home-anchor').after(document.querySelector('.explore-layout'));document.querySelector('.map-focus-link')?.focus({preventScroll:true});});
   let ignoreClickUntil=0;
   document.addEventListener('click',event=>{
     if(Date.now()<ignoreClickUntil&&event.target.closest('#lake-map'))return;
@@ -314,18 +319,19 @@
     if(event.target.id==='gallery-track'&&(event.key==='ArrowLeft'||event.key==='ArrowRight')){event.preventDefault();ui.autoplay=false;const b=document.querySelector('[data-gallery-autoplay]');if(b){b.textContent='自动轮播';b.setAttribute('aria-pressed','false');}galleryTo(galleryIndex()+(event.key==='ArrowRight'?1:-1));}
   });
   document.querySelector('.skip-link').addEventListener('click',event=>{event.preventDefault();const main=$('main');main.tabIndex=-1;main.focus();main.scrollIntoView();});
-  $('dali-card').addEventListener('click',()=>location.hash='erhai');$('province-map').addEventListener('click',e=>{if(e.target.closest('#dali-star'))location.hash='erhai';});
+  $('province-map').addEventListener('click',e=>{if(e.target.closest('#dali-star'))location.hash='erhai';});
   $('itinerary-toggle').addEventListener('click',openItinerary);$('credits-button').addEventListener('click',()=>goView({page:document.body.dataset.page,modal:'credits'}));
   $('craft-experience').addEventListener('click',event=>{const knot=event.target.closest('[data-craft-knot]');if(knot&&ui.craftStage===0){const i=Number(knot.dataset.craftKnot);if(ui.knots.includes(i)){if(ui.knots.length===1){toast('至少留一个扎结位置');return;}ui.knots=ui.knots.filter(k=>k!==i);}else ui.knots.push(i);renderKnots();document.querySelector(`[data-craft-knot="${i}"]`).focus();}const button=event.target.closest('[data-craft-step]');if(button&&!button.disabled)renderCraft(Number(button.dataset.craftStep));});
   $('craft-download').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([craftSVG()],{type:'image/svg+xml;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='我的蓝白纹样.svg';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
   $('craft-reset').addEventListener('click',()=>{renderCraft(0);document.querySelector('[data-craft-step="1"]').focus();});
-  for(const dialog of document.querySelectorAll('dialog')){dialog.addEventListener('cancel',event=>{event.preventDefault();closeView();});dialog.addEventListener('close',()=>{if(dialog===sceneDialog)stopGallery();if(dialog.id==='walk-dialog')document.querySelector('.drawer-enter')?.focus({preventScroll:true});if(map3D&&['panorama-dialog','lantern-dialog','tour-dialog'].includes(dialog.id)&&!['panorama-dialog','lantern-dialog','tour-dialog'].some(id=>$(id).open)){map3D.mount($('lake-map'),'explore');map3D.setMotion(true);}if(!document.querySelector('dialog[open]'))document.body.classList.remove('dialog-open');});}
+  for(const dialog of document.querySelectorAll('dialog:not(#lj-photo-dialog)')){dialog.addEventListener('cancel',event=>{event.preventDefault();closeView();});dialog.addEventListener('close',()=>{if(dialog===sceneDialog)stopGallery();if(dialog.id==='walk-dialog')document.querySelector('.drawer-enter')?.focus({preventScroll:true});if(map3D&&['panorama-dialog','lantern-dialog','tour-dialog'].includes(dialog.id)&&!['panorama-dialog','lantern-dialog','tour-dialog'].some(id=>$(id).open)){map3D.mount($('lake-map'),'explore');map3D.setMotion(true);}if(!document.querySelector('dialog[open]'))document.body.classList.remove('dialog-open');});}
   window.addEventListener('hashchange',syncView);window.addEventListener('popstate',syncView);
   document.addEventListener('error',event=>{
     const img=event.target;if(!(img instanceof HTMLImageElement)||img.dataset.fallback||img.dataset.photoManaged)return;
     img.dataset.fallback='true';img.removeAttribute('srcset');img.src='assets/erhai.jpg';img.alt='原照片暂时无法加载，显示洱海全景参考图';
     const note=document.createElement('span');note.className='image-load-note';note.textContent='原图暂时无法加载 · 此处为洱海全景参考';img.insertAdjacentElement('afterend',note);
   },true);
+  $('owner-erhai-photos').innerHTML=window.DALI_SHORE_PHOTOS.map((p,i)=>`<figure><a href="#erhai?view=album&amp;photo=${i}" aria-label="查看完整照片：${esc(p.caption)}"><img src="${p.src}" alt="${esc(p.caption)}" width="${p.width}" height="${p.height}" loading="lazy" decoding="async"><span aria-hidden="true">0${i+1} ↗</span></a><figcaption>${esc(p.caption)}</figcaption></figure>`).join('');
   renderProvince();renderCraft(0);render();hydrate();
   roaming=window.createDaliRoaming({getMap:()=>map3D,getStops:orderedStops,gallery:galleryFor,isStop,addStop,saveRoute,credit,openScene,close:closeView,onPosition:(tour,step)=>{const v=DaliViews.parse(location.hash);if(v.modal==='tour')history.replaceState(history.state,'',DaliViews.format({...v,tour,step}));}});
   renderTourShelf();syncView();
@@ -335,13 +341,22 @@
     if(atlasLoading||map3D)return;
     atlasLoading=true;
     document.querySelector('.map3d-fallback')?.remove();
-    const loading=document.createElement('span');loading.className='map3d-loading';loading.textContent=attempt?'正在重新加载立体山海…':'正在下载 3D 引擎…';$('lake-map').append(loading);
+    document.body.classList.add('has-atlas');
+    if(!document.querySelector('link[data-atlas-preload]'))for(const href of ['vendor/three/three.core.js','vendor/three/three.module.js']){
+      const link=document.createElement('link');link.rel='modulepreload';link.href=href;link.dataset.atlasPreload='';document.head.append(link);
+    }
+    atlasLoadingView?.start(attempt);
+    const loading=document.createElement('span');loading.className='map3d-loading';loading.textContent=attempt?'正在重新加载立体山海…':'正在下载 3D 引擎…';if(!atlasLoadingView)$('lake-map').append(loading);
     try {
       let importTimer;
-      const module=await Promise.race([import('./map3d.js?v=20261018-panorama'),new Promise((resolve,reject)=>{importTimer=setTimeout(()=>reject(new Error('3D 引擎下载超时')),20000);})]).finally(()=>clearTimeout(importTimer));
+      const module=await Promise.race([import('./map3d.js?v=20261027-shanshui'),new Promise((resolve,reject)=>{importTimer=setTimeout(()=>reject(new Error('3D 引擎下载超时')),20000);})]).finally(()=>clearTimeout(importTimer));
+      atlasLoadingView?.update({stage:'engine',ratio:1});
       map3D=await module.createAtlas($('lake-map'),{
         places,entrances,geometry,gallery:id=>byId[id]?galleryFor(id):[],preview:id=>DaliPhotos.preview(galleryFor(id)),loadPreview:DaliPhotos.attach,initialState:mapSnapshot(),selectPlace,selectEntrance,openScene,openWalk,drawerOpen:()=>ui.drawer,
-        onProgress:message=>{loading.textContent=message;},
+        onProgress:event=>{atlasLoadingView?.update(event);if(typeof event==='string')loading.textContent=event;},
+        onReady:()=>atlasLoadingView?.ready(),
+        onContextLost:host=>atlasLoadingView?.recover(host),
+        onError:error=>{console.warn('3D render unavailable:',error);map3D?.dispose();map3D=null;renderMap();atlasLoadingView?.fail();},
         isCovered:()=>atlasCoverDialogs.some(dialog=>dialog.open)
       });
       renderMap();document.body.classList.add('has-atlas');
@@ -349,10 +364,12 @@
       if($('panorama-dialog').open){applyingView=true;openPanorama();applyingView=false;}
       else if($('lantern-dialog').open){applyingView=true;openLanternMode();applyingView=false;}
       else if($('tour-dialog').open)roaming.attachMap();
+      atlasLoadingView?.place();
     } catch(error) {
       console.warn('3D atlas unavailable:',error);
+      atlasLoadingView?.fail();
       if(!attempt)setTimeout(()=>startAtlas(1),1500);
-      else {
+      else if(!atlasLoadingView){
         const note=document.createElement('div');note.className='map3d-fallback';
         const message=document.createElement('p');message.textContent='立体地图暂未加载成功，景点与行程仍可使用。';
         const retry=document.createElement('button');retry.type='button';retry.textContent='重新加载 3D 地图';retry.addEventListener('click',()=>location.reload());
@@ -360,7 +377,7 @@
       }
     } finally {loading.remove();atlasLoading=false;}
   }
-  startAtlas();
+  if(document.body.dataset.page==='erhai')startAtlas();
   const publicState=()=>({...model.snapshot(),stops:orderedStops(),saveStatus});
   if(document.modelContext?.registerTool){
     const lifecycle=new AbortController();
