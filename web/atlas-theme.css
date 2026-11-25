@@ -80,7 +80,8 @@ body[data-page] .site-header :focus-visible{outline:2px solid var(--red);outline
 #yunnan-page .map-bottomline{grid-column:1/-1;position:relative;padding:13px 20px 22px;gap:14px;flex-wrap:wrap;font-size:10px;color:#7e8b74}
 @media(max-width:1100px){#yunnan-page{padding:0 22px 28px}#yunnan-page .province-map-wrap{grid-template-columns:150px minmax(0,1fr) 45px;gap:4px}#yunnan-page .map-topline{padding-left:4px}#yunnan-page .map-topline h1{font-size:40px;letter-spacing:3px}.atlas-opening-verse{font-size:13px;letter-spacing:0}.atlas-opening-copy{font-size:12px}.atlas-entry-links{font-size:12px}.atlas-scroll-verse{font-size:17px;letter-spacing:7px}.atlas-seal{font-size:15px}#yunnan-page .province-map{height:690px}#yunnan-page .prefecture-label text{font-size:23px}}
 @media(max-width:850px){#yunnan-page .province-map-wrap{grid-template-columns:1fr}#yunnan-page .map-topline{grid-column:1;grid-row:1;padding:27px 16px 0}#yunnan-page .map-topline>div{display:flex;align-items:center;flex-wrap:wrap;gap:12px 25px}#yunnan-page .map-topline h1{font-size:32px;margin:0;order:-1}#yunnan-page .map-topline h1 span{display:inline;margin-left:12px}.atlas-opening-verse,.atlas-opening-rule,.atlas-opening-copy,.atlas-entry-links,.atlas-scroll-margin{display:none}#yunnan-page .province-map{grid-column:1;grid-row:2;height:auto;aspect-ratio:680/660}.province-map-tools{margin-top:0}}
-@media(max-width:720px){body[data-page] .site-header{height:auto!important;min-height:94px;padding:12px 20px 0!important;flex-wrap:wrap;gap:8px}body[data-page] .site-header .brand{font-size:22px;gap:9px}body[data-page] .site-header .brand-symbol{font-size:29px}body[data-page] .site-header .brand small{font-size:7px}body[data-page] .site-header nav{width:100%;justify-content:space-between;gap:12px}body[data-page] .site-header .nav-link,body[data-page] .site-header .plain-button{font-size:12px;min-height:44px;padding:8px 0}body[data-page] .site-header .header-note{display:none}}
+@media (min-width:721px) and (max-width:900px){body[data-page] .site-header .header-note{display:none}body[data-page] .site-header nav{gap:clamp(14px,3vw,27px)}}
+@media(max-width:720px){body[data-page] .site-header{height:auto!important;min-height:94px;padding:12px 20px 0!important;flex-wrap:wrap;gap:8px}body[data-page] .site-header .brand{font-size:22px;gap:9px}body[data-page] .site-header .brand-symbol{font-size:29px}body[data-page] .site-header .brand small{font-size:7px}body[data-page] .site-header nav{width:100%;justify-content:space-between;flex-wrap:wrap;gap:0 clamp(5px,2vw,12px)}body[data-page] .site-header .nav-link,body[data-page] .site-header .plain-button{font-size:12px;min-height:44px;padding:8px 0}body[data-page] .site-header .header-note{display:none}}
 @media(max-width:600px){#yunnan-page{padding:0 8px 24px}#yunnan-page .map-topline{padding:24px 12px 10px}#yunnan-page .map-topline>div{gap:10px}#yunnan-page .map-topline h1{font-size:28px;letter-spacing:2px}.atlas-overline{font-size:8px;letter-spacing:1px}#yunnan-page .province-map{aspect-ratio:645/600;margin:0}#yunnan-page .province-map svg{aspect-ratio:645/600}#yunnan-page .prefecture-label text{font-size:25px;letter-spacing:0;stroke:none}#yunnan-page .province-map-caption{display:none}.province-map-tools{margin:8px 12px;gap:0;flex-wrap:wrap}.atlas-map-hint{flex:1 0 100%;font-size:11px;padding:2px 0 12px;letter-spacing:0}.province-map-tools output{min-width:38px}#yunnan-page .province-map-guide{margin:0 12px;padding:12px 0;gap:10px;font-size:10px}#yunnan-page .map-destination-note{margin:0 12px;padding:16px 0;gap:10px}#yunnan-page .map-destination-note strong{font-size:21px}#yunnan-page .map-destination-note p{font-size:11px;line-height:1.8}.province-craft-source{font-size:10px}#yunnan-page .prefecture-directory{margin:0 12px}#yunnan-page .map-bottomline{padding:12px;font-size:9px;gap:5px}#yunnan-page .map-bottomline span{width:100%}.paper-guide-note{display:none}}
 
 /* Destination pages share the same paper, ink and mineral accents. */
@@ -208,3 +209,63 @@ body[data-page] .site-header :focus-visible{outline:2px solid var(--red);outline
 .lj-paper-section .paper-spot:focus{outline:none}
 .lj-paper-section .paper-spot:focus-visible .paper-hit{stroke:#9a583b;stroke-dasharray:3 3}
 .lj-paper-section .paper-spot:focus-visible .paper-name-back{stroke:#9a583b;stroke-width:2}
+
+/* Always-visible origin labels; photographs retain their original colors. */
+.media-badge{display:inline-block!important;position:absolute!important;top:12px!important;left:12px!important;right:auto!important;bottom:auto!important;z-index:8;padding:6px 9px!important;border:1px solid #d7c59a;background:#153333ed;color:#fff4d8!important;font:600 12px/1.5 system-ui,sans-serif!important;letter-spacing:.03em;pointer-events:none;max-width:calc(100% - 24px);height:auto!important;border-radius:4px}
+.scene-stage>.media-badge{top:72px!important}.lightbox-caption>.media-badge{position:static!important;margin:0 10px 6px 0}.lj-main-photo,.lj-pick-photo,.lj-photo-rail button,.lj-card-image,.lj-lightbox-stage,.drawer-photo,.tour-card-cover,.walk-image,.itinerary-item{position:relative}.drawer-photo>.media-badge{font-size:9px!important;padding:2px!important;top:0!important;left:0!important;max-width:100%}.walk-chapters button{position:relative}.credit-section{margin:24px 0}.credit-section h3{font:24px/1.5 Georgia,'Songti SC',serif}.credit-item{overflow-wrap:anywhere}.lj-main-photo .media-badge{top:12px!important}.scene-gallery h2{overflow-wrap:anywhere}
+@media(max-width:480px){.media-badge{font-size:11px!important}.scene-stage>.media-badge{top:65px!important}.itinerary-item>.media-badge{top:0!important;font-size:9px!important;padding:2px!important}}
+
+.scenery-card:has(.media-badge) .card-tag{left:auto;right:12px}
+
+.lj-card-image:has(.media-badge)>span:not(.media-badge){top:auto;bottom:10px;left:10px;right:auto}
+
+.tour-card-cover>.media-badge{width:max-content!important;transform:none!important;border-radius:4px!important}
+
+/* Names sit in the paper margins; curved pen lines connect them to the landscape. */
+#yunnan-page .province-map-wrap{grid-template-columns:minmax(0,1fr)}
+#yunnan-page .map-topline{grid-column:1;grid-row:1;padding:27px 24px 0}
+#yunnan-page .map-topline>div{display:flex;align-items:baseline;gap:24px;flex-wrap:wrap}
+#yunnan-page .map-topline h1{margin:0;font-size:34px;letter-spacing:4px;order:-1}
+#yunnan-page .map-topline h1 span{display:inline;margin-left:20px;font-size:20px;letter-spacing:5px}
+#yunnan-page .atlas-opening-copy,#yunnan-page .atlas-opening-rule,#yunnan-page .atlas-entry-links,#yunnan-page .atlas-scroll-margin,#yunnan-page .atlas-opening-verse{display:none}
+#yunnan-page .province-map{grid-column:1;grid-row:2;height:auto;aspect-ratio:1040/730;max-width:1180px;margin:0 auto}
+#yunnan-page .province-map svg{aspect-ratio:1040/730}
+.atlas-outside-label{transform:translate(var(--label-x),var(--label-y));cursor:pointer}
+#yunnan-page .prefecture-label text{font:24px 'Songti SC','STSong',serif;fill:#35594d;stroke:#edf1e9;stroke-width:3px;paint-order:stroke;letter-spacing:2px}
+#yunnan-page .prefecture-label-hit,#yunnan-page .prefecture-label.is-hovered .prefecture-label-hit{fill:transparent;stroke:none;pointer-events:all}
+#yunnan-page .prefecture-label.is-selected text,#yunnan-page .prefecture-label.is-hovered text{fill:#9a513c;stroke:#edf1e9}
+.province-destination{text-decoration:none;outline:none}
+.destination-target{fill:transparent;stroke:none;pointer-events:all}
+.destination-name{font:600 29px 'Songti SC','STSong',serif;letter-spacing:5px;fill:#964b35;stroke:#edf1e9;stroke-width:3px;paint-order:stroke;pointer-events:none}
+.destination-caption{font:12px 'PingFang SC',sans-serif;letter-spacing:2px;fill:#765b42;stroke:#edf1e9;stroke-width:2px;paint-order:stroke;pointer-events:none}
+.destination-rule{stroke:#ac8760;stroke-width:1;fill:none;pointer-events:none;opacity:.65}
+.destination-arrow{stroke:#98563b;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;fill:none;pointer-events:none;transition:transform .2s}
+.province-destination:hover .destination-arrow{transform:translate(3px,-2px)}
+.province-destination:hover .destination-name{fill:#b45936}
+.province-destination:hover .destination-rule{stroke:#98563b;opacity:1}
+#yunnan-page .province-destination:focus-visible .destination-target,#yunnan-page .prefecture-label:focus-visible .prefecture-label-hit{stroke:#9d6247;stroke-width:1.5;stroke-dasharray:3 4;fill:transparent}
+.province-leader path{fill:none;stroke:#678476;stroke-width:.85;opacity:.5;stroke-linecap:round}
+.province-leader.is-open path{stroke:#a17b57;opacity:.7}
+.province-leader.is-hovered path,.province-leader.is-selected path{stroke:#a35c3e;stroke-width:1.5;opacity:.95}
+.mobile-leader{display:none}
+.guide-entry{font-style:normal;color:#9a513c;font-size:17px}
+#yunnan-page #province-enter{width:auto;min-width:130px;padding:0 18px;font-size:13px;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center}
+#yunnan-page #province-enter[hidden]{display:none}
+.prefecture-directory-grid>a{display:block;padding:12px 5px;min-height:55px;text-align:center;border:1px solid #a5b696;color:#91533a;background:transparent;text-decoration:none}
+.prefecture-directory-grid>a span{display:block;font-size:12px}.prefecture-directory-grid>a small{display:block;font-size:10px;margin-top:5px}
+.prefecture-directory-grid>a:hover{border-color:#9a624a}.prefecture-directory-grid>a:focus-visible{outline:2px solid #9a624a;outline-offset:2px}
+@media(max-width:600px){
+ #yunnan-page .map-topline{padding:22px 12px 0}#yunnan-page .map-topline>div{gap:6px 12px}
+ #yunnan-page .map-topline h1{font-size:27px;letter-spacing:2px}#yunnan-page .map-topline h1 span{font-size:16px;margin-left:12px;letter-spacing:3px}
+ #yunnan-page .province-map,#yunnan-page .province-map svg{aspect-ratio:1040/1140}
+ .province-artwork{transform:translateY(190px)}
+ .atlas-outside-label{transform:translate(var(--label-x),var(--mobile-y))}
+ .destination-target,#yunnan-page .prefecture-label-hit{y:-63px;height:126px}
+ #yunnan-page .prefecture-label text{font-size:38px;letter-spacing:0;stroke:#edf1e9;stroke-width:3px}
+ .destination-name{font-size:42px;letter-spacing:4px}.destination-caption{font-size:28px;letter-spacing:0;transform:translateY(13px)}
+ .destination-arrow{transform:translate(28px,13px);stroke-width:2}.province-destination:hover .destination-arrow{transform:translate(28px,13px)}
+ .destination-rule{transform:translateY(17px);stroke-width:1.5}
+ .desktop-leader{display:none}.mobile-leader{display:block}.province-leader path{stroke-width:1.8}
+ #yunnan-page .province-map-guide{flex-wrap:wrap}#yunnan-page .map-destination-note{flex-wrap:wrap}#yunnan-page #province-enter{margin-left:52px;min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){.destination-arrow{transition:none}}

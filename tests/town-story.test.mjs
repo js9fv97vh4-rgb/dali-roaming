@@ -15,5 +15,5 @@ test('each story chapter resolves to a credited local photo of the matching subj
     assert.equal(photo.period,chapter.period);
     assert.ok((await readFile('web/'+photo.src)).length>0);
   }
-  assert.match(chapters.find(c=>c.id==='night').note,/2008/,'historical night image must retain its date');
+  assert.match(chapters.find(c=>c.id==='night').note,/AI生成.*非现场实拍/,'generated night image must be disclosed');
 });

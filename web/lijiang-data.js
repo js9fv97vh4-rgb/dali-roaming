@@ -1,4 +1,4 @@
-/* Photos retain stable original indices for shared links; galleryOrder is the curated display sequence. */
+/* Stable frame IDs preserve original photo links; owner photos always remain in the regular gallery. */
 window.LIJIANG_DATA = {
   "places": [
     {
@@ -11,95 +11,88 @@ window.LIJIANG_DATA = {
         26.8738919
       ],
       "coordinateSource": "https://www.openstreetmap.org/way/995072106",
-      "title": "从街市，走到水边的灯",
+      "title": "从晨光，看到水边的灯",
       "kicker": "大研 · 石板路上的日常",
-      "story": "石板路把目光带进街巷，木屋沿着两侧排开。再看柳枝下的人群，最后翻到水边亮灯的夜晚：同一座古城，在三张照片里有了不同的表情。",
+      "story": "木屋与石板路，把清晨和夜晚连成两页想象。一页留给灯火与流水，一页留给日光下的木纹和老墙；两幅均为AI艺术演绎。",
       "tip": "丽江古城与大研古城在此合并为同一站。",
       "chapters": [
         {
-          "title": "石板路的纵深",
-          "text": "近处的石板纹理，顺着街巷延伸到远处。两侧木屋把天空收成一道窄窄的开口，走在路上的人，也让建筑的尺度变得具体。",
-          "photo": 2
-        },
-        {
-          "title": "柳影下的街市",
-          "text": "柳枝垂在画面一侧，屋檐沿街重复展开。看一眼门前的人群，再抬头看木构门面，热闹与建筑细节在这里相遇。",
-          "photo": 3
-        },
-        {
-          "title": "水边亮起的灯",
-          "text": "到了另一张夜景里，暖灯描出楼阁和屋檐，水面接住它们的颜色。白天看过的街市，在这里换成了静静观看倒影的视角。",
+          "title": "流水与暖灯",
+          "text": "以大研古城的木屋、水道与石板路为灵感，让暖灯照进夜色。画面为AI艺术演绎，不对应某条街道的现场机位。",
           "photo": 0
+        },
+        {
+          "title": "晨光里的石板巷",
+          "text": "再把目光交给白天：树影落在石板上，窄窄的水渠沿墙经过。AI创作表现材质与光线，不作为建筑现状记录。",
+          "photo": 1
         }
       ],
       "photos": [
         {
-          "src": "assets/lijiang/extra-4.webp",
-          "thumb": "assets/lijiang/extra-4-thumb.webp",
-          "width": 1920,
-          "height": 1440,
-          "author": "ShuQizhe",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:Old_Town_of_Lijiang_at_night_20260221-3.jpg",
-          "date": "2026-02-21",
-          "caption": "丽江古城水边的夜色",
+          "src": "assets/ai-20261102/dayan.webp",
+          "thumb": "assets/ai-20261102/dayan-thumb.webp",
+          "preview": "assets/ai-20261102/dayan-preview.webp",
+          "caption": "大研灵感：流水、木屋与灯火 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
+          "licenseUrl": null,
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
           "remote": false,
           "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-02",
+          "date": "生成于2026-11-02；非拍摄日期",
+          "references": [
+            "https://commons.wikimedia.org/wiki/File:20260226_Old_Town_of_Lijiang_01.jpg",
+            "https://commons.wikimedia.org/wiki/File:20260226_Old_Town_of_Lijiang_06.jpg",
+            "https://www.neac.gov.cn/seac/ztzl/201806/1067982.shtml"
+          ],
+          "position": "center",
+          "period": "night",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
+          "frame": 4
         },
         {
-          "src": "assets/lijiang/dayan-02.webp",
-          "thumb": "assets/lijiang/dayan-02-thumb.webp",
-          "width": 1080,
-          "height": 1440,
-          "author": "ShuQizhe",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:Old_Town_of_Lijiang_at_night_20260221-2.jpg",
-          "date": "21 February 2026",
-          "caption": "丽江古城夜间街巷",
+          "src": "assets/ai-lijiang-20261103/dayan-day.webp",
+          "thumb": "assets/ai-lijiang-20261103/dayan-day-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/dayan-day-preview.webp",
+          "caption": "大研灵感：晨光里的石板巷 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
+          "licenseUrl": null,
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
           "remote": false,
           "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
-        },
-        {
-          "src": "assets/lijiang/20261027-dayan-stone-lane.webp",
-          "thumb": "assets/lijiang/20261027-dayan-stone-lane-thumb.webp",
-          "width": 1440,
-          "height": 1920,
-          "author": "祝鱼贵",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:20260226_Old_Town_of_Lijiang_01.jpg",
-          "date": "2026-02-26",
-          "caption": "大研古城石板路与木屋街巷",
-          "remote": false,
-          "redistributed": true,
-          "changes": "根据 EXIF 方向校正，等比缩小至最长边 1920 像素并转换为 WebP；缩略图最长边 640 像素，未改变画面内容。"
-        },
-        {
-          "src": "assets/lijiang/20261027-dayan-willow-street.webp",
-          "thumb": "assets/lijiang/20261027-dayan-willow-street-thumb.webp",
-          "width": 1920,
-          "height": 1442,
-          "author": "祝鱼贵",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:20260226_Old_Town_of_Lijiang_06.jpg",
-          "date": "2026-02-26",
-          "caption": "古城柳影下的街市",
-          "remote": false,
-          "redistributed": true,
-          "changes": "根据 EXIF 方向校正，等比缩小至最长边 1920 像素并转换为 WebP；缩略图最长边 640 像素，未改变画面内容。"
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://www.neac.gov.cn/seac/ztzl/201806/1067982.shtml"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 5
         }
       ],
       "galleryOrder": [
-        2,
-        3,
-        0
+        0,
+        1
       ],
-      "cover": 2,
+      "cover": 0,
       "next": {
         "id": "shuhe",
         "reason": "从热闹街市，继续看看水岸的夜色。"
@@ -117,8 +110,8 @@ window.LIJIANG_DATA = {
       "coordinateSource": "https://www.openstreetmap.org/way/995077673",
       "title": "灯在岸上，也在水里",
       "kicker": "束河 · 站长镜头里的水岸",
-      "story": "这一段先从水面开始。垂柳、灯光与屋舍在倒影里相遇，再走近临水的桌椅和牌坊的檐灯。最后翻到白天的街巷，看看这座古镇在另一种光线里的样子。",
-      "tip": "这里展示街巷实景，具体店铺与体验以到访时为准。",
+      "story": "先沿着站长拍下的水岸灯火走一段，看牌坊、临街木屋与倒影。五张原片之后，再翻到以清泉和柳影为灵感的AI画面，给这段夜色接上一页白天的想象。",
+      "tip": "前五个章节为站长实拍，最后一幅为AI艺术演绎；店铺与景观现状以到访时为准。",
       "chapters": [
         {
           "title": "先看水里的光",
@@ -136,8 +129,18 @@ window.LIJIANG_DATA = {
           "photo": 0
         },
         {
-          "title": "翻到白天的一页",
-          "text": "石板路、木屋和行人在日光里显出另一种层次。白天与夜晚的照片并置，是两种观看角度，不是同一次行走的时间记录。",
+          "title": "夜色里的街角",
+          "text": "站长镜头里的临街木屋，花草、门窗与灯火留住了这段夜游的生活气息。",
+          "photo": 3
+        },
+        {
+          "title": "临水转角",
+          "text": "再看另一处临水屋舍，檐灯映进水面。这里保留摄影者提供的原始构图与色彩。",
+          "photo": 4
+        },
+        {
+          "title": "清泉与柳影的想象",
+          "text": "清浅的水、低矮石岸和柳枝，在柔和日光里相遇。这幅AI艺术演绎补上一种白天的观看，不是上述夜景同一机位的实拍。",
           "photo": 5
         }
       ],
@@ -157,7 +160,9 @@ window.LIJIANG_DATA = {
           "ownerProvided": true,
           "redistributed": false,
           "position": "50% 54%",
-          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整照片保留竖幅"
+          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整照片保留竖幅",
+          "frame": 0,
+          "mediaType": "photo"
         },
         {
           "src": "assets/lijiang/shuhe-owner-night-reflections.jpg",
@@ -174,7 +179,9 @@ window.LIJIANG_DATA = {
           "ownerProvided": true,
           "redistributed": false,
           "position": "50% 52%",
-          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整相册保留原始构图"
+          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整相册保留原始构图",
+          "frame": 1,
+          "mediaType": "photo"
         },
         {
           "src": "assets/lijiang/shuhe-owner-night-dining.jpg",
@@ -191,7 +198,9 @@ window.LIJIANG_DATA = {
           "ownerProvided": true,
           "redistributed": false,
           "position": "50% 50%",
-          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整相册保留原始构图"
+          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整相册保留原始构图",
+          "frame": 2,
+          "mediaType": "photo"
         },
         {
           "src": "assets/lijiang/shuhe-owner-night-street.jpg",
@@ -208,7 +217,9 @@ window.LIJIANG_DATA = {
           "ownerProvided": true,
           "redistributed": false,
           "position": "50% 57%",
-          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整相册保留原始构图"
+          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整相册保留原始构图",
+          "frame": 3,
+          "mediaType": "photo"
         },
         {
           "src": "assets/lijiang/shuhe-owner-night-corner.jpg",
@@ -225,43 +236,45 @@ window.LIJIANG_DATA = {
           "ownerProvided": true,
           "redistributed": false,
           "position": "50% 56%",
-          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整相册保留原始构图"
+          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整相册保留原始构图",
+          "frame": 4,
+          "mediaType": "photo"
         },
         {
-          "src": "assets/lijiang/shuhe-01.webp",
-          "thumb": "assets/lijiang/shuhe-01-thumb.webp",
-          "width": 1920,
-          "height": 1440,
-          "author": "Yumeto",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:20240503_Shuhe.jpg",
-          "date": "2024-05-03 12:03:28",
-          "caption": "束河古镇街巷",
+          "src": "assets/ai-lijiang-20261103/shuhe-day.webp",
+          "thumb": "assets/ai-lijiang-20261103/shuhe-day-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/shuhe-day-preview.webp",
+          "caption": "束河灵感：清泉与柳影 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
+          "licenseUrl": null,
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
           "remote": false,
           "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
-        },
-        {
-          "src": "assets/lijiang/shuhe-02.webp",
-          "thumb": "assets/lijiang/shuhe-02-thumb.webp",
-          "width": 1920,
-          "height": 1440,
-          "author": "Luke Chantrell",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:Shuhe_Street,_Lijiang,_Yunnan,_China.jpg",
-          "date": "2020-07-07 19:05:58",
-          "caption": "束河的绿意与街景",
-          "remote": false,
-          "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://szb.lijiang.cn/pc/concent/202601/04/c93221.html"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 7
         }
       ],
       "galleryOrder": [
         1,
         2,
         0,
+        3,
+        4,
         5
       ],
       "cover": 1,
@@ -280,43 +293,23 @@ window.LIJIANG_DATA = {
         26.9565052
       ],
       "coordinateSource": "https://www.openstreetmap.org/way/1000077589",
-      "title": "让雪山，走进老街的画面",
+      "title": "老院之外，山色正好",
       "kicker": "白沙 · 屋檐之外，是远山",
-      "story": "先在屋檐之间找到雪峰，再把目光落回老街：灰瓦、门面和来往的人，把远处的山带进日常。最后留一张不同时间拍摄的金色峰线，看看天光如何改变同一片山色。",
-      "tip": "壁画属于需另行了解开放安排的文化遗产；本页照片展示老街，不冒充壁画实拍。",
+      "story": "一页是以白沙民居为灵感的老院与远山，一页是真实镜头里的屋檐与雪峰。把创作与实拍并置，慢慢看近处的木瓦和远处的山。",
+      "tip": "院落画面为AI艺术演绎；另一张保留源站实拍与署名。本页未展示白沙壁画实物。",
       "chapters": [
         {
-          "title": "屋檐框住雪峰",
-          "text": "两侧屋舍把视线引向画面深处，雪峰从屋顶之间显露。竖幅构图同时留下近处的门面和远山，不必裁掉其中任何一端。",
+          "title": "院落与远山的想象",
+          "text": "老墙、木门与灰瓦之间，远山露出一段峰线。AI创作参考白沙民居和玉龙山形，不还原特定院落或测量距离。",
           "photo": 1
         },
         {
-          "title": "回到街巷里",
-          "text": "将目光从山移回老街：灰瓦的边缘、层叠的屋檐和穿行的人群，占据了画面的不同层次。看远景，也看近处的生活。",
-          "photo": 3
-        },
-        {
-          "title": "一页金色的晨光",
-          "text": "前景屋瓦压住画面下沿，远处峰顶被暖光照亮。这是另一机位与时间的实拍，让它成为这段观看的最后一页。",
-          "photo": 2
+          "title": "镜头里的屋檐与雪峰",
+          "text": "回到真实拍摄的老街，屋舍与远山共享一个画面。保留原始构图，让近处的生活与远处的山都有位置。",
+          "photo": 0
         }
       ],
       "photos": [
-        {
-          "src": "assets/lijiang/baisha-01.webp",
-          "thumb": "assets/lijiang/baisha-01-thumb.webp",
-          "width": 1920,
-          "height": 1440,
-          "author": "Yumeto",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:20240503_Baisha.jpg",
-          "date": "2024-05-03 15:37:14",
-          "caption": "白沙古镇老街与远山",
-          "remote": false,
-          "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
-        },
         {
           "src": "https://static.lijiang.cn/Uploads/2025-12/2712-9762cb0c51bd08423a201ab553805c98.jpg",
           "thumb": "https://static.lijiang.cn/Uploads/2025-12/2712-9762cb0c51bd08423a201ab553805c98.jpg",
@@ -329,55 +322,42 @@ window.LIJIANG_DATA = {
           "remote": true,
           "redistributed": false,
           "width": 1030,
-          "height": 1441
+          "height": 1441,
+          "frame": 1,
+          "mediaType": "photo"
         },
         {
-          "src": "https://static.lijiang.cn/Uploads/2025-12/2712-371d00a80f8be0597488b30f7fbfeb5d.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/2025-12/2712-371d00a80f8be0597488b30f7fbfeb5d.jpg",
-          "caption": "从白沙古镇民宿屋顶看日照金山",
-          "author": "和慧芳 / 丽江融媒体中心",
-          "source": "https://www.lijiang.cn/article/164796.html",
-          "date": "2025年12月报道，拍摄日期未注明",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
+          "src": "assets/ai-lijiang-20261103/baisha-courtyard.webp",
+          "thumb": "assets/ai-lijiang-20261103/baisha-courtyard-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/baisha-courtyard-preview.webp",
+          "caption": "白沙灵感：老院与远山 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
           "licenseUrl": null,
-          "remote": true,
-          "redistributed": false,
-          "width": 1123,
-          "height": 1454
-        },
-        {
-          "src": "https://static.lijiang.cn/Uploads/Picture/20251219/7f78d5b62c2622d81fee9e9b3d2bbbdb-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/Picture/20251219/7f78d5b62c2622d81fee9e9b3d2bbbdb-1000.jpg",
-          "width": 1000,
-          "height": 667,
-          "author": "赵庆祖 / 丽江市融媒体中心",
-          "source": "https://www.lijiang.cn/news/travel/article/164310.html",
-          "date": "2025-12-19报道，拍摄日期未注明",
-          "caption": "白沙古镇的冬日街巷",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
-          "licenseUrl": null,
-          "remote": true,
-          "redistributed": false
-        },
-        {
-          "src": "https://static.lijiang.cn/Uploads/Picture/20251219/57ff5d72dad4b35ef0de9e160dd54473-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/Picture/20251219/57ff5d72dad4b35ef0de9e160dd54473-1000.jpg",
-          "width": 1000,
-          "height": 667,
-          "author": "赵庆祖 / 丽江市融媒体中心",
-          "source": "https://www.lijiang.cn/news/travel/article/164310.html",
-          "date": "2025-12-19报道，拍摄日期未注明",
-          "caption": "白沙屋檐与远处的雪山",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
-          "licenseUrl": null,
-          "remote": true,
-          "redistributed": false
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
+          "remote": false,
+          "redistributed": true,
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://www.lijiang.cn/article/164796.html"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 5
         }
       ],
       "galleryOrder": [
         1,
-        3,
-        2
+        0
       ],
       "cover": 1,
       "next": {
@@ -397,7 +377,7 @@ window.LIJIANG_DATA = {
       "coordinateSource": "https://www.openstreetmap.org/node/298460509",
       "title": "山的轮廓，留在天边",
       "kicker": "看主峰 · 从山脚到天际",
-      "story": "先看峰线，再看光怎样越过岩壁。玉龙雪山在远近不同的观看里，呈现出完全不同的层次。",
+      "story": "先沿着站长拍下的峰线看积雪与岩壁，再用一幅AI艺术演绎走近山石的纹理。实拍与创作分别标注，留住两种观看尺度。",
       "tip": "地图标记为主峰的地理位置，不是可步行抵达的入口。索道、预约与天气请以景区当日信息为准。",
       "chapters": [
         {
@@ -406,14 +386,9 @@ window.LIJIANG_DATA = {
           "photo": 0
         },
         {
-          "title": "光落在岩壁上",
-          "text": "暖光落在峰顶，岩壁的亮面与积雪的阴影分开。留意色温和纹理的变化。",
-          "photo": 3
-        },
-        {
-          "title": "山谷里的层次",
-          "text": "从下山途中回望，前景树影、中景山坡与远处峰线一层层展开。",
-          "photo": 2
+          "title": "岩壁与雪线的想象",
+          "text": "以玉龙雪山的岩峰、雪沟为灵感，表现斜照下的石灰岩纹理。画面为AI艺术演绎，不对应可到达的观景点或登山路线。",
+          "photo": 1
         }
       ],
       "photos": [
@@ -432,57 +407,42 @@ window.LIJIANG_DATA = {
           "ownerProvided": true,
           "redistributed": false,
           "position": "50% 45%",
-          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整相册保留原始构图"
+          "changes": "使用摄影者提供的原文件；页面封面按版面裁切展示，完整相册保留原始构图",
+          "frame": 0,
+          "mediaType": "photo"
         },
         {
-          "src": "assets/lijiang/yulong-01.webp",
-          "thumb": "assets/lijiang/yulong-01-thumb.webp",
-          "width": 1920,
-          "height": 1440,
-          "author": "ShuQizhe",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:Main_Peak_of_Jade_Dragon_Snow_Mountain_20260221_185346.jpg",
-          "date": "21 February 2026",
-          "caption": "玉龙雪山主峰暮色",
-          "remote": false,
-          "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
-        },
-        {
-          "src": "assets/lijiang/extra-2.webp",
-          "thumb": "assets/lijiang/extra-2-thumb.webp",
-          "width": 1920,
-          "height": 1440,
-          "author": "ShuQizhe",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:Jade_Dragon_Snow_Mountain_20260221-15.jpg",
-          "date": "2026-02-21",
-          "caption": "下山途中回望玉龙雪山",
-          "remote": false,
-          "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
-        },
-        {
-          "src": "https://static.lijiang.cn/Uploads/2026-01/0121-81ebfb18b7a49fc38d34623973958e74.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/2026-01/0121-81ebfb18b7a49fc38d34623973958e74-1000.jpg",
-          "width": 1706,
-          "height": 1279,
-          "author": "周晓岚 / 玉龙雪山管委会质检中心",
-          "source": "https://www.lijiang.cn/news/travel/article/165133.html",
-          "date": "2026-01-01",
-          "caption": "晨光照亮玉龙雪山冰川公园",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
+          "src": "assets/ai-lijiang-20261103/yulong-rock.webp",
+          "thumb": "assets/ai-lijiang-20261103/yulong-rock-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/yulong-rock-preview.webp",
+          "caption": "玉龙灵感：岩壁与雪线 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
           "licenseUrl": null,
-          "remote": true,
-          "redistributed": false
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
+          "remote": false,
+          "redistributed": true,
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://www.lijiang.cn/news/travel/article/165133.html"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 4
         }
       ],
       "galleryOrder": [
         0,
-        3,
-        2
+        1
       ],
       "cover": 0,
       "next": {
@@ -500,110 +460,85 @@ window.LIJIANG_DATA = {
         27.1293933
       ],
       "coordinateSource": "https://www.openstreetmap.org/way/1000077392",
-      "title": "一抹蓝，落在山间",
+      "title": "看一湖碧水，听白水流过",
       "kicker": "湖水与雪峰 · 换一个角度看山",
-      "story": "先看水面，再看倒影，把远处的山留到最后。随着天光改变，蓝月谷的颜色也会在照片里留下不同的印象。",
-      "tip": "水色随光线、天气变化，照片不代表实时景况。",
+      "story": "一眼看开阔的碧水与林岸，再近一些，看浅色石阶间缓缓流下的水。两幅AI艺术演绎用远近不同的视角，表现蓝月谷的水色与质感。",
+      "tip": "影像均为AI艺术演绎，不代表湖岸精确形态、现场机位或当天天气；实际水色随天气与光线变化。",
       "chapters": [
         {
-          "title": "先看水与山谷",
-          "text": "从水边栈道的视角，把近处水面、岸边林木与远处山谷放在同一幅画面里。",
-          "photo": 4
-        },
-        {
-          "title": "走近碧水",
-          "text": "碧水贴着林岸铺开。看看树木的倒影，和不同明暗处的水色。",
+          "title": "碧水与林岸",
+          "text": "从浅处可见的石头，看到远处较深的蓝绿水色。倒影被小小的波纹打散，林岸给湖面留出呼吸的空间。此图为AI艺术演绎。",
           "photo": 0
         },
         {
-          "title": "留一页暮色",
-          "text": "暮色中的山线映入湖面，暖色天光与较暗的水岸形成另一种氛围。",
+          "title": "白水缓缓流过",
+          "text": "换一个更近的尺度，看水越过浅色石阶，分成细细的流线。画面为AI艺术演绎，不作为白水河阶地的精确还原。",
           "photo": 1
         }
       ],
       "photos": [
         {
-          "src": "assets/lijiang/blue-moon-01.webp",
-          "thumb": "assets/lijiang/blue-moon-01-thumb.webp",
-          "width": 1920,
-          "height": 1280,
-          "author": "Liuxingy",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%BD%E6%B1%9F%E7%8E%89%E9%BE%99%E8%93%9D%E6%9C%88%E8%B0%B7_03.jpg",
-          "date": "2023-07-26 15:01:46",
-          "caption": "蓝月谷碧水与岸边林木",
+          "src": "assets/ai-lijiang-20261103/blue-moon-water.webp",
+          "thumb": "assets/ai-lijiang-20261103/blue-moon-water-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/blue-moon-water-preview.webp",
+          "caption": "蓝月谷灵感：碧水与林岸 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
+          "licenseUrl": null,
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
           "remote": false,
           "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://www.lijiang.cn/article/170663.html"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 5
         },
         {
-          "src": "assets/lijiang/blue-moon-02.webp",
-          "thumb": "assets/lijiang/blue-moon-02-thumb.webp",
-          "width": 1920,
-          "height": 1440,
-          "author": "ShuQizhe",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1%E8%93%9D%E6%9C%88%E8%B0%B7_20260221-3.jpg",
-          "date": "21 February 2026",
-          "caption": "蓝月谷的傍晚山色",
+          "src": "assets/ai-lijiang-20261103/blue-moon-cascade.webp",
+          "thumb": "assets/ai-lijiang-20261103/blue-moon-cascade-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/blue-moon-cascade-preview.webp",
+          "caption": "蓝月谷灵感：白水缓缓流过 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
+          "licenseUrl": null,
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
           "remote": false,
           "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
-        },
-        {
-          "src": "assets/lijiang/blue-moon-03.webp",
-          "thumb": "assets/lijiang/blue-moon-03-thumb.webp",
-          "width": 960,
-          "height": 1440,
-          "author": "Liuxingy",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:%E8%93%9D%E6%9C%88%E8%B0%B7%E8%BF%9C%E6%9C%9B%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1_01.jpg",
-          "date": "2023-07-26 14:51:47",
-          "caption": "从蓝月谷远望玉龙雪山",
-          "remote": false,
-          "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
-        },
-        {
-          "src": "assets/lijiang/20261027-blue-moon-turquoise.webp",
-          "thumb": "assets/lijiang/20261027-blue-moon-turquoise-thumb.webp",
-          "width": 1920,
-          "height": 1280,
-          "author": "Liuxingy",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%BD%E6%B1%9F%E7%8E%89%E9%BE%99%E8%93%9D%E6%9C%88%E8%B0%B7_01.jpg",
-          "date": "2023-07-26",
-          "caption": "蓝月谷碧水与林木",
-          "remote": false,
-          "redistributed": true,
-          "changes": "根据 EXIF 方向校正，等比缩小至最长边 1920 像素并转换为 WebP；缩略图最长边 640 像素，未改变画面内容。"
-        },
-        {
-          "src": "assets/lijiang/20261027-blue-moon-boardwalk.webp",
-          "thumb": "assets/lijiang/20261027-blue-moon-boardwalk-thumb.webp",
-          "width": 1280,
-          "height": 1920,
-          "author": "Liuxingy",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:%E4%B8%BD%E6%B1%9F%E7%8E%89%E9%BE%99%E8%93%9D%E6%9C%88%E8%B0%B7_05.jpg",
-          "date": "2023-07-26",
-          "caption": "蓝月谷水边栈道与雪山",
-          "remote": false,
-          "redistributed": true,
-          "changes": "根据 EXIF 方向校正，等比缩小至最长边 1920 像素并转换为 WebP；缩略图最长边 640 像素，未改变画面内容。"
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://www.lijiang.cn/article/170663.html"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 6
         }
       ],
       "galleryOrder": [
-        4,
         0,
         1
       ],
-      "cover": 4,
+      "cover": 0,
       "next": {
         "id": "yunshanping",
         "reason": "看过水色，再看看林间步道与草甸。"
@@ -621,87 +556,83 @@ window.LIJIANG_DATA = {
       "coordinateSource": "https://www.openstreetmap.org/way/1000080171",
       "title": "走进，森林的呼吸",
       "kicker": "森林与草甸 · 换一种靠近雪山的方式",
-      "story": "从林间的阴影走向明亮草甸，山脚的绿意渐渐展开。这里的故事，可以从一棵树开始。",
-      "tip": "草甸与林间游览沿开放步道进行；本页引用照片摄于夏季报道。",
+      "story": "从明亮草甸到幽静林间，用两幅AI艺术演绎想象云杉坪的光与层次。影像创作与真实旅行分开标注，未来再用亲手拍下的风景接续这一段。",
+      "tip": "本页两幅影像均为AI艺术演绎，不代表精确地形、现场机位或当前景色。实地游览请沿开放步道。",
       "chapters": [
         {
-          "title": "草甸与林缘",
-          "text": "先看开阔草甸与森林相接的边缘，步道上的人让这片绿地有了尺度。",
+          "title": "草甸与远处雪峰",
+          "text": "以开阔草甸、深绿林缘与远处雪峰构成一段山野想象。画面为AI艺术演绎，不对应现场机位或当天天气。",
           "photo": 0
         },
         {
-          "title": "走进林间步道",
-          "text": "树干的竖线分布在步道两侧，光从树间落到路面。",
+          "title": "走进林间光影",
+          "text": "近一些，看树皮、苔藓与枝叶间的细碎光线。这幅AI演绎参考云杉坪原始针叶林的植被特征，呈现另一种观看尺度。",
           "photo": 1
-        },
-        {
-          "title": "雾停在树梢",
-          "text": "薄雾沿着林梢升起，近处草地与远处森林的边界变得柔和。",
-          "photo": 2
         }
       ],
       "photos": [
         {
-          "src": "https://static.lijiang.cn/Uploads/2025-07/1610-1d9880618cc789b18e83111c61c79c0b-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/2025-07/1610-1d9880618cc789b18e83111c61c79c0b-1000.jpg",
-          "caption": "云杉坪草甸上的游人",
-          "author": "赵庆祖 / 丽江融媒体中心",
-          "source": "https://www.lijiang.cn/article/154800.html",
-          "date": "2025年7月报道，拍摄日期未注明",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
+          "src": "assets/ai-20261103/yunshanping-meadow.webp",
+          "thumb": "assets/ai-20261103/yunshanping-meadow-thumb.webp",
+          "preview": "assets/ai-20261103/yunshanping-meadow-preview.webp",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
+          "frame": 4,
+          "caption": "云杉坪灵感：草甸、森林与雪山 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "source": "#lijiang?view=credits",
+          "references": [
+            "https://www.forestry.gov.cn/c/www/lhgzdt/522630.jhtml",
+            "https://yn.people.com.cn/n2/2026/1010/c372453-41718208.html",
+            "https://gs.ctrip.com/html5/you/sight/yulong1446279/12467.html"
+          ],
+          "referenceImage": "assets/lijiang/yulong-owner-snow-peaks.jpg",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
           "licenseUrl": null,
-          "remote": true,
-          "redistributed": false,
-          "width": 1000,
-          "height": 666
+          "remote": false,
+          "redistributed": true,
+          "changes": "依据景观资料进行AI艺术演绎，压缩为WebP；非真实机位与现场记录"
         },
         {
-          "src": "https://static.lijiang.cn/Uploads/2025-07/1610-01196afa4d9d76e6aa4d72d5ed372ef4-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/2025-07/1610-01196afa4d9d76e6aa4d72d5ed372ef4-1000.jpg",
-          "caption": "云杉坪的林间步道",
-          "author": "赵庆祖 / 丽江融媒体中心",
-          "source": "https://www.lijiang.cn/article/154800.html",
-          "date": "2025年7月报道，拍摄日期未注明",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
+          "src": "assets/ai-20261103/yunshanping-forest.webp",
+          "thumb": "assets/ai-20261103/yunshanping-forest-thumb.webp",
+          "preview": "assets/ai-20261103/yunshanping-forest-preview.webp",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
+          "frame": 5,
+          "caption": "云杉坪灵感：林间光影与苔藓 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "source": "#lijiang?view=credits",
+          "references": [
+            "https://www.forestry.gov.cn/c/www/lhgzdt/522630.jhtml",
+            "https://www.forestry.gov.cn/c/www/dzbhdt/566107.jhtml"
+          ],
+          "license": "AI生成 · 艺术演绎；非现场实拍",
           "licenseUrl": null,
-          "remote": true,
-          "redistributed": false,
-          "width": 1000,
-          "height": 666
-        },
-        {
-          "src": "https://k.sinaimg.cn/n/spider20250914/107/w1024h683/20250914/30fe-77f6c2fae5adf47c0e345d564e36ae60.png/w700d1q75cms.jpg?by=cms_fixed_width",
-          "thumb": "https://k.sinaimg.cn/n/spider20250914/107/w1024h683/20250914/30fe-77f6c2fae5adf47c0e345d564e36ae60.png/w700d1q75cms.jpg?by=cms_fixed_width",
-          "width": 700,
-          "height": 467,
-          "author": "徐俊 / 新华网",
-          "source": "https://news.sina.com.cn/zx/gj/2025-09-14/doc-infqknpz1478489.shtml",
-          "date": "2025-09-08",
-          "caption": "云杉坪林间升起的薄雾",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
-          "licenseUrl": null,
-          "remote": true,
-          "redistributed": false
-        },
-        {
-          "src": "https://k.sinaimg.cn/n/spider20250914/84/w1010h674/20250914/70f7-f740521b911d801b2746475666144cd1.png/w700d1q75cms.jpg?by=cms_fixed_width",
-          "thumb": "https://k.sinaimg.cn/n/spider20250914/84/w1010h674/20250914/70f7-f740521b911d801b2746475666144cd1.png/w700d1q75cms.jpg?by=cms_fixed_width",
-          "width": 700,
-          "height": 467,
-          "author": "徐俊 / 新华网",
-          "source": "https://news.sina.com.cn/zx/gj/2025-09-14/doc-infqknpz1478489.shtml",
-          "date": "2025-09-08",
-          "caption": "俯瞰云杉坪的草甸与森林",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
-          "licenseUrl": null,
-          "remote": true,
-          "redistributed": false
+          "remote": false,
+          "redistributed": true,
+          "changes": "依据景观资料进行AI艺术演绎，压缩为WebP；非真实机位与现场记录"
         }
       ],
       "galleryOrder": [
         0,
-        1,
-        2
+        1
       ],
       "cover": 0,
       "next": {
@@ -719,108 +650,85 @@ window.LIJIANG_DATA = {
         27.1705214
       ],
       "coordinateSource": "https://www.openstreetmap.org/way/460851160",
-      "title": "山的另一面，慢慢展开",
+      "title": "风过草甸，群峰在远处",
       "kicker": "索道沿途 · 森林与高处的远望",
-      "story": "当森林从脚下经过，山峰在前方逐渐显露。到达高处之前，路上的视角已经是一段风景。",
-      "tip": "照片区分索道沿途与牦牛坪视角，不将所有森林照片标作草甸。",
+      "story": "开阔草甸、深绿林带与远处群峰构成第一眼山景，再将视线放低，看看牧场的草色与牦牛。两幅均为参考景观资料创作的AI艺术演绎。",
+      "tip": "AI画面不代表精确地形或现场机位，也不作为牦牛出现位置的记录；索道与游览安排以景区信息为准。",
       "chapters": [
         {
-          "title": "人与远峰",
-          "text": "先看开阔山景，再找到站在近处的人。人物与远处岩峰的比例，让山的尺度显现出来。",
-          "photo": 4
-        },
-        {
-          "title": "草甸的开阔",
-          "text": "回到草甸的视角，看山坡怎样舒展开，远山又怎样一层层退去。",
+          "title": "草甸与群峰",
+          "text": "从近处草坡到深绿林带，再到远处的岩峰和雪沟，沿着明暗看山野层次。这是一幅AI艺术演绎。",
           "photo": 0
         },
         {
-          "title": "一束日出",
-          "text": "低处的阳光穿过地平线，把草地染成暖色。和前两张相比，光让山坡呈现另一种表情。",
-          "photo": 3
+          "title": "风过牧场",
+          "text": "两头牦牛停在草坡上，暖光照亮草穗。AI画面以牧场氛围为主题，不代表真实动物记录或指定拍摄点。",
+          "photo": 1
         }
       ],
       "photos": [
         {
-          "src": "assets/lijiang/extra-1.webp",
-          "thumb": "assets/lijiang/extra-1-thumb.webp",
-          "width": 1920,
-          "height": 1440,
-          "author": "ShuQizhe",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:Jade_Dragon_Snow_Mountain_20260221-12.jpg",
-          "date": "2026-02-21",
-          "caption": "牦牛坪的草甸与远山",
-          "remote": false,
-          "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
-        },
-        {
-          "src": "assets/lijiang/maoniuping-01.webp",
-          "thumb": "assets/lijiang/maoniuping-01-thumb.webp",
-          "width": 1080,
-          "height": 1440,
-          "author": "ShuQizhe",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1%E7%89%A6%E7%89%9B%E5%9D%AA%E7%B4%A2%E9%81%93_20260221-6.jpg",
-          "date": "21 February 2026",
-          "caption": "牦牛坪索道沿途的森林",
-          "remote": false,
-          "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
-        },
-        {
-          "src": "assets/lijiang/maoniuping-02.webp",
-          "thumb": "assets/lijiang/maoniuping-02-thumb.webp",
-          "width": 1080,
-          "height": 1440,
-          "author": "ShuQizhe",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:%E7%8E%89%E9%BE%99%E9%9B%AA%E5%B1%B1%E7%89%A6%E7%89%9B%E5%9D%AA%E7%B4%A2%E9%81%93_20260221-8.jpg",
-          "date": "21 February 2026",
-          "caption": "牦牛坪索道沿途的山景",
-          "remote": false,
-          "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
-        },
-        {
-          "src": "https://static.lijiang.cn/Uploads/Picture/20250101/946dc18f4e55e7d026a78cff3300169c-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/Picture/20250101/946dc18f4e55e7d026a78cff3300169c-1000.jpg",
-          "width": 1000,
-          "height": 750,
-          "author": "王君霞 / 丽江市融媒体中心",
-          "source": "https://www.lijiang.cn/article/143709.html",
-          "date": "2025-01-01",
-          "caption": "牦牛坪草甸上的新年日出",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
+          "src": "assets/ai-lijiang-20261103/maoniuping-wide.webp",
+          "thumb": "assets/ai-lijiang-20261103/maoniuping-wide-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/maoniuping-wide-preview.webp",
+          "caption": "牦牛坪灵感：草甸与群峰 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
           "licenseUrl": null,
-          "remote": true,
-          "redistributed": false
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
+          "remote": false,
+          "redistributed": true,
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://www.lijiang.cn/article/159446.html"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 5
         },
         {
-          "src": "https://static.lijiang.cn/Uploads/Picture/20250101/84208203342805af5d3c1fd55978bef1-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/Picture/20250101/84208203342805af5d3c1fd55978bef1-1000.jpg",
-          "width": 1000,
-          "height": 668,
-          "author": "丽江市民族地理摄影协会供图",
-          "source": "https://www.lijiang.cn/article/143709.html",
-          "date": "2025-01-01",
-          "caption": "牦牛坪的雪峰与追光人",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
+          "src": "assets/ai-lijiang-20261103/maoniuping-pasture.webp",
+          "thumb": "assets/ai-lijiang-20261103/maoniuping-pasture-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/maoniuping-pasture-preview.webp",
+          "caption": "牦牛坪灵感：风过牧场 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
           "licenseUrl": null,
-          "remote": true,
-          "redistributed": false
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
+          "remote": false,
+          "redistributed": true,
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://www.lijiang.cn/article/159446.html"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 6
         }
       ],
       "galleryOrder": [
-        4,
         0,
-        3
+        1
       ],
-      "cover": 4,
+      "cover": 0,
       "next": {
         "id": "yulong",
         "reason": "从山坡远望，继续看雪峰上的岩壁与光。"
@@ -836,88 +744,82 @@ window.LIJIANG_DATA = {
         26.8817612
       ],
       "coordinateSource": "https://www.openstreetmap.org/relation/4033213",
-      "title": "把天空，留给湿地",
+      "title": "留一段时间，听湿地的风",
       "kicker": "湿地远望 · 水草与晚霞",
-      "story": "先从远处看水与岸的关系。风经过草地，天空落进湖面；不用走得很近，也能遇见湿地的细节。",
+      "story": "水、芦草和低缓山丘交错成湿地的层次，再看候鸟掠过带着暮光的水面。两幅AI艺术演绎以安静的视角，表现拉市海的水岸气息。",
       "tip": "仅在获准开放的观景区域游览；保护区核心区不可擅入。点位表示湖泊位置，不是入口。",
       "chapters": [
         {
-          "title": "水岸的全貌",
-          "text": "从远处看湿地的水面、绿地与步道怎样交错，先认识整体环境。",
+          "title": "芦岸与清波",
+          "text": "先看水面怎样穿过草丛，再看远岸与低缓山丘。AI画面表现湿地景观特征，不是某处水岸的实时记录。",
           "photo": 0
         },
         {
-          "title": "看一群水鸟",
-          "text": "目光移到水面，看看红嘴鸥飞起与停留的姿态。",
-          "photo": 3
-        },
-        {
-          "title": "岸边的晚霞",
-          "text": "树影留在岸边，暖色晚霞映进水中，给这一段观看留一个安静的收尾。",
+          "title": "候鸟与暮光",
+          "text": "水面留下细碎的光，几只鸥鸟浮游或掠起。AI创作参考冬季红嘴鸥的外形，不作为鸟类数量、分布或迁徙记录。",
           "photo": 1
         }
       ],
       "photos": [
         {
-          "src": "https://static.lijiang.cn/Uploads/Picture/20250731/6b965551688c07f2db286cb47516551f-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/Picture/20250731/6b965551688c07f2db286cb47516551f-1000.jpg",
-          "caption": "拉市海湿地公园远景",
-          "author": "徐俊",
-          "source": "https://www.lijiang.cn/news/travel/article/155656.html",
-          "date": "2025年7月报道，拍摄日期未注明",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
+          "src": "assets/ai-lijiang-20261103/lashihai-reeds.webp",
+          "thumb": "assets/ai-lijiang-20261103/lashihai-reeds-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/lashihai-reeds-preview.webp",
+          "caption": "拉市海灵感：芦岸与清波 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
           "licenseUrl": null,
-          "remote": true,
-          "redistributed": false,
-          "width": 1000,
-          "height": 667
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
+          "remote": false,
+          "redistributed": true,
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://www.forestry.gov.cn/c/www/sdfc/101604.jhtml"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 4
         },
         {
-          "src": "https://static.lijiang.cn/Uploads/Picture/20250731/6e1d01512e66c5fbfc0f7fd101de44bb-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/Picture/20250731/6e1d01512e66c5fbfc0f7fd101de44bb-1000.jpg",
-          "caption": "拉市海边的晚霞",
-          "author": "张小秋 / 丽江融媒体中心",
-          "source": "https://www.lijiang.cn/news/travel/article/155656.html",
-          "date": "2025年7月报道，拍摄日期未注明",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
+          "src": "assets/ai-lijiang-20261103/lashihai-birds.webp",
+          "thumb": "assets/ai-lijiang-20261103/lashihai-birds-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/lashihai-birds-preview.webp",
+          "caption": "拉市海灵感：候鸟掠过暮光 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
           "licenseUrl": null,
-          "remote": true,
-          "redistributed": false,
-          "width": 1000,
-          "height": 1333
-        },
-        {
-          "src": "https://static.lijiang.cn/Uploads/Picture/20260104/e58c70b28daa7d60a327fbe8535a6bdc-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/Picture/20260104/e58c70b28daa7d60a327fbe8535a6bdc-1000.jpg",
-          "width": 1000,
-          "height": 750,
-          "author": "和玉松 / 丽江市融媒体中心",
-          "source": "https://www.lijiang.cn/news/shengtai/article/165230.html",
-          "date": "2026-01-03",
-          "caption": "拉市海湖面与冬日群山",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
-          "licenseUrl": null,
-          "remote": true,
-          "redistributed": false
-        },
-        {
-          "src": "https://static.lijiang.cn/Uploads/Picture/20260104/c59b28c12e9afeaadca5e0c27ff5d3f5-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/Picture/20260104/c59b28c12e9afeaadca5e0c27ff5d3f5-1000.jpg",
-          "width": 1000,
-          "height": 750,
-          "author": "和玉松 / 丽江市融媒体中心",
-          "source": "https://www.lijiang.cn/news/shengtai/article/165230.html",
-          "date": "2026-01-03",
-          "caption": "拉市海水面上的红嘴鸥",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
-          "licenseUrl": null,
-          "remote": true,
-          "redistributed": false
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
+          "remote": false,
+          "redistributed": true,
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://www.lijiang.cn/news/shengtai/article/165230.html"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 5
         }
       ],
       "galleryOrder": [
         0,
-        3,
         1
       ],
       "cover": 0,
@@ -938,41 +840,21 @@ window.LIJIANG_DATA = {
       "coordinateSource": "https://www.openstreetmap.org/relation/13495",
       "title": "把一段旅程，留给湖",
       "kicker": "单独安排 · 湖湾、半岛与远山",
-      "story": "从高处看一眼湖湾，再慢慢辨认岸边的层次。泸沽湖值得留出完整的一段时间，而不只是古城行程里的匆匆一站。",
-      "tip": "湖泊跨云南、四川；这里展示里格周边实景。远离丽江古城，建议作为独立行程规划。",
+      "story": "先用真实拍摄的湖湾全景认识岸线，再翻到一幅泊舟与浅水的AI艺术演绎。远看湖湾，近看水纹，为湖边留出完整的一段时间。",
+      "tip": "泸沽湖跨云南、四川。全景为实拍，泊舟为AI艺术演绎；远离丽江古城，建议作为独立行程规划。",
       "chapters": [
         {
           "title": "从高处看湖湾",
           "text": "里格观景视角把湖湾、半岛与远山铺开，先看岸线的转折。",
+          "photo": 0
+        },
+        {
+          "title": "湖岸泊舟的想象",
+          "text": "一只窄木舟停在清浅水边，近处卵石透过水面显出纹理。此图为AI艺术演绎，不对应实际船只、码头或机位。",
           "photo": 1
-        },
-        {
-          "title": "走近花枝与水",
-          "text": "花枝进入画面边缘，远山映在水里。湖泊从远处的形状变成了近处的细节。",
-          "photo": 2
-        },
-        {
-          "title": "停在树影下",
-          "text": "树枝与湖岸为水面留出框景，慢慢看波纹向远处延伸。",
-          "photo": 3
         }
       ],
       "photos": [
-        {
-          "src": "assets/lijiang/lugu-01.webp",
-          "thumb": "assets/lijiang/lugu-01-thumb.webp",
-          "width": 1920,
-          "height": 1440,
-          "author": "Ngguls",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:20260226_Lugu_Lake_Lige_Peninsula_02.jpg",
-          "date": "2026-02-26 14:04:28",
-          "caption": "泸沽湖里格半岛",
-          "remote": false,
-          "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
-        },
         {
           "src": "assets/lijiang/lugu-02.webp",
           "thumb": "assets/lijiang/lugu-02-thumb.webp",
@@ -986,45 +868,44 @@ window.LIJIANG_DATA = {
           "caption": "里格观景台远望泸沽湖",
           "remote": false,
           "redistributed": true,
-          "changes": "等比缩小、WebP 转码与缩略图；保留原许可"
+          "changes": "等比缩小、WebP 转码与缩略图；保留原许可",
+          "frame": 1,
+          "mediaType": "photo"
         },
         {
-          "src": "assets/lijiang/20261027-lugu-lakeside-blossoms.webp",
-          "thumb": "assets/lijiang/20261027-lugu-lakeside-blossoms-thumb.webp",
-          "width": 1920,
-          "height": 1440,
-          "author": "祝鱼贵",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:20260226_Lover%27s_Beach,_Lugu_Lake_Scenic_Area,_Yunnan_01.jpg",
-          "date": "2026-02-26",
-          "caption": "泸沽湖岸边的花枝与倒影",
+          "src": "assets/ai-lijiang-20261103/lugu-boat.webp",
+          "thumb": "assets/ai-lijiang-20261103/lugu-boat-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/lugu-boat-preview.webp",
+          "caption": "泸沽湖灵感：湖岸泊舟 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
+          "licenseUrl": null,
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
           "remote": false,
           "redistributed": true,
-          "changes": "根据 EXIF 方向校正，等比缩小至最长边 1920 像素并转换为 WebP；缩略图最长边 640 像素，未改变画面内容。"
-        },
-        {
-          "src": "assets/lijiang/20261027-lugu-quiet-shore.webp",
-          "thumb": "assets/lijiang/20261027-lugu-quiet-shore-thumb.webp",
-          "width": 1920,
-          "height": 1440,
-          "author": "祝鱼贵",
-          "license": "CC BY-SA 4.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-          "source": "https://commons.wikimedia.org/wiki/File:20260226_Lover%27s_Beach,_Lugu_Lake_Scenic_Area,_Yunnan_07.jpg",
-          "date": "2026-02-26",
-          "caption": "泸沽湖树影下的湖岸",
-          "remote": false,
-          "redistributed": true,
-          "changes": "根据 EXIF 方向校正，等比缩小至最长边 1920 像素并转换为 WebP；缩略图最长边 640 像素，未改变画面内容。"
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://www.lijiang.cn/news/travel/article/175079.html"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 4
         }
       ],
       "galleryOrder": [
-        1,
-        2,
-        3
+        0,
+        1
       ],
-      "cover": 1,
+      "cover": 0,
       "next": {
         "id": "chenghai",
         "reason": "再看一种湖岸与田园相依的风景。程海是另一处独立湖区。"
@@ -1042,68 +923,21 @@ window.LIJIANG_DATA = {
       "coordinateSource": "https://www.openstreetmap.org/relation/5898267",
       "title": "安静一点，再安静一点",
       "kicker": "永胜方向 · 留白的湖岸",
-      "story": "不用把湖边的时间排满。远山、湖面与村落之间，给自己留一个安静的停顿。",
+      "story": "从实拍俯瞰田园、湖面与村落的关系，再用一幅AI艺术演绎走近较干燥的山岸。远近两种尺度，留下程海开阔而安静的气息。",
       "tip": "位于丽江永胜方向，与古城、泸沽湖分区展示；沿途交通及湖岸开放情况需另行确认。",
       "chapters": [
         {
-          "title": "湖畔的田园",
-          "text": "俯瞰湖面与田园，看看岸边村落、田块和群山之间的关系。",
-          "photo": 3
-        },
-        {
-          "title": "把目光交给湖面",
-          "text": "红色花枝伸进画面，远山与倒影让湖面显得更开阔。",
+          "title": "镜头里的湖畔田园",
+          "text": "沿着实拍里的湖岸，看村落、田块和群山怎样相连。这张照片保留原作者与来源，报道日期不等同拍摄日期。",
           "photo": 0
         },
         {
-          "title": "走近清波与水鸟",
-          "text": "最后看近处的水鸟与岸线，在一片清波里结束这一页。",
-          "photo": 2
+          "title": "山影与湖风的想象",
+          "text": "以程海周边的山岸与水色为灵感，表现石岸、疏草和开阔湖面。画面为AI艺术演绎，不对应可通行的具体湖岸位置。",
+          "photo": 1
         }
       ],
       "photos": [
-        {
-          "src": "https://static.lijiang.cn/Uploads/2026-06/0517-8fc0356cb8f756fcdcaee23f2a4c33f7-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/2026-06/0517-8fc0356cb8f756fcdcaee23f2a4c33f7-1000.jpg",
-          "caption": "程海湖面与沿岸风景",
-          "author": "永胜县程海镇人民政府供图",
-          "source": "https://www.lijiang.cn/news/shengtai/article/174320.html",
-          "date": "2026年6月报道，拍摄日期未注明",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
-          "licenseUrl": null,
-          "remote": true,
-          "redistributed": false,
-          "width": 1000,
-          "height": 549
-        },
-        {
-          "src": "https://static.lijiang.cn/Uploads/2026-06/0519-eb45bf0faef012636bdc0b97f33a692e-1000.jpg",
-          "thumb": "https://static.lijiang.cn/Uploads/2026-06/0519-eb45bf0faef012636bdc0b97f33a692e-1000.jpg",
-          "caption": "程海湖岸远景",
-          "author": "永胜县程海镇人民政府供图",
-          "source": "https://www.lijiang.cn/news/shengtai/article/174320.html",
-          "date": "2026年6月报道，拍摄日期未注明",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
-          "licenseUrl": null,
-          "remote": true,
-          "redistributed": false,
-          "width": 1000,
-          "height": 571
-        },
-        {
-          "src": "https://www.kunming.cn/news/upload/resources/image/2026/01/07/2029307_2048x2048.png",
-          "thumb": "https://www.kunming.cn/news/upload/resources/image/2026/01/07/2029307_2048x2048.png",
-          "width": 900,
-          "height": 506,
-          "author": "杨波 / 永胜融媒",
-          "source": "https://www.kunming.cn/news/c/2026-01-07/14008776.shtml",
-          "date": "2026-01-07报道，拍摄日期未注明",
-          "caption": "程海清波与沿岸水鸟",
-          "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
-          "licenseUrl": null,
-          "remote": true,
-          "redistributed": false
-        },
         {
           "src": "https://www.kunming.cn/news/upload/resources/image/2026/01/07/2029313_2048x2048.png",
           "thumb": "https://www.kunming.cn/news/upload/resources/image/2026/01/07/2029313_2048x2048.png",
@@ -1116,15 +950,44 @@ window.LIJIANG_DATA = {
           "license": "源站未注明开放许可；图片版权归原作者，仅源站引用，未随代码分发",
           "licenseUrl": null,
           "remote": true,
-          "redistributed": false
+          "redistributed": false,
+          "frame": 3,
+          "mediaType": "photo"
+        },
+        {
+          "src": "assets/ai-lijiang-20261103/chenghai-shore.webp",
+          "thumb": "assets/ai-lijiang-20261103/chenghai-shore-thumb.webp",
+          "preview": "assets/ai-lijiang-20261103/chenghai-shore-preview.webp",
+          "caption": "程海灵感：山影与湖风 · AI生成 · 艺术演绎",
+          "author": "AI 生成（OpenAI imagegen）",
+          "license": "AI生成 · 艺术演绎；非现场实拍",
+          "licenseUrl": null,
+          "source": "#lijiang?view=credits",
+          "width": 1536,
+          "height": 1024,
+          "thumbWidth": 720,
+          "thumbHeight": 480,
+          "previewWidth": 240,
+          "previewHeight": 160,
+          "remote": false,
+          "redistributed": true,
+          "mediaType": "ai",
+          "generator": "OpenAI imagegen（内置图像生成工具）",
+          "generatedAt": "2026-11-03",
+          "date": "生成于2026-11-03；非拍摄日期",
+          "references": [
+            "https://www.kunming.cn/news/c/2026-01-07/14008776.shtml"
+          ],
+          "position": "center",
+          "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+          "frame": 4
         }
       ],
       "galleryOrder": [
-        3,
         0,
-        2
+        1
       ],
-      "cover": 3,
+      "cover": 0,
       "next": {
         "id": "lashihai",
         "reason": "从田园湖面，换到湿地与水鸟的视角。两地需分别安排行程。"

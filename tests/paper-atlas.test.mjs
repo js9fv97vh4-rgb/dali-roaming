@@ -24,7 +24,7 @@ async function atlas({failWater=false,mobile=false}={}){
   dispatchEvent:event=>events.get(event.type==='hashchange'?'destinationchange':event.type)?.()
  };
  scope.window=scope;vm.createContext(scope);
- for(const name of ['lijiang-data','view-routes','paper-map','lijiang'])vm.runInContext(await readFile(`web/${name}.js`,'utf8'),scope);
+ for(const name of ['travel-saved','lijiang-data','view-routes','image-credit','paper-map','lijiang'])vm.runInContext(await readFile(`web/${name}.js`,'utf8'),scope);
  // Flush both the fetch and JSON await boundaries.
  await new Promise(resolve=>setTimeout(resolve,0));
  return {node,scope,requests,click(dataset){events.get('document:click')({target:{closest:()=>({dataset,closest:()=>null})}});}};
@@ -67,14 +67,23 @@ test('photo replacement retains keyboard focus for consecutive arrow navigation'
  const {node,scope,click}=await atlas();
  click({ljSpot:'dayan'});click({ljFrame:'1'});
  assert.equal(node('lj-photo-dialog').open,true);
- assert.match(node('lj-photo-content').innerHTML,/原链接照片/);
+ assert.match(node('lj-photo-content').innerHTML,/dayan-day/);
  scope.document.activeElement={dataset:{ljPhotoStep:'1'}};
  click({ljPhotoStep:'1'});
- assert.equal(scope.location.hash,'#lijiang?spot=dayan&frame=2');
+ assert.equal(scope.location.hash,'#lijiang?spot=dayan&frame=4');
  assert.equal(scope.document.activeElement,node('lj-photo-dialog [data-lj-photo-step="1"]'));
  click({ljPhotoStep:'1'});
- assert.equal(scope.location.hash,'#lijiang?spot=dayan&frame=3');
+ assert.equal(scope.location.hash,'#lijiang?spot=dayan&frame=5');
  assert.notEqual(scope.document.activeElement,scope.document.body);
  click({ljPhotoStep:'-1'});
- assert.equal(scope.location.hash,'#lijiang?spot=dayan&frame=2');
+ assert.equal(scope.location.hash,'#lijiang?spot=dayan&frame=4');
+});
+
+// A direct share has no in-site parent history entry. Arrow replacement must not invent one.
+test('direct photo shares do not navigate away when closed after an arrow step',async()=>{
+ const {scope,click}=await atlas();
+ scope.location.hash='#lijiang?spot=dayan&frame=4';scope.history.state=null;
+ scope.dispatchEvent({type:'destinationchange'});
+ click({ljPhotoStep:'1'});assert.equal(scope.history.state.lijiangPhoto,false);
+ click({ljPhotoClose:''});assert.equal(scope.location.hash,'#lijiang?spot=dayan');
 });

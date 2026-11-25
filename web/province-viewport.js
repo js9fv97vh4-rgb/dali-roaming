@@ -11,10 +11,10 @@ window.enableProvinceViewport = host => {
     svg.setAttribute('viewBox',view.join(' '));
     host.classList.toggle('is-zoomed',zoom>1);
     status.value=Math.round(zoom*100)+'%';
-    hint.textContent=zoom>1?'拖动看细节 · 方向键移动 · 全图复位':'点选地名 · 循着山水徽记出发';
+    hint.textContent=zoom>1?'拖动看细节 · 方向键移动 · 全图复位':'点地名看地区';
     for(const button of controls)button.disabled=button.dataset.provinceZoom==='out'?zoom===1:button.dataset.provinceZoom==='in'?zoom===3:false;
   }
-  function reset(){base=media.matches?[30,35,645,600]:[20,0,680,660];view=[...base];zoom=1;paint();}
+  function reset(){base=media.matches?[-112,0,940,960]:[-112,0,940,665];view=[...base];zoom=1;paint();}
   function changeZoom(next){
     const cx=view[0]+view[2]/2,cy=view[1]+view[3]/2;
     zoom=clamp(next,1,3);const w=base[2]/zoom,h=base[3]/zoom;
@@ -27,6 +27,7 @@ window.enableProvinceViewport = host => {
   // Convert pointer positions through the SVG matrix, including letterboxing.
   function point(event){const p=svg.createSVGPoint();p.x=event.clientX;p.y=event.clientY;return p.matrixTransform(svg.getScreenCTM().inverse());}
   svg.addEventListener('pointerdown',event=>{
+    suppressClick=false;
     if(zoom===1||event.button!==0)return;
     const p=point(event);drag={id:event.pointerId,startX:event.clientX,startY:event.clientY,x:p.x,y:p.y,moved:false};
   });
@@ -40,10 +41,10 @@ window.enableProvinceViewport = host => {
     if(!drag||event.pointerId!==drag.id)return;
     suppressClick=drag.moved;drag=null;
     if(svg.hasPointerCapture(event.pointerId))svg.releasePointerCapture(event.pointerId);
-    if(suppressClick)setTimeout(()=>{suppressClick=false;},0);
   }
-  svg.addEventListener('pointerup',endDrag);svg.addEventListener('pointercancel',endDrag);
-  host.addEventListener('click',event=>{if(suppressClick){event.preventDefault();event.stopImmediatePropagation();suppressClick=false;}},true);
+  svg.addEventListener('pointerup',endDrag);svg.addEventListener('pointercancel',event=>{endDrag(event);suppressClick=false;});
+  svg.addEventListener('lostpointercapture',()=>{drag=null;});
+  host.addEventListener('click',event=>{if(suppressClick&&event.detail!==0){event.preventDefault();event.stopImmediatePropagation();suppressClick=false;}},true);
   svg.addEventListener('keydown',event=>{
     if(event.key==='Escape'&&zoom>1){event.preventDefault();reset();return;}
     const offset={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[event.key];
@@ -52,7 +53,7 @@ window.enableProvinceViewport = host => {
   });
   // Tabbing to an off-screen region reveals it without losing keyboard focus.
   svg.addEventListener('focusin',event=>{
-    const target=event.target.closest('[data-prefecture],.province-star');if(!target||zoom===1)return;
+    const target=event.target.closest('[data-prefecture],.province-destination');if(!target||zoom===1)return;
     const box=target.getBoundingClientRect(),frame=svg.getBoundingClientRect();
     if(box.left<frame.left||box.right>frame.right||box.top<frame.top||box.bottom>frame.bottom)reset();
   });

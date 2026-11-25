@@ -1,4 +1,4 @@
-/* Approximate exploration points; not road navigation. See THIRD_PARTY_NOTICES.md. */
+/* Curated imagery; frame preserves original share IDs. See docs/IMAGE_REVIEW_2026-11-02.md. */
 window.DALI_ENTRANCES = [
   {
     "id": "airport",
@@ -6,7 +6,10 @@ window.DALI_ENTRANCES = [
     "short": "机场",
     "icon": "plane",
     "region": "east",
-    "coords": [100.3221932, 25.6493479],
+    "coords": [
+      100.3221932,
+      25.6493479
+    ],
     "note": "航空抵达 · 海东南侧"
   },
   {
@@ -15,7 +18,10 @@ window.DALI_ENTRANCES = [
     "short": "大理站",
     "icon": "train",
     "region": "west",
-    "coords": [100.2485243, 25.5919445],
+    "coords": [
+      100.2485243,
+      25.5919445
+    ],
     "note": "铁路抵达 · 下关城区"
   },
   {
@@ -24,7 +30,10 @@ window.DALI_ENTRANCES = [
     "short": "自驾入口",
     "icon": "road",
     "region": "west",
-    "coords": [100.2289943, 25.5696126],
+    "coords": [
+      100.2289943,
+      25.5696126
+    ],
     "note": "自驾抵达 · 下关方向示例"
   }
 ];
@@ -62,7 +71,9 @@ window.DALI_PLACES = [
     "licenseUrl": null,
     "source": "https://www.yndaily.com/html/2025/yunxinwen_0806/137022.html",
     "thumb": "https://img-cdn.yndaily.com/catchimages/20250806/1754466316464045325.jpg?x-image-process=image/quality,q_95/strip",
-    "placeholder": false
+    "placeholder": false,
+    "mediaType": "photo",
+    "hero": 0
   },
   {
     "id": "ancient-town",
@@ -78,7 +89,7 @@ window.DALI_PLACES = [
       -2
     ],
     "anchor": "end",
-    "image": "assets/ancient-town-south-gate.webp",
+    "image": "assets/ai-20261102/ancient-town.webp",
     "position": "center",
     "kicker": "青瓦白墙里的生活",
     "title": [
@@ -92,12 +103,14 @@ window.DALI_PLACES = [
       "人间烟火"
     ],
     "tip": "驾车抵达周边停车点后，步行进入古城；地图点位表示古城区域。",
-    "author": "Pixabay 用户 4537668",
-    "license": "CC0 1.0",
-    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "source": "https://commons.wikimedia.org/wiki/File:大理古城南门-2064560.jpg",
-    "thumb": "assets/ancient-town-south-gate-thumb.webp",
-    "placeholder": false
+    "author": "AI 生成（OpenAI imagegen）",
+    "license": "AI生成 · 艺术演绎；非现场实拍",
+    "licenseUrl": null,
+    "source": "#erhai?view=credits",
+    "thumb": "assets/ai-20261102/ancient-town-thumb.webp",
+    "placeholder": false,
+    "mediaType": "ai",
+    "hero": 0
   },
   {
     "id": "longkan",
@@ -113,7 +126,7 @@ window.DALI_PLACES = [
       5
     ],
     "anchor": "start",
-    "image": "assets/longkan-shore-archive.webp",
+    "image": "assets/ai-20261102/longkan.webp",
     "position": "center",
     "kicker": "水杉与湖岸的相遇",
     "title": [
@@ -127,12 +140,14 @@ window.DALI_PLACES = [
       "湖岸漫步"
     ],
     "tip": "湖岸景色随季节与天气变化，实拍照片记录的是拍摄当时的场景。",
-    "author": "卢传雄",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:云南-大理耳海 - panoramio.jpg",
-    "thumb": "assets/longkan-shore-archive-thumb.webp",
-    "placeholder": false
+    "author": "AI 生成（OpenAI imagegen）",
+    "license": "AI生成 · 艺术演绎；非现场实拍",
+    "licenseUrl": null,
+    "source": "#erhai?view=credits",
+    "thumb": "assets/ai-20261102/longkan-thumb.webp",
+    "placeholder": false,
+    "mediaType": "ai",
+    "hero": 0
   },
   {
     "id": "caicun",
@@ -167,7 +182,9 @@ window.DALI_PLACES = [
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
     "source": "https://commons.wikimedia.org/wiki/File:大理才村的洱海_02.jpg",
     "thumb": "assets/caicun-02-thumb.webp",
-    "placeholder": false
+    "placeholder": false,
+    "mediaType": "photo",
+    "hero": 0
   },
   {
     "id": "panxi",
@@ -202,7 +219,9 @@ window.DALI_PLACES = [
     "licenseUrl": null,
     "source": "https://slide.news.sina.com.cn/c/slide_1_2841_608289.html/d/2",
     "thumb": "https://k.sinaimg.cn/n/news/1_ori/upload/6e865411/652/w2048h1804/20250517/0ea3-3b07ed0c3e79b6b3c4b109a8c54cfaf4.jpg/w5000hdp.jpg",
-    "placeholder": false
+    "placeholder": false,
+    "mediaType": "photo",
+    "hero": 0
   },
   {
     "id": "xizhou",
@@ -237,7 +256,9 @@ window.DALI_PLACES = [
     "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "source": "https://commons.wikimedia.org/wiki/File:Xizhou_Old_Town.jpg",
     "thumb": "assets/xizhou-square-thumb.webp",
-    "placeholder": false
+    "placeholder": false,
+    "mediaType": "photo",
+    "hero": 0
   },
   {
     "id": "wenbi",
@@ -253,7 +274,7 @@ window.DALI_PLACES = [
       5
     ],
     "anchor": "start",
-    "image": "assets/wenbi-gate.webp",
+    "image": "assets/ai-20261102/wenbi.webp",
     "position": "center",
     "kicker": "在海东，眺望苍山",
     "title": [
@@ -266,13 +287,15 @@ window.DALI_PLACES = [
       "苍山远眺",
       "海东村落"
     ],
-    "tip": "照片为村内观湖空间的实拍，具体场所的开放与消费信息以现场为准。",
-    "author": "Kcx36",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%8D%97%E7%9C%81%E5%A4%A7%E7%90%86%E6%B5%B7%E4%B8%9C%E9%95%87%E6%96%87%E7%AC%94%E6%9D%91.jpg",
-    "thumb": "assets/wenbi-gate-thumb.webp",
-    "placeholder": false
+    "tip": "影像包含AI艺术演绎与实拍；观湖场所的开放与消费信息以现场为准。",
+    "author": "AI 生成（OpenAI imagegen）",
+    "license": "AI生成 · 艺术演绎；非现场实拍",
+    "licenseUrl": null,
+    "source": "#erhai?view=credits",
+    "thumb": "assets/ai-20261102/wenbi-thumb.webp",
+    "placeholder": false,
+    "mediaType": "ai",
+    "hero": 0
   },
   {
     "id": "xiaoputuo",
@@ -307,7 +330,9 @@ window.DALI_PLACES = [
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "source": "https://commons.wikimedia.org/wiki/File:%E6%B4%B1%E6%B5%B7%E5%B0%8F%E6%99%AE%E9%99%80_02.jpg",
     "thumb": "assets/xiaoputuo-island-thumb.webp",
-    "placeholder": false
+    "placeholder": false,
+    "mediaType": "photo",
+    "hero": 0
   },
   {
     "id": "shuanglang",
@@ -323,7 +348,7 @@ window.DALI_PLACES = [
       -2
     ],
     "anchor": "start",
-    "image": "assets/shuanglang-blue-lake.webp",
+    "image": "assets/ai-20261102/shuanglang.webp",
     "position": "center",
     "kicker": "把生活放在湖边",
     "title": [
@@ -337,12 +362,14 @@ window.DALI_PLACES = [
       "日落"
     ],
     "tip": "步行进入古镇慢慢逛，临水空间与岛屿的开放信息以现场为准。",
-    "author": "Mekal Zheng (@mekalz)",
-    "license": "Unsplash License",
-    "licenseUrl": "https://unsplash.com/license",
-    "source": "https://unsplash.com/photos/a-body-of-water-surrounded-by-mountains-and-trees-aYelCQepJBs",
-    "thumb": "assets/shuanglang-blue-lake-thumb.webp",
-    "placeholder": false
+    "author": "AI 生成（OpenAI imagegen）",
+    "license": "AI生成 · 艺术演绎；非现场实拍",
+    "licenseUrl": null,
+    "source": "#erhai?view=credits",
+    "thumb": "assets/ai-20261102/shuanglang-thumb.webp",
+    "placeholder": false,
+    "mediaType": "ai",
+    "hero": 0
   },
   {
     "id": "santasi",
@@ -367,7 +394,7 @@ window.DALI_PLACES = [
       "苍山背景"
     ],
     "tip": "可从三塔沿景区中轴线步行游览寺院；票务与开放安排以景区当日公告为准。",
-    "source": "https://commons.wikimedia.org/wiki/File:%E5%B4%87%E5%9C%A3%E5%AF%BA%E4%B8%89%E5%A1%94-2404059.jpg",
+    "source": "#erhai?view=credits",
     "officialLink": "https://www.dalisanta.com/content/index?lang=zh-cn",
     "label": [
       -20,
@@ -375,12 +402,14 @@ window.DALI_PLACES = [
     ],
     "anchor": "end",
     "position": "center",
-    "image": "assets/santasi-sunrays.webp",
-    "thumb": "assets/santasi-sunrays-thumb.webp",
-    "author": "huweijie07170",
-    "license": "CC0",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "placeholder": false
+    "image": "assets/ai-20261102/santasi.webp",
+    "thumb": "assets/ai-20261102/santasi-thumb.webp",
+    "author": "AI 生成（OpenAI imagegen）",
+    "license": "AI生成 · 艺术演绎；非现场实拍",
+    "licenseUrl": null,
+    "placeholder": false,
+    "mediaType": "ai",
+    "hero": 0
   },
   {
     "id": "cangshan",
@@ -393,10 +422,10 @@ window.DALI_PLACES = [
     ],
     "coordinateNote": "地图以感通索道下站附近作苍山入口示例；苍山有多个入口，不代表山脉中心",
     "coordinateSource": "https://www.openstreetmap.org/node/5032694528",
-    "kicker": "感通索道与清碧溪",
+    "kicker": "溪谷、山林与苍洱远景",
     "title": [
-      "走进山间",
-      "听清碧溪的水声"
+      "从山林之间",
+      "遥望一片洱海"
     ],
     "description": "从感通游览区域走近苍山，森林与溪谷展开在眼前。清碧溪的瀑布和碧潭藏在山间，抬头看岩壁，低头听水声，感受洱海之外的山林风景。",
     "tags": [
@@ -405,7 +434,7 @@ window.DALI_PLACES = [
       "索道与步道"
     ],
     "tip": "地图以感通索道下站附近为入口示例，苍山另有多个入口。出发前查天气与索道公告，大风或恶劣天气可能停运；山上需备保暖衣物。",
-    "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E7%90%86%E8%8B%8D%E5%B1%B1%E7%9A%84%E6%B8%85%E7%A2%A7%E6%BA%AA.jpg",
+    "source": "#erhai?view=credits",
     "tipSource": "https://www.dalitravel.cn/content/read/770.html",
     "label": [
       -25,
@@ -413,12 +442,14 @@ window.DALI_PLACES = [
     ],
     "anchor": "end",
     "position": "center",
-    "image": "assets/cangshan-qingbixi.webp",
-    "thumb": "assets/cangshan-qingbixi-thumb.webp",
-    "author": "JLDragon",
-    "license": "Public domain",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E7%90%86%E8%8B%8D%E5%B1%B1%E7%9A%84%E6%B8%85%E7%A2%A7%E6%BA%AA.jpg",
-    "placeholder": false
+    "image": "assets/ai-20261102/cangshan.webp",
+    "thumb": "assets/ai-20261102/cangshan-thumb.webp",
+    "author": "AI 生成（OpenAI imagegen）",
+    "license": "AI生成 · 艺术演绎；非现场实拍",
+    "licenseUrl": null,
+    "placeholder": false,
+    "mediaType": "ai",
+    "hero": 0
   },
   {
     "id": "jizhaoan",
@@ -456,7 +487,9 @@ window.DALI_PLACES = [
     "author": "Kcx36",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "placeholder": false
+    "placeholder": false,
+    "mediaType": "photo",
+    "hero": 0
   },
   {
     "id": "haishe",
@@ -481,7 +514,7 @@ window.DALI_PLACES = [
       "喜洲周边"
     ],
     "tip": "园内有预约限流安排，出发前查当日开放与预约公告；沿指定步道欣赏湿地。",
-    "source": "https://commons.wikimedia.org/wiki/File:海舌湿地公园_01.jpg",
+    "source": "#erhai?view=credits",
     "tipSource": "https://yndaily.yunnan.cn/attachment/202511/30/4be9e116-6674-44df-8643-6eaa49320e05.pdf",
     "policyNote": "2024云南网、2025云南日报一手报道均确认预约限流；不固化每日人数、预约时间或渠道，避免将旧报道当作当日规则",
     "label": [
@@ -489,13 +522,15 @@ window.DALI_PLACES = [
       5
     ],
     "anchor": "start",
-    "position": "50% 50%",
-    "image": "assets/haishe-01.webp",
-    "thumb": "assets/haishe-01-thumb.webp",
-    "author": "Kcx36",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "placeholder": false
+    "position": "center",
+    "image": "assets/ai-20261102/haishe.webp",
+    "thumb": "assets/ai-20261102/haishe-thumb.webp",
+    "author": "AI 生成（OpenAI imagegen）",
+    "license": "AI生成 · 艺术演绎；非现场实拍",
+    "licenseUrl": null,
+    "placeholder": false,
+    "mediaType": "ai",
+    "hero": 0
   },
   {
     "id": "wase",
@@ -534,7 +569,9 @@ window.DALI_PLACES = [
     "author": "Kcx36",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "placeholder": false
+    "placeholder": false,
+    "mediaType": "photo",
+    "hero": 0
   },
   {
     "id": "zhoucheng",
@@ -560,7 +597,7 @@ window.DALI_PLACES = [
       "非遗体验"
     ],
     "tip": "可与喜洲一起游览；体验扎染前向工坊确认材料、时长及收费，拍摄居民先征得同意。",
-    "source": "https://commons.wikimedia.org/wiki/File:Dali 2007 183.jpg",
+    "source": "#erhai?view=credits",
     "additionalSource": "https://dali.yunnan.cn/system/2026/06/15/034045501.shtml",
     "recommendation": "比仅新增另一处湖岸更能扩展体验类型：喜洲古镇之后增加白族非遗手作，并有明确真实照片来源",
     "label": [
@@ -569,11 +606,13 @@ window.DALI_PLACES = [
     ],
     "anchor": "end",
     "position": "center",
-    "image": "assets/zhoucheng-bai-archive.webp",
-    "thumb": "assets/zhoucheng-bai-archive-thumb.webp",
-    "author": "G41rn8",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "placeholder": false
+    "image": "assets/ai-20261102/zhoucheng.webp",
+    "thumb": "assets/ai-20261102/zhoucheng-thumb.webp",
+    "author": "AI 生成（OpenAI imagegen）",
+    "license": "AI生成 · 艺术演绎；非现场实拍",
+    "licenseUrl": null,
+    "placeholder": false,
+    "mediaType": "ai",
+    "hero": 0
   }
 ];

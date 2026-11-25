@@ -16,6 +16,19 @@
     const hash=DaliViews.format({page:'lijiang',spot:'shuhe',modal:'lijiang-walk',step:next});
     history.replaceState(history.state,'',hash);window.dispatchEvent(new HashChangeEvent('hashchange'));
   }
+  function closeWalk(event){
+    event.preventDefault();event.stopPropagation();
+    if(history.state?.nightParent){history.back();return;}
+    history.replaceState(null,'','#lijiang?spot=shuhe');window.dispatchEvent(new HashChangeEvent('hashchange'));
+    requestAnimationFrame(()=>document.getElementById('lj-story').scrollIntoView({block:'start'}));
+  }
+  document.querySelector('.night-cover a').onclick=e=>{
+    if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+    e.preventDefault();history.pushState({nightParent:location.hash||'#lijiang'},'',e.currentTarget.href);
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
+  };
+  dialog.querySelector('[data-close]').onclick=closeWalk;
+  dialog.addEventListener('cancel',closeWalk);
   function refreshPlayback(){
     clearInterval(timer);timer=null;
     $('lj-walk-play').textContent=playing?'暂停慢游':step===4&&elapsed>=12000?'再看一次':'自动慢游';

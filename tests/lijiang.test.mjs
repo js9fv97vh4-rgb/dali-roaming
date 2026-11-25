@@ -23,7 +23,7 @@ test('Lijiang photos and direct routes round-trip without entering Dali scene st
  for(const p of places){const v=parse(format({page:'lijiang',spot:p.id,frame:p.photos.length-1}));assert.equal(v.spot,p.id);assert.equal(v.frame,p.photos.length-1);assert.equal(v.modal,'lijiang-photo');assert.equal(format(parent(v)),'#lijiang?spot='+p.id);assert.equal(v.photo,undefined);assert.equal(v.scene,undefined);}
  assert.equal(parse('#lijiang?spot=unknown&frame=0').frame,undefined);
  assert.equal(parse('#lijiang?spot=lugu&frame=-1').frame,undefined);
- assert.equal(parse('#lijiang?spot=lugu&frame=999').frame,places.find(p=>p.id==='lugu').photos.length-1);
+ assert.equal(parse('#lijiang?spot=lugu&frame=999').imageUpdated,true);
  assert.equal(parse('#lijiang?scene=ancient-town&view=night&photo=0').scene,undefined);
  assert.equal(parse('#erhai?spot=dayan&frame=1').frame,undefined);
  assert.equal(parse('#erhai?scene=ancient-town&photo=2').photo,2);
@@ -35,9 +35,9 @@ test('all Lijiang assets have location-specific credits and distributable files 
  const declarations=new Map([...manifest.photos,...manifest.remoteReferences].map(p=>[p.src,p]));
  const used=new Set();
  for(const place of places)for(const photo of place.photos){
-  assert(photo.caption&&photo.author&&photo.date&&photo.source);if(photo.ownerProvided){assert.equal(photo.source,photo.src);assert.equal(photo.redistributed,false);assert.equal(photo.licenseUrl,null);assert.match(photo.license,/摄影者保留版权/);}else assert.match(photo.source,/^https:\/\//);assert(declarations.has(photo.src),photo.src);
+  assert(photo.caption&&photo.author&&photo.date&&photo.source);if(photo.ownerProvided){assert.equal(photo.source,photo.src);assert.equal(photo.redistributed,false);assert.equal(photo.licenseUrl,null);assert.match(photo.license,/摄影者保留版权/);}else if(photo.mediaType!=='ai')assert.match(photo.source,/^https:\/\//);assert(declarations.has(photo.src),photo.src);
   if(photo.remote){assert.equal(photo.redistributed,false);assert.equal(photo.licenseUrl,null);assert.match(photo.src,/^https:\/\//);}
-  else {if(!photo.ownerProvided){assert.match(photo.license,/^CC BY-SA (2\.0|3\.0|4\.0)$/);assert(photo.licenseUrl);}assert(photo.width>0&&photo.height>0);for(const src of [photo.src,photo.thumb]){await access('web/'+src);used.add(src.split('/').at(-1));}}
+  else {if(!photo.ownerProvided&&photo.mediaType!=='ai'){assert.match(photo.license,/^CC BY-SA (2\.0|3\.0|4\.0)$/);assert(photo.licenseUrl);}assert(photo.width>0&&photo.height>0);for(const src of [photo.src,photo.thumb]){await access('web/'+src);used.add(src.split('/').at(-1));}}
  }
  for(const file of await readdir('web/assets/lijiang'))assert(used.has(file),'uncredited/rejected asset '+file);
  await access(manifest.map.lijiang.water);
@@ -56,8 +56,8 @@ test('Shuhe night chapters clamp safely and return to their destination',()=>{
 
 // Curating a gallery must never change the stable frame indices used by shared links.
 test('curated galleries preserve original frames and contain no repeated selections',()=>{
- assert.equal(places.reduce((n,p)=>n+p.photos.length,0),46);
- assert.equal(places.reduce((n,p)=>n+p.galleryOrder.length,0),31);
+ assert.equal(places.reduce((n,p)=>n+p.photos.length,0),24);
+ assert.equal(places.reduce((n,p)=>n+p.galleryOrder.length,0),24);
  for(const p of places){
   assert.equal(new Set(p.galleryOrder).size,p.galleryOrder.length,p.id);
   assert(p.galleryOrder.every(i=>Number.isInteger(i)&&p.photos[i]),p.id);
@@ -68,4 +68,5 @@ test('curated galleries preserve original frames and contain no repeated selecti
  }
  const shuhe=places.find(p=>p.id==='shuhe');
  assert.equal(shuhe.photos.filter(p=>p.ownerProvided).length,5);
+ assert(shuhe.photos.every((p,i)=>!p.ownerProvided||shuhe.galleryOrder.includes(i)),'owner photos must also appear outside the night walk');
 });

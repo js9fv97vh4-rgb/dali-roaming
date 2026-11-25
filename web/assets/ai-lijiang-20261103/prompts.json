@@ -1,0 +1,137 @@
+[
+  {
+    "id": "dayan-day",
+    "place": "dayan",
+    "caption": "大研灵感：晨光里的石板巷",
+    "references": [
+      "https://www.neac.gov.cn/seac/ztzl/201806/1067982.shtml"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. A quiet gently curving stone-paved lane in Dayan Old Town, Lijiang. Human eye-level viewpoint. One and two storey Naxi timber houses, aged warm wood doors, gray overlapping tiled roofs, plain lightly weathered plaster walls, a narrow stone-lined water channel at one side. Modest lived-in clay plant pots and one restrained red lantern. Fine worn stone texture, early morning lateral sunlight, soft shadows, subtle depth. No snow mountain in background, no canal-wide river, no fantasy bridge, no commercial signs, no crowds. Fresh daytime composition, not night or wet pavement. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03"
+  },
+  {
+    "id": "shuhe-day",
+    "place": "shuhe",
+    "caption": "束河灵感：清泉与柳影",
+    "references": [
+      "https://szb.lijiang.cn/pc/concent/202601/04/c93221.html"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. An original intimate scene inspired by Shuhe old town and its clear spring-fed watercourses, Lijiang. Clear shallow greenish water with visible pebbles, a low rough stone bank, graceful thin willow branches along an edge, modest Naxi gray-tile roof and dark wooden facade in the background occupying a small portion. Quiet morning garden-like village waterway, natural textures, soft diffuse sun, sparkling but not white-blown water. No invented large bridge or palace, no large artificial waterfall, no bright commercial signs, no crowd, no implausible perfectly mirrored water. Do not claim an exact Jiuding pool reconstruction. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03"
+  },
+  {
+    "id": "baisha-courtyard",
+    "place": "baisha",
+    "caption": "白沙灵感：老院与远山",
+    "references": [
+      "https://www.lijiang.cn/article/164796.html"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. An original village scene inspired by Baisha Old Town in Lijiang: simple Naxi domestic courtyard edge, low gray tiled roofs, earthen-plaster wall and weathered wooden gate frame, rough stone paving and a few plants, grounded vernacular architecture. Looking north toward moderately distant jagged gray limestone snowy ridgeline of Jade Dragon Mountain above roofs. Late morning light, sky pale blue, organic weathering, textured timber. No grand Chinese imperial palace, no large decorated gates, no fantasy towering mountains, no commercial sign text or hanging tourist dresses, no crowd. Broader quiet composition rather than a narrow tourist lane. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03",
+    "referenceImage": "assets/lijiang/yulong-owner-snow-peaks.jpg（仅参考山形，原片未改动）"
+  },
+  {
+    "id": "yulong-rock",
+    "place": "yulong",
+    "caption": "玉龙灵感：岩壁与雪线",
+    "references": [
+      "https://www.lijiang.cn/news/travel/article/165133.html"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. An original high-alpine Jade Dragon Snow Mountain landscape, Lijiang. Camera from a rocky moraine foreground with coarse gray limestone, contrasting angular mountain ridges and residual snow in gullies. Majestic but believable scale. Strong interlocking rock strata and snow textures, clear morning side light with moderate highlights and rich detail in shadows. No forest at this high viewpoint, no lake, no buildings, no boardwalk, no altitude plaque, no hikers. Follow reference morphology of serrated limestone and irregular snow gullies but create a new wide composition, not a reproduction of reference photo. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03",
+    "referenceImage": "assets/lijiang/yulong-owner-snow-peaks.jpg（仅参考山形，原片未改动）"
+  },
+  {
+    "id": "blue-moon-water",
+    "place": "blue-moon",
+    "caption": "蓝月谷灵感：碧水与林岸",
+    "references": [
+      "https://www.lijiang.cn/article/170663.html"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. An original landscape inspired by Blue Moon Valley at Jade Dragon Snow Mountain, Yunnan. Foreground gently rippled clear blue-green mineral water with pale stones visible in the shallows, curved rocky shoreline, mixed evergreen and deciduous tree-covered slopes framing the lake. Distant modest mountain ridges, not gigantic snow pyramids. Clear diffuse daylight following a passing cloud, delicate realistic reflections slightly broken by ripples. Water is nuanced cyan with natural depth gradients, not neon turquoise or a tropical beach. Clean wide composition, no buildings, crowds, dressed yaks, signs or logos. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03"
+  },
+  {
+    "id": "blue-moon-cascade",
+    "place": "blue-moon",
+    "caption": "蓝月谷灵感：白水缓缓流过",
+    "references": [
+      "https://www.lijiang.cn/article/170663.html"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. An original closer landscape inspired by Baishui River / Blue Moon Valley at Jade Dragon Mountain, Yunnan. Pale cream irregular stepped shallow stone pools, low flowing water spills crossing foreground into softly blue-green water, forested bank with subtle dark trees in far background. Keep cascades low and believable like the existing shallow white stone terraces, not Pamukkale giant terraces, not huge waterfalls. Composition emphasizes pale textured ledges and fine flowing threads of water with soft motion blur; no large snowy mountain in this close view. Diffuse morning light, restrained saturation, no text, no humans, no tourist yaks, no artificial temple. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03"
+  },
+  {
+    "id": "maoniuping-wide",
+    "place": "maoniuping",
+    "caption": "牦牛坪灵感：草甸与群峰",
+    "references": [
+      "https://www.lijiang.cn/article/159446.html"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. An original panoramic view inspired by Maoniuping, Jade Dragon Snow Mountain in Yunnan: broad gently rolling high alpine meadow, dark spruce-fir forest belt lower on the hillside, angular limestone mountain ridge beyond with intermittent snow in gullies. Balanced eye-level wide landscape with gently golden-green meadow as foreground, mountain skyline has varied serrated peaks rather than a flat plateau. Crisp breathable air, soft spring morning sidelight. No wooden structures, signs, people, huge flower fields, floating clouds in front of every tree or imaginary lake. Create landscape interpretation not exact survey. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03",
+    "referenceImage": "assets/lijiang/yulong-owner-snow-peaks.jpg（仅参考山形，原片未改动）"
+  },
+  {
+    "id": "maoniuping-pasture",
+    "place": "maoniuping",
+    "caption": "牦牛坪灵感：风过牧场",
+    "references": [
+      "https://www.lijiang.cn/article/159446.html"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. An original tranquil high-altitude pasture inspired by Maoniuping in Yunnan. Two small black shaggy yaks grazing naturally at middle distance on rolling pale gold and olive meadow, feet correctly grounded, no saddle or ornaments. More intimate low camera foreground with seed heads and patchy natural turf, dark scattered conifers and layered mountain foothills distant; distant highest peaks mostly out of frame. Soft autumn sun, natural brown and evergreen palette, no dramatic starburst, no people, no fences or temple, no neon colors, no herd duplication. Quiet cinematic story with subtle motion in grass. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03"
+  },
+  {
+    "id": "lashihai-reeds",
+    "place": "lashihai",
+    "caption": "拉市海灵感：芦岸与清波",
+    "references": [
+      "https://www.forestry.gov.cn/c/www/sdfc/101604.jhtml"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. An original landscape of a high plateau shallow freshwater wetland inspired by Lashihai in Yunnan. Foreground pale reed beds and sedges interrupted by clear pools, meandering water edges opening into an expansive calm lake, low wooded rounded hills beyond. Farmland texture only faintly on distant shore, no snow mountains, no colorful tropical vegetation. Morning light touching reeds, subdued blue water and natural olive greens, clear quiet composition with soft depth. No crowds, boats, boardwalk amusement park, flower installations, or text. Ecologically plausible wetland mosaic. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03"
+  },
+  {
+    "id": "lashihai-birds",
+    "place": "lashihai",
+    "caption": "拉市海灵感：候鸟掠过暮光",
+    "references": [
+      "https://www.lijiang.cn/news/shengtai/article/165230.html"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. An original quiet winter-water landscape inspired by Lashihai wetland, Yunnan. A small handful of black-headed gulls in nonbreeding winter plumage, white-gray body and dark ear spots, red bills, floating on rippled shallow water at medium distance; one or two birds lift off with natural wings and their plausible reflections broken on water. Few golden reed stems at edge, rounded dark low hills far away, soft late afternoon sun across the surface. Clean negative space, not a dense feeding frenzy. Gentle warm silver light, subtle muted lake blues. No tourist hands, food, boats, structures, snow mountain or implausible flamingos. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03"
+  },
+  {
+    "id": "lugu-boat",
+    "place": "lugu",
+    "caption": "泸沽湖灵感：湖岸泊舟",
+    "references": [
+      "https://www.lijiang.cn/news/travel/article/175079.html"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. An original calm lakeshore artwork inspired by Lugu Lake in Yunnan/Sichuan highlands. One simple narrow weathered wooden pig-trough-style boat quietly tethered near a pebbled shallow shoreline, clear water revealing stones before turning deep blue, layered green rounded mountain slopes across the water. Eye-level intimate diagonal boat composition, gentle small ripples, subtle believable reflection and rope contact, early morning light, natural color. No tropical beach, grand snowy mountains, invented island temples, jetty hotels, festival decorations or people. Do not imitate a specific photographer or assert exact location. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03"
+  },
+  {
+    "id": "chenghai-shore",
+    "place": "chenghai",
+    "caption": "程海灵感：山影与湖风",
+    "references": [
+      "https://www.kunming.cn/news/c/2026-01-07/14008776.shtml"
+    ],
+    "prompt": "Use case: photorealistic-natural. Asset type: cinematic travel gallery artwork, landscape 1536x1024. An original peaceful view inspired by Chenghai lake, Yongsheng Yunnan: broad clear blue plateau lake edged by sparsely vegetated tawny rocky hills with patchy olive shrubs, drier landscape than forested Lugu Lake. Eye-level from a modest stony shore with a few shoreline grasses, distant foothills descending diagonally into water. Soft late afternoon sidelight, natural ripples, subtle muted colors and terrain textures. No snow peaks, no tropical vegetation, no islands or invented monuments, no dense pink flowers, no roads drawn on water, no human crowd. Different character from Erhai or Lugu. Natural materials, believable perspective, detailed but not oversharpened. This will be labeled AI-generated artistic interpretation, not a real documentary photograph. Make an original composition. No text, watermark, logo, border, date or photographer signature.",
+    "tool": "OpenAI imagegen（内置图像生成工具）",
+    "generatedAt": "2026-11-03"
+  }
+]

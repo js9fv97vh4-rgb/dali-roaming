@@ -3,107 +3,83 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5efdf">
-  <meta name="description" content="从云南地图走进大理与丽江。探索苍山洱海、古镇街巷、玉龙雪山与高原湖泊，在真实风景中慢慢漫游。">
+  <meta name="theme-color" content="#edf1e9">
+  <meta name="description" content="从云南地图走进大理、丽江与昆明。看山水、逛街巷，在鲜花、湖光与茶咖之间认识云南的日常。">
   <title>云南漫游 · 从地图走进风景</title>
   <script>
     if (location.protocol === 'file:') location.replace('../index.html' + location.hash);
   </script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23163c43'/%3E%3Cpath d='M12 42Q24 30 34 39T54 36M12 50Q24 38 34 47T54 44' fill='none' stroke='%23a9d4db' stroke-width='4'/%3E%3Cpath d='m32 9 4 9 10 1-8 7 2 10-8-5-9 5 2-10-7-7 10-1z' fill='%23e16a54'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="upgrade.css">
-  <link rel="stylesheet" href="heritage.css">
-  <link rel="stylesheet" href="map3d.css?v=20261027-lijiang-refined">
-  <link rel="stylesheet" href="immersion.css">
-  <link rel="stylesheet" href="landing.css">
-  <link rel="stylesheet" href="roaming.css?v=20261027">
-  <link rel="stylesheet" href="lijiang.css?v=20261027-lijiang-refined">
-  <link rel="stylesheet" href="paper-map.css?v=20261027-lijiang-refined">
-  <link rel="stylesheet" href="atlas-theme.css?v=20261027-lijiang-refined">
-  <script src="map-data.js" defer></script>
-  <script src="prefecture-data.js" defer></script>
-  <script src="paper-map.js?v=20261027-lijiang-refined" defer></script>
-  <script src="province-viewport.js?v=20261027-lijiang-refined" defer></script>
-  <script src="province-atlas.js?v=20261027-lijiang-refined" defer></script>
-  <script src="places.js?v=20261024-loading" defer></script>
-  <script src="journey-core.js" defer></script>
-  <script src="gallery-data.js?v=20261024-loading" defer></script>
-  <script src="photo-loader.js?v=20261024-loading" defer></script>
-  <script src="lantern-data.js" defer></script>
-  <script src="town-story.js" defer></script>
-  <script src="lijiang-data.js?v=20261027-lijiang-refined" defer></script>
-  <script src="view-routes.js?v=20261027" defer></script>
-  <script src="roaming-data.js" defer></script>
-  <script src="roaming.js" defer></script>
-  <script src="atlas-loading.js" defer></script>
-  <script src="app.js?v=20261027-lijiang-refined" defer></script>
-  <script src="lijiang.js?v=20261027-lijiang-refined" defer></script>
-  <script src="lijiang-walk.js?v=20261027" defer></script>
+  <link rel="stylesheet" href="edition.css" id="edition-style">
+  <script src="view-routes.js" defer></script>
+  <script src="travel-saved.js" defer></script>
+  <script src="edition-shell.js" defer></script>
 </head>
-<body data-page="yunnan" class="has-atlas">
+<body data-page="yunnan" class="flat-atlas">
   <a class="skip-link" href="#main">跳到地图</a>
   <header class="site-header">
     <a class="brand" href="#yunnan" aria-label="云南漫游，返回目的地地图"><span class="brand-symbol" aria-hidden="true">✳</span><span>云南漫游<small>YUNNAN ROAMING</small></span></a>
-    <nav aria-label="主要导航"><a href="#yunnan" class="nav-link active" data-page-link="yunnan">云南地图</a><a href="#erhai" class="nav-link" data-page-link="erhai">洱海漫游</a><a href="#lijiang" class="nav-link" data-page-link="lijiang">丽江漫游</a><button class="plain-button" id="credits-button">影像来源</button></nav>
+    <nav aria-label="主要导航"><a href="#yunnan" class="nav-link active" data-page-link="yunnan">云南地图</a><a href="#erhai" class="nav-link" data-page-link="erhai">大理</a><a href="#lijiang" class="nav-link" data-page-link="lijiang">丽江</a><a href="#kunming" class="nav-link" data-page-link="kunming">昆明</a><button class="plain-button" id="saved-button">我的收藏</button><button class="plain-button" id="credits-button">影像来源</button></nav>
     <span class="header-note">从地图，走进风景</span>
   </header>
+  <dialog id="saved-dialog" aria-labelledby="saved-title"><header><h2 id="saved-title">我的收藏</h2><button type="button" id="saved-close">关闭 ×</button></header><div id="saved-list"></div></dialog>
+  <button id="edition-retry" type="button" hidden>页面未能完整加载，点击重试</button><p id="edition-status" role="status" hidden></p>
   <main id="main">
     <section id="yunnan-page" class="yunnan-page" aria-label="云南目的地地图">
-      <div class="province-map-wrap">
-        <div class="map-topline"><div><span class="atlas-overline">壹 · 山 水 长 卷</span><h1>云南<span>山水间</span></h1><p class="atlas-opening-verse">把旅途，写进一幅山水。</p><span class="atlas-opening-rule" aria-hidden="true"></span><p class="atlas-opening-copy">从雪山的云，<br>走到洱海的风。<br>循着山水印记，慢慢出发。</p><nav class="atlas-entry-links" aria-label="已开放目的地"><a href="#erhai">01　大理 · 洱海 <span>↗</span></a><a href="#lijiang">02　丽江 · 雪山古镇 <span>↗</span></a></nav></div></div>
-        <aside class="atlas-scroll-margin" aria-hidden="true"><span class="atlas-seal">山水<br>有约</span><span class="atlas-scroll-verse">行至山海，慢慢云南。</span></aside>
-        <div class="province-map" id="province-map"></div>
-        <div class="province-map-tools" role="group" aria-label="云南地图视野"><span class="atlas-map-hint" id="province-map-help">点选地名 · 循着山水印记出发</span><button type="button" data-province-zoom="out" aria-label="缩小云南地图" aria-controls="province-map">−</button><output id="province-zoom-level" aria-live="polite">100%</output><button type="button" data-province-zoom="in" aria-label="放大云南地图" aria-controls="province-map">＋</button><button type="button" data-province-zoom="reset" aria-label="复位云南地图" aria-controls="province-map">全图</button></div>
-        <div class="province-map-guide"><span><i class="guide-region" aria-hidden="true"></i>16 州 · 市 · 2 站已开放</span><span><i class="guide-emblem" aria-hidden="true">山</i> 大理 · 丽江</span><span class="paper-guide-note">手绘风物 · 地理位置示意</span></div>
-        <div class="map-destination-note" id="province-selection" aria-live="polite" aria-atomic="true"><span class="map-note-emblem" aria-hidden="true">山水</span><div><span class="province-selection-status" id="province-selection-status">漫游已开放</span><strong id="province-selection-name">大理白族自治州</strong><p id="province-selection-copy">点击山水徽记，走进苍山洱海与白族村落。</p><a id="province-craft-source" class="province-craft-source" href="https://www.ihchina.cn/project_details/14304.html" target="_blank" rel="noopener noreferrer">白族扎染技艺 · 非遗资料 ↗</a></div><a href="#erhai" id="province-enter" aria-label="从云南地图进入大理洱海">↗</a><button type="button" id="province-reset" hidden>回看大理</button></div>
+      <div class="front-layout">
+        <header class="front-intro"><small>YUNNAN ATLAS</small><h1>云南<span>山水间</span></h1><p>沿着地名，走进山水与日常。</p><img src="assets/shanshui/front-mist.webp" alt="" width="540" height="160"></header>
+        <section class="front-map" aria-label="云南十六州市"><div class="front-caption"><span>云南十六州市</span><span>◉ 已开放漫游</span></div><div class="province-map" id="province-map"></div>        <div class="province-map-tools" role="group" aria-label="云南地图视野"><span class="atlas-map-hint" id="province-map-help">大理、丽江、昆明 · 点击地名进入漫游</span><button type="button" data-province-zoom="out" aria-label="缩小云南地图" aria-controls="province-map">−</button><output id="province-zoom-level" aria-live="polite">100%</output><button type="button" data-province-zoom="in" aria-label="放大云南地图" aria-controls="province-map">＋</button><button type="button" data-province-zoom="reset" aria-label="复位云南地图" aria-controls="province-map">全图</button></div>
+</section>
+        <nav class="front-tickets" aria-label="已开放目的地"><h2>已开放目的地</h2><a class="atlas-ticket lake" href="#erhai"><img src="assets/erhai-owner-open-water.jpg" alt="" width="90" height="60"><span><strong>大理</strong><small>苍山洱海</small></span><i aria-hidden="true">↗</i></a><a class="atlas-ticket night" href="#lijiang"><img src="assets/lijiang/shuhe-owner-night.jpg" alt="" width="90" height="60"><span><strong>丽江</strong><small>束河入夜</small></span><i aria-hidden="true">↗</i></a><a class="atlas-ticket flower" href="#kunming"><img src="assets/kunming/canopy-thumb.webp" alt="" width="90" height="60"><span><strong>昆明</strong><small>花街日常</small></span><i aria-hidden="true">↗</i></a></nav>
+      </div>
+      <div class="front-foot">        <div hidden class="map-destination-note" id="province-selection" aria-live="polite" aria-atomic="true"><span class="map-note-emblem" aria-hidden="true">山水</span><div><span class="province-selection-status" id="province-selection-status">漫游已开放</span><strong id="province-selection-name">大理白族自治州</strong><p id="province-selection-copy">走进苍山洱海与白族村落。</p><a id="province-craft-source" class="province-craft-source" href="https://www.ihchina.cn/project_details/14304.html" target="_blank" rel="noopener noreferrer">白族扎染技艺 · 非遗资料 ↗</a></div><a href="#erhai" id="province-enter" aria-label="从云南地图进入大理洱海">↗</a><button type="button" id="province-reset" hidden>收起</button></div>
         <details class="prefecture-directory"><summary>全部州、市 <span>8 个地级市 · 8 个自治州</span></summary><div class="prefecture-directory-grid" id="prefecture-directory"></div></details>
         <div class="map-bottomline"><span>插画为艺术示意，非实景照片 · AI 辅助绘制</span><span>轮廓 Natural Earth · 州市分区示意 © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a></span></div>
-      </div>
+</div>
     </section>
     <section id="erhai-page" class="erhai-page" aria-label="洱海景点探索" hidden>
-      <div class="explore-toolbar"><div><a href="#yunnan" class="breadcrumb">云南</a><span class="breadcrumb-separator">／</span><h1>大理 · 洱海</h1></div><button class="outline-button" id="itinerary-toggle">我的行程 <span id="itinerary-count">0</span></button></div>
+      <header class="lake-cover"><img src="assets/erhai-owner-open-water.jpg" alt="洱海近岸的浪向远处山岸铺开" width="1024" height="768" loading="lazy"><div><small>大理 · 湖岸手记</small><h1>沿着洱海走</h1><p>苍山在西，村落沿湖。先选一处想停留的岸边。</p><button type="button" data-shore-map>沿湖选点 ↓</button> <button type="button" data-shore-flight>飞越苍山洱海 ↗</button></div><a href="#erhai?view=album&amp;photo=2">站长实拍 · 查看原片 ↗</a></header>
+      <div class="explore-toolbar"><div><a href="#yunnan" class="breadcrumb">云南</a><span class="breadcrumb-separator">／</span><h2 tabindex="-1" id="shore-title">洱海湖岸地图</h2></div><button class="outline-button" id="itinerary-toggle">我的行程 <span id="itinerary-count">0</span></button></div>
       <div class="explore-controls" id="explore-controls"></div>
-      <div class="roaming-invitation"><span>从一张地图，到一段旅程。</span><button data-tour="shore">▶ 播放山海长卷 <small>75 秒</small></button><a href="#tour-collection">选一段喜欢的路 ↓</a></div>
-      <div id="map-home-anchor"><a class="map-focus-link" href="#erhai?view=map">展开地图 <span aria-hidden="true">⤢</span></a><span>点选风景，沿着山海慢慢看</span></div>
+
+      <div id="map-home-anchor"><button type="button" id="flight-button">飞越苍山洱海 · 3D ↗</button><a class="map-focus-link" href="#erhai?view=map">全屏看地图 <span aria-hidden="true">⤢</span></a></div>
       <div class="explore-layout">
         <aside class="explore-sidebar" id="explore-sidebar"></aside>
         <button type="button" class="drawer-reopen" id="sidebar-reopen" data-action="reopen-sidebar" aria-controls="explore-sidebar" aria-expanded="false" hidden>景点与行程 <span aria-hidden="true">↗</span></button>
-        <div class="lake-map-wrap"><div class="atlas-map-stage"><div class="lake-map" id="lake-map"></div><div class="atlas-loading" id="atlas-loading" aria-label="立体地图加载状态"><img class="atlas-loading-poster" src="assets/erhai-3d-preview.jpg" alt="苍山洱海三维地图的静态预览，载入后可旋转探索" width="1324" height="720" loading="lazy"><span class="atlas-preview-badge">山海预览 · 立体画面正在准备</span><div class="atlas-loading-panel"><div class="atlas-loading-title"><strong data-load-stage role="status" aria-live="polite">正在展开立体山海</strong><span data-load-percent>0%</span></div><progress max="100" value="0" aria-label="立体地图加载进度"></progress><p data-load-eta>进入洱海后开始加载</p><div class="atlas-loading-actions"><button type="button" data-load-retry hidden>重新加载</button><button type="button" data-load-flat>先看平面地图</button></div></div></div></div><div class="map-legend"><span><i class="legend-entrance"></i>抵达入口</span><span><i class="legend-place"></i>景点</span><span><i class="legend-route"></i>游览顺序</span></div><p class="map-disclaimer">可拖动地图 · 渔灯为模拟漂游 · 连线表示沿岸方向，非道路导航</p></div>
+        <div class="lake-map-wrap"><div class="atlas-map-stage"><div class="lake-map" id="lake-map"></div><div class="atlas-loading" id="atlas-loading" hidden aria-label="立体地图加载状态"><img class="atlas-loading-poster" src="assets/erhai-3d-preview.jpg" alt="苍山洱海三维地图的静态预览，载入后可旋转探索" width="1324" height="720" loading="lazy"><span class="atlas-preview-badge">山海预览 · 立体画面正在准备</span><div class="atlas-loading-panel"><div class="atlas-loading-title"><strong data-load-stage role="status" aria-live="polite">正在展开立体山海</strong><span data-load-percent>0%</span></div><progress max="100" value="0" aria-label="立体地图加载进度"></progress><p data-load-eta>进入洱海后开始加载</p><div class="atlas-loading-actions"><button type="button" data-load-retry hidden>重新加载</button><button type="button" data-load-flat>先看平面地图</button></div></div></div></div><div class="map-legend"><span><i class="legend-entrance"></i>抵达入口</span><span><i class="legend-place"></i>景点</span><span><i class="legend-route"></i>游览顺序</span></div><p class="map-disclaimer">地形 Mapzen / USGS · 湖岸与街区 © <a href="https://www.openstreetmap.org/copyright" rel="noopener" target="_blank">OpenStreetMap</a> · 连线为游览顺序</p></div>
       </div>
-      <section class="owner-erhai-gallery" aria-labelledby="owner-erhai-title"><div class="owner-erhai-heading"><div><span>ERHAI · THROUGH MY LENS</span><h2 id="owner-erhai-title">把洱海的光，留在镜头里。</h2></div><p>洱海 · 站长实拍<br>点击看完整照片，左右滑动继续看。</p></div><div class="owner-erhai-rail" id="owner-erhai-photos" aria-label="站长拍摄的洱海相册"></div><p class="owner-erhai-credit">摄影：站长实拍 · 摄影者保留版权 · 地点：洱海</p></section>
+      <section class="owner-erhai-gallery" aria-labelledby="owner-erhai-title"><div class="owner-erhai-heading"><div><span>ERHAI · THROUGH MY LENS</span><h2 id="owner-erhai-title">把洱海的光，留在镜头里。</h2></div><p>洱海 · 站长实拍<br>3 张原片 · 点击查看完整照片。</p></div><div class="owner-erhai-rail" id="owner-erhai-photos" tabindex="0" aria-label="站长的3张洱海原片，窄屏可左右滑动"></div><div class="owner-erhai-controls"><span>左右滑动，看看另外两张</span><button type="button" data-owner-step="-1" aria-label="上一张洱海实拍" aria-controls="owner-erhai-photos">←</button><button type="button" data-owner-step="1" aria-label="下一张洱海实拍" aria-controls="owner-erhai-photos">→</button></div><p class="owner-erhai-credit">摄影：站长实拍 · 摄影者保留版权 · 地点：洱海</p></section>
       <section class="tour-collection" id="tour-collection" aria-labelledby="tour-collection-title"><div class="tour-collection-heading"><div><span>CHOOSE YOUR OWN PACE</span><h2 id="tour-collection-title">先走一段，再决定去哪里。</h2></div><p>跟着镜头预览山海，把喜欢的风景留在自己的行程里。</p></div><div class="tour-options" id="tour-options"></div><p class="planning-note">停留时长为规划参考，不含交通、用餐与排队。开放、预约及交通安排请在出发前确认。</p></section>
       <section class="scenery-strip" aria-label="景点照片"><div class="strip-heading"><h2 id="strip-title">沿着洱海，看见风景</h2><span id="strip-meta"></span></div><div class="scenery-cards" id="scenery-cards"></div></section>
       <section id="erhai-culture" class="heritage-section" aria-labelledby="heritage-title">
         <figure class="heritage-photo">
-          <button data-scene="zhoucheng" aria-label="走进周城，查看村落实景相册"><img referrerpolicy="no-referrer" src="https://www.xinhuanet.com/photo/20251122/60577af78eeb4681a387f395f0cbd934/2025112260577af78eeb4681a387f395f0cbd934_202511221e9072109202472d8269c23c4bbaadb6.jpg" alt="周城璞真染坊的手艺人正在拆花，身后悬挂蓝白扎染布" width="1024" height="683" loading="lazy"><span>周城 · 一针一线的手艺 <b aria-hidden="true">↗</b></span></button>
+          <button data-scene="zhoucheng" aria-label="走进周城，查看村落景点影像"><img referrerpolicy="no-referrer" src="https://www.xinhuanet.com/photo/20251122/60577af78eeb4681a387f395f0cbd934/2025112260577af78eeb4681a387f395f0cbd934_202511221e9072109202472d8269c23c4bbaadb6.jpg" alt="周城璞真染坊的手艺人正在拆花，身后悬挂蓝白扎染布" width="1024" height="683" loading="lazy"><span>周城 · 一针一线的手艺 <b aria-hidden="true">↗</b></span></button>
           <figcaption>摄影：新华社记者胡超 · <a href="https://www.xinhuanet.com/photo/20251122/60577af78eeb4681a387f395f0cbd934/c.html" target="_blank" rel="noopener noreferrer">查看原作</a> · 2025年11月21日</figcaption>
         </figure>
         <div class="heritage-story">
           <span class="heritage-label">白族扎染 · 国家级非物质文化遗产</span>
           <h2 id="heritage-title">一针一线，<br>留下蓝与白。</h2>
           <p>在苍山脚下的周城，把一块白布扎紧、染蓝，再拆开线结，纹样才慢慢显露。蓝与白之间，藏着白族手艺人的日常。</p>
-          <div class="craft-experience" id="craft-experience" data-craft-stage="0" aria-labelledby="craft-title">
-            <div class="craft-heading"><h3 id="craft-title">试着染一块布</h3><button class="craft-reset" id="craft-reset" type="button" hidden>再染一次</button></div>
-            <p class="craft-choice-hint">先选几个扎结位置，做一块属于你的蓝白纹样。</p><div class="craft-visual" role="group" aria-label="尚未绞扎的白色布面" id="craft-visual"><div class="craft-swatch"><div id="craft-pattern" class="craft-pattern"></div><div class="craft-knots" id="craft-knots" aria-label="选择扎结位置"></div><img class="craft-white" src="assets/dali-indigo-ui-texture.webp" alt="" width="1254" height="1254" loading="lazy"><img class="craft-blue" src="assets/dali-indigo-ui-texture.webp" alt="" width="1254" height="1254" loading="lazy"></div><span class="craft-stage-label" id="craft-stage-label">从一块白布开始</span></div>
-            <ol class="craft-steps" aria-label="依次体验扎染工序"><li><button type="button" data-craft-step="1" aria-pressed="false" aria-controls="craft-visual craft-status"><span>01</span><strong>绞扎</strong><small>扎紧白布</small></button></li><li><button type="button" data-craft-step="2" aria-pressed="false" aria-controls="craft-visual craft-status" disabled><span>02</span><strong>浸染</strong><small>染入靛蓝</small></button></li><li><button type="button" data-craft-step="3" aria-pressed="false" aria-controls="craft-visual craft-status" disabled><span>03</span><strong>拆线</strong><small>展开纹样</small></button></li></ol>
-            <p class="craft-status" id="craft-status" role="status" aria-live="polite" aria-atomic="true">先选扎结位置，再点“绞扎”，把白布收紧。</p>
-            <button type="button" class="craft-download" id="craft-download" hidden>保存我的纹样 ↓</button><p class="craft-note">纹样为示意。真实手作各不相同，完整工艺还包含多道工序。</p>
-          </div>
           <div class="heritage-actions"><button class="solid-button" data-scene="zhoucheng">走进周城，看扎染</button><a href="https://www.ihchina.cn/project_details/14304.html" target="_blank" rel="noopener noreferrer">了解非遗项目</a></div>
           <p class="heritage-footnote">白族扎染技艺于2006年列入第一批国家级非物质文化遗产名录。工坊体验的时长与收费请向店家确认。</p>
         </div>
       </section>
     </section>
     <section id="lijiang-page" class="lijiang-page" aria-label="丽江风景漫游" hidden>
-      <nav class="lj-local-nav" aria-label="丽江页内导航"><div><button data-lj-jump="map">地图</button><button data-lj-jump="directory">景点</button><button data-lj-jump="saved">收藏 <span id="lj-nav-count">0</span></button></div><button class="lj-nav-current" data-lj-read><span id="lj-current-name">白沙古镇</span><small>走近实景 ↗</small></button></nav><span id="lj-selection-live" class="lj-sr-only" role="status" aria-live="polite"></span>
-      <div class="lj-hero">
-        <div class="lj-hero-copy"><a href="#yunnan">云南 / 第二站 · 丽江</a><span class="lj-eyebrow">LIJIANG · A LITTLE CLOSER</span><h1 class="lj-serif">雪山之下，<br><em>慢慢丽江。</em></h1><p>从一座古镇的流水，走到雪山脚下。<br>把脚步放慢，选一处真正想停留的风景。</p><a class="lj-hero-link" href="#lijiang?spot=baisha" data-lj-scroll="story">先去白沙走一走 <span aria-hidden="true">↗</span></a></div>
-        <figure class="lj-hero-photo"><img src="assets/lijiang/blue-moon-02.webp" alt="蓝月谷傍晚的湖面倒影与远处山色" width="1920" height="1440" loading="lazy" decoding="async" data-photo-managed="true" data-lj-image><span class="lj-hero-number" aria-hidden="true">02</span><figcaption><small>LIJIANG · 山水来信</small><strong>山在那里，风也在那里。</strong><span>蓝月谷实景 · ShuQizhe · CC BY-SA 4.0</span></figcaption></figure>
-      </div>
-      <a class="lj-night-invitation" href="#lijiang?spot=shuhe&view=shuhe-night&step=0"><img src="assets/lijiang/shuhe-owner-night-reflections.jpg" alt="束河夜色中的水面倒影" width="1024" height="768" loading="lazy"><span><small>站长镜头 · 五段夜色</small><strong>束河入夜</strong><span>从牌坊的灯，到水里的光。</span></span><b aria-hidden="true">↗</b></a>
-      <div class="lj-stats"><p>十处风景，留几处给自己。</p><div><span><b>03</b>古镇慢游</span><span><b>04</b>雪山湖谷</span><span><b>03</b>高原湖泊</span></div></div>
-      <div class="lj-section-heading"><div><span class="lj-eyebrow">FOLLOW YOUR CURIOSITY</span><h2>今天，想遇见怎样的丽江？</h2></div><p>选一段主题，也可以直接在地图上寻找。<br>同一主题中的景点，不代表必须在一天内走完。</p></div>
-      <div class="lj-route-options" id="lj-routes" aria-label="丽江漫游主题"></div>
+      <header class="night-cover"><div class="night-film">
+        <figure class="film-gate"><img src="assets/lijiang/shuhe-owner-night.jpg" width="768" height="1024" alt="束河古镇牌坊，金色灯光照亮木雕屋檐" loading="lazy"></figure>
+        <figure><img src="assets/lijiang/shuhe-owner-night-dining.jpg" width="1182" height="666" alt="临水木楼下坐着吃晚饭的人" loading="lazy"></figure>
+        <figure><img src="assets/lijiang/shuhe-owner-night-reflections.jpg" width="1024" height="768" alt="夜里沿岸店铺倒映在水中" loading="lazy"></figure></div>
+        <div class="night-caption"><div><small>丽江 · 站长实拍</small><h1>束河入夜</h1><p>过牌坊，沿着晚饭的灯火，走到水边。</p></div><a href="#lijiang?spot=shuhe&amp;view=shuhe-night&amp;step=0">开始夜游 ↗</a></div></header>
+      <nav class="lj-local-nav" aria-label="丽江页内导航"><div><button data-lj-jump="map">地图</button><button data-lj-jump="directory">景点</button><button data-lj-jump="saved">收藏 <span id="lj-nav-count">0</span></button></div><button class="lj-nav-current" data-lj-read><span id="lj-current-name">束河古镇</span><small>走近影像 ↗</small></button></nav><span id="lj-selection-live" class="lj-sr-only" role="status" aria-live="polite"></span>
+      <section class="lj-chapters lj-theme-guide" aria-labelledby="lj-themes-title">
+        <div class="lj-theme-intro">
+          <h2 id="lj-themes-title">古镇、雪山与远方的湖</h2>
+          <img src="assets/shanshui/lijiang-chapters.webp" width="720" height="540" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="lj-route-options" id="lj-routes"></div>
+      </section>
       <section aria-labelledby="lj-map-title" class="lj-paper-section">
         <div class="lj-section-heading"><div><span class="lj-eyebrow">A JOURNEY, DRAWN ON PAPER</span><h2 id="lj-map-title">一纸山水，慢慢丽江。</h2></div><p>循着屋檐与山色，点一处想去的风景。<br>远方的湖，另留一页慢慢看。</p></div>
         <div class="lj-paper-atlas paper-surface" id="lj-map">
@@ -119,23 +95,238 @@
         </div>
         <div class="lj-map-pick" id="lj-map-pick" role="region" aria-label="选中的丽江景点" hidden></div>
       </section>
-      <section aria-labelledby="lj-directory-title"><div class="lj-section-heading"><div><span class="lj-eyebrow">TEN PLACES · YOUR OWN PACE</span><h2 id="lj-directory-title">喜欢哪里，就停在哪里。</h2></div><p id="lj-directory-status" role="status">10 处风景 · 实景与地方故事</p></div><div class="lj-filters" id="lj-filters" aria-label="筛选丽江景点"></div><div class="lj-directory" id="lj-directory"></div></section>
+      <section aria-labelledby="lj-directory-title"><div class="lj-section-heading"><div><span class="lj-eyebrow">TEN PLACES · YOUR OWN PACE</span><h2 id="lj-directory-title">喜欢哪里，就停在哪里。</h2></div><p id="lj-directory-status" role="status">10 处风景 · 实拍、AI演绎与地方故事</p></div><div class="lj-filters" id="lj-filters" aria-label="筛选丽江景点"></div><div class="lj-directory" id="lj-directory"></div></section>
       <article class="lj-story" id="lj-story" aria-labelledby="lj-story-title"></article>
       <section class="lj-culture" aria-labelledby="lj-culture-title"><div><span class="lj-eyebrow">THE LIFE BEHIND THE LANDSCAPE</span><h2 id="lj-culture-title">山水之外，<br>还有生活。</h2></div><div><p>水流穿过街巷，木屋顺着山势排开。丽江古城的空间里，纳西文化与多种建筑传统相遇；白沙的壁画、束河的街巷，则把不同的地方记忆留了下来。走近一座古镇，也是在走近当地人的日常。</p><div class="lj-culture-chips"><button type="button" data-lj-spot="dayan">大研 · 水与城</button><button type="button" data-lj-spot="baisha">白沙 · 壁画与老街</button><button type="button" data-lj-spot="shuhe">束河 · 茶马往事</button></div><p><a href="https://whc.unesco.org/en/list/811/" target="_blank" rel="noopener noreferrer">了解丽江古城的文化遗产 ↗</a></p></div></section>
-      <details class="lj-sources"><summary>风景背后的镜头与资料来源</summary><div id="lj-sources"></div></details>
+      <details class="lj-sources"><summary>丽江影像与资料来源</summary><div id="lj-sources"></div></details>
     </section>
 
+    <section id="kunming-page" class="km-page" aria-label="昆明城市漫游" hidden>
+      <header class="km-hero">
+        <div class="km-hero-copy">
+          <p class="km-kicker">昆明 · 城市生活</p>
+          <h1>昆明</h1>
+          <p class="km-hero-lead">在春城，过一天。</p>
+          <p class="city-deck">从花树下的早班车，到老街边的咖啡店，再到人来人往的车站。</p><button type="button" class="km-primary" data-km-atlas>打开昆明地图 <span aria-hidden="true">↓</span></button>
+        </div>
+        <figure class="km-hero-photo">
+          <a href="#kunming?spot=jacaranda" data-km-read="jacaranda" aria-label="看教场中路蓝花楹实拍">
+            <img src="assets/kunming/flower-bus.webp" srcset="assets/kunming/flower-bus-thumb.webp 640w, assets/kunming/flower-bus.webp 1800w"
+              sizes="(max-width: 760px) 95vw, 58vw" width="1800" height="1013" loading="lazy" decoding="async"
+              alt="观光巴士驶过教场中路的花树">
+            <span>教场中路 · 赏花参考 4—5 月 ↗</span>
+          </a>
+          <figcaption>2026 年 4 月 25 日实拍 · 花期随天气变化
+            <a href="https://commons.wikimedia.org/wiki/File:2026.04.25.140014_Touring_Bus_Jacarandas_Jiaochang_Street_Kunming_Yunnan_China.jpg" target="_blank" rel="noopener noreferrer">Hermann Luyken · CC0 ↗</a>
+          </figcaption>
+        </figure>
+      </header>
+
+      <section class="city-guide" aria-labelledby="city-guide-title"><h2 id="city-guide-title">街区、商圈与抵达</h2><div class="city-tickets">
+        <a href="#kunming?spot=old-street" data-km-read="old-street"><img src="assets/kunming/rooftops-thumb.webp" alt="" width="480" height="240" loading="lazy"><small>街区</small><strong>昆明老街</strong><span>看街巷里的日常 ↗</span></a>
+        <button type="button" data-city-note="shopping" aria-controls="city-shopping" aria-expanded="false"><img src="assets/kunming/nanping-crossing-thumb.webp" alt="" width="480" height="240" loading="lazy"><small>商圈</small><strong>南屏街与顺城</strong><span>从老街走进市中心 ↓</span></button>
+        <button type="button" data-city-note="arrival" aria-controls="city-arrival" aria-expanded="false"><img src="assets/kunming/lancang-platform-thumb.webp" alt="" width="640" height="427" loading="lazy"><small>抵达</small><strong>三个交通入口</strong><span>看看自己抵达哪一边 ↓</span></button></div>
+        <section class="city-note" id="city-shopping" hidden><button data-city-close aria-label="收起商圈介绍">收起 ×</button><h3 tabindex="-1">从老街到南屏街</h3><figure class="city-document"><a href="https://commons.wikimedia.org/wiki/File:%E6%98%86%E6%98%8E%E5%B8%82%E5%8D%97%E5%B1%8F%E8%A1%97_-_2025-05-16_02.jpg" target="_blank" rel="noopener"><img src="assets/kunming/nanping-crossing.webp" srcset="assets/kunming/nanping-crossing-thumb.webp 640w, assets/kunming/nanping-crossing.webp 1280w" sizes="(max-width:680px) 92vw, 750px" width="1280" height="961" loading="lazy" alt="南屏街步行区，两侧商铺沿街展开"></a><figcaption>南屏街步行区，两侧商铺沿街展开 · 2025-05-16 · <a href="https://commons.wikimedia.org/wiki/File:%E6%98%86%E6%98%8E%E5%B8%82%E5%8D%97%E5%B1%8F%E8%A1%97_-_2025-05-16_02.jpg" target="_blank" rel="noopener">瑞丽江的河水</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure><p>从老街的木门和坡屋顶走出来，南屏街的步行人流接上了顺城购物中心的影院、商店和餐桌。想歇一歇，可以把老街和商圈排在同一段散步里。</p><a href="#kunming?spot=tea-coffee" data-km-read="tea-coffee">去看看茶与咖啡 ↗</a> · <a href="https://www.kunming.cn/news/c/2025-01-26/13911479.shtml" target="_blank" rel="noopener">街区资料 ↗</a></section>
+        <section class="city-note" id="city-arrival" hidden>
+          <header class="arrival-heading">
+            <div><small>昆明 · 抵达</small><h3 tabindex="-1">从哪里抵达昆明？</h3></div>
+            <button type="button" data-city-close aria-label="收起抵达介绍">收起 ×</button>
+          </header>
+          <div class="arrival-layout">
+            <div class="arrival-diagram" role="group" aria-label="三个交通入口相对昆明主城的位置，北向上">
+              <svg class="arrival-land" viewBox="185 0 615 405" aria-hidden="true" focusable="false">
+                <defs>
+                  <pattern id="arrival-graticule" width="65" height="65" patternUnits="userSpaceOnUse"><path d="M65 0H0V65" fill="none" stroke="#526857" stroke-opacity=".13" stroke-width=".8"/></pattern>
+                  <pattern id="arrival-ripples" width="29" height="17" patternUnits="userSpaceOnUse"><path d="M3 11q5 -2 10 -1m4 0 6 -1" fill="none" stroke="#e8efda" stroke-opacity=".46" stroke-width="1"/></pattern>
+                  <symbol id="arrival-train" viewBox="0 0 24 24"><rect x="5.5" y="3" width="13" height="15" rx="3"/><path d="M6 11h12m-6-7v7M9 18l-3 4m9-4 3 4M8 20h8"/><circle cx="9" cy="14.5" r=".7"/><circle cx="15" cy="14.5" r=".7"/></symbol>
+                  <symbol id="arrival-plane" viewBox="0 0 24 24"><path d="m3 14 7-4 6-7q1-1 2 0t0 2l-4 7 6 5-1 1-8-3-4 4 .5 2-1 .6-2-3-3-1 .5-1 2 .3 4-5-5 2Z"/></symbol>
+                </defs>
+                <image href="assets/kunming/dianchi-relief.webp" width="800" height="640" opacity=".74"/>
+                <rect x="185" width="615" height="405" fill="url(#arrival-graticule)"/>
+                <use href="#km-dianchi-outline" fill="#88b6ac" stroke="#e8efda" stroke-width="3" fill-rule="evenodd"/>
+                <use href="#km-dianchi-outline" fill="url(#arrival-ripples)" stroke="#668d82" stroke-width="1" fill-rule="evenodd"/>
+                <ellipse cx="429" cy="103" rx="38" ry="23" transform="rotate(-16 429 103)" fill="#d6b77b" fill-opacity=".29" stroke="#8c7958" stroke-dasharray="2 4"/>
+                <path d="M354 99h23l29 6" fill="none" stroke="#847d62" stroke-width="1.5"/>
+                <circle cx="428" cy="103" r="3" fill="#7c7054"/>
+              </svg>
+              <span class="arrival-north" aria-hidden="true"><b>北</b>↑</span>
+              <span class="arrival-city">昆明主城</span><span class="arrival-water">滇池</span><span class="arrival-hills">西山</span>
+              <button type="button" class="hub-pin" data-hub="rail" aria-controls="hub-note" aria-pressed="true"><span class="hub-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#arrival-train"/></svg></span>昆明站</button>
+              <button type="button" class="hub-pin" data-hub="airport" aria-controls="hub-note" aria-pressed="false"><span class="hub-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#arrival-plane"/></svg></span>长水机场</button>
+              <button type="button" class="hub-pin" data-hub="south" aria-controls="hub-note" aria-pressed="false"><span class="hub-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#arrival-train"/></svg></span>昆明南站</button>
+            </div>
+            <div class="arrival-reading" id="hub-note" aria-live="polite" aria-atomic="true">
+              <small id="hub-bearing">铁路 · 主城南侧</small><h4 id="hub-name">昆明站</h4>
+              <p id="hub-description">车票写「昆明」，抵达的是主城南侧的昆明站。想先逛昆明老街、南屏街，可以从这一带安排进城后的第一段。</p>
+            </div>
+          </div>
+          <p class="arrival-key">点选站名查看方位 · 地形示意 <span>湖岸 © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · 地形 Mapzen / USGS</span></p>
+          <details class="arrival-photo">
+            <summary>看昆明南站站台上的「澜沧号」</summary>
+            <figure class="city-document">
+              <a href="https://commons.wikimedia.org/wiki/File:LCR200J3-B_at_Kunmingnan_Railway_Station_(Oct_2026).jpg" target="_blank" rel="noopener"><img src="assets/kunming/lancang-platform.webp" srcset="assets/kunming/lancang-platform-thumb.webp 640w, assets/kunming/lancang-platform.webp 1280w" sizes="(max-width:740px) 92vw, 680px" width="1280" height="853" loading="lazy" alt="红白蓝相间的列车停在昆明南站，车身沿亮着灯的站台向远处延伸"></a>
+              <figcaption>昆明南站站台上的 D88 次「澜沧号」列车 · 2026-10-01 · <a href="https://commons.wikimedia.org/wiki/File:LCR200J3-B_at_Kunmingnan_Railway_Station_(Oct_2026).jpg" target="_blank" rel="noopener">AC.</a> · <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener">CC BY 4.0</a></figcaption>
+            </figure>
+          </details>
+          <p class="arrival-source"><a href="https://jtyst.yn.gov.cn/uploadfile/s48/2022/0720/20220720032701608.pdf" target="_blank" rel="noopener">交通资料 ↗</a></p>
+        </section></section>
+      <section class="km-atlas" id="km-atlas" aria-labelledby="km-atlas-title">
+        <div class="km-atlas-heading">
+          <h2 id="km-atlas-title" tabindex="-1">沿滇池读昆明</h2>
+          <p>点选地名，查看影像与详情</p>
+        </div>
+        <div class="km-atlas-grid">
+          <div class="km-map-panel">
+            <div id="km-map-viewport" class="km-map-viewport" tabindex="0" aria-label="昆明位置地图，放大后可滚动">
+              <div id="km-map" class="km-map">
+                <img class="km-terrain" src="assets/kunming/dianchi-relief.webp" alt="" width="1200" height="960"
+                  loading="lazy" decoding="async" data-km-terrain data-photo-managed="true">
+                <svg class="km-geography" viewBox="0 0 800 640" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="km-water" x1="0" x2="1" y1="0" y2="1" gradientUnits="objectBoundingBox">
+                      <stop stop-color="#83b8ad"/><stop offset=".5" stop-color="#5b9992"/><stop offset="1" stop-color="#3d7977"/>
+                    </linearGradient>
+                    <pattern id="km-ripples" width="69" height="37" patternUnits="userSpaceOnUse">
+                      <path d="M1 9q13 -4 25 0m15 18q9 -3 17 0" fill="none" stroke="#eaf7de" stroke-opacity=".21"/>
+                    </pattern>
+                    <path id="km-dianchi-outline" d="M299.7,559.8 300.9,564.4 301.7,564.1 301.1,565.1 302.5,568.8 302.2,570.6 323.2,583.1 322.5,586.9 323.2,586.1
+                    326.9,586.2 336.3,578.8 345.2,579.3 344.5,580.9 345.7,581.6 345.8,581 347.7,584 344.5,586.1 346,591.3
+                    345.4,596.3 360.3,601.5 362.5,600.2 365.9,601.4 367,600.2 372.2,599.7 375.8,597.8 380.4,591.6 383.4,589.8
+                    387.4,581.2 393.9,581.9 397.5,576.8 399.9,576 401.1,573.3 405,571.8 405.8,572.3 409.6,567.5 409.8,565.9
+                    408.4,563.9 407.4,559 401.7,553.7 400.1,555 395.6,556 392.8,548.7 395.7,549.3 399,548.6 402,545.3 401.3,544
+                    404.2,542.3 403.5,536 404.1,531.6 403.2,530.2 404.8,530.1 403.7,529.9 403.4,527.9 402.6,527.8 403.5,527.6
+                    404.3,525.5 406.5,524.7 407.6,522.7 407.4,517.3 409.6,515.9 410.6,516.3 411,513.6 411.3,514.5 412.9,514.7
+                    412.9,511 411.4,506.5 412.2,505.7 411.4,503.4 410.1,502.8 412.1,501.5 413.4,498.3 414.5,497.9 413.9,494.4
+                    419.1,491.8 422.5,487.3 425.3,485.2 427.4,480.8 426,476.5 427.1,474.9 429.4,474.5 429.8,473.2 430.5,473.1
+                    429.7,474.2 432.3,472.3 433.2,472.9 434.8,470.7 434.1,469.4 435,467.8 441,465.5 440.7,464.4 439.5,465
+                    438.2,463.2 440.8,462 440.4,461.5 443.7,460.3 443.9,461.5 460.4,458.4 467.9,459.6 470.9,459 473.5,454
+                    477.8,454.2 483.6,456.1 485.8,454.3 490.8,452.5 491.2,449.6 490.5,448.8 492,447.3 491.1,440.9 490.4,439.5
+                    489.2,439.3 490.5,437.6 490.3,432.1 499.5,424.8 500.5,412.3 505.8,409.5 507.4,407.1 505.6,400.3 504.2,400
+                    503.8,397.9 505,395.6 503.3,392.4 501,390.8 505.3,388.8 508.9,385.4 510.8,379.2 508.8,373.7 504.5,369.5
+                    505.5,368.7 508.8,368.9 511.2,366.8 512,364.7 523.2,352.9 523.9,351 523.2,349.7 525.1,350.5 526.6,348.7
+                    525.9,347.8 527.5,345.5 527.8,341.1 527,340.9 528.1,340.1 525.8,335.2 525.7,336.3 524.9,335 525.5,334.8
+                    522.6,332 521.3,329.1 519.1,326.8 517.8,326.9 517.4,325.3 516.5,325.6 512.7,320.9 514.2,319.4 514.2,316.3
+                    512.8,312.9 513.5,312.7 508.8,306.2 510.8,307.9 512,306.7 510.4,304.9 507.3,304.8 495.3,291.8 485.6,284.8
+                    482.9,280.9 479.1,278 478,278.6 479,277.7 477.9,278.3 478.5,276.5 473.8,272.6 472.3,268.7 471.4,268.4
+                    472.1,267.2 471.1,268.2 462.9,263.1 454.6,261.8 452.5,262.8 451.6,261.9 448.1,267.2 440.1,272.6 438.2,270.6
+                    439.7,265.6 439.5,259.6 442.4,251.7 440.8,248.8 438,247.4 437.7,248.2 434.3,247.7 432.4,248.8 431.2,252
+                    421.3,265.1 417.5,264.7 414.1,267 412,252.8 409.8,245.7 405.9,246.3 405.1,245.4 404,246.1 403.8,248.8
+                    402.3,250.7 400.8,251.2 399.5,250.3 399.2,246.9 400.9,239.2 407.6,223.6 407.4,220.6 404.5,217.1 400.9,214
+                    392.6,210.6 383.3,209.6 372,211.2 366,210.1 362.3,209 362.2,207.2 363,208.4 363.6,206.4 362,177.4
+                    364.5,173.6 362.7,173 364.1,167.8 363.1,167.5 363.5,166.1 359.1,163.8 356.5,164.2 357.4,157.6 362.8,151.1
+                    374.9,144.2 374.6,143.5 378.6,138.4 385.2,136 384.5,134.8 386.6,131.8 390.3,131.9 389.8,128.9 388.2,128
+                    386,129 381.9,127.7 379.1,131.5 376.6,132.9 376.8,134 372.2,139.3 371,137.9 369,138.2 367.8,135.7
+                    367.2,140.2 364.2,142.9 362.3,141.4 361.4,142.2 360.8,141.2 360.8,143.4 359.8,143.5 350.1,138.5 349.2,141.6
+                    351.5,142.3 348.3,144.7 342.9,141.8 342,144.3 339,146.7 338.2,148.6 339.1,149.7 340.7,149.2 340.4,151.1
+                    338.8,151.7 340.2,155.1 343,155.2 341,155.4 339.2,157.3 339.6,159.3 342.1,160.7 341.7,162.2 342.6,162.6
+                    341.9,164.2 340.3,164.2 339.8,165.4 342.3,171.8 341,173.4 340.3,172.3 340.5,173.3 339.6,173.3 338.8,172
+                    338,175.5 336.1,176.7 335.3,178.8 337.1,180.5 337.5,184.3 341,185.7 344.4,191.9 347,192.1 348.1,193.6
+                    348,195 349,195.6 347.6,198.6 349.9,203.3 353.2,204.2 349.2,206.4 349.7,210.9 352.8,212.2 358.6,210.3
+                    360.2,208.8 361.1,206.6 359.7,203.7 353.4,204.2 359.5,203.4 362,206.8 362,209 354.8,211.8 352.5,215
+                    354.6,222.7 354.4,238.3 356.5,238.9 357.2,241.5 359,241 359.4,242.8 358.5,247 357.1,248.6 355.7,248.4
+                    355.1,249.9 353.4,261.5 353.9,267.2 354.6,268.5 356.8,269.2 356.8,271 358.2,271.4 356.8,273.1 357.8,273.4
+                    358.1,275.3 363.3,277.8 364,279.8 376.6,283.2 376.6,286.1 378,288.9 377.9,289.7 372.3,292.5 371.3,294.1
+                    369.5,307.9 370.7,313 372.3,313.9 376,319.5 378.6,320 380,321.8 378.7,323.5 374.8,325.2 374.5,327.3
+                    376.7,329.2 373.8,330.4 372.8,332.9 377.9,341.5 381.1,342.6 381,345.6 384,350.5 382.8,352.7 383.4,355.9
+                    382.5,357.5 383.8,361.5 382.4,364 383.5,367.7 380.6,370.3 381.7,375.2 380.2,376.8 380.3,380.3 379.2,381.9
+                    379.7,384.1 371.1,393.4 370.9,397.2 369.6,399.4 371.7,406.1 373.8,407.7 371.5,413.5 372.4,414.6 372.6,418.9
+                    371.6,419.1 370.8,421.4 373.1,429.8 372.3,432.7 373.8,437.5 369.1,440.2 367.6,442.6 365.1,441 363.3,442.4
+                    360.2,442.3 355.9,445.6 356.7,451.8 354.6,456.5 351.9,456.2 347.4,457.9 344.7,456.1 342.4,456 333.8,457.5
+                    332,460.9 330.9,461.2 328.7,460.2 327.4,457.4 325,456.7 323.4,457 322.9,458.4 320.9,458.6 318.5,452.9
+                    318.6,451.2 317.1,450.1 316.1,451.9 316.7,450 315,451.6 309.3,448.2 308.9,449.2 305.3,448.1 305.7,449
+                    304.7,450.2 309.8,450.2 311.8,452.2 313.6,457.5 312.3,458.9 313,459.8 312.2,458.9 310.8,460 310.4,463.8
+                    313.4,465.7 314.2,465.3 317.4,469.5 312.5,471.2 310.7,475.5 311.1,479.5 313,481.3 312.8,483.4 304.3,487.1
+                    303.2,490.3 304.7,490.3 305.4,493.9 312.5,500.2 313.1,499.8 311,502.8 308.6,504.2 306.9,507.4 306.8,509.8
+                    310.4,513.4 313.8,519 324.1,527.6 320.1,533.6 318,532.1 314.9,537.2 313.6,536.7 313.4,538.7 314.8,541.5
+                    314.5,544.3 310.1,552.8 304.5,556.8 300.1,557.1Z M319.4,456.2 318.2,454.8 319.4,456.2Z M342.1,165.2
+                    346.4,165.3 347,164.5 347.6,165.4 352.3,165.3 353.8,162.3 352.8,161.9 354.3,161.3 359.2,151.3 359.8,145.1
+                    359.4,151.4 352.3,165.6Z M350.1,162.4 349.3,162.1 350.4,162.3Z"/>
+                  </defs>
+                  <use href="#km-dianchi-outline" fill="url(#km-water)" fill-rule="evenodd" stroke="#f6f4dc" stroke-width="5"/>
+                  <use href="#km-dianchi-outline" fill="url(#km-ripples)" fill-rule="evenodd" stroke="#527f71" stroke-width="1"/>
+                  <g class="km-map-water-label" text-anchor="middle">
+                    <text x="404" y="425" transform="rotate(-19 404 425)">滇 池</text>
+                    <text x="403" y="454" class="km-map-roman">DIANCHI LAKE</text>
+                  </g>
+                  <g class="km-map-land-label" text-anchor="middle">
+                    <text x="275" y="382" transform="rotate(-18 275 382)">西 山</text>
+                    <text x="553" y="452">呈 贡</text>
+                    <text x="274" y="568">晋 宁</text>
+                  </g>
+                  <g class="km-map-leaders">
+                    <path d="M434 87Q480 88 534 77M381 275Q348 275 312 298M529 286Q552 311 585 349"/>
+                    <rect x="401" y="49" width="55" height="74" rx="14" stroke-dasharray="3 5"/>
+                    <circle data-km-marker="jacaranda" cx="412" cy="60" r="4"/><circle data-km-marker="cuihu" cx="430" cy="93" r="4"/><circle data-km-marker="old-street" cx="436" cy="107" r="4"/>
+                    <circle data-km-marker="dianchi" cx="381" cy="275" r="5"/><circle data-km-marker="dounan" cx="529" cy="286" r="5"/>
+                  </g>
+                </svg>
+                <div class="km-compass" aria-hidden="true"><small>北</small><span>↑</span></div>
+                <nav class="km-city-inset" aria-label="昆明主城景点">
+                  <p>昆明主城 <small>局部</small></p>
+                  <a href="#kunming?spot=jacaranda" class="km-pin" data-km-spot="jacaranda"><i aria-hidden="true"></i>教场中路</a>
+                  <a href="#kunming?spot=cuihu" class="km-pin" data-km-spot="cuihu"><i aria-hidden="true"></i>翠湖</a>
+                  <a href="#kunming?spot=old-street" class="km-pin" data-km-spot="old-street"><i aria-hidden="true"></i>昆明老街</a>
+                </nav>
+                <a href="#kunming?spot=dianchi" class="km-pin km-shore-pin km-haigeng" data-km-spot="dianchi"><i aria-hidden="true"></i>滇池 · 海埂</a>
+                <a href="#kunming?spot=dounan" class="km-pin km-shore-pin km-dounan" data-km-spot="dounan"><i aria-hidden="true"></i>斗南花市</a>
+              </div>
+            </div>
+            <div class="km-map-tools">
+              <p>湖岸 © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> · 地形 <a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noopener noreferrer">Mapzen</a><br>位置示意，出行请用导航</p>
+              <button type="button" data-km-zoom="out" aria-label="缩小昆明地图" disabled>−</button>
+              <output id="km-zoom-level" aria-live="polite">100%</output>
+              <button type="button" data-km-zoom="in" aria-label="放大昆明地图">＋</button>
+              <button type="button" data-km-zoom="reset" aria-label="复位昆明地图">全图</button>
+            </div>
+          </div>
+          <aside id="km-feature" class="km-feature" aria-label="地图景点预览"></aside>
+        </div>
+      </section>
+
+      <section id="km-story" class="km-story" aria-label="昆明景点与生活详情" hidden></section>
+      <p id="km-feedback" class="km-feedback" role="status"></p>
+      <section class="km-collection" aria-labelledby="km-collection-title">
+        <h2 id="km-collection-title">昆明的风景与日常</h2>
+        <nav class="km-filters" aria-label="筛选昆明漫游主题">
+          <button type="button" data-km-filter="all" aria-pressed="true">全部</button>
+          <button type="button" data-km-filter="flowers" aria-pressed="false">花街与花市</button>
+          <button type="button" data-km-filter="lake" aria-pressed="false">湖边走走</button>
+          <button type="button" data-km-filter="city" aria-pressed="false">街巷日常</button>
+          <button type="button" data-km-filter="saved" aria-pressed="false">收藏 <span id="km-saved-count">0</span></button>
+        </nav>
+        <div id="km-cards" class="km-cards"></div>
+        <aside id="km-tea" class="km-tea" aria-labelledby="km-tea-title">
+          <figure class="km-tea-cover"><img src="assets/kunming/city-coffee-thumb.webp" width="640" height="427" alt="木窗上的咖啡和树荫下的街道" loading="lazy" decoding="async"><figcaption class="km-photo-origin">AI生成 · 艺术演绎</figcaption></figure>
+          <div class="km-tea-copy">
+            <small>城市生活</small>
+            <h3 id="km-tea-title">茶与咖啡</h3>
+            <p>在文林街找个靠窗的位置，或给自己留一泡茶的时间。</p>
+            <div class="km-tea-actions">
+              <a id="km-tea-read" href="#kunming?spot=tea-coffee" data-km-read="tea-coffee">看看昆明的茶咖日常 ↗</a>
+              <button type="button" data-km-save="tea-coffee">收藏 ＋</button>
+            </div>
+          </div>
+        </aside>
+        <div id="km-empty" class="km-empty" hidden>还没有收藏。<button type="button" data-km-filter="all">看看全部 ↗</button></div>
+      </section>
+      <details class="km-sources">
+        <summary>昆明影像与资料来源</summary>
+        <div id="km-source-details"></div>
+      </details>
+      <footer class="km-footer"><a href="#yunnan">← 返回云南地图</a></footer>
+    </section>
   </main>
   <dialog id="map-focus-dialog" class="map-focus-dialog" aria-labelledby="map-focus-title"><header><div><small>DALI · EXPLORE</small><strong id="map-focus-title">把山海展开</strong></div><button data-close="map-focus-dialog" aria-label="退出展开地图">返回页面 ×</button></header></dialog>
   <dialog id="lj-walk-dialog" class="lj-walk-dialog" aria-labelledby="lj-walk-title"><header><div><small>SHUHE · AFTER DARK</small><strong id="lj-walk-title">束河入夜</strong></div><button data-close="lj-walk-dialog" aria-label="结束束河夜游">结束夜游 ×</button></header><div class="lj-walk-stage"><figure><img id="lj-walk-image" data-photo-managed="true" alt=""><span id="lj-walk-image-status" role="status"></span><button id="lj-walk-original" aria-pressed="false">查看完整构图 ⤢</button><figcaption>站长实拍 · 摄影者保留版权</figcaption></figure><section class="lj-walk-reading"><span id="lj-walk-number"></span><h2 id="lj-walk-heading"></h2><p id="lj-walk-prose"></p><div class="lj-walk-look"><small>把目光停在这里</small><p id="lj-walk-look"></p></div><p class="lj-walk-note">五张照片串起的一段夜色。章节为叙事安排，不代表现场步行路线。</p><div class="lj-walk-controls"><button id="lj-walk-prev" aria-label="上一段夜色">←</button><button id="lj-walk-play" aria-pressed="false">自动慢游</button><button id="lj-walk-next" aria-label="下一段夜色">→</button></div><progress id="lj-walk-progress" max="12000" value="0" aria-label="当前章节自动播放进度"></progress><span id="lj-walk-play-status" role="status">随自己的节奏，慢慢看。</span></section></div><nav id="lj-walk-chapters" aria-label="束河入夜章节"></nav></dialog>
+  <dialog id="km-photo-dialog" class="km-photo-dialog" aria-labelledby="km-photo-title"><div id="km-photo-content"></div></dialog>
   <dialog id="lj-photo-dialog" class="lj-photo-dialog" aria-labelledby="lj-photo-title"><div id="lj-photo-content"></div></dialog>
   <dialog id="tour-dialog" class="tour-dialog" aria-labelledby="tour-title"></dialog>
-  <dialog id="panorama-dialog" class="panorama-dialog" aria-labelledby="panorama-title"><div class="panorama-shell"><div class="panorama-toolbar"><div><span>ERHAI · LANDSCAPE ATLAS</span><h2 id="panorama-title">洱海全景地图</h2></div><button data-close="panorama-dialog" aria-label="关闭全景地图">返回探索地图</button></div><p class="panorama-intro">先看照片，再选风景。点击景点小图，走进实景相册。</p><span class="panorama-mobile-hint">左右滑动，查看两岸的景点照片</span><div class="panorama-map" id="panorama-map"></div><div id="panorama-cards" class="panorama-cards" aria-label="全景景点相册"></div><p class="panorama-note">点位表示景点区域 · 地形 Mapzen / USGS，湖岸 © OpenStreetMap · 高差与建筑经艺术化处理</p></div></dialog>
+  <dialog id="panorama-dialog" class="panorama-dialog" aria-labelledby="panorama-title"><div class="panorama-shell"><div class="panorama-toolbar"><div><span>ERHAI · LANDSCAPE ATLAS</span><h2 id="panorama-title">洱海全景地图</h2></div><button data-close="panorama-dialog" aria-label="关闭全景地图">返回探索地图</button></div><p class="panorama-intro">先看照片，再选风景。点击景点小图，走进景点影像。</p><span class="panorama-mobile-hint">左右滑动，查看两岸的景点照片</span><div class="panorama-map" id="panorama-map"></div><div id="panorama-cards" class="panorama-cards" aria-label="全景景点相册"></div><p class="panorama-note">点位表示景点区域 · 地形 Mapzen / USGS，湖岸 © OpenStreetMap · 高差与建筑经艺术化处理</p></div></dialog>
   <dialog id="lantern-dialog" class="lantern-dialog night" aria-labelledby="lantern-title"><div class="lantern-mode-shell"><div class="lantern-mode-toolbar"><div><span>ERHAI · NIGHTFALL</span><h2 id="lantern-title">洱海上的星河</h2></div><div class="lantern-mode-actions"><button data-action="motion" aria-pressed="true">暂停灯影与水波</button><button data-close="lantern-dialog" aria-label="退出渔灯模式，返回景点地图">返回景点地图</button></div></div><div class="lantern-night-atlas"><div id="lantern-photos" class="lantern-photo-windows" role="group" aria-label="洱海渔灯夜景照片"></div><div id="lantern-map" class="lantern-immersive-map"></div></div><p class="lantern-mode-note"><span>点击照片，走近真实夜色</span><small>湖面灯影为场景模拟 · 照片为源站参考资料，拍摄日期与机位未注明</small></p></div></dialog>
   <dialog id="walk-dialog" class="walk-dialog" aria-label="大理古城慢游"><div id="walk-content"></div></dialog>
-  <dialog id="scene-dialog" class="scene-dialog" aria-label="景点实景与相册"><div id="scene-content"></div></dialog>
-  <dialog id="photo-dialog" class="photo-dialog" aria-label="完整实景照片"><div id="photo-content"></div></dialog>
-  <dialog id="credits-dialog" class="credits-dialog" aria-labelledby="credits-title"><div class="dialog-heading"><h2 id="credits-title">风景背后的镜头</h2><button class="icon-button" data-close="credits-dialog" aria-label="关闭影像来源">×</button></div><p>照片来自对应地点的真实拍摄。图片为适应页面做了尺寸压缩与裁切展示；原作、作者与授权信息见下方链接。</p><div id="credits-list"></div><p class="credits-map-note">地图：云南轮廓：Natural Earth（公有领域）；州、市分区与湖岸轮廓 © OpenStreetMap contributors（ODbL）。州市边界来自 geoBoundaries 3.0.0 的 2017 年 OSM 档案，名称按云南省民政厅名录核对，已简化为区域探索示意。景点位置与游览连线仅供探索。</p></dialog>
+  <dialog id="scene-dialog" class="scene-dialog" aria-label="景点影像与相册"><div id="scene-content"></div></dialog>
+  <dialog id="photo-dialog" class="photo-dialog" aria-label="完整景点影像"><div id="photo-content"></div></dialog>
+  <dialog id="credits-dialog" class="credits-dialog" aria-labelledby="credits-title"><div class="dialog-heading"><h2 id="credits-title">影像来源与创作说明</h2><button class="icon-button" data-close="credits-dialog" aria-label="关闭影像来源">×</button></div><p>本站影像包括精选实拍和AI生成的电影感艺术演绎。AI图片均单独标注，不代表现场天气、精确机位或当前景观。实拍保留原作者与许可；生成工具、日期及景观参考资料列于下方。</p><div id="credits-list"></div><p class="credits-map-note">地图：云南轮廓：Natural Earth（公有领域）；州、市分区与湖岸轮廓 © OpenStreetMap contributors（ODbL）。州市边界来自 geoBoundaries 3.0.0 的 2017 年 OSM 档案，名称按云南省民政厅名录核对，已简化为区域探索示意。景点位置与游览连线仅供探索。</p></dialog>
   <dialog id="itinerary-dialog" class="itinerary-dialog" aria-labelledby="itinerary-title"><div class="dialog-heading"><h2 id="itinerary-title">我的洱海行程</h2><button class="icon-button" data-close="itinerary-dialog" aria-label="关闭我的行程">×</button></div><div id="itinerary-content"></div></dialog>
   <div id="toast" role="status" aria-live="polite"></div>
   <noscript><p class="noscript-note">请开启浏览器的 JavaScript，以使用地图、景点实景和行程选择。</p></noscript>

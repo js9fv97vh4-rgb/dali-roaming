@@ -1,0 +1,277 @@
+[
+  {
+    "url": "#erhai?scene=ancient-town&photo=2",
+    "id": "ancient-town",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=ancient-town&photo=3",
+    "id": "ancient-town",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=longkan&photo=0",
+    "id": "longkan",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=caicun&photo=3",
+    "id": "caicun",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=xizhou&photo=1",
+    "id": "xizhou",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=xizhou&photo=4",
+    "id": "xizhou",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=xizhou&photo=5",
+    "id": "xizhou",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=xizhou&photo=6",
+    "id": "xizhou",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=wenbi&photo=0",
+    "id": "wenbi",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=xiaoputuo&photo=1",
+    "id": "xiaoputuo",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=shuanglang&photo=1",
+    "id": "shuanglang",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=shuanglang&photo=2",
+    "id": "shuanglang",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=shuanglang&photo=3",
+    "id": "shuanglang",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=shuanglang&photo=4",
+    "id": "shuanglang",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=zhoucheng&photo=0",
+    "id": "zhoucheng",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=santasi&photo=1",
+    "id": "santasi",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=santasi&photo=2",
+    "id": "santasi",
+    "type": "scene"
+  },
+  {
+    "url": "#erhai?scene=haishe&photo=1",
+    "id": "haishe",
+    "type": "scene"
+  },
+  {
+    "url": "#lijiang?spot=dayan&frame=1",
+    "id": "dayan",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=dayan&frame=3",
+    "id": "dayan",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=shuhe&frame=6",
+    "id": "shuhe",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=baisha&frame=0",
+    "id": "baisha",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=baisha&frame=4",
+    "id": "baisha",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=yulong&frame=1",
+    "id": "yulong",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=blue-moon&frame=2",
+    "id": "blue-moon",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=blue-moon&frame=3",
+    "id": "blue-moon",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=blue-moon&frame=4",
+    "id": "blue-moon",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=yunshanping&frame=3",
+    "id": "yunshanping",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=maoniuping&frame=1",
+    "id": "maoniuping",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=maoniuping&frame=2",
+    "id": "maoniuping",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=lashihai&frame=2",
+    "id": "lashihai",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=lugu&frame=0",
+    "id": "lugu",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=chenghai&frame=1",
+    "id": "chenghai",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=yunshanping&frame=0",
+    "id": "yunshanping",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=yunshanping&frame=1",
+    "id": "yunshanping",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=yunshanping&frame=2",
+    "id": "yunshanping",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=dayan&frame=0",
+    "id": "dayan",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=dayan&frame=2",
+    "id": "dayan",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=shuhe&frame=5",
+    "id": "shuhe",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=baisha&frame=2",
+    "id": "baisha",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=baisha&frame=3",
+    "id": "baisha",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=yulong&frame=2",
+    "id": "yulong",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=yulong&frame=3",
+    "id": "yulong",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=blue-moon&frame=0",
+    "id": "blue-moon",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=blue-moon&frame=1",
+    "id": "blue-moon",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=maoniuping&frame=0",
+    "id": "maoniuping",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=maoniuping&frame=3",
+    "id": "maoniuping",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=maoniuping&frame=4",
+    "id": "maoniuping",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=lashihai&frame=0",
+    "id": "lashihai",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=lashihai&frame=1",
+    "id": "lashihai",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=lashihai&frame=3",
+    "id": "lashihai",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=lugu&frame=2",
+    "id": "lugu",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=lugu&frame=3",
+    "id": "lugu",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=chenghai&frame=0",
+    "id": "chenghai",
+    "type": "spot"
+  },
+  {
+    "url": "#lijiang?spot=chenghai&frame=2",
+    "id": "chenghai",
+    "type": "spot"
+  }
+]

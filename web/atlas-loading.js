@@ -62,8 +62,9 @@
     function recover(host){
       clearTimeout(hideTimer);host.append(root);root.hidden=false;root.classList.remove('is-ready','is-failed');state='recovering';started=lastProgress=clock();stage.textContent='立体画面中断，正在恢复';bar.removeAttribute('value');percent.textContent='';retry.hidden=false;flat.hidden=true;clearInterval(timer);tick();timer=setInterval(tick,750);
     }
-    retry.addEventListener('click',()=>location.reload());
+
     flat.addEventListener('click',()=>{root.hidden=true;});
-    return {start,update,ready,fail,recover,place};
+    function stop(){state='idle';clearInterval(timer);clearTimeout(hideTimer);root.hidden=true;home.append(root);}
+    return {start,update,ready,fail,recover,place,stop};
   };
 })();

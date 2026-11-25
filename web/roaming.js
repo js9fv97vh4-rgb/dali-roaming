@@ -17,7 +17,7 @@ window.createDaliRoaming = config => {
     const next=resolve(id);
     if(dialog.open&&route?.id===next.id){seek(step>0?step+.27:0);return;}
     stop();route=next;current=-1;photoKey='';period='';position=Math.max(0,Math.min(route.stops.length,step>0?step+.27:0));finished=false;
-    dialog.innerHTML=`<div class="tour-shell"><header class="tour-header"><div><span>YUNNAN ROAMING / 一镜漫游</span><h2 id="tour-title">${escape(route.name)}</h2></div><button data-tour-close aria-label="退出一镜漫游">返回地图 <b>×</b></button></header><div class="tour-stage"><div class="tour-map" id="tour-map"><div class="tour-map-fallback">正在展开山海…</div></div><figure class="tour-window"><img id="tour-photo-back" referrerpolicy="no-referrer" alt="" aria-hidden="true"><img id="tour-photo" referrerpolicy="no-referrer" alt=""><div class="tour-photo-controls"><button data-photo-prev aria-label="上一张实景照片">←</button><span id="tour-photo-count"></span><button data-photo-next aria-label="下一张实景照片">→</button><button data-photo-auto hidden aria-label="恢复照片自动切换">自动换图</button></div><div class="tour-window-shade"></div><div class="tour-location"><span id="tour-number"></span><span id="tour-period"></span></div><figcaption><span id="tour-en"></span><h3 id="tour-place"></h3><p id="tour-line"></p><p id="tour-photo-caption"></p><div class="tour-stop-actions"><button data-tour-album>走进实景 ↗</button><button data-tour-save></button></div><details class="tour-credit"><summary>这张照片的来源</summary><div id="tour-credit"></div></details></figcaption></figure></div><footer class="tour-timeline"><div class="tour-playbar"><button class="tour-play" data-tour-play></button><label class="tour-scrubber"><span class="sr-only">漫游进度</span><input type="range" min="0" max="${route.stops.length}" step="0.001" value="${position}" aria-label="漫游进度"></label><span class="tour-time"></span><button data-tour-route>收藏整段旅程 ＋</button></div><nav class="tour-stops" aria-label="跳转漫游站点">${route.stops.map((s,i)=>`<button data-tour-step="${i}" aria-current="false"><span>${String(i+1).padStart(2,'0')}</span>${escape(byId[s.id].name)}</button>`).join('')}</nav><p class="tour-note">${escape(route.plan)} · 实景为不同时刻的照片，光线为艺术化演绎 · 连线为叙事顺序，非道路导航</p><p class="tour-announcement sr-only" role="status" aria-live="polite"></p></footer></div>`;
+    dialog.innerHTML=`<div class="tour-shell"><header class="tour-header"><div><span>YUNNAN ROAMING / 一镜漫游</span><h2 id="tour-title">${escape(route.name)}</h2></div><button data-tour-close aria-label="退出一镜漫游">返回地图 <b>×</b></button></header><div class="tour-stage"><div class="tour-map" id="tour-map"><div class="tour-map-fallback">正在展开山海…</div></div><figure class="tour-window"><img id="tour-photo-back" referrerpolicy="no-referrer" alt="" aria-hidden="true"><img id="tour-photo" referrerpolicy="no-referrer" alt=""><div class="tour-photo-controls"><button data-photo-prev aria-label="上一张影像">←</button><span id="tour-photo-count"></span><button data-photo-next aria-label="下一张影像">→</button><button data-photo-auto hidden aria-label="恢复照片自动切换">自动换图</button></div><div class="tour-window-shade"></div><div class="tour-location"><span id="tour-number"></span><span id="tour-period"></span></div><figcaption><span id="tour-en"></span><h3 id="tour-place"></h3><p id="tour-line"></p><p id="tour-photo-caption"></p><div class="tour-stop-actions"><button data-tour-album>走进影像 ↗</button><button data-tour-save></button></div><details class="tour-credit"><summary>这张照片的来源</summary><div id="tour-credit"></div></details></figcaption></figure></div><footer class="tour-timeline"><div class="tour-playbar"><button class="tour-play" data-tour-play></button><label class="tour-scrubber"><span class="sr-only">漫游进度</span><input type="range" min="0" max="${route.stops.length}" step="0.001" value="${position}" aria-label="漫游进度"></label><span class="tour-time"></span><button data-tour-route>整段加入行程 ＋</button><button data-tour-itinerary hidden>查看行程 ↗</button></div><nav class="tour-stops" aria-label="跳转漫游站点">${route.stops.map((s,i)=>`<button data-tour-step="${i}" aria-current="false"><span>${String(i+1).padStart(2,'0')}</span>${escape(byId[s.id].name)}</button>`).join('')}</nav><p class="tour-note">${escape(route.plan)} · 实拍与AI艺术演绎分别标注，地图光线为艺术化演绎 · 连线为叙事顺序，非道路导航</p><p class="tour-announcement sr-only" role="status" aria-live="polite"></p></footer></div>`;
     elements.clear();lastSecond=-1;
     dialog.showModal();document.body.classList.add('dialog-open');
     attachMap();draw();setPlaying(!reduced.matches&&position<route.stops.length);
@@ -26,7 +26,7 @@ window.createDaliRoaming = config => {
     if(!dialog.open)return;
     const map=config.getMap();
     if(map){map.mount(document.getElementById('tour-map'),'tour');draw();}
-    else document.getElementById('tour-map').innerHTML='<div class="tour-map-fallback"><span>沿着湖岸，走进风景</span><strong>实景漫游</strong><p>当前使用照片模式；立体山海就绪后会自动接入。</p></div>';
+    else document.getElementById('tour-map').innerHTML='<div class="tour-map-fallback"><span>沿着湖岸，走进风景</span><strong>影像漫游</strong><p>当前使用照片模式；立体山海就绪后会自动接入。</p></div>';
   }
   function syncSave(){const button=$('[data-tour-save]');if(button&&route)button.textContent=config.isStop(route.stops[current]?.id)?'已在行程中 ✓':'留在我的行程 ＋';}
   function draw(){
@@ -35,7 +35,7 @@ window.createDaliRoaming = config => {
     if(index!==current){
       current=index;manualPhoto=null;
       $('#tour-photo').style.opacity='0';$('#tour-photo-back').style.opacity='0';
-      $('#tour-photo-caption').textContent='正在载入这站实景…';$('#tour-credit').textContent='';$('#tour-photo-count').textContent='载入中';
+      $('#tour-photo-caption').textContent='正在载入这站影像…';$('#tour-credit').textContent='';$('#tour-photo-count').textContent='载入中';
       $('#tour-number').textContent=`${String(index+1).padStart(2,'0')} / ${String(route.stops.length).padStart(2,'0')}`;
       $('#tour-period').textContent=station.period==='dusk'?'暮色 · 山海演绎':'日光 · 山海演绎';
       $('#tour-en').textContent=p.en;$('#tour-place').textContent=p.name;$('#tour-line').textContent=station.line;
@@ -60,7 +60,7 @@ window.createDaliRoaming = config => {
     $('input').value=position;
     const second=Math.floor(position*15);
     if(second!==lastSecond){lastSecond=second;$('.tour-time').textContent=`${String(second).padStart(2,'0')} / ${route.stops.length*15} 秒`;}
-    if(sample.ended&&!finished){finished=true;setPlaying(false);$('.tour-announcement').textContent='这一程已走完。可以收藏整段旅程，或重新出发。';}
+    if(sample.ended&&!finished){finished=true;setPlaying(false);$('.tour-announcement').textContent='这一程已走完。可以把沿途各站加入行程，或重新出发。';}
     else if(!sample.ended&&finished){finished=false;$('.tour-announcement').textContent=`第${index+1}站，${p.name}。${station.line}`;}
   }
   function showPhoto(photo,p,key,index,count,nextPhoto){
@@ -71,7 +71,7 @@ window.createDaliRoaming = config => {
       const image=$('#tour-photo'),back=$('#tour-photo-back');
       back.src=image.dataset.place===p.id?(image.currentSrc||image.src):photo.src;back.style.objectPosition=image.dataset.place===p.id?image.style.objectPosition:(photo.position||p.position||'center');image.dataset.place=p.id;
       image.style.opacity='1';back.style.opacity='1';
-      $('#tour-photo-count').textContent=`${index+1} / ${count} 实景`;
+      $('#tour-photo-count').textContent=`${index+1} / ${count} · ${MediaCredits.label(photo)}`;
       delete image.dataset.fallback;dialog.querySelectorAll('.image-load-note').forEach(n=>n.remove());
       image.src=photo.src;image.alt=photo.caption;image.style.objectPosition=photo.position||p.position||'center';
       if(!reduced.matches)image.animate([{opacity:0},{opacity:1}],{duration:700,easing:'ease-out'});
@@ -110,7 +110,8 @@ window.createDaliRoaming = config => {
     if(button.dataset.tourStep!==undefined)seek(Number(button.dataset.tourStep)+.27);
     if(button.hasAttribute('data-tour-save')){config.addStop(route.stops[current].id);syncSave();}
     if(button.hasAttribute('data-tour-album')){setPlaying(false);config.openScene(route.stops[current].id);}
-    if(button.hasAttribute('data-tour-route')){config.saveRoute(route.stops.map(s=>s.id));button.textContent='整段旅程已收藏 ✓';}
+    if(button.hasAttribute('data-tour-itinerary'))config.openItinerary();
+    if(button.hasAttribute('data-tour-route')){const count=config.saveRoute(route.stops.map(s=>s.id));button.textContent=count?'已加入 '+count+' 站':'已在行程中';button.disabled=true;const next=$('[data-tour-itinerary]');next.hidden=false;next.focus();}
   });
   dialog.addEventListener('input',event=>{if(event.target.matches('input[type=range]'))seek(event.target.value);});
   dialog.addEventListener('close',stop);

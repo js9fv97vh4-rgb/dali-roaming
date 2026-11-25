@@ -1,0 +1,26 @@
+[
+  {
+    "id": "yunshanping-meadow",
+    "prompt": "Create an original 1536x1024 landscape cinematic travel artwork inspired by Yunshanping, Yunnan. Use the attached user-owned photograph ONLY to understand the gray limestone mountain ridge morphology and irregular snow in gullies; do not recreate its composition, close-up viewpoint or foreground. New composition: a spacious alpine meadow with fine green and pale-gold grasses, enclosed in a dense dark spruce-fir forest; far behind the tree line rise the distinctive rugged serrated rocky peaks of Jade Dragon Snow Mountain. The summit silhouette should look like the reference’s varied jagged summits and sloping snow-filled gullies, NOT a flat plateau or a smooth horizontal cliff. Mountains should be distant, moderate in apparent height, at most the upper third of the picture, no exaggerated towering peaks. Eye-level view from meadow edge, soft clear late-afternoon light, a little natural cloud at the peaks but no fog obscuring the landscape; subtle warm light on the grasses and cool shadows in trees, restrained natural color, detailed organic texture, strong scenic depth. No buildings, invented monuments, water, crowds, fences, text, watermark, or date. This is an explicitly labeled AI artistic interpretation, not a documentary viewpoint. Do not alter or overwrite the original reference photo.",
+    "references": [
+      "https://www.forestry.gov.cn/c/www/lhgzdt/522630.jhtml",
+      "https://yn.people.com.cn/n2/2026/1010/c372453-41718208.html",
+      "https://gs.ctrip.com/html5/you/sight/yulong1446279/12467.html"
+    ],
+    "referenceImage": "assets/lijiang/yulong-owner-snow-peaks.jpg",
+    "tool": "OpenAI imagegen",
+    "generatedAt": "2026-11-03",
+    "output": "assets/ai-20261103/yunshanping-meadow.webp"
+  },
+  {
+    "id": "yunshanping-forest",
+    "prompt": "Use case: photorealistic-natural. Asset type: travel gallery artwork, 1536x1024 landscape. Create an original cinematic natural interpretation of the mature spruce-fir forest around Yunshanping at Jade Dragon Snow Mountain in northwestern Yunnan, around 3200m elevation. Intimate ground-level forest composition with straight but imperfect tall conifer trunks, deeply textured dark bark, scattered hanging pale lichen, soft moss covering roots and rocks, rich fern and low undergrowth textures. Warm diffuse morning side light comes from a small canopy opening at the upper left and traces a few trunks, cool green shade with visible detail. Ground slopes gently; quiet depth into the forest, believable moisture and sharp natural material texture. No meadow panorama or mountains in this shot: this is a contrasting close forest view, not a repetition of the scenic hero. No boardwalk or invented architecture, no people, no mythical forest, no gigantic glowing sunbeams, no dense fog, no excessive orange and teal grading. Tasteful cinematic photography-like artistic scene, no text, watermark, logo, date, or attribution in image. Do not copy any photographer composition.",
+    "references": [
+      "https://www.forestry.gov.cn/c/www/lhgzdt/522630.jhtml",
+      "https://www.forestry.gov.cn/c/www/dzbhdt/566107.jhtml"
+    ],
+    "tool": "OpenAI imagegen",
+    "generatedAt": "2026-11-03",
+    "output": "assets/ai-20261103/yunshanping-forest.webp"
+  }
+]

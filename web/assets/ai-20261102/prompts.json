@@ -1,0 +1,100 @@
+[
+  {
+    "id": "longkan",
+    "tool": "OpenAI imagegen",
+    "generatedAt": "2026-11-02",
+    "prompt": "Create a single refined cinematic travel landscape image, horizontal 3:2, no text, no borders or collage. Subject: Longkan on the WEST shore of Erhai lake, Dali Yunnan, looking east across the lake at dawn. Real geographic character: broad freshwater lake, low distant EAST-bank hills (NOT towering snowy Cangshan in front of the sunrise), a modest cluster of slender deciduous dawn-redwood-like shore trees standing in shallow water on the left, irregular natural shore stones at bottom, gentle ripples, quiet soft amber sunrise through thin mist, restrained blue shadows. Photorealistic film still with tactile bark and plausible water reflections, wide lens at eye level, natural proportions, elegant composition and moderate contrast. An artistic interpretation informed by Dali local media descriptions of Longkan sunrise, shoreline trees and shallow-water reflections, not a documentary photograph or reproduction of any existing photo. No invented grand buildings, no boats shaped like animals, no giant sun, no tropical palms, no alpine pointed peaks. Capture open water and a beautiful breathing space, subtle cinematic light without oversaturation.",
+    "references": [
+      "https://www.dlzrm.cn/daliwenl/2026/0627/77847.html"
+    ],
+    "output": "assets/ai-20261102/longkan.webp"
+  },
+  {
+    "id": "zhoucheng",
+    "tool": "OpenAI imagegen",
+    "generatedAt": "2026-11-02",
+    "prompt": "Generate ONE horizontal 3:2 cinematic photorealistic travel landscape for a website. This will be explicitly labeled AI-generated artistic interpretation, never actual on-site photography. Original composition, do not reproduce a specific photograph. No text, logos, watermark, frames or collage. Moderate saturation, realistic scale, rich material detail, smooth highlight rolloff. Zhou-cheng Bai village, Dali: intimate eye-level courtyard framed by whitewashed plaster walls, dark grey curved tile roof and aged dark timber, indigo and white tie-dyed cotton hanging on a simple line, natural irregular resist-dye feathered edges, visible linen-like cotton weave, low stone floor, a small sewing basket and tied white fabric on a wooden stool. No people, no shop names or readable writing, no invented cultural symbols. Sideways morning light reveals textile texture; quiet sapphire blues and warm neutral whites. Research basis: China Intangible Cultural Heritage site documents Zhou-cheng tie dye using tied fabric, dyeing, washing and drying.",
+    "references": [
+      "https://www.ihchina.cn/news_1_details/11139.html"
+    ],
+    "output": "assets/ai-20261102/zhoucheng.webp"
+  },
+  {
+    "id": "wenbi",
+    "tool": "OpenAI imagegen",
+    "generatedAt": "2026-11-02",
+    "prompt": "Generate ONE horizontal 3:2 cinematic photorealistic travel landscape for a website. This will be explicitly labeled AI-generated artistic interpretation, never actual on-site photography. Original composition, do not reproduce a specific photograph. No text, logos, watermark, frames or collage. Moderate saturation, realistic scale, rich material detail, smooth highlight rolloff. View from the hillside of Wenbi village on the EAST bank of Erhai looking WEST: foreground small cluster of modest white Bai village houses with charcoal tile roofs stepping down a green slope, expansive elongated lake at middle distance, long rounded forested Cangshan mountain wall across the water. Late afternoon silver-blue water and soft sunbeams through layered cloud; highest far ridges only modest traces of snow. NO giant spiky alpine peaks, NO cliffside fantasy resort, NO fictional famous gateway or rainbow road. Wide natural panorama, restrained cinematic warm light with cool lake tones. Basis: Yunnan agriculture department and Dali local media describe Wenbi as hillside village facing Erhai and Cangshan.",
+    "references": [
+      "https://nync.yn.gov.cn/html/2024/dianxinganli_0805/1413808.html",
+      "https://www.dlzrm.cn/daliwenl/2025/0408/45135.html"
+    ],
+    "output": "assets/ai-20261102/wenbi.webp"
+  },
+  {
+    "id": "cangshan",
+    "tool": "OpenAI imagegen",
+    "generatedAt": "2026-11-02",
+    "prompt": "Generate ONE horizontal 3:2 cinematic photorealistic travel landscape for a website. This will be explicitly labeled AI-generated artistic interpretation, never actual on-site photography. Original composition, do not reproduce a specific photograph. No text, logos, watermark, frames or collage. Moderate saturation, realistic scale, rich material detail, smooth highlight rolloff. Cangshan mountains above Dali: elevated view from a forested mountain shoulder looking EAST toward the long Erhai lake far below, terraced foothills and low white village buildings between mountain and lake. Foreground layered evergreen forest and weathered grey granite, realistic broad mountain ridges, soft cloud shadow. Sun breaks through pale storm clouds and lights a portion of distant water. Atmospheric depth and delicate natural textures, documentary-like composition with poetic cinematic lighting. No suspension bridge, no imaginary cliff walkway, no pagoda, no giant pointed Alps. Basis: Yunnan Forestry authority describes a continuous mountain-lake ecosystem with high-elevation forest.",
+    "references": [
+      "https://lcj.yn.gov.cn/special/2025/0313/6396.html"
+    ],
+    "output": "assets/ai-20261102/cangshan.webp"
+  },
+  {
+    "id": "haishe",
+    "tool": "OpenAI imagegen",
+    "generatedAt": "2026-11-02",
+    "prompt": "Generate ONE horizontal 3:2 cinematic photorealistic travel landscape for a website. This will be explicitly labeled AI-generated artistic interpretation, never actual on-site photography. Original composition, do not reproduce a specific photograph. No text, logos, watermark, frames or collage. Moderate saturation, realistic scale, rich material detail, smooth highlight rolloff. Ha-i-she wetland peninsula near Xizhou on the northwest side of Erhai. Eye-level lakeshore view: irregular shallow inlet with reeds and grasses, willow-like deciduous trees, one weathered bare branch partly in water, small gentle waves, open lake and soft distant hills. Early autumn, gentle morning fog, olive green reeds, silver-blue water, ochre grasses. Filmic natural light, airy and peaceful, nuanced botanical textures, realistically modest terrain. NOT a tropical beach, no ocean surf, no temples, no fantasy boardwalk, no giant heart-shaped garden. Basis: Yunnan Net describes a narrow three-sided lakeshore sandbar with shallows, bare trees and reeds.",
+    "references": [
+      "https://m.yunnan.cn/system/2024/01/17/032912197.shtml"
+    ],
+    "output": "assets/ai-20261102/haishe.webp"
+  },
+  {
+    "id": "shuanglang",
+    "tool": "OpenAI imagegen",
+    "generatedAt": "2026-11-02",
+    "prompt": "Generate ONE horizontal 3:2 cinematic photorealistic travel landscape for a website. This will be explicitly labeled AI-generated artistic interpretation, never actual on-site photography. Original composition, do not reproduce a specific photograph. No text, logos, watermark, frames or collage. Moderate saturation, realistic scale, rich material detail, smooth highlight rolloff. Shuanglang village on the NORTHEAST shore of Erhai, an eye-level view along a modest stone lakeside lane curving beside the water. White plaster Bai houses and aged charcoal tile eaves form the right side, a small wooden fishing boat tethered quietly near shore, broad lake to the left and layered Cangshan on the far WEST horizon. Soft blue-hour evening with a few warm domestic windows, NOT exaggerated illumination. Real worn stone, wood and plaster textures; gentle ripples reflect the sky. Cinematic but plausible; no Santorini buildings, no luxury pool, no imaginary landmark towers, no readable signage. Basis: 2025 Yunnan Net Shuanglang reporting on Bai village, former fishing settlement, lake-facing courtyards and tiled roofs.",
+    "references": [
+      "https://m.yunnan.cn/system/2025/08/04/033570963.shtml"
+    ],
+    "output": "assets/ai-20261102/shuanglang.webp"
+  },
+  {
+    "id": "santasi",
+    "tool": "OpenAI imagegen",
+    "generatedAt": "2026-11-02",
+    "prompt": "Create ONE original cinematic realistic landscape image for a travel website, horizontal 3:2, refined natural colors and plausible light, no typography or collage. The THREE PAGODAS of Chongsheng Temple, Dali, seen from the EAST looking WEST over a quiet reflecting pond with garden trees to Cangshan's forested mountains. Preserve recognizable documented structure: exactly THREE pale brick pagodas in a triangular layout, tall central Qianxun pagoda at front, two smaller pagodas set behind it left and right. Main pagoda is square tapered sixteen closely spaced eaves, about 69m; smaller towers octagonal tapered ten tiers about42m. No huge upturned wooden palace roofs on pagodas, no extra towers, no exaggerated gold. Three full towers and plausible reflections, naturally irregular garden framing, gentle sunrise illuminates pale stone from BEHIND camera, sky soft pale blue, no sun in west. Cinematic fine detail and serene light. Artistic interpretation of structure documented by official Dali city government and dalisanta.com, not exact reproduction.",
+    "references": [
+      "https://www.dalisanta.com/content/index?lang=zh-cn"
+    ],
+    "output": "assets/ai-20261102/santasi.webp"
+  },
+  {
+    "id": "ancient-town",
+    "tool": "OpenAI imagegen",
+    "generatedAt": "2026-11-02",
+    "prompt": "Create ONE original cinematic realistic landscape image for a travel website, horizontal 3:2, refined natural colors and plausible light, no typography or collage. An intimate generic Dali old-town lane inspired by traditional Bai architecture, NOT a named gate or street replica: weathered white plaster walls, charcoal grey tiled low eaves, dark timber doors, uneven stone paving after light rain, small pots of plants and discreet warm lamps at blue hour, tiny distant anonymous walking silhouettes at most. The lane curves softly, quiet lived-in proportions, warm lamps and deep blue evening sky, realistic stone reflection not mirror flooding. No legible shop signs, no dragons, no spectacular invented monuments, no giant moon, no massive crowds. An artist's evocation of Dali evenings, not a claim of a particular photographed street.",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:大理古城人民路01.jpg"
+    ],
+    "output": "assets/ai-20261102/ancient-town.webp",
+    "reviewReferences": [
+      "https://www.dalisanta.com/content/read/301.html"
+    ]
+  },
+  {
+    "id": "dayan",
+    "tool": "OpenAI imagegen",
+    "generatedAt": "2026-11-02",
+    "prompt": "Create ONE original cinematic realistic landscape image for a travel website, horizontal 3:2, refined natural colors and plausible light, no typography or collage. Lijiang Dayan ancient town, a cinematic interpretation of a narrow clear-water channel running beside a stone-paved pedestrian lane, modest Naxi timber houses with tiled roofs, aged wooden window lattices, hanging willow leaves at edge, a small simple stone footbridge in middle distance. Warm quiet dusk with domestic amber lights reflected in moving water and soft blue sky. Rich believable wood and paving textures, respectful lived-in atmosphere; avoid glossy fantasy theme park, canals as broad as Venice, giant pagodas, red lantern walls or snow peaks crammed behind every roof. Do not reproduce an actual photographer's composition; this is clearly labeled AI artistic interpretation, not a record of a specific street. No lettering, brands or watermarks.",
+    "references": [
+      "https://commons.wikimedia.org/wiki/File:20260226_Old_Town_of_Lijiang_01.jpg",
+      "https://commons.wikimedia.org/wiki/File:20260226_Old_Town_of_Lijiang_06.jpg"
+    ],
+    "output": "assets/ai-20261102/dayan.webp",
+    "reviewReferences": [
+      "https://www.neac.gov.cn/seac/ztzl/201806/1067982.shtml"
+    ]
+  }
+]

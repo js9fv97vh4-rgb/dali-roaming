@@ -5,7 +5,7 @@ import path from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 
 export const projectRoot=fileURLToPath(new URL('../',import.meta.url));
-const identityFiles=['index.html','app.js','landing.css','prefecture-data.js','province-atlas.js'];
+const identityFiles=['index.html','app.js','edition-shell.js','edition.css','prefecture-data.js','province-atlas.js'];
 
 function request(port,file){
   return new Promise(resolve=>{

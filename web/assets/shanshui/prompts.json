@@ -49,5 +49,11 @@
       "file": "chenghai.webp",
       "bytes": 225716
     }
-  ]
+  ],
+  "chapterVignette": {
+    "file": "lijiang-chapters.webp",
+    "date": "2026-11-25",
+    "prompt": "Use case: illustration-story. Create a single fine Lijiang travel-journal vignette, landscape aspect 4:3, on a fully transparent background. Gather the marks into one connected asymmetrical composition that reads well just 215 pixels wide: foreground, a few low weathered Naxi timber courtyard houses with warm ochre plaster, dark grey tiled roofs, and a small simple stone footbridge over a narrow winding stream; distant ranges of Jade Dragon Snow Mountain in pale mineral blue with broken snow ridges; to the right, let the brush suggest a quiet highland lake and reeds, separated from the town by a band of mist. A poetic montage of three themes, not literal geography. Artistic Chinese travel sketch, fine broken ink contours, dry-brush hatching, mineral malachite and slate-blue washes with warm unpainted voids, a little muted burnt sienna in the timber. Elegant, airy, authentic modest low-rise architecture. Keep snow peaks and eaves legible at small sizes. Painted subjects almost fill the canvas, organically feather to transparent on all edges. No rectangular backdrop, paper sheet, border, title, text, seal, labels, modern icons, giant pagoda or diagrams.",
+    "source": "OpenAI imagegen"
+  }
 }

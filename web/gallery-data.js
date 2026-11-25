@@ -1,4 +1,4 @@
-/* Licensed local photos and original-source references. See asset-sources.json. */
+/* Curated imagery; frame preserves original share IDs. See docs/IMAGE_REVIEW_2026-11-02.md. */
 window.DALI_GALLERIES = {
   "fengyangyi": [
     {
@@ -14,7 +14,9 @@ window.DALI_GALLERIES = {
       "position": "center",
       "remote": true,
       "redistributed": false,
-      "preview": "https://img-cdn.yndaily.com/catchimages/20250806/1754466316464045325.jpg?x-image-process=image%2Fresize%2Cw_320%2Fquality%2Cq_65%2Fstrip"
+      "preview": "https://img-cdn.yndaily.com/catchimages/20250806/1754466316464045325.jpg?x-image-process=image%2Fresize%2Cw_320%2Fquality%2Cq_65%2Fstrip",
+      "frame": 0,
+      "mediaType": "photo"
     },
     {
       "src": "https://img-cdn.yndaily.com/catchimages/20250806/1754466319815074270.jpg?x-image-process=image/quality,q_95/strip",
@@ -29,10 +31,42 @@ window.DALI_GALLERIES = {
       "position": "center",
       "remote": true,
       "redistributed": false,
-      "preview": "https://img-cdn.yndaily.com/catchimages/20250806/1754466319815074270.jpg?x-image-process=image%2Fresize%2Cw_320%2Fquality%2Cq_65%2Fstrip"
+      "preview": "https://img-cdn.yndaily.com/catchimages/20250806/1754466319815074270.jpg?x-image-process=image%2Fresize%2Cw_320%2Fquality%2Cq_65%2Fstrip",
+      "frame": 1,
+      "mediaType": "photo"
     }
   ],
   "ancient-town": [
+    {
+      "src": "assets/ai-20261102/ancient-town.webp",
+      "thumb": "assets/ai-20261102/ancient-town-thumb.webp",
+      "preview": "assets/ai-20261102/ancient-town-preview.webp",
+      "caption": "古城夜巷：青瓦与暖灯 · AI生成 · 艺术演绎",
+      "author": "AI 生成（OpenAI imagegen）",
+      "license": "AI生成 · 艺术演绎；非现场实拍",
+      "licenseUrl": null,
+      "source": "#erhai?view=credits",
+      "width": 1536,
+      "height": 1024,
+      "remote": false,
+      "redistributed": true,
+      "mediaType": "ai",
+      "generator": "OpenAI imagegen（内置图像生成工具）",
+      "generatedAt": "2026-11-02",
+      "date": "生成于2026-11-02；非拍摄日期",
+      "references": [
+        "https://commons.wikimedia.org/wiki/File:大理古城人民路01.jpg",
+        "https://www.dalisanta.com/content/read/301.html"
+      ],
+      "position": "center",
+      "period": "night",
+      "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+      "thumbWidth": 720,
+      "thumbHeight": 480,
+      "previewWidth": 240,
+      "previewHeight": 160,
+      "frame": 5
+    },
     {
       "src": "assets/ancient-town-south-gate.webp",
       "thumb": "assets/ancient-town-south-gate-thumb.webp",
@@ -49,7 +83,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 719,
       "preview": "assets/ancient-town-south-gate-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 180
+      "previewHeight": 180,
+      "frame": 0,
+      "mediaType": "photo"
     },
     {
       "src": "assets/ancient-town-renmin-road.webp",
@@ -67,43 +103,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 722,
       "preview": "assets/ancient-town-renmin-road-preview.webp",
       "previewWidth": 239,
-      "previewHeight": 180
-    },
-    {
-      "src": "assets/ancient-town-night-street.webp",
-      "thumb": "assets/ancient-town-night-street-thumb.webp",
-      "caption": "大理古城入夜时的街巷，沿街灯光勾勒白族屋檐",
-      "author": "Jian Qiu（页面说明署名）；Commons上传者Donut~commonswiki",
-      "license": "Public domain",
-      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Dali_night.jpg",
-      "source": "https://commons.wikimedia.org/wiki/File:Dali_night.jpg",
-      "width": 2048,
-      "height": 1536,
-      "position": "center",
-      "period": "night",
-      "thumbWidth": 960,
-      "thumbHeight": 720,
-      "preview": "assets/ancient-town-night-street-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 180
-    },
-    {
-      "src": "assets/ancient-town-wuhua-night.webp",
-      "thumb": "assets/ancient-town-wuhua-night-thumb.webp",
-      "caption": "夜色中的五华楼，金色檐灯与拱门下的行人",
-      "author": "Kcx36",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E7%90%86%E5%8F%A4%E5%9F%8E%E4%BA%94%E5%8D%8E%E6%A5%BC%E5%A4%9C%E6%99%AF.jpg",
-      "width": 1200,
-      "height": 1600,
-      "position": "center",
-      "period": "night",
-      "thumbWidth": 720,
-      "thumbHeight": 960,
-      "preview": "assets/ancient-town-wuhua-night-preview.webp",
-      "previewWidth": 135,
-      "previewHeight": 180
+      "previewHeight": 180,
+      "frame": 1,
+      "mediaType": "photo"
     },
     {
       "src": "assets/ancient-town.jpg",
@@ -120,27 +122,40 @@ window.DALI_GALLERIES = {
       "thumbHeight": 540,
       "preview": "assets/ancient-town-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 135
+      "previewHeight": 135,
+      "frame": 4,
+      "mediaType": "photo"
     }
   ],
   "longkan": [
     {
-      "src": "assets/longkan-shore-archive.webp",
-      "thumb": "assets/longkan-shore-archive-thumb.webp",
-      "preview": "assets/longkan-shore-archive-preview.webp",
-      "caption": "龙龛附近洱海西岸的历史实景；拍摄时间以来源页为准。",
-      "author": "卢传雄",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File:云南-大理耳海 - panoramio.jpg",
-      "width": 700,
-      "height": 509,
-      "thumbWidth": 700,
-      "thumbHeight": 509,
-      "previewWidth": 240,
-      "previewHeight": 175,
+      "src": "assets/ai-20261102/longkan.webp",
+      "thumb": "assets/ai-20261102/longkan-thumb.webp",
+      "preview": "assets/ai-20261102/longkan-preview.webp",
+      "caption": "龙龛晨光与湖岸树影 · AI生成 · 艺术演绎",
+      "author": "AI 生成（OpenAI imagegen）",
+      "license": "AI生成 · 艺术演绎；非现场实拍",
+      "licenseUrl": null,
+      "source": "#erhai?view=credits",
+      "width": 1536,
+      "height": 1024,
+      "remote": false,
+      "redistributed": true,
+      "mediaType": "ai",
+      "generator": "OpenAI imagegen（内置图像生成工具）",
+      "generatedAt": "2026-11-02",
+      "date": "生成于2026-11-02；非拍摄日期",
+      "references": [
+        "https://www.dlzrm.cn/daliwenl/2026/0627/77847.html"
+      ],
       "position": "center",
-      "period": "day"
+      "period": "day",
+      "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+      "thumbWidth": 720,
+      "thumbHeight": 480,
+      "previewWidth": 240,
+      "previewHeight": 160,
+      "frame": 4
     },
     {
       "src": "https://tr-osdcp.qunarzz.com/tr-osd-tr-space/img/975cf5e59a6a4299d52d8a098cd31547.jpg",
@@ -154,7 +169,9 @@ window.DALI_GALLERIES = {
       "licenseUrl": null,
       "position": "center",
       "remote": true,
-      "redistributed": false
+      "redistributed": false,
+      "frame": 1,
+      "mediaType": "photo"
     },
     {
       "src": "https://tr-osdcp.qunarzz.com/tr-osd-tr-space/img/fc4fc96699b124a62a782ccea7981540.jpg",
@@ -168,7 +185,9 @@ window.DALI_GALLERIES = {
       "licenseUrl": null,
       "position": "center",
       "remote": true,
-      "redistributed": false
+      "redistributed": false,
+      "frame": 2,
+      "mediaType": "photo"
     },
     {
       "src": "https://dimg04.c-ctrip.com/images/0104l12000992m5gy4477.jpg",
@@ -182,7 +201,9 @@ window.DALI_GALLERIES = {
       "height": 921,
       "position": "center",
       "remote": true,
-      "redistributed": false
+      "redistributed": false,
+      "frame": 3,
+      "mediaType": "photo"
     }
   ],
   "caicun": [
@@ -202,7 +223,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 640,
       "preview": "assets/caicun-02-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 160
+      "previewHeight": 160,
+      "frame": 0,
+      "mediaType": "photo"
     },
     {
       "src": "assets/caicun-04.webp",
@@ -220,7 +243,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 640,
       "preview": "assets/caicun-04-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 160
+      "previewHeight": 160,
+      "frame": 1,
+      "mediaType": "photo"
     },
     {
       "src": "assets/caicun.jpg",
@@ -237,25 +262,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 640,
       "preview": "assets/caicun-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 160
-    },
-    {
-      "src": "assets/caicun-east-shore.webp",
-      "thumb": "assets/caicun-east-shore-thumb.webp",
-      "caption": "从才村眺望洱海对岸的文笔村，湖面与海东山坡。",
-      "author": "Liuxingy",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E7%90%86%E6%89%8D%E6%9D%91%E6%9C%9B%E5%90%91%E6%B4%B1%E6%B5%B7%E5%AF%B9%E5%B2%B8%E7%9A%84%E6%96%87%E7%AC%94%E6%9D%91.jpg",
-      "width": 2400,
-      "height": 1600,
-      "thumbWidth": 720,
-      "thumbHeight": 480,
-      "position": "center",
-      "period": "day",
-      "preview": "assets/caicun-east-shore-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 160
+      "previewHeight": 160,
+      "frame": 2,
+      "mediaType": "photo"
     }
   ],
   "panxi": [
@@ -271,7 +280,9 @@ window.DALI_GALLERIES = {
       "height": 1804,
       "position": "center",
       "remote": true,
-      "redistributed": false
+      "redistributed": false,
+      "frame": 0,
+      "mediaType": "photo"
     },
     {
       "src": "https://k.sinaimg.cn/n/news/1_ori/upload/6e865411/347/w2048h1499/20250517/113d-fba455c61f8453eea1a8e9f18d710ce8.jpg/w5000hdp.jpg",
@@ -285,7 +296,9 @@ window.DALI_GALLERIES = {
       "height": 1499,
       "position": "center",
       "remote": true,
-      "redistributed": false
+      "redistributed": false,
+      "frame": 1,
+      "mediaType": "photo"
     },
     {
       "title": "File:磻溪珠联阁 03.jpg",
@@ -303,7 +316,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 540,
       "preview": "assets/panxi-commons-4-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 135
+      "previewHeight": 135,
+      "frame": 2,
+      "mediaType": "photo"
     }
   ],
   "xizhou": [
@@ -323,25 +338,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 557,
       "preview": "assets/xizhou-square-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 139
-    },
-    {
-      "src": "assets/xizhou-bai-architecture.webp",
-      "thumb": "assets/xizhou-bai-architecture-thumb.webp",
-      "caption": "白族民居门前的石狮与民族服饰人物",
-      "author": "Luca Casartelli",
-      "license": "CC BY-SA 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-      "source": "https://commons.wikimedia.org/wiki/File:Xizhou_Town_(21200714911).jpg",
-      "width": 2048,
-      "height": 1280,
-      "position": "center",
-      "period": "day",
-      "thumbWidth": 960,
-      "thumbHeight": 600,
-      "preview": "assets/xizhou-bai-architecture-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 150
+      "previewHeight": 139,
+      "frame": 0,
+      "mediaType": "photo"
     },
     {
       "src": "assets/xizhou.jpg",
@@ -358,7 +357,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 636,
       "preview": "assets/xizhou-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 159
+      "previewHeight": 159,
+      "frame": 2,
+      "mediaType": "photo"
     },
     {
       "src": "assets/xizhou-corner.webp",
@@ -376,61 +377,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 540,
       "preview": "assets/xizhou-corner-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 135
-    },
-    {
-      "src": "assets/xizhou-harvest.webp",
-      "thumb": "assets/xizhou-harvest-thumb.webp",
-      "caption": "喜洲田野的水稻收割，古镇之外的农耕日常。",
-      "author": "Chris DeLacy",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Rice_harvest_in_Xizhou.JPG",
-      "width": 2400,
-      "height": 1589,
-      "thumbWidth": 720,
-      "thumbHeight": 477,
-      "position": "center",
-      "period": "day",
-      "preview": "assets/xizhou-harvest-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 159
-    },
-    {
-      "src": "assets/xizhou-baba.webp",
-      "thumb": "assets/xizhou-baba-thumb.webp",
-      "caption": "喜洲街头售卖的肉馅粑粑，近看当地食物。",
-      "author": "Mx. Granger",
-      "license": "CC0",
-      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-      "source": "https://commons.wikimedia.org/wiki/File:Xizhou_baba.jpg",
-      "width": 2400,
-      "height": 1800,
-      "thumbWidth": 720,
-      "thumbHeight": 540,
-      "position": "center",
-      "period": "day",
-      "preview": "assets/xizhou-baba-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 180
-    },
-    {
-      "src": "assets/xizhou-rushan.webp",
-      "thumb": "assets/xizhou-rushan-thumb.webp",
-      "caption": "白族乳扇在竹竿上晾制，传统食物的制作细节。",
-      "author": "Chris DeLacy",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Xizhou_Rushan.jpg",
-      "width": 1590,
-      "height": 2400,
-      "thumbWidth": 477,
-      "thumbHeight": 720,
-      "position": "center",
-      "period": "day",
-      "preview": "assets/xizhou-rushan-preview.webp",
-      "previewWidth": 119,
-      "previewHeight": 180
+      "previewHeight": 135,
+      "frame": 3,
+      "mediaType": "photo"
     },
     {
       "src": "assets/xizhou-courtyard.webp",
@@ -448,27 +397,41 @@ window.DALI_GALLERIES = {
       "period": "day",
       "preview": "assets/xizhou-courtyard-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 135
+      "previewHeight": 135,
+      "frame": 7,
+      "mediaType": "photo"
     }
   ],
   "wenbi": [
     {
-      "src": "assets/wenbi-gate.webp",
-      "thumb": "assets/wenbi-gate-thumb.webp",
-      "caption": "村口牌坊与石壁上的文笔村红字，近景实拍。",
-      "author": "Kcx36",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%8D%97%E7%9C%81%E5%A4%A7%E7%90%86%E6%B5%B7%E4%B8%9C%E9%95%87%E6%96%87%E7%AC%94%E6%9D%91.jpg",
-      "width": 3200,
-      "height": 1800,
+      "src": "assets/ai-20261102/wenbi.webp",
+      "thumb": "assets/ai-20261102/wenbi-thumb.webp",
+      "preview": "assets/ai-20261102/wenbi-preview.webp",
+      "caption": "文笔灵感：隔着洱海看苍山 · AI生成 · 艺术演绎",
+      "author": "AI 生成（OpenAI imagegen）",
+      "license": "AI生成 · 艺术演绎；非现场实拍",
+      "licenseUrl": null,
+      "source": "#erhai?view=credits",
+      "width": 1536,
+      "height": 1024,
+      "remote": false,
+      "redistributed": true,
+      "mediaType": "ai",
+      "generator": "OpenAI imagegen（内置图像生成工具）",
+      "generatedAt": "2026-11-02",
+      "date": "生成于2026-11-02；非拍摄日期",
+      "references": [
+        "https://nync.yn.gov.cn/html/2024/dianxinganli_0805/1413808.html",
+        "https://www.dlzrm.cn/daliwenl/2025/0408/45135.html"
+      ],
       "position": "center",
       "period": "day",
-      "thumbWidth": 960,
-      "thumbHeight": 540,
-      "preview": "assets/wenbi-gate-preview.webp",
+      "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+      "thumbWidth": 720,
+      "thumbHeight": 480,
       "previewWidth": 240,
-      "previewHeight": 135
+      "previewHeight": 160,
+      "frame": 2
     },
     {
       "src": "https://img-cdn.yndaily.com/catchimages/20251126/1764152367475032978.jpg?x-image-process=image%2Fquality%2Cq_95%2Fstrip%2Fstrip",
@@ -483,7 +446,9 @@ window.DALI_GALLERIES = {
       "position": "center",
       "remote": true,
       "redistributed": false,
-      "preview": "https://img-cdn.yndaily.com/catchimages/20251126/1764152367475032978.jpg?x-image-process=image%2Fresize%2Cw_320%2Fquality%2Cq_65%2Fstrip"
+      "preview": "https://img-cdn.yndaily.com/catchimages/20251126/1764152367475032978.jpg?x-image-process=image%2Fresize%2Cw_320%2Fquality%2Cq_65%2Fstrip",
+      "frame": 1,
+      "mediaType": "photo"
     }
   ],
   "xiaoputuo": [
@@ -503,25 +468,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 432,
       "preview": "assets/xiaoputuo-island-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 108
-    },
-    {
-      "src": "assets/xiaoputuo-boat.webp",
-      "thumb": "assets/xiaoputuo-boat-thumb.webp",
-      "caption": "从小普陀岛上向岸边拍摄拉绳渡船、游客与对岸村落。",
-      "author": "Mx. Granger",
-      "license": "CC0",
-      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-      "source": "https://commons.wikimedia.org/wiki/File:%E5%B0%8F%E6%99%AE%E9%99%80_2.jpg",
-      "width": 3200,
-      "height": 2400,
-      "position": "center",
-      "period": "day",
-      "thumbWidth": 960,
-      "thumbHeight": 720,
-      "preview": "assets/xiaoputuo-boat-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 180
+      "previewHeight": 108,
+      "frame": 0,
+      "mediaType": "photo"
     },
     {
       "src": "assets/xiaoputuo.jpg",
@@ -538,10 +487,41 @@ window.DALI_GALLERIES = {
       "thumbHeight": 720,
       "preview": "assets/xiaoputuo-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 180
+      "previewHeight": 180,
+      "frame": 2,
+      "mediaType": "photo"
     }
   ],
   "shuanglang": [
+    {
+      "src": "assets/ai-20261102/shuanglang.webp",
+      "thumb": "assets/ai-20261102/shuanglang-thumb.webp",
+      "preview": "assets/ai-20261102/shuanglang-preview.webp",
+      "caption": "双廊灵感：临湖街巷的蓝调暮色 · AI生成 · 艺术演绎",
+      "author": "AI 生成（OpenAI imagegen）",
+      "license": "AI生成 · 艺术演绎；非现场实拍",
+      "licenseUrl": null,
+      "source": "#erhai?view=credits",
+      "width": 1536,
+      "height": 1024,
+      "remote": false,
+      "redistributed": true,
+      "mediaType": "ai",
+      "generator": "OpenAI imagegen（内置图像生成工具）",
+      "generatedAt": "2026-11-02",
+      "date": "生成于2026-11-02；非拍摄日期",
+      "references": [
+        "https://m.yunnan.cn/system/2025/08/04/033570963.shtml"
+      ],
+      "position": "center",
+      "period": "night",
+      "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+      "thumbWidth": 720,
+      "thumbHeight": 480,
+      "previewWidth": 240,
+      "previewHeight": 160,
+      "frame": 5
+    },
     {
       "src": "assets/shuanglang-blue-lake.webp",
       "thumb": "assets/shuanglang-blue-lake-thumb.webp",
@@ -558,99 +538,40 @@ window.DALI_GALLERIES = {
       "thumbHeight": 540,
       "preview": "assets/shuanglang-blue-lake-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 135
-    },
-    {
-      "src": "assets/shuanglang-south.webp",
-      "thumb": "assets/shuanglang-south-thumb.webp",
-      "caption": "从水上看双廊南部沿湖村落建筑和背后的山体。",
-      "author": "Liuxingy",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:%E6%B4%B1%E6%B5%B7%E4%B8%8A%E6%9C%9B%E5%8F%8C%E5%BB%8A%E9%95%87%E5%8D%97%E9%83%A8_01.jpg",
-      "width": 3200,
-      "height": 2133,
-      "position": "center",
-      "period": "day",
-      "thumbWidth": 960,
-      "thumbHeight": 640,
-      "preview": "assets/shuanglang-south-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 160
-    },
-    {
-      "src": "assets/shuanglang-lakeside.webp",
-      "thumb": "assets/shuanglang-lakeside-thumb.webp",
-      "caption": "双廊湖畔白色高脚桌椅、洱海与远山。",
-      "author": "Zhangmoon618",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Shuanglang,_Dali,_Yunnan,_China_02.jpg",
-      "width": 3200,
-      "height": 2091,
-      "position": "center",
-      "period": "day",
-      "thumbWidth": 960,
-      "thumbHeight": 627,
-      "preview": "assets/shuanglang-lakeside-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 157
-    },
-    {
-      "src": "assets/shuanglang.jpg",
-      "thumb": "assets/shuanglang-thumb.webp",
-      "caption": "把生活放在湖边",
-      "author": "Zhangmoon618",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
-      "source": "https://commons.wikimedia.org/wiki/File:Shuanglang,_Dali,_Yunnan,_China_01.jpg",
-      "width": 1800,
-      "height": 1013,
-      "position": "center",
-      "thumbWidth": 960,
-      "thumbHeight": 540,
-      "preview": "assets/shuanglang-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 135
-    },
-    {
-      "src": "assets/shuanglang-school.webp",
-      "thumb": "assets/shuanglang-school-thumb.webp",
-      "caption": "双廊完全小学的校门与街边建筑，村镇日常的一角。",
-      "author": "N509FZ",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Shuanglang_Elementary_School_(20200123105740).jpg",
-      "width": 2400,
-      "height": 1600,
-      "thumbWidth": 720,
-      "thumbHeight": 480,
-      "position": "center",
-      "period": "day",
-      "preview": "assets/shuanglang-school-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 160
+      "previewHeight": 135,
+      "frame": 0,
+      "mediaType": "photo"
     }
   ],
   "zhoucheng": [
     {
-      "src": "assets/zhoucheng-bai-archive.webp",
-      "thumb": "assets/zhoucheng-bai-archive-thumb.webp",
-      "preview": "assets/zhoucheng-bai-archive-preview.webp",
-      "caption": "周城白族民居建筑，2007 年历史实景。",
-      "author": "G41rn8",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Dali 2007 183.jpg",
-      "width": 2400,
-      "height": 1800,
-      "thumbWidth": 960,
-      "thumbHeight": 720,
-      "previewWidth": 240,
-      "previewHeight": 180,
+      "src": "assets/ai-20261102/zhoucheng.webp",
+      "thumb": "assets/ai-20261102/zhoucheng-thumb.webp",
+      "preview": "assets/ai-20261102/zhoucheng-preview.webp",
+      "caption": "周城灵感：院落里的蓝白扎染 · AI生成 · 艺术演绎",
+      "author": "AI 生成（OpenAI imagegen）",
+      "license": "AI生成 · 艺术演绎；非现场实拍",
+      "licenseUrl": null,
+      "source": "#erhai?view=credits",
+      "width": 1536,
+      "height": 1024,
+      "remote": false,
+      "redistributed": true,
+      "mediaType": "ai",
+      "generator": "OpenAI imagegen（内置图像生成工具）",
+      "generatedAt": "2026-11-02",
+      "date": "生成于2026-11-02；非拍摄日期",
+      "references": [
+        "https://www.ihchina.cn/news_1_details/11139.html"
+      ],
       "position": "center",
       "period": "day",
-      "shotDate": "2007"
+      "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+      "thumbWidth": 720,
+      "thumbHeight": 480,
+      "previewWidth": 240,
+      "previewHeight": 160,
+      "frame": 4
     },
     {
       "src": "https://www.xinhuanet.com/photo/20251122/60577af78eeb4681a387f395f0cbd934/2025112260577af78eeb4681a387f395f0cbd934_20251122de1113fa559745e1b606e422602ec98f.jpg",
@@ -666,7 +587,9 @@ window.DALI_GALLERIES = {
       "remote": true,
       "redistributed": false,
       "period": "day",
-      "shotDate": "2025-11-21"
+      "shotDate": "2025-11-21",
+      "frame": 1,
+      "mediaType": "photo"
     },
     {
       "src": "https://www.xinhuanet.com/photo/20251122/60577af78eeb4681a387f395f0cbd934/2025112260577af78eeb4681a387f395f0cbd934_2025112212486f7dc35b469fa81b2ead57ff5b20.jpg",
@@ -682,7 +605,9 @@ window.DALI_GALLERIES = {
       "remote": true,
       "redistributed": false,
       "period": "day",
-      "shotDate": "2025-11-21"
+      "shotDate": "2025-11-21",
+      "frame": 2,
+      "mediaType": "photo"
     },
     {
       "src": "https://www.xinhuanet.com/photo/20251122/60577af78eeb4681a387f395f0cbd934/2025112260577af78eeb4681a387f395f0cbd934_202511221e9072109202472d8269c23c4bbaadb6.jpg",
@@ -698,10 +623,41 @@ window.DALI_GALLERIES = {
       "remote": true,
       "redistributed": false,
       "period": "day",
-      "shotDate": "2025-11-21"
+      "shotDate": "2025-11-21",
+      "frame": 3,
+      "mediaType": "photo"
     }
   ],
   "santasi": [
+    {
+      "src": "assets/ai-20261102/santasi.webp",
+      "thumb": "assets/ai-20261102/santasi-thumb.webp",
+      "preview": "assets/ai-20261102/santasi-preview.webp",
+      "caption": "三塔灵感：山色与塔影 · AI生成 · 艺术演绎",
+      "author": "AI 生成（OpenAI imagegen）",
+      "license": "AI生成 · 艺术演绎；非现场实拍",
+      "licenseUrl": null,
+      "source": "#erhai?view=credits",
+      "width": 1536,
+      "height": 1024,
+      "remote": false,
+      "redistributed": true,
+      "mediaType": "ai",
+      "generator": "OpenAI imagegen（内置图像生成工具）",
+      "generatedAt": "2026-11-02",
+      "date": "生成于2026-11-02；非拍摄日期",
+      "references": [
+        "https://www.dalisanta.com/content/index?lang=zh-cn"
+      ],
+      "position": "center",
+      "period": "day",
+      "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+      "thumbWidth": 720,
+      "thumbHeight": 480,
+      "previewWidth": 240,
+      "previewHeight": 160,
+      "frame": 3
+    },
     {
       "src": "assets/santasi-sunrays.webp",
       "thumb": "assets/santasi-sunrays-thumb.webp",
@@ -718,46 +674,41 @@ window.DALI_GALLERIES = {
       "thumbHeight": 638,
       "preview": "assets/santasi-sunrays-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 160
-    },
-    {
-      "src": "assets/santasi-reflection.webp",
-      "thumb": "assets/santasi-reflection-thumb.webp",
-      "caption": "三塔与倒影池，蓝天映入水面",
-      "author": "G41rn8",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Dali_2007_171.jpg",
-      "width": 2592,
-      "height": 1944,
-      "position": "center",
-      "period": "day",
-      "thumbWidth": 960,
-      "thumbHeight": 720,
-      "preview": "assets/santasi-reflection-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 180
-    },
-    {
-      "src": "assets/santasi-pond.webp",
-      "thumb": "assets/santasi-pond-thumb.webp",
-      "caption": "树荫下的三塔与园林倒影池",
-      "author": "Zhangzhugang",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "source": "https://commons.wikimedia.org/wiki/File:Dali_Chongsheng_Si_2008.09.10_11-30-34.jpg",
-      "width": 3072,
-      "height": 2304,
-      "position": "center",
-      "period": "day",
-      "thumbWidth": 960,
-      "thumbHeight": 720,
-      "preview": "assets/santasi-pond-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 180
+      "previewHeight": 160,
+      "frame": 0,
+      "mediaType": "photo"
     }
   ],
   "cangshan": [
+    {
+      "src": "assets/ai-20261102/cangshan.webp",
+      "thumb": "assets/ai-20261102/cangshan-thumb.webp",
+      "preview": "assets/ai-20261102/cangshan-preview.webp",
+      "caption": "苍山灵感：山林之间远望洱海 · AI生成 · 艺术演绎",
+      "author": "AI 生成（OpenAI imagegen）",
+      "license": "AI生成 · 艺术演绎；非现场实拍",
+      "licenseUrl": null,
+      "source": "#erhai?view=credits",
+      "width": 1536,
+      "height": 1024,
+      "remote": false,
+      "redistributed": true,
+      "mediaType": "ai",
+      "generator": "OpenAI imagegen（内置图像生成工具）",
+      "generatedAt": "2026-11-02",
+      "date": "生成于2026-11-02；非拍摄日期",
+      "references": [
+        "https://lcj.yn.gov.cn/special/2025/0313/6396.html"
+      ],
+      "position": "center",
+      "period": "day",
+      "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+      "thumbWidth": 720,
+      "thumbHeight": 480,
+      "previewWidth": 240,
+      "previewHeight": 160,
+      "frame": 2
+    },
     {
       "src": "assets/cangshan-qingbixi.webp",
       "thumb": "assets/cangshan-qingbixi-thumb.webp",
@@ -774,7 +725,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 720,
       "preview": "assets/cangshan-qingbixi-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 180
+      "previewHeight": 180,
+      "frame": 0,
+      "mediaType": "photo"
     },
     {
       "src": "assets/cangshan-gantong-gate.webp",
@@ -792,7 +745,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 540,
       "preview": "assets/cangshan-gantong-gate-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 135
+      "previewHeight": 135,
+      "frame": 1,
+      "mediaType": "photo"
     }
   ],
   "jizhaoan": [
@@ -812,7 +767,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 432,
       "preview": "assets/jizhaoan-commons-1-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 108
+      "previewHeight": 108,
+      "frame": 0,
+      "mediaType": "photo"
     },
     {
       "title": "File:寂照庵山门.jpg",
@@ -830,7 +787,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 960,
       "preview": "assets/jizhaoan-commons-2-preview.webp",
       "previewWidth": 101,
-      "previewHeight": 180
+      "previewHeight": 180,
+      "frame": 1,
+      "mediaType": "photo"
     }
   ],
   "wase": [
@@ -850,7 +809,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 721,
       "preview": "assets/wase-temple-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 180
+      "previewHeight": 180,
+      "frame": 0,
+      "mediaType": "photo"
     },
     {
       "src": "assets/wase-tower.webp",
@@ -868,10 +829,41 @@ window.DALI_GALLERIES = {
       "thumbHeight": 960,
       "preview": "assets/wase-tower-preview.webp",
       "previewWidth": 135,
-      "previewHeight": 180
+      "previewHeight": 180,
+      "frame": 1,
+      "mediaType": "photo"
     }
   ],
   "haishe": [
+    {
+      "src": "assets/ai-20261102/haishe.webp",
+      "thumb": "assets/ai-20261102/haishe-thumb.webp",
+      "preview": "assets/ai-20261102/haishe-preview.webp",
+      "caption": "海舌灵感：浅滩、芦苇与树影 · AI生成 · 艺术演绎",
+      "author": "AI 生成（OpenAI imagegen）",
+      "license": "AI生成 · 艺术演绎；非现场实拍",
+      "licenseUrl": null,
+      "source": "#erhai?view=credits",
+      "width": 1536,
+      "height": 1024,
+      "remote": false,
+      "redistributed": true,
+      "mediaType": "ai",
+      "generator": "OpenAI imagegen（内置图像生成工具）",
+      "generatedAt": "2026-11-02",
+      "date": "生成于2026-11-02；非拍摄日期",
+      "references": [
+        "https://m.yunnan.cn/system/2024/01/17/032912197.shtml"
+      ],
+      "position": "center",
+      "period": "day",
+      "changes": "AI原创艺术演绎；WebP压缩及等比例缩略图，不代表现场现状或精确机位",
+      "thumbWidth": 720,
+      "thumbHeight": 480,
+      "previewWidth": 240,
+      "previewHeight": 160,
+      "frame": 3
+    },
     {
       "src": "assets/haishe-01.webp",
       "thumb": "assets/haishe-01-thumb.webp",
@@ -888,25 +880,9 @@ window.DALI_GALLERIES = {
       "thumbHeight": 432,
       "preview": "assets/haishe-01-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 108
-    },
-    {
-      "src": "assets/haishe-02.webp",
-      "thumb": "assets/haishe-02-thumb.webp",
-      "caption": "海舌湿地公园宽阔绿地与树阵，真实宽幅视角",
-      "author": "Kcx36",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "source": "https://commons.wikimedia.org/wiki/File:海舌湿地公园_02.jpg",
-      "width": 3200,
-      "height": 1440,
-      "position": "50% 50%",
-      "period": "day",
-      "thumbWidth": 960,
-      "thumbHeight": 432,
-      "preview": "assets/haishe-02-preview.webp",
-      "previewWidth": 240,
-      "previewHeight": 108
+      "previewHeight": 108,
+      "frame": 0,
+      "mediaType": "photo"
     },
     {
       "src": "assets/haishe-autumn.webp",
@@ -924,20 +900,34 @@ window.DALI_GALLERIES = {
       "period": "day",
       "preview": "assets/haishe-autumn-preview.webp",
       "previewWidth": 240,
-      "previewHeight": 180
+      "previewHeight": 180,
+      "frame": 2,
+      "mediaType": "photo"
     }
   ]
 };
-window.DALI_OVERVIEW = {
-  "name": "洱海全景",
-  "image": "assets/erhai.jpg",
-  "author": "Brücke-Osteuropa",
-  "license": "Public domain",
-  "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Public_domain",
-  "source": "https://commons.wikimedia.org/wiki/File:Erhai_Lake_Dali_17.JPG"
-};
 
-/* Owner photographs identify Erhai as a whole; no unconfirmed scenic point is assigned. */
+window.DALI_OVERVIEW = {
+  "src": "assets/erhai-owner-open-water.jpg",
+  "thumb": "assets/erhai-owner-open-water.jpg",
+  "width": 1024,
+  "height": 768,
+  "thumbWidth": 1024,
+  "thumbHeight": 768,
+  "caption": "洱海湖面、层叠波浪与远处沿岸建筑",
+  "author": "站长实拍",
+  "source": "assets/erhai-owner-open-water.jpg",
+  "date": "拍摄日期未注明",
+  "license": "摄影者保留版权，授权本站展示；未经许可不得转载",
+  "licenseUrl": null,
+  "remote": false,
+  "ownerProvided": true,
+  "redistributed": false,
+  "location": "洱海",
+  "changes": "使用摄影者提供的原文件，保留原始构图、亮度和色彩",
+  "name": "洱海 · 站长实拍",
+  "image": "assets/erhai-owner-open-water.jpg"
+};
 window.DALI_SHORE_PHOTOS = [
   {
     "src": "assets/erhai-owner-sunlit-waves.jpg",

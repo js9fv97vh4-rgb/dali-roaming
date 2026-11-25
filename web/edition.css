@@ -1,0 +1,207 @@
+/* The atlas, the film still and the city guide share type, spacing and paper. */
+:root{--edition-paper:#f6f4e9;--edition-ink:#203f37;--edition-rule:#c8ccbb;--edition-rust:#914626;--edition-serif:"Songti SC","STSong","Noto Serif CJK SC",serif}
+[hidden]{display:none!important}
+body{margin:0;background:var(--edition-paper);color:var(--edition-ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+body[data-page] .site-header{background:#f7f6ed;color:var(--edition-ink);border-bottom:1px solid var(--edition-rule);box-shadow:none;gap:12px;height:auto;min-height:65px;padding:8px 4.5%;display:flex;align-items:center;justify-content:space-between}
+.site-header nav{display:flex;align-items:center;gap:clamp(10px,2vw,28px)}.site-header nav a,.site-header nav button{min-height:44px;display:inline-flex;align-items:center;color:inherit;background:none;text-decoration:none;font-size:14px;border:0;padding:3px;white-space:nowrap}
+.site-header nav a.active{box-shadow:inset 0 -2px var(--edition-rust)}body .header-note{display:none}
+body .brand{display:flex;align-items:center;gap:10px;color:var(--edition-ink);text-decoration:none;font:600 24px var(--edition-serif)}.brand small{display:block;font:9px sans-serif;letter-spacing:.18em}.brand-symbol{color:#a57b45;font-size:32px}
+a,button{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:default}a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid #ae6439;outline-offset:3px}
+#yunnan-page{display:block;box-sizing:border-box;max-width:1680px;min-height:0;width:100%;margin:0 auto;padding:clamp(18px,3vw,48px) 4.5% 24px;color:var(--edition-ink);background:radial-gradient(ellipse at 64% 43%,#e9eee15c,transparent 65%)}
+.front-layout{display:grid;grid-template-columns:clamp(195px,20vw,290px) minmax(0,1fr);grid-template-rows:1fr 1fr;column-gap:clamp(25px,4vw,70px);align-items:end}
+.front-intro{min-width:0;position:relative}.front-intro small,.lake-cover small,.night-cover small,.city-tickets small{font:11px Georgia,serif;letter-spacing:.19em}.front-intro h1{font:500 clamp(44px,4.25vw,76px)/1.18 var(--edition-serif);letter-spacing:.06em;margin:12px 0}.front-intro h1 span{display:block}.front-intro p{margin:0;font-size:14px}.front-intro img{width:100%;height:clamp(65px,7vw,105px);object-fit:cover;object-position:center bottom;mix-blend-mode:multiply;display:block}
+.front-tickets{align-self:start;grid-column:1;grid-row:2;display:grid;gap:9px}.front-tickets h2,.city-guide h2,.lj-chapters h2{font:500 22px var(--edition-serif);margin:0 0 9px}.front-tickets h2{font-size:15px;display:flex;align-items:center;gap:.8em}.front-tickets h2:after{content:"";background:var(--edition-rule);height:1px;flex:1}
+.atlas-ticket{display:flex;align-items:center;min-height:57px;text-decoration:none;color:inherit;border:1px solid #c2c8b8;border-radius:3px;overflow:hidden;background:#e6ebdf}.atlas-ticket.night{background:#eee3d5}.atlas-ticket.flower{background:#eae4ec}.atlas-ticket img{width:30%;height:60px;object-fit:cover;display:block}.atlas-ticket span{padding-inline:12px;flex:1}.atlas-ticket strong{display:block;font:600 21px var(--edition-serif)}.atlas-ticket small{font-size:12px}.atlas-ticket i{width:32px;border-left:1px dashed #9ea993;text-align:center;font:21px Georgia;color:#795c44}.atlas-ticket:hover{border-color:#8b775a}
+.front-map{grid-row:1 / 3;grid-column:2;align-self:center;min-width:0;border-block:1px solid var(--edition-rule);padding:8px 0}
+.front-caption,.front-foot .map-bottomline{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:#596956}.front-caption span:last-child{color:var(--edition-rust)}
+#yunnan-page #province-map{display:block;position:relative;inset:auto;width:100%;height:auto;min-height:0;margin:0;padding:0;background:none;border:none;aspect-ratio:auto;overflow:hidden}
+#yunnan-page #province-map svg{display:block;width:100%;height:auto;aspect-ratio:940/665;max-height:none;overflow:hidden;touch-action:pan-y}
+#province-map.is-zoomed svg{touch-action:none!important}
+#province-map .prefecture-area{stroke:none}.prefecture-base{fill:#c7ceba}.province-shadow{fill:#ced3bd}.province-boundaries{fill:none;stroke:#f9f4de;stroke-opacity:.5;stroke-width:.65}.atlas-painting{opacity:1}
+#yunnan-page .atlas-outside-label{transform:translate(var(--label-x),var(--label-y));cursor:pointer}
+#yunnan-page .atlas-outside-label text{font:500 19px var(--edition-serif);fill:#40584c;stroke:none;letter-spacing:1px}
+#yunnan-page .atlas-outside-label .destination-name{font-size:25px;fill:var(--edition-rust);font-weight:600}
+#yunnan-page .prefecture-label-hit,#yunnan-page .destination-target{fill:transparent;stroke:none;pointer-events:all}
+#yunnan-page .atlas-outside-label:focus-visible rect,#yunnan-page .atlas-outside-label:hover rect{fill:#bba57418;stroke:#a47746;stroke-width:1}
+.province-leader path{fill:none;stroke:#657a69;stroke-width:1;opacity:.57}.province-leader.is-open path{stroke:#a15f3b;opacity:.8}.province-leader.is-hovered path,.province-leader.is-selected path{stroke:#934b2b;stroke-width:2;opacity:.95}
+.province-leader .mobile-leader{display:none}.front-foot{margin-top:18px}.front-foot .map-bottomline{border-top:1px solid var(--edition-rule);padding:12px 0}.front-foot .map-destination-note{border-block:1px solid var(--edition-rule);padding:14px;align-items:center;display:flex;gap:16px}.front-foot .prefecture-directory{margin:12px 0}.front-foot summary{cursor:pointer;padding:12px 0}.prefecture-directory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:5px}.prefecture-directory-grid :is(a,button){color:inherit;background:#eeefe4;border:1px solid var(--edition-rule);display:grid;text-align:left;padding:8px;text-decoration:none}.prefecture-directory-grid small{font-size:11px}
+#yunnan-page .province-map-tools{position:static;display:flex;align-items:center;justify-content:flex-end;gap:4px;padding:0;margin:0;color:#526651;font-size:12px}.province-map-tools .atlas-map-hint{margin-right:auto}#yunnan-page .province-map-tools button{min-height:44px;min-width:44px;color:inherit;background:transparent;border:1px solid var(--edition-rule)}.front-foot a{color:inherit}
+.lake-cover,.night-cover{position:relative;isolation:isolate;overflow:hidden;background:#112820;color:#faf6e8}.lake-cover{min-height:clamp(250px,30vw,420px);display:grid;align-items:end;padding:clamp(22px,4vw,60px);margin-bottom:24px}.lake-cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;z-index:-2}.lake-cover:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#112528d9,transparent 78%),linear-gradient(0deg,#0d293665,transparent 63%);z-index:-1}.lake-cover h1,.night-cover h1{font:500 clamp(38px,5vw,74px)/1.15 var(--edition-serif);letter-spacing:.08em;margin:10px 0}.lake-cover p,.night-cover p{line-height:1.7}.lake-cover button,.night-cover a,.night-cover button{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;background:#f6f1df;color:#284437;border:1px solid #ddd3b7;text-decoration:none;font:inherit}.lake-cover>a{color:white;position:absolute;right:18px;bottom:12px;font-size:12px}.explore-toolbar h2{font:500 25px var(--edition-serif);margin:0}
+#map-home-anchor{flex-wrap:wrap}#flight-button,#saved-dialog button,.city-note button{min-height:44px;padding:8px 15px;background:#f6f3e8;color:#29483e;border:1px solid #acb6a6}
+body.flat-atlas .lake-map{background:radial-gradient(ellipse,#f3f2df,#e4eadd);min-height:0}body.flat-atlas .lake-map-wrap{border:1px solid #b9c6b8}body.flat-atlas .lake-water{fill:url(#lake-fill);stroke:#648e89}.flat-atlas .mountain-band{fill:#a4b797;opacity:.68}.flat-atlas .mountain-contour{stroke:#6f8a71}
+.night-cover{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;background:#1c221f}.night-cover figure{position:relative;margin:0;height:clamp(350px,37vw,570px);background:#050706}.night-cover figure img{display:block;width:100%;height:100%;object-fit:contain}.night-cover figcaption{position:absolute;bottom:12px;left:15px;color:#e8d7bb;font-size:12px}.night-cover>div{padding:clamp(26px,4vw,68px)}.night-cover p{color:#d3c5ac}.night-cover a{background:#f1dfc6}.night-cover button{background:transparent;color:#f1dfc6;border-color:#796d5b;margin-top:6px}
+.lj-chapters,.city-guide{margin:clamp(20px,3vw,42px) 0}.city-tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.city-tickets>a,.city-tickets>button{background:#efebef;border:1px solid #c4bdc4;color:#35483e;display:grid;padding:18px;text-align:left;gap:10px;text-decoration:none}.city-tickets>:nth-child(2){background:#f0e6d7}.city-tickets>:nth-child(3){background:#e3e9e2}.city-tickets strong,.city-note h3{font:600 22px var(--edition-serif)}.city-tickets span{font-size:13px}.city-deck{max-width:28em;line-height:1.85}.city-note{padding:18px 22px;border:1px solid var(--edition-rule);margin-top:10px;background:#faf8f0}.city-note>button{float:right}.city-note p{line-height:1.8}.city-note a{color:#3a6252}
+#saved-dialog{box-sizing:border-box;background:var(--edition-paper);color:var(--edition-ink);border:1px solid var(--edition-rule);width:min(580px,94vw);max-height:84dvh;padding:20px 24px;overflow:auto}#saved-dialog::backdrop{background:#16261eb0}#saved-dialog header,.saved-item,.credit-filters{display:flex;align-items:center;justify-content:space-between;gap:12px}.saved-item{border-top:1px solid var(--edition-rule);padding:8px 0}.saved-item a{color:#305547;padding:12px 0}.credit-filters{justify-content:start;flex-wrap:wrap;padding:12px 0}.credit-filters select{min-height:44px;max-width:100%}
+@media(max-width:800px){.front-layout{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;gap:16px}.front-map,.front-tickets,.front-intro{grid-column:1;grid-row:auto}.front-intro{order:0}.front-map{order:1}.front-tickets{order:2}.front-intro h1{font-size:38px;margin:5px 0}.front-intro h1 span{display:inline}.front-intro img{position:absolute;right:0;bottom:2px;width:27%;height:48px}.front-intro p{font-size:13px}.atlas-ticket{min-height:50px}.atlas-ticket img{height:53px;width:84px}.atlas-ticket strong,.atlas-ticket small{display:inline}.atlas-ticket small{margin-left:16px}.front-foot .map-bottomline{flex-wrap:wrap}.front-intro small{font-size:9px}}
+@media(max-width:600px){body[data-page] .site-header{padding:7px 12px;display:grid;gap:1px;min-height:0}.site-header nav{width:100%;gap:clamp(6px,2.6vw,16px);justify-content:space-between}.site-header nav a,.site-header nav button{font-size:12px;min-height:44px;margin:0}.site-header .brand{font-size:17px}.site-header .brand-symbol{font-size:23px}.site-header .brand small{font-size:7px}
+#yunnan-page{padding:16px 12px 24px}#yunnan-page #province-map svg{aspect-ratio:940/960}.front-caption{font-size:11px}#yunnan-page .province-artwork{transform:translateY(151px)}#yunnan-page .atlas-outside-label{transform:translate(var(--label-x),var(--mobile-y))}#yunnan-page .atlas-outside-label text{font-size:34px;letter-spacing:0}#yunnan-page .atlas-outside-label .destination-name{font-size:40px}#yunnan-page .destination-target,#yunnan-page .prefecture-label-hit{y:-56px;height:112px}.province-leader .desktop-leader{display:none}.province-leader .mobile-leader{display:block}.province-leader path{stroke-width:1.5}.atlas-map-hint{max-width:42%;line-height:1.5}.night-cover{grid-template-columns:1fr}.night-cover figure{height:265px}.night-cover>div{padding:20px}.lake-cover{padding:22px 16px 40px}.city-tickets{grid-template-columns:1fr;gap:6px}.city-tickets>a,.city-tickets>button{grid-template-columns:40px 1fr;align-items:center;gap:2px 12px;padding:10px 14px}.city-tickets span{grid-column:2}.city-tickets strong{font-size:18px}.front-foot .map-destination-note{flex-wrap:wrap}}
+
+
+#edition-status,#edition-retry{position:fixed;z-index:9999;bottom:20px;left:50%;transform:translateX(-50%);max-width:90%;padding:12px 18px;background:#24473e;color:#fff;border-radius:5px}
+.province-craft-source img{vertical-align:middle;width:56px;height:38px;object-fit:contain}body[data-page=yunnan]{background:var(--edition-paper)}
+#yunnan-page .province-map-tools .atlas-map-hint{display:block}#yunnan-page .province-paper-scenery{opacity:1}#yunnan-page .paper-neatline{display:none}
+@media(max-width:600px){#province-map .province-points{transform:translateY(151px)}}
+
+.city-document{max-width:680px;margin:12px 0 16px}.city-document img{width:100%;max-height:350px;object-fit:cover;display:block}.city-document figcaption{margin-top:5px;font-size:12px;color:#596c5d}
+#province-map .province-destination text{user-select:none}
+
+@media(max-width:760px){
+ .km-page .km-hero-copy{display:block}.km-hero-copy .km-hero-lead{font:23px/1.4 var(--edition-serif);margin:9px 0}.km-hero-copy .city-deck{font-size:14px;margin:8px 0 14px}
+ body[data-page] .site-header{display:flex;flex-wrap:wrap;padding:8px 14px 0;gap:5px;height:auto}
+ body[data-page] .site-header .brand{font-size:19px;align-self:center;margin:0}.site-header nav{display:contents}
+ body[data-page] .site-header .plain-button{min-height:44px;padding:3px 6px;font-size:12px}#saved-button{margin-left:auto}
+ body[data-page] .site-header .nav-link{order:3;flex:1;justify-content:center;min-height:44px;margin:0;border:0;padding:0}.site-header .nav-link:after{display:none}
+}
+
+/* The actual gate, dinner tables and reflections form one photographic sequence. */
+.night-cover{display:block;background:#151e1c}.night-cover .night-film{padding:0;display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:3px;height:clamp(315px,32vw,485px)}
+.night-film figure{margin:0;min-height:0;height:auto}.night-film .film-gate{grid-row:span 2}
+.night-film figure img{width:100%;height:100%;object-fit:cover}.night-film .film-gate img{object-position:50% 48%}
+.night-cover .night-caption{padding:20px clamp(20px,3vw,52px);display:flex;align-items:center;justify-content:space-between;gap:14px}
+.night-caption h1{font-size:clamp(34px,3.9vw,58px);margin:4px 0}.night-caption p{margin:4px 0}.night-caption a{flex:none;border-right:1px dashed #c19b6e}
+.lj-local-nav{margin-top:14px}.city-tickets>a,.city-tickets>button{overflow:hidden}.city-tickets img{width:calc(100% + 36px);max-width:none;height:clamp(100px,12vw,190px);object-fit:cover;margin:-18px -18px 4px}
+#lijiang-page .lj-story-title,#lj-story-title{scroll-margin-top:105px}
+@media(max-width:760px){
+ body[data-page] .site-header{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));row-gap:0;column-gap:4px}
+ body[data-page] .site-header .brand{grid-column:1 / 3;grid-row:1}
+ #saved-button,#credits-button{margin:0;grid-row:1;justify-content:center}#saved-button{grid-column:3}#credits-button{grid-column:4}
+ body[data-page] .site-header .nav-link{order:0;grid-row:2}
+ .night-cover .night-film{height:260px;grid-template-columns:1.25fr 1fr}.night-cover .night-caption{padding:17px;align-items:start}.night-caption p{font-size:13px}.night-caption a{padding:0 10px;font-size:13px}
+ .city-tickets>a,.city-tickets>button{grid-template-columns:84px 1fr;gap:2px 12px;padding:8px 12px}.city-tickets img{grid-row:1/4;width:84px;height:70px;margin:0;align-self:center}.city-tickets small,.city-tickets strong,.city-tickets span{grid-column:2}
+ #lj-story .lj-story-top{display:flex;flex-direction:column;align-items:stretch}#lj-story .lj-story-copy{order:-1}#lj-story-title{scroll-margin-top:76px}
+}
+
+/* Arrival inset uses the same north-up relief and shoreline as the Kunming atlas. */
+#city-arrival { --hub-ink:#244c42; --hub-line:#b6c2aa; padding:clamp(14px,2.4vw,32px); color:#28433a; }
+.arrival-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:17px; }
+.arrival-heading small,.arrival-reading small { color:#80553b; font-size:12px; letter-spacing:.08em; }
+#city-arrival .arrival-heading h3 { margin:4px 0 0; font:500 clamp(22px,2.6vw,34px)/1.35 var(--edition-serif); }
+#city-arrival [data-city-close] { min-height:44px; flex:none; }
+.arrival-layout { display:grid; grid-template-columns:minmax(0,1.8fr) minmax(210px,.8fr); border:1px solid var(--hub-line); }
+.arrival-diagram { position:relative; align-self:center; width:100%; aspect-ratio:615 / 405; overflow:hidden; isolation:isolate; background:#e5e9d7; }
+.arrival-land { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.arrival-diagram>span { position:absolute; pointer-events:none; }
+.arrival-north { left:4%; top:5%; display:grid; justify-items:center; color:#3d5c4f; font:22px/1 Georgia,serif; }
+.arrival-north b { font:11px/1.6 sans-serif; }
+.arrival-city,.arrival-water,.arrival-hills { font-family:var(--edition-serif); text-shadow:0 1px 3px #fffde7; }
+.arrival-city { left:28.5%; top:24.5%; transform:translate(-100%,-50%); color:#5e5844; font-size:clamp(13px,1.4vw,20px); }
+.arrival-water { left:34%; top:77%; color:#345e59; letter-spacing:.23em; font-size:clamp(16px,2vw,28px); transform:rotate(-14deg); }
+.arrival-hills { left:14%; top:73%; color:#566950; font-size:13px; letter-spacing:.2em; transform:rotate(-15deg); }
+#city-arrival .hub-pin { position:absolute; display:inline-flex; align-items:center; gap:6px; min-height:44px; padding:0 7px; border:0; background:transparent; color:#293e34; white-space:nowrap; font:600 clamp(13px,1.1vw,17px)/1.1 var(--edition-serif); isolation:isolate; }
+.hub-pin:before { content:""; z-index:-1; position:absolute; inset:4px 0; border-radius:30px; background:#faf7e8; border:1px solid #8eaa98; box-shadow:0 2px 4px #33493920; }
+.hub-symbol { display:grid; place-items:center; width:22px; height:22px; border-radius:50%; background:#e0e7d5; }
+.hub-symbol svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.55; stroke-linecap:round; stroke-linejoin:round; }
+.hub-pin[data-hub=rail] { left:44%; top:34.5%; transform:translate(-18px,-50%); }
+.hub-pin[data-hub=south] { left:73%; top:81%; transform:translate(-18px,-50%); }
+.hub-pin[data-hub=airport] { left:87%; top:max(24px,10%); flex-direction:row-reverse; transform:translate(calc(-100% + 18px),-50%); }
+#city-arrival .hub-pin[aria-pressed=true] { color:#fff8e6; }
+.hub-pin[aria-pressed=true]:before { background:var(--hub-ink); border-color:#244437; box-shadow:0 0 0 2px #faf7e8; }
+.hub-pin[aria-pressed=true] .hub-symbol { background:#3f6455; }
+.hub-pin:hover:before { border-color:#805b3c; }
+#city-arrival .hub-pin:focus-visible { outline:2px solid #985a30; outline-offset:1px; border-radius:30px; }
+.arrival-reading { align-content:center; padding:clamp(16px,2.4vw,34px); border-left:1px solid var(--hub-line); background:#f4f1e5; }
+.arrival-reading h4 { margin:5px 0 9px; font:500 clamp(22px,2.4vw,32px)/1.25 var(--edition-serif); }
+.arrival-reading p { line-height:1.75; font-size:15px; margin:0; }
+#city-arrival .arrival-key { display:flex; justify-content:space-between; flex-wrap:wrap; gap:2px 12px; margin:8px 0 16px; font-size:11px; color:#596955; }
+.arrival-photo { border-top:1px solid #d4d7c6; }
+.arrival-photo summary { min-height:44px; padding:12px 0; box-sizing:border-box; cursor:pointer; font-size:14px; }
+.arrival-photo .city-document { margin:0 0 10px; }
+#city-arrival .arrival-source { margin:0; font-size:12px; }
+@media (max-width:830px) {
+  .arrival-layout { grid-template-columns:minmax(0,1fr); }
+  .arrival-reading { border-left:0; border-top:1px solid var(--hub-line); }
+  .arrival-reading h4 { font-size:22px; }
+}
+@media (max-width:480px) {
+  #city-arrival .hub-pin { gap:3px; padding:0 5px; }
+  .hub-pin[data-hub=south] { transform:translate(calc(-100% + 16px),-50%); flex-direction:row-reverse; }
+  .arrival-reading { padding:12px 14px; }
+  .arrival-reading p { font-size:14px; }
+}
+
+@media (max-width:360px) {
+  .hub-pin[data-hub=rail] { flex-direction:row-reverse; transform:translate(calc(-100% + 16px),-50%); }
+  .arrival-city { top:18%; }
+}
+
+/* Geographic ink and relief for the offline lakeshore atlas. */
+#lake-map:has(#lake-svg){background:#eaead7}
+#lake-svg .lake-label{fill:#234f59;font-size:24px;letter-spacing:5px;paint-order:stroke;stroke:#c7ded1;stroke-width:1.3px}
+#lake-svg .lake-en-label{fill:#254f59;font-size:8px;letter-spacing:2px}
+#lake-svg .mountain-label{font:18px var(--edition-serif);fill:#586c57;letter-spacing:9px;paint-order:stroke;stroke:#ecebd9;stroke-width:2px}
+#lake-svg .shore-pin text{font:600 17px var(--edition-serif);fill:#23453d;stroke:#f4f2e4;stroke-width:4px;pointer-events:visiblePainted}
+#lake-svg .shore-leader{fill:none;stroke:#5f7568;stroke-width:1.05;pointer-events:none}
+#lake-svg .shore-dot{fill:#fbf6de;stroke:#3e675b;stroke-width:2}
+#lake-svg .shore-target{fill:transparent;stroke:none}
+#lake-svg .shore-pin:is(.active,.on-route,:hover,:focus-visible) text{fill:#7d3725}
+#lake-svg .shore-pin:is(.active,.on-route,:focus-visible) .shore-dot{fill:#a95032;stroke:#fff8e1}
+#lake-svg .shore-pin:is(.active,:focus-visible) .shore-leader{stroke:#90472e;stroke-width:1.7}
+#lake-svg .shore-pin:focus-visible .shore-target{stroke:#91492e;stroke-width:2;fill:#fff8e1}
+#lake-svg .shore-end{fill:#a34a33;stroke:#fff8e1;pointer-events:none}
+#lake-svg .shore-pin.dimmed{opacity:.36;pointer-events:none}
+#lake-svg .shore-pin.dimmed *{pointer-events:none}
+#lake-svg .map-entrance text{paint-order:stroke;stroke:#f4f1dd;stroke-width:4px;stroke-linejoin:round;fill:#284c44;font-weight:600}
+#map-home-anchor{justify-content:space-between;gap:8px}
+.lake-views{position:relative}.lake-views summary{display:flex;align-items:center;gap:8px;min-height:44px;cursor:pointer;padding:0 12px;color:#325749;border:1px solid #a6b6a5;background:#f5f3e7}
+.lake-views summary::after{content:'⌄'}.lake-views[open] summary::after{content:'⌃'}
+.lake-views>div{position:absolute;left:0;top:100%;z-index:12;display:grid;min-width:max-content;padding:5px;background:#f9f6e9;border:1px solid #a6b6a5;box-shadow:0 4px 16px #32443624}
+.lake-views>div button{min-height:44px;text-align:left}
+#province-map .province-status-inline{display:none;pointer-events:none}
+#province-map .is-selected .province-status-inline{display:block;font:500 17px system-ui;fill:#78513c;stroke:none}
+.map-receipt{position:fixed;z-index:32;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(320px,calc(100% - 28px));display:flex;gap:4px;align-items:center;padding:6px;background:#fbf8eb;color:#23473e;border:1px solid #a5ad91;box-shadow:0 4px 22px #182f2833;border-radius:5px}
+.map-receipt[hidden]{display:none}.map-receipt.at-top{bottom:auto;top:var(--receipt-top,90px)}
+.map-receipt button{min-height:44px;background:transparent;color:inherit;border:0;cursor:pointer}
+.map-receipt .receipt-read{flex:1;display:grid;grid-template-columns:auto 1fr;gap:1px 11px;text-align:left;align-items:center;padding:0 4px}
+.receipt-read img{grid-row:span 2;width:52px;height:44px;object-fit:cover;border-radius:3px}
+.receipt-read strong{font:600 18px var(--edition-serif)}.receipt-read span{font-size:12px}.map-receipt>button:last-child{width:44px;font-size:20px;border-left:1px solid #ccd1be}
+@media(max-width:830px){
+ .city-guide .city-tickets{grid-template-columns:1fr;gap:7px}
+ .city-guide .city-tickets>a,.city-guide .city-tickets>button{grid-template-columns:86px 1fr auto;align-items:center;gap:3px 14px;padding:8px 12px;text-align:left}
+ .city-guide .city-tickets img{grid-column:1;grid-row:1/3;margin:0;width:86px;height:62px;object-fit:cover}
+ .city-guide .city-tickets small,.city-guide .city-tickets strong{grid-column:2}
+ .city-guide .city-tickets span{grid-column:3;grid-row:1/3}
+ #lake-svg .shore-pin text{font-size:20px}
+}
+@media(max-width:470px){
+ .city-guide .city-tickets>a,.city-guide .city-tickets>button{grid-template-columns:76px 1fr;gap:2px 12px}
+ .city-guide .city-tickets img{width:76px;grid-row:1/4}
+ .city-guide .city-tickets span{grid-column:2;grid-row:auto}
+ #lake-svg .shore-pin text{font-size:22px}
+}
+
+
+.km-tea-cover{min-width:0;position:relative;align-self:stretch;margin:0}.km-tea-cover img{display:block;width:100%;height:100%;object-fit:cover}.km-tea-cover .km-photo-origin{left:10px;right:auto;bottom:10px;top:auto}
+
+#lake-svg .shore-pin .shore-touch{fill:transparent;stroke:none}#lake-svg .lake-en-label{letter-spacing:1.2px;font-size:8px}.map-zoom-controls button{min-height:44px;min-width:44px}
+
+.lj-chapters.lj-theme-guide {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) minmax(0, 3fr);
+  align-items: center;
+  gap: clamp(16px, 3vw, 44px);
+}
+.lj-theme-intro h2 { text-wrap: balance; }
+.lj-theme-guide .lj-route strong { white-space: nowrap; }
+.lj-theme-intro img {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+}
+.lj-theme-guide .lj-route { text-align: left; padding: 14px; }
+.city-tickets [data-city-note="arrival"] img { object-position: 63% 54%; }
+.arrival-photo .city-document img { max-height: none; height: auto; }
+
+@media (min-width: 521px) and (max-width: 920px) {
+  .lj-chapters.lj-theme-guide { grid-template-columns: minmax(0, .86fr) minmax(0, 1.4fr); }
+  .lj-theme-guide .lj-route-options { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .lj-chapters.lj-theme-guide { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .lj-theme-intro { display: grid; grid-template-columns: minmax(0, 1fr) 34%; align-items: center; gap: 10px; }
+  .lj-theme-intro h2 { margin: 0; }
+}
+
+@media (max-width: 720px) {
+  .lj-theme-guide .lj-route { grid-template-columns: max-content minmax(0, 1fr); padding: 10px 12px; }
+}

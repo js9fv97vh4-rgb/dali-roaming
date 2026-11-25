@@ -57,7 +57,7 @@ test('photo beats are distinct, bounded, and resolve the curated new images',()=
   }
   const stop=scope.window.DALI_TOURS[0].stops.find(s=>s.id==='xizhou');
   const photos=scope.window.DALI_GALLERIES.xizhou;
-  assert.match(photos[sample(photos,stop.photo,.3,stop.photos).index].src,/harvest/);
+  assert.equal(photos[sample(photos,stop.photo,.3,stop.photos).index].src,photos[stop.photos[1]].src);
 });
 
 // Exercise the real controller with a deterministic frame clock and minimal DOM.
@@ -74,7 +74,7 @@ async function roamingController(){
     requestAnimationFrame:fn=>{frames.set(++frameId,fn);return frameId;},cancelAnimationFrame:id=>frames.delete(id),
     Image:class {set src(value){this.onload?.();}}
   };
-  vm.createContext(context);vm.runInContext(await readFile('web/roaming.js','utf8'),context);
+  vm.createContext(context);vm.runInContext(await readFile('web/image-credit.js','utf8'),context);context.MediaCredits=context.window.MediaCredits;vm.runInContext(await readFile('web/roaming.js','utf8'),context);
   const controller=context.window.createDaliRoaming({gallery:id=>scope.window.DALI_GALLERIES[id],credit:p=>p.caption,
     getMap:()=>({mount(){},setAtmosphere(){},tourPose(){poses++;}}),onPosition(){},isStop:()=>false,getStops:()=>[]});
   controller.open('shore');
